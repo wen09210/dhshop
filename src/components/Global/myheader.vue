@@ -11,7 +11,8 @@
           <span  class="hidden-xs">客服中心</span></a> </span>
           <span style="cursor:pointer ; margin:left:20px" onclick="openNav()"><i class="fa fa-bars " aria-hidden="true"></i>
           <span class="hidden-xs">好品分類</span></span>
-					<router-link to="/login">login</router-link>          
+					<router-link to="/login">login</router-link>
+					<router-link to ="/cart">購物車</router-link>         
 					</div>        
 
 	      	</div>
