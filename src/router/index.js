@@ -5,6 +5,8 @@ import prodPage from '../components/Product/prodPage'
 import login from '../components/Member/mebLogin'
 import member from '../components/Member/mebPage.vue'
 import cart from '..//components/Cart/cartPage.vue'
+import cartPay from '..//components/Cart/cartPay.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -34,7 +36,10 @@ export default new Router({
       path: '/cart',
       name: 'cart',
       component: cart
+    },
+    {
+      path: '/cartPay',
+      component: cartPay
     }
-
   ]
 })
