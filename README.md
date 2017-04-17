@@ -1,27 +1,6 @@
-# y
-
-> y
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+<h5>Component</h5> 
+  <li>:共用 GLOBAL: header、footer、sidebar </li>
+  <li>:首頁 Main : 輪播頁、強檔商品、熱銷商品、全部商品</li>
+  <li>:購物車 Cart :商品、加購商品、付款</li>
+  <li>:會員 Member:登入、修改、查詢</li>
+  <li>:產品 Product: 購買btn、介紹頁</li>
