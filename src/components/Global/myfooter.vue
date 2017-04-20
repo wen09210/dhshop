@@ -22,7 +22,7 @@
         <div class="col-md-7  col-xs-7">
           <p>客服電話:<span>0966-140567</span></p>
           <p>客服信箱:<a href="mailto:cs.dhshop@gmail.com">cs.dhshop@gmail.com</a></p>
-          <p>服務時間:<br>周一至周五 am 9:00 - pm 21:00</p>
+          <p>服務時間:周一至周五 am 9:00 - pm 21:00</p>
           <p>line@帳號:<a href="https://line.me/R/ti/p/%40eat5207g">@eat5207g</a></p>
         </div>
         <div class="col-md-5 col-xs-5 ">
@@ -54,27 +54,20 @@
   export default {}
 </script>
 <style>
-  .footer {
-    
-    /* 設定footer的高度 */
-    height: 40px;
-    box-sizing: border-box;
-    /* 設定footer絕對位置在底部 */
-    position: absolute;
-    bottom: 0;
-    /* 展開footer寬度 */
+  div .footer {
+    float: none;
+    background: #f7f7f7;
     width: 100%;
-    background: #f5f5f5;
+    text-align: center;
+    padding-top: 0px;
+    margin: 0 auto;
+    box-shadow: 0 3px 10px 0 #ccc
   }
 
   .footer_title {
     font-size: 18px;
     text-align: center;
     margin-top: 10px;    
-  }
-
-  div .row {
-    background: #f5f5f5;    
   }
 
   hr.style3 {

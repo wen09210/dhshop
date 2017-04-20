@@ -11,9 +11,12 @@
     <router-link to="/member">會員專區</router-link>  
   </div>
 </div>
+       
 
 </template>
 <script>
   export default {}
 </script>
+<style>
 
+</style>

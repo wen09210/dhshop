@@ -1,21 +1,39 @@
 <template>
-<div>
-  <div class="owl-carousel mall_banner_carousel">
-    <div class="owl-in">
-    carousel
-      <img src="../../assets/temporyPic/banner_index01.jpg" alt="" style="width:200px;height:100px">
-      <div class="content-outer-wrap">
-        <div class="mall_text_section">
-          <div class="center_bottom">
-          </div>
-        </div>
-      </div>
-    </div>
+  <div>
+    <carousel :autoplay="true" :perPage="1" :autoplayTimeout="1000">
+      <slide>
+        <img src="../../assets/temporyPic/banner_index01.jpg" class="img-responsive">
+      </slide>
+      <slide>
+        <img src="../../assets/temporyPic/bannernew.gif" class="img-responsive">
+      </slide>
+      <slide>
+        <img src="../../assets/temporyPic/banner3.jpg" class="img-responsive">
+      </slide>
+    </carousel>
+
   </div>
-
-
-</div>  
 </template>
+
 <script>
-  export default {}
+import { Carousel, Slide } from 'vue-carousel'
+export default {
+  components: {
+    Carousel,
+    Slide
+  }
+}
 </script>
+<style>
+.VueCarousel-slide {
+  position: relative;
+  min-height: 100px;
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>

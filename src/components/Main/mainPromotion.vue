@@ -1,35 +1,42 @@
 <template>
-<div> 
-Promtion
-  <div class="row promotion">
-    <div class="promotion_title">
-      <div class="category_title">
-        <div class="title_name"><img src="salepage/img/index/clock.png" alt="">檔期活動</div>
-      </div>
-    </div>
-    <div class="item_line ">
-      <!--<div class=""><a href="http://www.dhshop.tw/salepage/floor/sale.html"><img src="salepage/img/index/coupon7.jpg?v=1" alt=""></a> </div>-->
-      <!--<div class=""><a href="https://goo.gl/ZAygxK"><img src="salepage/img/index/coupon1.jpg?v=1" alt=""></a> </div>-->
-      <div class="">
-        <a href="https://www.facebook.com/dhshoptw/photos/pb.684624661588532.-2207520000.1491792808./1458749917509332/?type=3&theater"
-          target="_blank"><img src="salepage/img/index/buytwoline.jpg" alt=""></a>
-      </div>
-      <div class="">
-        <a href="http://www.dhshop.tw/salepage/floor/sale.html"><img src="salepage/img/index/coupon3.jpg?v=1" alt=""></a>
-      </div>
-      <div class="">
-        <a href="http://www.dhshop.tw/salepage/preorder/paintroller/sale.html"><img src="salepage/img/index/coupon4.jpg" alt=""></a>
-      </div>
-      <div class="">
-        <a href="http://www.dhshop.tw/salepage/floor/sale.html"><img src="salepage/img/index/coupon5.jpg" alt=""></a>
-      </div>
-      <!--<div class=""><a href="http://www.dhshop.tw/salepage/floor/sale.html"><img src="salepage/img/index/coupon6.jpg" alt=""></a></div>-->
-    </div>
-
-  </div>
+<div id="promotion"> 
+  <div class="title_name"><img src="../../assets/temporyPic/clock.png" ><span>檔期活動</span></div>
+      <carousel :autoplay="true" :perPage="4" :autoplayTimeout="1000">
+      <slide>
+        <img src="../../assets/temporyPic/pro1.jpg" class="img-responsive">
+      </slide>
+      <slide>
+        <img src="../../assets/temporyPic/pro2.jpg" class="img-responsive">
+      </slide>
+      <slide>
+        <img src="../../assets/temporyPic/pro3.jpg" class="img-responsive">
+      </slide>
+      <slide>
+        <img src="../../assets/temporyPic/pro4.jpg" class="img-responsive">
+      </slide>
+    </carousel>
 </div>
 
 </template>
 <script>
-  export default {}
+import {Carousel, Slide} from 'vue-carousel'
+export default {
+  components: {
+    Carousel,
+    Slide
+  }
+}
+
 </script>
+<style>
+.title_name img{  
+  width:60px;
+  height:60px;
+}
+.title_name {  
+  text-align: center;
+}
+#promotion .VueCarousel-slide {
+  margin:5px
+}
+</style>

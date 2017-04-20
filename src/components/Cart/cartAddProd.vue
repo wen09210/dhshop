@@ -1,7 +1,7 @@
 <template>
   <div>
     <h4>購物車</h4>
-    <ul class="col-xs-4">
+    <div class="col-md-4">
       <li v-for="item in GetProductList">
         <div>{{item.name}}</div>
         <div>{{item.unitPrice | test}}</div>
@@ -13,15 +13,15 @@
           <button class="btn btn-info" @click="IncreaseProduct({item,itemSize})">加入購物車</button>
         </div>
       </li>
-    </ul>
-    <ul class="col-xs-4">
+    </div>
+    <div class="col-md-4">
       <li v-for="item in GetShoppingCartItem">
         <span>{{item.name}}</span>
         <span>{{item.unitPrice}}</span>
         <span>{{item.count}}</span>
         <span>{{item.totalAmt}}</span>
       </li>
-    </ul>
+    </div>
     <router-link class="btn btn-default btn-lg" to='/cartPay'>結賬</router-link>
   </div>
 </template>

@@ -45,7 +45,7 @@
 </script>
 <style scoped>
   html .navbar-static-top, .navbar-fixed-top, .navbar-fixed-bottom {
-    background-color: #080808;
+     background-color:
   }
 
 </style>
