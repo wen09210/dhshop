@@ -4,7 +4,8 @@ export default {
     name: '',
     count: 0,
     src: '',
-    totalPern: 0
+    unitPrice: 0,
+    totalAmt: 0
   },
   shoppingCartItem: []
 }

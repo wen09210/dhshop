@@ -1,49 +1,49 @@
 <template>
-<div> footer
+<div>
   <div class="footer">
     <div class="row">
       <div class="col-md-3">
         <div class="footer_title">客服中心</div>
-        <div class="col-md-12 col-xs-6 ">
-          <p style="text-align: center"><a href="http://www.dhshop.tw/salepage/usercenter.html">常見問題</a></p>
+        <hr class="style3">
+        <div class="col-md-12 col-xs-4  ">
+          <p><a href="http://www.dhshop.tw/salepage/usercenter.html">常見問題</a></p>
         </div>
-        <div class="col-md-12 col-xs-6">
-          <p style="text-align: center"><a href="http://www.dhshop.tw/salepage/aboutus.html">關於我們</a></p>
+        <div class="col-md-12 col-xs-4">
+          <p><a href="http://www.dhshop.tw/salepage/aboutus.html">關於我們</a></p>
         </div>
-        <div class="col-md-12 col-xs-6">
-          <p style="text-align: center"><a href="http://www.dhshop.tw/salepage/corporation.html">廠商合作專區</a></p>
+        <div class="col-md-12 col-xs-4">
+          <p><a href="http://www.dhshop.tw/salepage/corporation.html">廠商合作專區</a></p>
         </div>
-
-
       </div>
+
       <div class="col-md-5">
-        <div class="clearfix"></div>
         <div class="footer_title">聯絡我們</div>
-        <div class="col-md-7">
+        <hr class="style3">
+        <div class="col-md-7  col-xs-7">
           <p>客服電話:<span>0966-140567</span></p>
           <p>客服信箱:<a href="mailto:cs.dhshop@gmail.com">cs.dhshop@gmail.com</a></p>
-          <p>服務時間:周一至周五 am 9:00 - pm 21:00</p>
+          <p>服務時間:<br>周一至周五 am 9:00 - pm 21:00</p>
           <p>line@帳號:<a href="https://line.me/R/ti/p/%40eat5207g">@eat5207g</a></p>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 col-xs-5 ">
           <a href="https://line.me/R/ti/p/%40eat5207g"><img src="http://www.dhshop.tw/salepage/img/shared/lineat.jpg" alt="" style="width:150px"></a>
         </div>
-
       </div>
-      <div class="col-md-4">
+
+      <div class="col-md-4 ">
         <div class="footer_title">Facebook</div>
+        <hr class="style3">
         <div class="fb-page" data-href="https://www.facebook.com/dhshoptw/" data-tabs="timeline" data-height="70" data-small-header="false"
           data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
           <blockquote cite="https://www.facebook.com/dhshoptw/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/dhshoptw/">dHshop</a></blockquote>
         </div>
-
       </div>
     </div>
-    <div class="copyright">
+
+    <div class="row">
       <p>Copyright © 2016 dPlus Co. Ltd.
-        <span class="title_break">Powered by <a href="http://www.dhshop.tw/" title="" target="_blank"> dHSHOP </a></span>
-        <span
-          class="title_break">All Rights Reserved.</span>
+        <span >Powered by <a href="http://www.dhshop.tw/" title="" target="_blank"> dHSHOP </a></span>
+        <span >All Rights Reserved.</span>
       </p>
     </div>
   </div>
@@ -53,3 +53,35 @@
 <script>
   export default {}
 </script>
+<style>
+  .footer {
+    
+    /* 設定footer的高度 */
+    height: 40px;
+    box-sizing: border-box;
+    /* 設定footer絕對位置在底部 */
+    position: absolute;
+    bottom: 0;
+    /* 展開footer寬度 */
+    width: 100%;
+    background: #f5f5f5;
+  }
+
+  .footer_title {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;    
+  }
+
+  div .row {
+    background: #f5f5f5;    
+  }
+
+  hr.style3 {
+	border-top: 1px dashed #8c8b8b;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+</style>
+

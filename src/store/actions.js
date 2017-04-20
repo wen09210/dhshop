@@ -1,8 +1,8 @@
 import types from './types'
 
 export default {
-  [types.IncreaseProduct] ({ commit }, item) {
-    commit(types.IncreaseProduct, item)
+  [types.IncreaseProduct] ({ commit }, {item, itemSize}) {
+    commit(types.IncreaseProduct, {item, itemSize})
   },
   [types.ReduceProduct] ({ commit }, item) {
     commit(types.ReduceProduct, item)
