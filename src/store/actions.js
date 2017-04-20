@@ -4,8 +4,8 @@ export default {
   [types.IncreaseProduct] ({ commit }, item) {
     commit(types.IncreaseProduct, item)
   },
-  [types.ReduceProduct] ({ commit }) {
-    commit(types.ReduceProduct)
+  [types.ReduceProduct] ({ commit }, item) {
+    commit(types.ReduceProduct, item)
   },
   [types.ClearShoppingCartItem] ({ commit }) {
     console.log('ClearShoppingCartItem')
