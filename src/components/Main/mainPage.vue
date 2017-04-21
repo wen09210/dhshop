@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="mainpage">
     <mainCarousel></mainCarousel>
     <mainPromotion></mainPromotion>
     <mainHotSale></mainHotSale>
@@ -21,3 +21,15 @@
     }
   }
 </script>
+<style>
+#mainpage {
+  magrin-top:25px
+}
+.title_name img{  
+  width:60px;
+  height:60px;
+}
+.title_name {  
+  text-align: center;
+}
+</style>

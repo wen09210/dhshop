@@ -11,7 +11,6 @@
         <img src="../../assets/temporyPic/banner3.jpg" class="img-responsive">
       </slide>
     </carousel>
-
   </div>
 </template>
 

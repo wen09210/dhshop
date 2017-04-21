@@ -1,7 +1,7 @@
 <template>
-<div id="promotion"> 
-  <div class="title_name"><img src="../../assets/temporyPic/clock.png" ><span>檔期活動</span></div>
-      <carousel :autoplay="true" :perPage="4" :autoplayTimeout="1000">
+<div id="myprom"> 
+  <div class="title_name"><img src="../../assets/temporyPic/clock.png" ><label>檔期活動</label></div>
+      <carousel :autoplay="true" :perPage="3" :autoplayTimeout="1000">
       <slide>
         <img src="../../assets/temporyPic/pro1.jpg" class="img-responsive">
       </slide>
@@ -29,14 +29,9 @@ export default {
 
 </script>
 <style>
-.title_name img{  
-  width:60px;
-  height:60px;
+
+#myprom .VueCarousel-Carousel {
+  padding:50px
 }
-.title_name {  
-  text-align: center;
-}
-#promotion .VueCarousel-slide {
-  margin:5px
-}
+
 </style>

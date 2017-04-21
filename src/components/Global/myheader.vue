@@ -45,7 +45,10 @@
 </script>
 <style scoped>
   html .navbar-static-top, .navbar-fixed-top, .navbar-fixed-bottom {
-     background-color:
+   background-color: #f7f7f7
+  }
+  html .navbar-header {
+   margin-top: 5px
   }
 
 </style>

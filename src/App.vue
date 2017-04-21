@@ -1,8 +1,8 @@
 <template>
   <div>
     <myheader> </myheader>
-    <mysidebar></mysidebar>
-    <router-view></router-view>
+    <mysidebar></mysidebar> 
+    <router-view></router-view>   
     <myfooter></myfooter>    
   </div>
 </template>
@@ -24,7 +24,7 @@
 
 <style>
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: '微軟正黑體';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

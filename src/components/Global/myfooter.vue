@@ -1,7 +1,6 @@
 <template>
-<div>
-  <div class="footer">
-    <div class="row">
+  <div id="myfooter">
+    <div class="myrow">
       <div class="col-md-3">
         <div class="footer_title">客服中心</div>
         <hr class="style3">
@@ -40,29 +39,31 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="copyright col-md-12  col-xs-12">
       <p>Copyright © 2016 dPlus Co. Ltd.
         <span >Powered by <a href="http://www.dhshop.tw/" title="" target="_blank"> dHSHOP </a></span>
         <span >All Rights Reserved.</span>
       </p>
     </div>
+
   </div>
-</div>
 
 </template>
 <script>
   export default {}
 </script>
 <style>
-  div .footer {
+#myfooter{
+  z-index:9999999;
+}
+  div .myrow {
     float: none;
     background: #f7f7f7;
     width: 100%;
     text-align: center;
     padding-top: 0px;
     margin: 0 auto;
-    box-shadow: 0 3px 10px 0 #ccc
-  }
+    }
 
   .footer_title {
     font-size: 18px;
@@ -76,5 +77,9 @@
   margin-bottom: 20px;
 }
 
+div .copyright{
+      margin-top: 10px;
+      text-align: center;
+}
 </style>
 
