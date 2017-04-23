@@ -1,7 +1,7 @@
 <template>
-<div id="myprom"> 
+<div class="container"> 
   <div class="title_name"><img src="../../assets/temporyPic/clock.png" ><label>檔期活動</label></div>
-      <carousel :autoplay="true" :perPage="3" :autoplayTimeout="1000">
+      <carousel :autoplay="true" :perPage="4" :autoplayTimeout="1000">
       <slide>
         <img src="../../assets/temporyPic/pro1.jpg" class="img-responsive">
       </slide>
@@ -30,8 +30,6 @@ export default {
 </script>
 <style>
 
-#myprom .VueCarousel-Carousel {
-  padding:50px
-}
+
 
 </style>

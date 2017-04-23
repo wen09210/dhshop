@@ -11,6 +11,7 @@
   import myheader from './components/Global/myheader'
   import mysidebar from './components/Global/mysidebar'
   import myfooter from './components/Global/myfooter'
+  
   export default {
     name: 'app',
     components: {
@@ -23,6 +24,8 @@
 </script>
 
 <style>
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
   #app {
     font-family: '微軟正黑體';
     -webkit-font-smoothing: antialiased;

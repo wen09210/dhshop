@@ -1,5 +1,5 @@
 <template>
-  <div id="myfooter">
+  <div class="myfooter">
     <div class="myrow">
       <div class="col-md-3">
         <div class="footer_title">客服中心</div>
@@ -53,8 +53,9 @@
   export default {}
 </script>
 <style>
-#myfooter{
+.myfooter{
   z-index:9999999;
+  margin-top:100px; 
 }
   div .myrow {
     float: none;

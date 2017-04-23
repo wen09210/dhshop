@@ -16,7 +16,9 @@
         <img src="../../assets/temporyPic/a4.jpg" class="img-responsive">
       </slide>
     </carousel>
+    <hr>
   </div>
+  
 </template>
 
 

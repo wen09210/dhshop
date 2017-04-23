@@ -23,6 +23,7 @@
       </li>
     </div>
     <router-link class="btn btn-default btn-lg" to='/cartPay'>結賬</router-link>
+    
   </div>
 </template>
 
