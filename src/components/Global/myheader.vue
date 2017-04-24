@@ -10,14 +10,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                  </button>                  
-          <a class="navbar-brand" href="http://www.dhshop.tw/mall.html" role="button">
+             </button>          
+          <a class="" href="http://www.dhshop.tw/mall.html" role="button">
             <img src="../../assets/icon/dhshop_logo.svg">
           </a>
         </div>
+
         <collapse class="navbar-collapse" v-model="showNavbar">         
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://www.dhshop.tw/salepage/usercenter.html">
+            <li class="headerIcon"><a href="http://www.dhshop.tw/salepage/usercenter.html">
                 <i class="fa fa-question-circle"></i>
                 <span>客服中心</span>
               </a>
@@ -25,8 +26,8 @@
             <li>
               <a>
                 <popover title="購物商品" trigger="hover" placement="bottom">
-                  <router-link to="/cart">                   
-                    <button type="button" class="btn btn-default" data-role="trigger">
+                  <router-link to="/cart" >                   
+                    <button type="button" class="btn  BtnToA headerIcon" data-role="trigger">
                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                       購物車
                     </button>
@@ -54,13 +55,18 @@
                 </popover>
               </a>
             </li>
-            <li> 
+              <li class="headerIcon">
+                <a>
+                   <i class="fa fa-users" aria-hidden="true"></i>
+                    <router-link to="/member">會員專區</router-link>
+                    </a>
+                </li>
+            <li class="headerIcon"> 
               <a>               
               <i class="fa fa-sign-in" aria-hidden="true"></i>
                 <router-link to="/login">登入</router-link>
               </a>
             </li>
-            <li><a role="button">Link</a></li>
           </ul>
         </collapse>
       </div>
@@ -106,5 +112,11 @@ html .navbar-static-top,
 
 html .navbar-header {
   margin-top: 5px
+}
+.BtnToA{
+      background: snow;
+}
+.headerIcon{
+  font-size:20px;
 }
 </style>

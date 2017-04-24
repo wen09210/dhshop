@@ -1,18 +1,23 @@
 <template>
-<div class='mysidebar'>  
+<div class='mysidebar'>
 
-</div>     
+      <v-affix :offset="50">
+        <div>00000</div>
+      </v-affix>
+     
+  </div>     
 </template>
 <script>
+import Affix from 'v-affix'
 export default {
-
+  components: {
+    Affix
+  }
 }
 </script>
 
 
 <style>
-
-
 
 
 </style>

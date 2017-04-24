@@ -22,14 +22,12 @@
   }
 </script>
 <style>
-#mainpage {
-  magrin-top:25px
-}
+
 .title_name img{  
   width:60px;
   height:60px;
 }
-.title_name,label{  
+.titleLabel{  
   font-size:20px;
 }
 .title_name {  

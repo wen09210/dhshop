@@ -1,6 +1,6 @@
 <template>
-  <div class="container row">
-  <h4>會員登入</h4>
+  <div class="container">
+    <h3>會員登入</h3>
     <div class="col-md-4">
       <form role="form">
         <div class="form-group">
@@ -24,9 +24,8 @@
       <p class="help-block">忘記密碼 | 註冊會員。</p>
     </div>
 
-    <div class="col-md-4 ">
-      <div class="form-group">
-      </div>
+    <div id="ouath" class="col-md-4 ">
+
       <div class="form-group">
         <img src="../../assets/icon/login_google.png" class="img-responsive" alt="Responsive image">
       </div>
@@ -41,6 +40,7 @@
 </template>
 
 
+
 <script>
   export default {}
   
@@ -52,6 +52,9 @@
   }
   div .btn {
     width: 250px;
+  }
+  #ouath{
+    padding-top:80px;
   }
 </style>
 

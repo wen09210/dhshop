@@ -1,6 +1,6 @@
 <template>
 <div class="container"> 
-  <div class="title_name"><img src="../../assets/temporyPic/clock.png" ><label>檔期活動</label></div>
+  <div class="title_name"><img src="../../assets/temporyPic/clock.png" ><label class="titleLabel">檔期活動</label></div>
       <carousel :autoplay="true" :perPage="4" :autoplayTimeout="1000">
       <slide>
         <img src="../../assets/temporyPic/pro1.jpg" class="img-responsive">

@@ -1,7 +1,7 @@
 <template>
 
   <div class="container">
-    <div class="title_name"><img src="../../assets/temporyPic/clock.png"><label>熱銷商品</label></div>    
+    <div class="title_name"><img src="../../assets/temporyPic/clock.png"><label class="titleLabel">所有商品</label></div>    
     <carousel :autoplay="true" :perPageCustom="[[768, 2], [1024, 4]]" :autoplayTimeout="1000">
       <slide>
         <img src="../../assets/temporyPic/a1.jpg" class="img-responsive">

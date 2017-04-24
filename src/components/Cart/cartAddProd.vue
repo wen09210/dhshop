@@ -96,7 +96,5 @@
 </script>
 
 <style>
-  div .form-control {
-    width: 50px;
-  }
+
 </style>
