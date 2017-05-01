@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- header -->
-    
-    <nav class="navbar navbar-default">
+
+    <nav class="navbar navbar-default  navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" @click="showNavbar=!showNavbar">
@@ -10,23 +10,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-             </button>          
+             </button>
           <a class="" href="http://www.dhshop.tw/mall.html" role="button">
             <img src="../../assets/icon/dhshop_logo.svg">
           </a>
         </div>
 
-        <collapse class="navbar-collapse" v-model="showNavbar">         
+        <collapse class="navbar-collapse" v-model="showNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li class="headerIcon"><a href="http://www.dhshop.tw/salepage/usercenter.html">
-                <i class="fa fa-question-circle"></i>
-                <span>客服中心</span>
+            <li class="headerIcon">
+              <a href="http://www.dhshop.tw/salepage/usercenter.html">
+                <button type="button" class="btn  BtnToA headerIcon">
+                      <i class="fa fa-question-circle"></i>
+                       客服中心
+                  </button>
               </a>
             </li>
+
             <li>
               <a>
                 <popover title="購物商品" trigger="hover" placement="bottom">
-                  <router-link to="/cart" >                   
+                  <router-link to="/cart">
                     <button type="button" class="btn  BtnToA headerIcon" data-role="trigger">
                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                       購物車
@@ -49,30 +53,42 @@
                         <td>{{item.count}}</td>
                         <td>{{item.totalAmt}}</td>
                       </tr>
-                     <router-link class="btn btn-default btn-info" to='/cartPay'>結賬</router-link>
+                      <router-link class="btn btn-default btn-info" to='/cartPay'>結賬</router-link>
                     </table>
                   </div>
                 </popover>
               </a>
             </li>
-              <li class="headerIcon">
-                <a>
-                   <i class="fa fa-users" aria-hidden="true"></i>
-                    <router-link to="/member">會員專區</router-link>
-                    </a>
-                </li>
-            <li class="headerIcon"> 
-              <a>               
-              <i class="fa fa-sign-in" aria-hidden="true"></i>
-                <router-link to="/login">登入</router-link>
+
+            <li class="headerIcon">
+              <a>
+                <router-link to="/member">
+                  <button type="button" class="btn  BtnToA headerIcon">
+                       <i class="fa fa-users" aria-hidden="true"></i>
+                      會員專區
+                    </button>
+                </router-link>
               </a>
             </li>
+
+            <li class="headerIcon">
+              <a>                
+                <router-link to="/login">
+                  <button type="button" class="btn  BtnToA headerIcon">
+                      <i class="fa fa-sign-in" aria-hidden="true"></i>
+                       登入
+                  </button>
+                </router-link>
+              </a>
+            </li>
+
           </ul>
         </collapse>
       </div>
     </nav>
   </div>
 </template>
+
 
 
 
@@ -114,7 +130,7 @@ html .navbar-header {
   margin-top: 5px
 }
 .BtnToA{
-      background: snow;
+      background: #f8f8f8;
 }
 .headerIcon{
   font-size:20px;

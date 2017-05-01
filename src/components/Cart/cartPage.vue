@@ -1,17 +1,20 @@
 <template>
   <div>
-    <cartProd></cartProd>
-    <cartAddProd></cartAddProd>
+    <cartPay></cartPay>
+    <!--<cartAddProd></cartAddProd>-->
+    <cartBuyerDetail></cartBuyerDetail>
   </div>
 </template>
 
 <script>
-  import cartProd from './cartProd'
+  import cartPay from './cartPay'
   import cartAddProd from './cartAddProd'
+  import cartBuyerDetail from './cartBuyerDetail.vue'
   export default {
     components: {
-      cartProd,
-      cartAddProd
+      cartPay,
+      cartAddProd,
+      cartBuyerDetail
     },
     data() {
       return {

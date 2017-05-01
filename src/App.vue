@@ -27,7 +27,6 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
   #app {
-    font-family: '微軟正黑體';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

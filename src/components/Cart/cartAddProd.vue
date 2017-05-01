@@ -75,10 +75,7 @@
       ...mapGetters([
         'GetProductList',
         'GetShoppingCartItem'
-      ]),
-      CalAmt: () => {
-        return 1
-      }
+      ])
     },
     methods: {
       ...mapActions([

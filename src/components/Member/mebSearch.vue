@@ -20,7 +20,7 @@
 
 </script>
 
-<style>
+<style scoped>
 div .form-control {
     width: 250px;
   }

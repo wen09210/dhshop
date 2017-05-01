@@ -13,8 +13,10 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "bootstrap": "^3.3.7",
     "lodash": "^4.17.4",
+    "uiv": "^0.11.2",
     "v-affix": "^0.1.0",
     "vue": "^2.2.2",
     "vue-carousel": "^0.6.4",

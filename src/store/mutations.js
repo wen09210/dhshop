@@ -2,6 +2,8 @@ import types from './types'
 
 export default {
   [types.IncreaseProduct] (state, {item, itemSize}) {
+    console.log(item)
+    console.log(itemSize)
     item.count = itemSize
     item.totalAmt = item.unitPrice * itemSize
     state.shoppingCartItem.push({
