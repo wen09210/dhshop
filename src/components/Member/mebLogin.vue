@@ -33,7 +33,7 @@
         <img src="../../assets/icon/login_fb.png" class="img-responsive" alt="Responsive image">
       </div>
       <div class="form-group">
-        <img src="../../assets/icon/login_yahoo.png" class="img-responsive" alt="Responsive image">
+<!--<img src="../../assets/icon/login_yahoo.png" class="img-responsive" alt="Responsive image">-->
       </div>
     </div>
   </div>

@@ -8,32 +8,31 @@
         <img src="../../assets/temporyPic/prod-d1.jpg" class="img-responsive">
       </div>
       <div class="col-md-8">
-        <h3>{{item.name}}</h3>
-        <p>{{item.description}}</p>
+        <h1>{{ $route.params.prodID }}</h1>
+        <h3>{{itemShow.Title+'--'+itemShow.ItemName}}</h3>
+        <p>{{itemShow.description}}</p>
         <div>
           <label>原價:</label>
-          <span>{{item.orign}}</span>
+          <span>{{itemShow.OrignPrice}}</span>
         </div>
         <div>
           <label>售價:</label>
-          <span>{{item.unitPrice}}</span>
+          <span>{{itemShow.SalePrice}}</span>
         </div>
         <div>
           <label>數量:</label>
-          <span>{{item.quantity}}</span>
+          <span>{{itemShow.InventoryVal}}</span>
         </div>
         <div>
           <label>規格:</label>
-          <span>{{item.spec}}</span>
+          <span >{{itemShow.ItemSpec}}</span>
         </div>
 
         <div>
           <label>樣式</label>
-          <select class="selectpicker">
-              <option>胡桃木色木紋</option>
-              <option>柚木色木紋</option>
-              <option>古橡木紋</option>
-          </select>
+            <select class="selectpicker" v-model="itemSelect" @change="getItem" >
+                  <option v-for="option in item"  :value="option.ItemNo">{{option.ItemName}}</option>
+            </select>
         </div>
 
         <div style="display:inline-block">
@@ -51,7 +50,7 @@
           <router-link to="/cart">
             <button class="btn btn-info btn-lg" @click="IncreaseProduct({item,itemSize})">直接購買</button>
           </router-link>
-          <button class="btn btn-danger btn-lg a" @click="addCart(item, itemSize)">加入購物車</button>
+          <button class="btn btn-danger btn-lg a" @click="addCart(itemShow, itemSize)">加入購物車</button>
           <div class="alertshow">
             <transition name="animated" enter-active-class="animated fadeInRight">
               <alert type="info" :closable="true" v-if="showAlert" @close="showAlert=false" :duration="2500">
@@ -68,20 +67,9 @@
 
 
 <script>
-const item = {
-  'name': '歐巴地板',
-  'description': `強韌耐磨，防滑性佳！韓國超仿真防滑耐磨地板，安裝方便，即鋪即用！
-                                紋理多樣化，美觀又實用！不怕水，不會蟲蛀，零
-                                甲醛更環保！清潔方便，衛生又乾淨！不管是臥室、客廳或辦公室等環境
-                                都適用！現在有5款式可以選擇喔~`,
-  'orign': '4190元',
-  'unitPrice': 2090,
-  'quantity': '200箱',
-  'spec': '約153x1222x4.5mm /片  (包裝內含數量:1盒10片)',
-  'count': '0'
-}
-
+let item = [{Title: 'TEST'}]
 import { Alert } from 'uiv'
+import axios from 'axios'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
@@ -91,9 +79,24 @@ export default {
   data: function () {
     return {
       item,
+      itemShow: {},
       itemSize: 1,
+      itemSelect: '',
       showAlert: false
     }
+  },
+  created() {
+    console.log(this.$route.params.prodID)
+    axios.get(`/api/Product/GetProductDetail?prodID= ${this.$route.params.prodID}`)
+      .then((response) => {
+        this.item = response.data
+        this.itemShow = this.item[0]
+        this.itemSelect = this.item[0].ItemNo
+        console.log(this.item)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   },
   computed: {
     ...mapGetters([
@@ -104,8 +107,18 @@ export default {
     ...mapActions([
       'IncreaseProduct'
     ]),
-    addCart(item, itemSize) {
-      this.IncreaseProduct({item, itemSize})
+    getItem() {
+      console.log(this.itemShow.ItemNo)
+      this.item.forEach(val => {
+        if(val.ItemNo === this.itemSelect) {
+          console.log(this.itemShow.ItemNo)
+          this.itemShow = val
+          return
+        }
+      })
+    },
+    addCart(itemShow, itemSize) {
+      this.IncreaseProduct({itemShow, itemSize})
       this.showAlert = true
     },
     keyNum() {
@@ -116,7 +129,6 @@ export default {
 
 </script>
 <style>
-
 .prod_title{
     text-align: center;
     padding: 15px 0px 10px 0px;

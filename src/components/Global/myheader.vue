@@ -36,7 +36,7 @@
                       購物車
                     </button>
                   </router-link>
-                  <div slot="popover">
+                  <div slot="popover"  class="popoverCart">
                     <table class="table table-border">
                       <thead>
                         <tr>
@@ -134,5 +134,8 @@ html .navbar-header {
 }
 .headerIcon{
   font-size:20px;
+}
+.popoverCart{
+  width:500px;
 }
 </style>

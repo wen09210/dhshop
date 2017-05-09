@@ -18,7 +18,7 @@
         <div v-for="item in GetShoppingCartItem" class="row tableTR">
           <div class="col-md-2 col-xs-6"><img src="../../assets/temporyPic\/hot1.jpg" class="payimg"></div>
           <div class="col-md-3 col-xs-6">{{item.name}}</div>
-          <div class="col-md-2 col-xs-6">胡桃木紋</div>
+          <div class="col-md-2 col-xs-6">{{item.style}}</div>
           <div class="col-md-1 col-xs-6">{{item.unitPrice}}</div>
           <div class="col-md-1 col-xs-6">{{item.count}}</div>
           <div class="col-md-2 col-xs-6 hideTd">{{item.totalAmt}}</div>
@@ -46,6 +46,9 @@
         <span>折扣: {{totalPern}}</span>
         <span>總金額: {{totalPern}}</span>
       </div>
+        <div class=" col-xs-12  col-md-offset-3 col-md-6">
+        <button type="button" @click="GetMacValue()" class="btn btn-info btn-lg btn-block">結帳去~早買早想享受!</button>
+      </div>
     </div>
   </div>
 </template>
@@ -65,6 +68,7 @@
       }
     },
     created() {
+      console.log(this.GetShoppingCartItem)
       this.calAmt()
     },
     computed: {
@@ -75,13 +79,13 @@
     methods: {
       ...mapActions([
         'IncreaseProduct',
-        'ReduceProduct'
+        'ReduceProduct',
+        'GetMacValue'
       ]),
       calAmt(item) {
         if (item !== undefined) {
           this.ReduceProduct(item)
         }
-        console.log(this.GetShoppingCartItem)
         this.totalPern = 0
         this.GetShoppingCartItem.map(v => {
           this.totalPern += parseInt(v.totalAmt)

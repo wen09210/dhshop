@@ -5,5 +5,7 @@ export default {
   GetProductItem: 'GetProductItem',
   GetShoppingCartItem: 'GetShoppingCartItem',
   ClearShoppingCartItem: 'ClearShoppingCartItem',
-  ClearProductList: 'ClearProductList'
+  ClearProductList: 'ClearProductList',
+  GetMacValue: 'GetMacValue',
+  GetBuyerDetail: 'GetBuyerDetail'
 }

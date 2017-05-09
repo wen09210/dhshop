@@ -1,16 +1,18 @@
 import types from './types'
 
 export default {
-  [types.IncreaseProduct] (state, {item, itemSize}) {
-    console.log(item)
+  [types.IncreaseProduct] (state, {itemShow, itemSize}) {
+    console.log(itemShow)
     console.log(itemSize)
-    item.count = itemSize
-    item.totalAmt = item.unitPrice * itemSize
+    itemShow.totalAmt = itemShow.SalePrice * itemSize
     state.shoppingCartItem.push({
-      name: item.name,
-      unitPrice: item.unitPrice,
-      count: item.count,
-      totalAmt: item.totalAmt
+      prodID: itemShow.ProdID,
+      itemNo: itemShow.ItemNo,
+      name: itemShow.ProdName,
+      style: itemShow.ItemName,
+      unitPrice: itemShow.SalePrice,
+      count: itemSize,
+      totalAmt: itemShow.totalAmt
     })
     console.log(state.shoppingCartItem)
   },
