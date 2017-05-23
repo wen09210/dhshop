@@ -29,7 +29,7 @@
 
             <li>
               <a>
-                <popover title="購物商品" trigger="hover" placement="bottom">
+                <popover title="購物商品" trigger="hover" placement="bottom" auto-placement>
                   <router-link to="/cart">
                     <button type="button" class="btn  BtnToA headerIcon" data-role="trigger">
                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>

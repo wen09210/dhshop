@@ -1,31 +1,30 @@
 <template>
-  <div>
-    <h4>購物車</h4>
-    <div class="col-md-4">
-      <li v-for="item in GetProductList">
-        <div>{{item.name}}</div>
-        <div>{{item.unitPrice | test}}</div>
-        <img :src="item.src" style="width:200px;height:100px;">
-        <div style="display:inline-block">
-          <button class="btn btn-danger" @click="itemSize++">+</button>
-          <input type="text" style="width:50px" :value="itemSize" @keyup="keyNum">
-          <button class="btn btn-danger" @click="itemSize--">-</button>
-          <button class="btn btn-info" @click="IncreaseProduct({item,itemSize})">加入購物車</button>
-        </div>
-      </li>
+  <div class="container ">
+    <h3>精選加購--走過路過千萬別錯過</h3>
+    <div class="row detailBlock ">
+      <div class="col-md-3">
+        <span>0000</span>
+        <img src="../../assets/temporyPic\/hot1.jpg" class="payimg">
+        <span>$1000元</span>
+        <div>
+            <select class="selectpicker">
+                  <option v-for="option in 10"  :value="option">{{option}}</option>
+            </select>
+         <button class="btn btn-info"  @click="addProd">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+      </div>
+      <div class="col-md-3">
+        <span>0000</span>
+         <button class="btn btn-info" >
+              <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+      </div>
     </div>
-    <div class="col-md-4">
-      <li v-for="item in GetShoppingCartItem">
-        <span>{{item.name}}</span>
-        <span>{{item.unitPrice}}</span>
-        <span>{{item.count}}</span>
-        <span>{{item.totalAmt}}</span>
-      </li>
-    </div>
-    <router-link class="btn btn-default btn-lg" to='/cartPay'>結賬</router-link>
-    
   </div>
 </template>
+
 
 <script>
   import {
@@ -33,24 +32,6 @@
     mapGetters
   } from 'vuex'
 
-  class ProductItem {
-    constructor(name, unitPrice, count, totalAmt, src) {
-      this.name = name
-      this.unitPrice = unitPrice
-      this.count = count
-      this.totalAmt = totalAmt
-      this.src = src
-    }
-    getRandomInt(min, max) {
-      let nmin = Math.ceil(min)
-      let nmax = Math.floor(max)
-      return Math.floor(Math.random() * (nmax - nmin)) + nmin
-    }
-  }
-
-  const imgList = ['http://www.dhshop.tw/img/product/mask.jpg', 'http://dhshop.tw/img/product/bottle.jpg',
-    'http://yesim.tw/img/product/gluedots.jpg', 'http://yesim.tw/img/product/pokemon_ball.png'
-  ]
   export default {
     data: function () {
       return {
@@ -59,16 +40,6 @@
       }
     },
     created() {
-      this.ClearProductList()
-      for (var i = 0; i <= 0; i++) {
-        var pro = new ProductItem()
-        pro.name = `Item${i}`
-        pro.unitPrice = `${pro.getRandomInt(100, 10000).toString()}`
-        pro.count = 1
-        pro.totalAmt = pro.unitPrice * pro.count
-        pro.src = imgList[i]
-        this.GetProductList.push(pro)
-      }
     },
     mounted() {},
     computed: {
@@ -84,7 +55,7 @@
         'ClearShoppingCartItem',
         'ClearProductList'
       ]),
-      keyNum() {
+      addProd() {
         this.itemSize = event.target.value
       }
     }
@@ -92,6 +63,20 @@
 
 </script>
 
-<style>
-
+<style scoped>
+  .detailBlock {
+    font-size: 18px;
+    border: 1px solid #77C9FF;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+  }
+    .payimg{
+    width:160px; 
+    height:120px;
+    margin:5px;
+  }
+  .selectpicker{
+    width:120px
+  }
 </style>

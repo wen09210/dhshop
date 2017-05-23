@@ -7,9 +7,9 @@
       <div class="col-md-4">
         <img src="../../assets/temporyPic/prod-d1.jpg" class="img-responsive">
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 ">
         <h1>{{ $route.params.prodID }}</h1>
-        <h3>{{itemShow.Title+'--'+itemShow.ItemName}}</h3>
+        <h3>{{itemShow.ProdName+'--'+itemShow.ItemName}}</h3>
         <p>{{itemShow.description}}</p>
         <div>
           <label>原價:</label>
@@ -45,12 +45,19 @@
               <i class="fa fa-minus" aria-hidden="true"></i>
             </button>
         </div>
-
+        <div>
+          <label>單位:</label>
+          <span>{{itemShow.Unit}}</span>
+        </div>
         <div class="buybtn">
+          <button class="btn btn-info btn-lg" @click="testlockr('lllllockr')">test lockr</button>
+          <button class="btn btn-info btn-lg" @click="getlockr()">get lockr</button>
+
           <router-link to="/cart">
-            <button class="btn btn-info btn-lg" @click="IncreaseProduct({item,itemSize})">直接購買</button>
+            <button class="btn btn-info btn-lg" @click="IncreaseProduct({itemShow,itemSize})">直接購買</button>
           </router-link>
           <button class="btn btn-danger btn-lg a" @click="addCart(itemShow, itemSize)">加入購物車</button>
+          <!--彈跳視窗-->
           <div class="alertshow">
             <transition name="animated" enter-active-class="animated fadeInRight">
               <alert type="info" :closable="true" v-if="showAlert" @close="showAlert=false" :duration="2500">
@@ -67,11 +74,11 @@
 
 
 <script>
-let item = [{Title: 'TEST'}]
+let item = []
 import { Alert } from 'uiv'
 import axios from 'axios'
 import { mapActions, mapGetters } from 'vuex'
-
+import Lockr from 'lockr'
 export default {
   components: {
     Alert
@@ -123,12 +130,20 @@ export default {
     },
     keyNum() {
       this.itemSize = event.target.value
+    },
+    testlockr(data) {
+      alert(data)
+      Lockr.set('user_id', 12345)
+    },
+    getlockr() {
+      var a = Lockr.get('user_id')
+      alert(a)
     }
   }
 }
 
 </script>
-<style>
+<style scoped>
 .prod_title{
     text-align: center;
     padding: 15px 0px 10px 0px;

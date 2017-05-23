@@ -1,7 +1,7 @@
 <template>
   <div>
     <cartPay></cartPay>
-    <!--<cartAddProd></cartAddProd>-->
+    <cartAddProd></cartAddProd>
     <cartBuyerDetail></cartBuyerDetail>
   </div>
 </template>

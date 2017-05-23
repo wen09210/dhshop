@@ -93,7 +93,7 @@
           <span>STEP3 : 付款方式</span>
         </div>
         <div class="form-group">
-          <label for="PayType" class="col-sm-2 control-label">方式:</label>
+          <label for="PayType" class="col-sm-2 control-label">付款方式:</label>
           <div class="col-sm-10">
             <label class="radio-inline">
             <input type="radio" name="PayType" value="1" v-model="BuyerDetail.PayType">ATM付款
@@ -121,15 +121,24 @@
           </label>
           </div>
         </div>
+        <div class="form-group">
+          <label for="DeliveryType" class="col-sm-2 control-label">運送方式:</label>
+          <div class="col-sm-10">
+            <label class="radio-inline">
+            <input type="radio" name="DeliveryType" value="1" v-model="BuyerDetail.DeliveryType">宅配
+            </label>
+          </div>
+        </div>
       </div>
 
       <div class=" col-xs-12  col-md-offset-3 col-md-6">
-        <button type="button" @click="GetMacValue()" class="btn btn-info btn-lg btn-block">老闆~買了!買了!</button>
+        <button type="button" @click="GetMacValue(BuyerDetail)" class="btn btn-info btn-lg btn-block">老闆~買了!買了!</button>
       </div>
 
     </form>
   </div>
 </template>
+
 
 <script>
   import {
@@ -148,12 +157,13 @@
     'R_Mail': '',
     'R_Time': '',
     'PayType': '',
+    'DeliveryType': '',
     'InoviceType': ''
   }
   export default {
     data: function () {
       return {
-        BuyerDetail,
+        BuyerDetail: BuyerDetail,
         eqPurchaser: false
       }
     },
