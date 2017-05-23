@@ -7,6 +7,9 @@ export default {
   [types.IncreaseProduct]({commit}, {itemShow, itemSize}) {
     commit(types.IncreaseProduct, {itemShow, itemSize})
   },
+  [types.IncreaseAddProduct]({commit}, item) {
+    commit(types.IncreaseAddProduct, item)
+  },
   [types.ReduceProduct]({commit}, item) {
     commit(types.ReduceProduct, item)
   },

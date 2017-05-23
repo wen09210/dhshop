@@ -2,24 +2,18 @@
   <div class="container ">
     <h3>精選加購--走過路過千萬別錯過</h3>
     <div class="row detailBlock ">
-      <div class="col-md-3">
-        <span>0000</span>
-        <img src="../../assets/temporyPic\/hot1.jpg" class="payimg">
-        <span>$1000元</span>
+      <div class="col-md-3" v-for="item in addProdList">
+        <span>{{item.ProdName}}</span>
+        <span><img src="../../assets/temporyPic\/hot1.jpg" class="payimg"></span>
+        <span>單價: {{item.AddPrice}}元</span>
         <div>
-            <select class="selectpicker">
+            <select class="selectpicker" v-model="item.quentity">
                   <option v-for="option in 10"  :value="option">{{option}}</option>
             </select>
-         <button class="btn btn-info"  @click="addProd">
+         <button class="btn btn-info"  @click="IncreaseAddProduct(item)">
               <i class="fa fa-plus" aria-hidden="true"></i>
           </button>
           </div>
-      </div>
-      <div class="col-md-3">
-        <span>0000</span>
-         <button class="btn btn-info" >
-              <i class="fa fa-plus" aria-hidden="true"></i>
-          </button>
       </div>
     </div>
   </div>
@@ -27,37 +21,36 @@
 
 
 <script>
-  import {
-    mapActions,
-    mapGetters
-  } from 'vuex'
+  import {mapGetters, mapActions} from 'vuex'
+  import axios from 'axios'
 
   export default {
     data: function () {
       return {
-        itemSize: 1,
-        totalAmt: 0
+        addProdList: []
       }
     },
     created() {
+      console.log(this.$store.state.cartProdID)
+      axios.get(`/api/Product/GetAddProduct?cartProdID=${this.$store.state.cartProdID}`)
+      .then((response) => {
+        console.log(response)
+        this.addProdList = response.data
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
     },
     mounted() {},
     computed: {
       ...mapGetters([
-        'GetProductList',
         'GetShoppingCartItem'
       ])
     },
     methods: {
       ...mapActions([
-        'IncreaseProduct',
-        'ReduceProduct',
-        'ClearShoppingCartItem',
-        'ClearProductList'
-      ]),
-      addProd() {
-        this.itemSize = event.target.value
-      }
+        'IncreaseAddProduct'
+      ])
     }
   }
 

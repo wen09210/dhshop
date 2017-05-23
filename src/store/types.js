@@ -1,5 +1,6 @@
 export default {
   IncreaseProduct: 'IncreaseProduct',
+  IncreaseAddProduct: 'IncreaseAddProduct',
   ReduceProduct: 'ReduceProduct',
   GetProductList: 'GetProductList',
   GetProductItem: 'GetProductItem',

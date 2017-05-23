@@ -1,3 +1,4 @@
 export default {
-  shoppingCartItem: []
+  shoppingCartItem: [],
+  cartProdID: ''
 }
