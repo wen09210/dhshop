@@ -42,13 +42,13 @@
 
       </div>
       <div class="payTotal">
-        <span>運費: {{totalPern}}</span>
-        <span>折扣: {{totalPern}}</span>
-        <span>總金額: {{totalPern}}</span>
+        <span>原價: {{GetshowAmtData.totalProdAmt}}</span>
+        <span>運費: {{GetshowAmtData.totalFee}}</span>
+        <span>購物折扣: {{GetshowAmtData.discountProd}}</span>
+        <span>運費折扣: {{GetshowAmtData.discountDelivery}}</span>
+        <span>總金額: {{GetshowAmtData.totalAmt}}</span>
       </div>
-        <div class=" col-xs-12  col-md-offset-3 col-md-6">
-        <button type="button" @click="GetMacValue()" class="btn btn-info btn-lg btn-block">結帳去~早買早想享受!</button>
-      </div>
+
     </div>
   </div>
 </template>
@@ -60,109 +60,107 @@
     mapActions,
     mapGetters
   } from 'vuex'
-
   export default {
     data() {
-      return {
-        totalPern: 0
-      }
+      return {}
     },
     created() {
-      console.log(this.GetShoppingCartItem)
-      this.calAmt()
+      this.PostGetTotalAmt()
     },
     computed: {
       ...mapGetters([
-        'GetShoppingCartItem'
+        'GetShoppingCartItem',
+        'GetshowAmtData'
       ])
     },
     methods: {
       ...mapActions([
         'IncreaseProduct',
         'ReduceProduct',
-        'GetMacValue'
+        'PostGetTotalAmt'
       ]),
       calAmt(item) {
         if (item !== undefined) {
           this.ReduceProduct(item)
         }
-        this.totalPern = 0
-        this.GetShoppingCartItem.map(v => {
-          this.totalPern += parseInt(v.totalAmt)
-        })
+        this.PostGetTotalAmt()
       }
     }
   }
+
 </script>
-<style  scoped>
-  .payimg{
-    width:160px; 
-    height:120px
+<style scoped>
+  .payimg {
+    width: 160px;
+    height: 120px
   }
-  .payTotal{
+
+  .payTotal {
     display: grid;
-    font-size:20px;
-    color:red;
-    text-align:right;
+    font-size: 20px;
+    color: red;
+    text-align: right;
     border-top: 2px solid #dddddd;
   }
-  .tablePay{
-    font-size:18px;
-  }
-  .tableTitle{
-    border-bottom:2px solid #dddddd;
-    margin-bottom:10px;
+
+  .tablePay {
+    font-size: 18px;
   }
 
-  @media (min-width: 992px){
-    .tableTd{
-    display:none;
+  .tableTitle {
+    border-bottom: 2px solid #dddddd;
+    margin-bottom: 10px;
+  }
+
+  @media (min-width: 992px) {
+    .tableTd {
+      display: none;
     }
-      .tableTR{
-    border: 1px solid #77C9FF;
-    border-radius:5px;
-    padding-top:10px;
-    padding-bottom:10px;
-    margin-top:5px;
-    margin-bottom:5px;
+    .tableTR {
+      border: 1px solid #77C9FF;
+      border-radius: 5px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
   }
-}
 
- @media (max-width: 992px){
-   .tableTitle{
-     display:none;
-   }
-   .tableTR{
-    border: 1px solid #77C9FF;
-    border-radius: 5px;
-    padding-top: 10px;    
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left:1px;
-    margin-right:1px;
-   }
-   .hideTd{
-    display:none;
-   }
-  .tableTd{
-    background-color:#f7f8ff;
-    text-align: right;
-    margin-top:5px;
-    padding:10px;
+  @media (max-width: 992px) {
+    .tableTitle {
+      display: none;
+    }
+    .tableTR {
+      border: 1px solid #77C9FF;
+      border-radius: 5px;
+      padding-top: 10px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 1px;
+      margin-right: 1px;
+    }
+    .hideTd {
+      display: none;
+    }
+    .tableTd {
+      background-color: #f7f8ff;
+      text-align: right;
+      margin-top: 5px;
+      padding: 10px;
+    }
+    .rightTd {
+      text-align: center;
+      width: 100px;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+    .leftTd {
+      float: left;
+      text-align: center;
+      width: 100px;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
   }
-  .rightTd{
-    text-align:center;
-    width: 100px;
-    margin-left:30px;
-    margin-right:30px;
-  }
-  .leftTd{
-    float:left;
-    text-align:center;
-    width: 100px;
-    margin-left:30px;
-    margin-right:30px;
-  }
- }
 
 </style>

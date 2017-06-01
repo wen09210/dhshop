@@ -8,5 +8,7 @@ export default {
   ClearShoppingCartItem: 'ClearShoppingCartItem',
   ClearProductList: 'ClearProductList',
   GetMacValue: 'GetMacValue',
-  GetBuyerDetail: 'GetBuyerDetail'
+  GetBuyerDetail: 'GetBuyerDetail',
+  GetshowAmtData: 'GetshowAmtData',
+  PostGetTotalAmt: 'PostGetTotalAmt'
 }

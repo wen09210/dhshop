@@ -28,13 +28,22 @@ export default {
       data: BuyerDetail
     }).then(function (response) {
       console.log(response.data)
-        // state.ECPayParm.CheckMacValue = r.data
-      console.log(state.ECPayParm.CheckMacValue)
       ecpost('https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V4?', response.data, 'POST')
     })
       .catch(function (r) {
         console.log(r)
       })
+  },
+  [types.PostGetTotalAmt]({ commit, state }) {
+    axios.post(`/api/Ecpay/PostGetTotalAmt?`, state.shoppingCartItem)
+        .then((response) => {
+          console.log(response)
+          var showAmt = response.data.data
+          commit(types.PostGetTotalAmt, showAmt)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
   }
 }
 
