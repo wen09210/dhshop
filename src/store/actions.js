@@ -1,8 +1,6 @@
 import types from './types'
 import axios from 'axios'
-import {
-  ecpost
-} from './ecpost'
+import {ecpost} from './ecpost'
 export default {
   [types.IncreaseProduct]({commit}, {itemShow, itemSize}) {
     commit(types.IncreaseProduct, {itemShow, itemSize})
@@ -15,9 +13,6 @@ export default {
   },
   [types.ClearShoppingCartItem]({commit}) {
     commit(types.ClearShoppingCartItem)
-  },
-  [types.ClearProductList]({commit}) {
-    commit(types.ClearProductList)
   },
   [types.GetMacValue]({state}, BuyerDetail) {
     BuyerDetail.listItem = state.shoppingCartItem
@@ -44,6 +39,20 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
+  },
+  [types.PostLogin]({commit}, MemberAccount) {
+    console.log(MemberAccount)
+    axios.post('/api/MemberAccount/Login', MemberAccount)
+          .then((response) => {
+            console.log(response.data)
+            commit(types.PostLogin, response.data.data)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+  },
+  [types.LoginOut]({ commit }) {
+    commit(types.LoginOut)
   }
 }
 

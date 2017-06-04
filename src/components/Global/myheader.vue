@@ -36,7 +36,7 @@
                       購物車
                     </button>
                   </router-link>
-                  <div slot="popover"  class="popoverCart">
+                  <div slot="popover" class="popoverCart">
                     <table class="table table-border">
                       <thead>
                         <tr>
@@ -70,9 +70,9 @@
                 </router-link>
               </a>
             </li>
-
-            <li class="headerIcon">
-              <a>                
+            <template v-if="Object.keys(GetLoginInfo).length === 0">
+            <li  class="headerIcon">
+              <a>
                 <router-link to="/login">
                   <button type="button" class="btn  BtnToA headerIcon">
                       <i class="fa fa-sign-in" aria-hidden="true"></i>
@@ -81,7 +81,27 @@
                 </router-link>
               </a>
             </li>
-
+            </template>
+            <template v-else="false">
+            <li  class="headerIcon">
+              <li>
+                <a>                
+                  <button type="button" class="btn  BtnToA headerIcon" @click="LoginOut">
+                      <i class="fa fa-sign-out" aria-hidden="true"></i>
+                       登出
+                  </button>
+                </a>
+              </li>
+              <li>
+                <a>                
+                  <button type="button" class="btn  BtnToA headerIcon loginName">
+                      <i class="fa fa-user-circle" aria-hidden="true"></i>
+                       您好  {{GetLoginInfo.MemberName}}
+                  </button>
+                </a>
+              </li>
+            </li>
+            </template>
           </ul>
         </collapse>
       </div>
@@ -92,50 +112,61 @@
 
 
 
+
 <script>
-import { Popover, Collapse } from 'uiv'
-import {
-    mapGetters
-  } from 'vuex'
-export default {
-  data() {
-    return {
-      showNavbar: false
+  import {Popover, Collapse} from 'uiv'
+  import {mapGetters, mapActions} from 'vuex'
+  export default {
+    data() {
+      return {
+        showNavbar: false
+      }
+    },
+    components: {
+      Popover,
+      Collapse
+    },
+    computed: {
+      ...mapGetters([
+        'GetShoppingCartItem',
+        'GetLoginInfo'
+      ])
+    },
+    methods: {
+      ...mapActions([
+        'LoginOut'
+      ])
     }
-  },
-  components: {
-    Popover,
-    Collapse
-  },
-  computed: {
-    ...mapGetters([
-      'GetShoppingCartItem'
-    ])
   }
-}
 
 </script>
 
 
 
 <style scoped>
+  html .navbar-static-top,
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    background-color: #f7f7f7
+  }
 
-html .navbar-static-top,
-.navbar-fixed-top,
-.navbar-fixed-bottom {
-  background-color: #f7f7f7
-}
+  html .navbar-header {
+    margin-top: 5px
+  }
 
-html .navbar-header {
-  margin-top: 5px
-}
-.BtnToA{
-      background: #f8f8f8;
-}
-.headerIcon{
-  font-size:20px;
-}
-.popoverCart{
-  width:500px;
-}
+  .BtnToA {
+    background: #f8f8f8;
+  }
+
+  .headerIcon {
+    font-size: 20px;
+  }
+  .loginName{
+    color: darkorange
+  }
+
+  .popoverCart {
+    width: 500px;
+  }
+
 </style>

@@ -1,4 +1,5 @@
 import types from './types'
+import Cookies from 'js-cookie'
 
 export default {
   [types.IncreaseProduct] (state, {itemShow, itemSize}) {
@@ -43,10 +44,15 @@ export default {
   [types.ClearShoppingCartItem] (state) {
     state.shoppingCartItem = []
   },
-  [types.ClearProductList] (state) {
-    state.productList = []
-  },
   [types.PostGetTotalAmt](state, showAmt) {
     state.showAmtData = showAmt
+  },
+  [types.PostLogin](state, logininfo) {
+    console.log(logininfo)
+    state.LoginInfo = logininfo
+  },
+  [types.LoginOut](state) {
+    state.LoginInfo = {}
+    Cookies.remove('loginInfo')
   }
 }
