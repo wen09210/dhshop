@@ -24,7 +24,7 @@
     "vue": "^2.2.2",
     "vue-carousel": "^0.6.4",
     "vue-router": "^2.3.0",
-    "vuejs-datepicker": "^0.7.12",
+    "vuejs-datepicker": "^0.7.13",
     "vuex": "^2.3.1"
   },
   "devDependencies": {
