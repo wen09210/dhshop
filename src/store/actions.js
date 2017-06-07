@@ -53,6 +53,9 @@ export default {
   },
   [types.LoginOut]({ commit }) {
     commit(types.LoginOut)
+  },
+  [types.SetLoginModal]({ commit }, setvalue) {
+    commit(types.SetLoginModal, setvalue)
   }
 }
 

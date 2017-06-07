@@ -6,6 +6,7 @@
       <div class="form-group">
         <input type="text" class="form-control" v-model="searchData.orderId" placeholder="輸入查詢">
       </div>
+      <span>或</span>
       <label>日期:</label>
       <div class="form-group">
         <datepicker language="zh" input-class="form-control" format="yyyy-MM-dd" placeholder="起始時間" v-model="searchData.startdate">
@@ -39,15 +40,15 @@
           <tbody>
             <tr>
               <td>
-                <button type="button" class="btn btn-default" @click="item.OpenCollapse=!item.OpenCollapse">訂單詳細</button>
+                <button type="button" class="btn btn-info" @click="item.OpenCollapse=!item.OpenCollapse">訂單詳細</button>
               </td>
-              <td>{{item.Order.OrderNum}}</td>
-              <td>{{item.Order.OrderDate}}</td>
-              <td>{{item.Order.AllTotalAmt}}</td>
-              <td>{{item.Order.PayType}}</td>
-              <td>{{item.Order.PayStatus}}</td>
-              <td>{{item.Order.DeliveryType}}</td>
-              <td>{{item.Order.InoviceStatus}}</td>
+              <td>{{item.OrderView.OrderNum}}</td>
+              <td>{{item.OrderView.OrderDate}}</td>
+              <td>{{item.OrderView.AllTotalAmt}}</td>
+              <td>{{item.OrderView.PayType}}</td>
+              <td>{{item.OrderView.PayStatus}}</td>
+              <td>{{item.OrderView.DeliveryType}}</td>
+              <td>{{item.OrderView.InoviceStatus}}</td>
               <td></td>
             </tr>
           </tbody>
@@ -69,7 +70,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="itemD in item.OrderDetails">
+                <tr v-for="itemD in item.OrderDetailsView">
                   <td>{{itemD.ProdName}}</td>
                   <td>{{itemD.ProdStyle}}</td>
                   <td>{{itemD.Quantity}}</td>
@@ -86,24 +87,26 @@
       </div>
     </template>
 
-
-
+    <pagination v-model="currentPage" :total-page="totalSize" :max-size="maxSize"></pagination>
   </div>
-
-
 </template>
 
 
 <script>
   import {
-    Collapse
+    Collapse,
+    Pagination
   } from 'uiv'
+  import {
+    mapGetters
+  } from 'vuex'
   import Datepicker from 'vuejs-datepicker'
   import axios from 'axios'
   export default {
     components: {
       Datepicker,
-      Collapse
+      Collapse,
+      Pagination
     },
     data() {
       return {
@@ -115,9 +118,18 @@
         orderlist: []
       }
     },
+    computed: {
+      ...mapGetters([
+        'GetLoginInfo'
+      ])
+    },
     methods: {
       search() {
-        axios.post(`/api/MemberAccount/SearchOrder`, this.searchData)
+        axios.post(`/api/MemberAccount/SearchOrder`, this.searchData, {
+          headers: {
+            'Authorization': this.GetLoginInfo.JWTAuthorization
+          }
+        })
           .then((res) => {
             console.log(res)
             this.orderlist = res.data.data

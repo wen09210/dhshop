@@ -1,5 +1,6 @@
 import types from './types'
 import Cookies from 'js-cookie'
+import Lockr from 'lockr'
 
 export default {
   [types.IncreaseProduct] (state, {itemShow, itemSize}) {
@@ -16,6 +17,7 @@ export default {
       totalAmt: itemShow.totalAmt,
       prodType: '0'
     })
+    Lockr.set('shoppingCartItem', state.shoppingCartItem)
   },
   [types.IncreaseAddProduct](state, item) {
     let cartNo = state.cartNo++
@@ -30,6 +32,7 @@ export default {
       totalAmt: item.quentity * item.AddPrice,
       prodType: '1'
     })
+    Lockr.set('shoppingCartItem', state.shoppingCartItem)
   },
   [types.ReduceProduct](state, item) {
     console.log(item)
@@ -40,6 +43,7 @@ export default {
         break
       }
     }
+    Lockr.set('shoppingCartItem', state.shoppingCartItem)
   },
   [types.ClearShoppingCartItem] (state) {
     state.shoppingCartItem = []
@@ -50,9 +54,13 @@ export default {
   [types.PostLogin](state, logininfo) {
     console.log(logininfo)
     state.LoginInfo = logininfo
+    state.openLoginModal = false
   },
   [types.LoginOut](state) {
     state.LoginInfo = {}
     Cookies.remove('loginInfo')
+  },
+  [types.SetLoginModal](state, setvalue) {
+    state.openLoginModal = setvalue
   }
 }

@@ -1,7 +1,6 @@
 <template>
-  <div class="container">
-    <h3>會員登入</h3>
-    <div class="col-md-4">
+  <modal v-model="GetLoginModal" title="登入" :footer=false>
+      <h3>會員登入</h3>
       <form role="form">
         <div class="form-group">
           <img src="../../assets/icon/dhshop_logo.svg" class="img-responsive" alt="Responsive image">
@@ -19,30 +18,32 @@
              <input type="checkbox"> 保持登入，除非點選登出鍵。
           </label>
         </div>
-        <button type="button" class="btn btn-info " @click="PostLogin(MemberAccount)">送出</button>
+        <button type="button" class="btn btn-info btn-lg " @click="PostLogin(MemberAccount)">送出</button>
       </form>
       <p class="help-block">忘記密碼 | 註冊會員。</p>
-    </div>
 
-    <div id="ouath" class="col-md-4 ">
-
+      <label>其他登入</label>
       <div class="form-group">
-        <img src="../../assets/icon/login_google.png" class="img-responsive" alt="Responsive image" @click="goOuath('Google')">
+        <img src="../../assets/icon/login_google.png" class="imgOuath" alt="Responsive image" @click="goOuath('Google')">
       </div>
       <div class="form-group">
-        <img src="../../assets/icon/login_fb.png" class="img-responsive" alt="Responsive image" @click="goOuath('Facebook')">
+        <img src="../../assets/icon/login_fb.png" class="imgOuath" alt="Responsive image" @click="goOuath('Facebook')">
       </div>
+      <hr>
       <div class="form-group">
-        <!--<img src="../../assets/icon/login_yahoo.png" class="img-responsive" alt="Responsive image">-->
+        <button type="button" class="btn btn-warning btn-lg" @click="SetLoginModal(false)">取消</button>
       </div>
-    </div>
-  </div>
+  </modal>
 </template>
 
 
 
 <script>
-  import { mapActions } from 'vuex'
+  import {
+    mapActions,
+    mapGetters
+  } from 'vuex'
+  import { Modal } from 'uiv'
   export default {
     data: function () {
       return {
@@ -52,9 +53,18 @@
         }
       }
     },
+    components: {
+      Modal
+    },
+    computed: {
+      ...mapGetters([
+        'GetLoginModal'
+      ])
+    },
     methods: {
       ...mapActions([
-        'PostLogin'
+        'PostLogin',
+        'SetLoginModal'
       ]),
       goOuath(loginType) {
         window.location.href = `http://localhost:53912/api/MemberAccount/ExternalLogin?loginType=${loginType}`
@@ -66,15 +76,16 @@
 
 <style scoped>
   div .form-control {
-    width: 250px;
+    width: 300px;
   }
 
   div .btn {
-    width: 250px;
+    width: 300px;
   }
 
-  #ouath {
-    padding-top: 80px;
+  .imgOuath {
+    width: 300px;
   }
+
 
 </style>

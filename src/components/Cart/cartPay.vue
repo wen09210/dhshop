@@ -46,9 +46,9 @@
         <span>運費: {{GetshowAmtData.totalFee}}</span>
         <span>購物折扣: {{GetshowAmtData.discountProd}}</span>
         <span>運費折扣: {{GetshowAmtData.discountDelivery}}</span>
+        <span>-------------------</span>
         <span>總金額: {{GetshowAmtData.totalAmt}}</span>
       </div>
-
     </div>
   </div>
 </template>
@@ -60,6 +60,7 @@
     mapActions,
     mapGetters
   } from 'vuex'
+
   export default {
     data() {
       return {}
@@ -100,7 +101,7 @@
     font-size: 20px;
     color: red;
     text-align: right;
-    border-top: 2px solid #dddddd;
+    border-bottom: 2px solid #dddddd;
   }
 
   .tablePay {

@@ -2,5 +2,6 @@ export default {
   shoppingCartItem: [],
   cartNo: 0,
   showAmtData: {},
-  LoginInfo: {}
+  LoginInfo: {},
+  openLoginModal: false
 }
