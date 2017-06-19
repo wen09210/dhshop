@@ -6,7 +6,8 @@ import login from '../components/Member/mebLogin'
 import member from '../components/Member/mebPage.vue'
 import cart from '..//components/Cart/cartPage.vue'
 import cartPay from '..//components/Cart/cartPay.vue'
-import axios from 'axios'
+import prodPomote from '../components/Article/prodPromote.vue'
+// import axios from 'axios'
 
 Vue.use(Router)
 
@@ -36,21 +37,25 @@ export default new Router({
     {
       path: '/cart',
       name: 'cart',
-      component: cart,
-      beforeEnter: (to, from, next) => {
-        alert(1)
-        axios({
-          method: 'get',
-          url: '/api/Ecpay/Get'
-        }).then(val => {
-          alert(val)
-        })
-        next()
-      }
+      component: cart
+      // beforeEnter: (to, from, next) => {
+      //   alert(1)
+      //   axios({
+      //     method: 'get',
+      //     url: '/api/Ecpay/Get'
+      //   }).then(val => {
+      //     alert(val)
+      //   })
+      //   next()
+      // }
     },
     {
       path: '/cartPay',
       component: cartPay
+    },
+    {
+      path: '/prodPromte/:articalID/:prodID',
+      component: prodPomote
     }
   ]
 })

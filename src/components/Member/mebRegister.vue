@@ -1,12 +1,16 @@
 <template>
-  <modal v-model="GetLoginModal" title="登入" :footer=false>
-    <h3>會員登入</h3>
+  <div class ="container">
+    <h3>會員註冊</h3>
     <div class="row">
     <div class="col-md-6">
       <form role="form">
         <div class="form-group">
           <img src="../../assets/icon/dhshop_logo.svg" class="img-responsive" alt="Responsive image">
         </div>
+        <template v-if="Object.keys(GetLoginInfo).length!==0">
+          <h5>您好，已經註冊囉~</h5>
+        </template>
+        <template v-else>
         <div class="form-group">
           <label for="account">帳號</label>
           <input type="email" class="form-control" v-model="MemberAccount.MemberEmail" placeholder="輸入帳號">
@@ -15,34 +19,19 @@
           <label for="pwd">密碼</label>
           <input type="Password" class="form-control" v-model="MemberAccount.MmeberPasswordStr" placeholder="密碼">
         </div>
-        <div class="checkbox">
+        <!--<div class="checkbox">
           <label>
              <input type="checkbox"> 保持登入，除非點選登出鍵。
           </label>
-        </div>
+        </div>-->
         <div class="form-group">
-        <button type="button" class="btn btn-info btn-lg " @click="PostLogin(MemberAccount)">送出</button>
+        <button type="button" class="btn btn-info btn-lg " @click="PostRegister(MemberAccount)">送出</button>
         </div>
+        </template>
       </form>
-    <p class="help-block">忘記密碼 | 註冊會員。</p>
-    </div>
-
-    <div class="col-md-6 ouathDiv">
-      <label>其他登入</label>
-      <div class="form-group">
-        <img src="../../assets/icon/login_google.png" class="imgOuath" alt="Responsive image" @click="goOuath('Google')">
-      </div>
-      <div class="form-group">
-        <img src="../../assets/icon/login_fb.png" class="imgOuath" alt="Responsive image" @click="goOuath('Facebook')">
-      </div>
     </div>
     </div>
-    <hr>
-    <div class="form-group col-md-offset-3">
-      <button type="button" class="btn btn-warning btn-lg" @click="SetLoginModal(false)">取消</button>
-    </div>
-
-  </modal>
+</div>
 </template>
 
 
@@ -52,9 +41,7 @@
     mapActions,
     mapGetters
   } from 'vuex'
-  import {
-    Modal
-  } from 'uiv'
+
   export default {
     data: function () {
       return {
@@ -64,23 +51,15 @@
         }
       }
     },
-    components: {
-      Modal
-    },
     computed: {
       ...mapGetters([
-        'GetLoginModal'
+        'GetLoginInfo'
       ])
     },
     methods: {
       ...mapActions([
-        'PostLogin',
-        'SetLoginModal'
-      ]),
-      goOuath(loginType) {
-        window.location.href = `http://localhost:53912/api/MemberAccount/GetExLogin?loginType=${loginType}`
-        // window.location.href = `http://223.27.48.157/api/MemberAccount/GetExLogin?loginType=${loginType}`
-      }
+        'PostRegister'
+      ])
     }
   }
 

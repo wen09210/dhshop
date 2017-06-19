@@ -16,7 +16,7 @@
               </template>
             </select>
           <select v-model="item.quentity">
-            <option v-for="option in 10" :value="option">{{option}}</option>
+            <option v-for="option in 10" :value="option">{{option}}{{item.Unit}}</option>
             </select>
         </div>
         <div>

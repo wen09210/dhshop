@@ -1,6 +1,10 @@
 <template>
   <div class="container">
     <h3>會員資料修改</h3>
+    <template v-if="Object.keys(GetLoginInfo).length===0">
+      <h5>您好，此功能為會員所有，請先登入</h5>
+    </template>
+    <template v-else>
     <form class="form-horizontal" role="form">
       <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 control-label">姓名</label>
@@ -51,6 +55,7 @@
         </div>
       </div>
     </form>
+    </template>
   </div>
 </template>
 

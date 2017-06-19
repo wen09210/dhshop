@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="col-md-12 ">
     <carousel :autoplay="true" :perPage="1" :autoplayTimeout="1000">
       <slide>
         <img src="../../assets/temporyPic/banner_index01.jpg" class="img-responsive">
@@ -10,7 +10,7 @@
       <slide>
         <img src="../../assets/temporyPic/banner3.jpg" class="img-responsive">
       </slide>
-    </carousel>    
+    </carousel>
   </div>
 </template>
 

@@ -1,9 +1,15 @@
 import types from './types'
 import Cookies from 'js-cookie'
 import Lockr from 'lockr'
+import {
+  noty
+} from '../../src/assets/AlertDialog'
 
 export default {
-  [types.IncreaseProduct] (state, {itemShow, itemSize}) {
+  [types.IncreaseProduct](state, {
+    itemShow,
+    itemSize
+  }) {
     itemShow.totalAmt = itemShow.SalePrice * itemSize
     let cartNo = state.cartNo++
     state.shoppingCartItem.push({
@@ -15,9 +21,11 @@ export default {
       unitPrice: itemShow.SalePrice,
       count: itemSize,
       totalAmt: itemShow.totalAmt,
+      unit: itemShow.Unit,
       prodType: '0'
     })
     Lockr.set('shoppingCartItem', state.shoppingCartItem)
+    noty.ShowAlert('恭喜你! 商品已成功加入購物車囉!', 'warning')
   },
   [types.IncreaseAddProduct](state, item) {
     let cartNo = state.cartNo++
@@ -30,6 +38,7 @@ export default {
       unitPrice: item.AddPrice,
       count: item.quentity,
       totalAmt: item.quentity * item.AddPrice,
+      unit: item.Unit,
       prodType: '1'
     })
     Lockr.set('shoppingCartItem', state.shoppingCartItem)
@@ -45,7 +54,7 @@ export default {
     }
     Lockr.set('shoppingCartItem', state.shoppingCartItem)
   },
-  [types.ClearShoppingCartItem] (state) {
+  [types.ClearShoppingCartItem](state) {
     state.shoppingCartItem = []
   },
   [types.PostGetTotalAmt](state, showAmt) {
@@ -56,9 +65,17 @@ export default {
     state.LoginInfo = logininfo
     state.openLoginModal = false
   },
+  [types.PostAnoyLogin](state, logininfo) {
+    console.log(logininfo)
+    state.LoginInfo = logininfo
+  },
   [types.LoginOut](state) {
     state.LoginInfo = {}
     Cookies.remove('loginInfo')
+  },
+  [types.PostRegister](state, logininfo) {
+    console.log(logininfo)
+    state.LoginInfo = logininfo
   },
   [types.SetLoginModal](state, setvalue) {
     state.openLoginModal = setvalue

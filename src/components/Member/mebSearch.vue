@@ -32,7 +32,7 @@
               <th>總價</th>
               <th>付款方式</th>
               <th>付款狀態</th>
-              <th>配送狀態</th>
+              <th>配送方式</th>
               <th>發票</th>
               <th></th>
             </tr>
@@ -43,12 +43,12 @@
                 <button type="button" class="btn btn-info" @click="item.OpenCollapse=!item.OpenCollapse">訂單詳細</button>
               </td>
               <td>{{item.OrderView.OrderNum}}</td>
-              <td>{{item.OrderView.OrderDate}}</td>
+              <td>{{item.OrderView.OrderDate|datetimeTrans}}</td>
               <td>{{item.OrderView.AllTotalAmt}}</td>
-              <td>{{item.OrderView.PayType}}</td>
-              <td>{{item.OrderView.PayStatus}}</td>
-              <td>{{item.OrderView.DeliveryType}}</td>
-              <td>{{item.OrderView.InoviceStatus}}</td>
+              <td>{{item.OrderView.PayType|payTypeToCH}}</td>
+              <td>{{item.OrderView.PayStatus |payStatusToCH}}</td>
+              <td>{{item.OrderView.DeliveryType|deliveryTypeToCH}}</td>
+              <td>{{item.OrderView.InoviceStatus|inoviceStatusToCH}}</td>
               <td></td>
             </tr>
           </tbody>
@@ -75,7 +75,7 @@
                   <td>{{itemD.ProdStyle}}</td>
                   <td>{{itemD.Quantity}}</td>
                   <td>{{itemD.DeliveryDate}}</td>
-                  <td>{{itemD.DeliveryStatus}}</td>
+                  <td>{{itemD.DeliveryStatus|deliveryStatusToCH}}</td>
                   <td>{{itemD.DeliveryCompany}}</td>
                   <td>{{itemD.DeliveryNumber}}</td>
                   <td></td>
@@ -87,26 +87,23 @@
       </div>
     </template>
 
-    <pagination v-model="currentPage" :total-page="totalSize" :max-size="maxSize"></pagination>
+      <!--<pagination v-show="!ShowLoading" :cur="tcur" :all="tall" :callback="getPageData" />-->
   </div>
 </template>
 
 
 <script>
-  import {
-    Collapse,
-    Pagination
-  } from 'uiv'
-  import {
-    mapGetters
-  } from 'vuex'
+  import pagination from '../pagination.vue'
+  import {Collapse} from 'uiv'
+  import {mapGetters} from 'vuex'
   import Datepicker from 'vuejs-datepicker'
   import axios from 'axios'
+  import {noty} from '../../assets/AlertDialog.js'
   export default {
     components: {
       Datepicker,
       Collapse,
-      Pagination
+      pagination
     },
     data() {
       return {
@@ -115,8 +112,27 @@
           startdate: '',
           enddate: ''
         },
-        orderlist: []
+        orderlist: [],
+        tcur: 1,
+        tall: 0
       }
+    },
+    created() {
+      axios.post('/api/MemberAccount/SearchOrder', {}, {
+        headers: {
+          'Authorization': this.GetLoginInfo.JWTAuthorization
+        }
+      })
+      .then((response) => {
+        console.log(response)
+        if(response.data.statu === 'err') {
+          noty.ShowAlert(response.data.msg, 'warning')
+        }
+        this.orderlist = response.data.data
+      })
+      .catch((response) => {
+        console.log(response)
+      })
     },
     computed: {
       ...mapGetters([
@@ -130,13 +146,25 @@
             'Authorization': this.GetLoginInfo.JWTAuthorization
           }
         })
-          .then((res) => {
-            console.log(res)
-            this.orderlist = res.data.data
+          .then((response) => {
+            console.log(response)
+            if(response.data.statu === 'err') {
+              noty.ShowAlert(response.data.msg, 'warning')
+            }
+            this.orderlist = response.data.data
           })
           .catch((err) => {
             console.log(err)
           })
+      },
+      getPageData(page) {
+        axios.post('',
+          {model: {
+            Search: '',
+            PageIndex: page,
+            PageSize: 10
+          }}
+        )
       }
     }
   }

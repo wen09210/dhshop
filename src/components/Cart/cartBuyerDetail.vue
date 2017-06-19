@@ -5,6 +5,7 @@
 
     <form class="form-horizontal" role="form">
       <div class="detailBlock">
+        {{matchLoginInfo}}
         <div class="detailTitle">
           <span>STEP1 : 訂購人</span>
         </div>
@@ -117,8 +118,29 @@
           <input type="radio" name="InoviceType" value="2" v-model="BuyerDetail.InoviceType">捐贈發票
           </label>
             <label class="radio-inline">
-          <input type="radio" name="InoviceType" value="3" v-model="BuyerDetail.InoviceType">紙本發票
+          <input type="radio" name="InoviceType" value="3" v-model="BuyerDetail.InoviceType">紙本發票 
           </label>
+            <label class="radio-inline">
+              <input type="radio" name="InoviceType" value="4" v-model="BuyerDetail.InoviceType">公司三聯發票
+          </label>
+          </div>
+        </div>
+        <div class="form-group" v-if="BuyerDetail.InoviceType==='2'">
+         <label for="Corporation" class="col-sm-2 control-label">捐贈單位:</label>
+          <div class="col-sm-10">
+          <select class="form-control lovecodeSelect" v-model="BuyerDetail.InoviceLoveCode">
+              <option v-for="item in InvoiceCode" :value="item.lovecode">{{item.name}}</option>
+          </select>
+          </div>
+        </div>
+        <div class="form-group" v-if="BuyerDetail.InoviceType==='4'">
+          <label for="Corporation" class="col-sm-2 control-label">公司抬頭:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" v-model="BuyerDetail.Corporation" placeholder="公司抬頭:">
+          </div>
+           <label for="taxIDNum" class="col-sm-2 control-label">統一編號:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" v-model="BuyerDetail.taxIDNum" placeholder="統一編號:">
           </div>
         </div>
         <div class="form-group">
@@ -145,6 +167,42 @@
     mapGetters,
     mapActions
   } from 'vuex'
+  let InvoiceCode = [
+    {
+      'lovecode': '1980198',
+      'name': '財團法人張老師基金會'
+    }, {
+      'lovecode': '919',
+      'name': '財團法人創世社會福利基金會'
+    }, {
+      'lovecode': '599',
+      'name': '台灣動物不再流浪協會'
+    }, {
+      'lovecode': '8957282',
+      'name': '財團法人流浪動物之家基金會'
+    }, {
+      'lovecode': '13579',
+      'name': '財團法人陽光社會福利基金會'
+    }, {
+      'lovecode': '88432',
+      'name': '財團法人喜憨兒社會福利基金會'
+    }, {
+      'lovecode': '876',
+      'name': '財團法人心路社會福利基金會'
+    }, {
+      'lovecode': '9999',
+      'name': '社團法人新北市盲人福利協進會'
+    }, {
+      'lovecode': '9118595',
+      'name': '財團法人勵馨社會福利事業基金會'
+    }, {
+      'lovecode': '461234',
+      'name': '財團法人台灣兒童暨家庭扶助基金會'
+    }, {
+      'lovecode': '860713',
+      'name': '保護動物協會'
+    }
+  ]
   let BuyerDetail = {
     'Purchaser': '',
     'P_Phone': '',
@@ -158,20 +216,30 @@
     'R_Time': '',
     'PayType': '',
     'DeliveryType': '',
-    'InoviceType': ''
+    'InoviceType': '',
+    'InoviceLoveCode': '',
+    'Corporation': '',
+    'taxIDNum': ''
   }
   export default {
     data: function () {
       return {
         BuyerDetail: BuyerDetail,
-        eqPurchaser: false
+        eqPurchaser: false,
+        InvoiceCode: InvoiceCode
       }
     },
     computed: {
       ...mapGetters([
         'GetShoppingCartItem',
-        'GetBuyerDetail'
-      ])
+        'GetLoginInfo'
+      ]),
+      matchLoginInfo() {
+        this.BuyerDetail.Purchaser = this.GetLoginInfo.MemberName
+        this.BuyerDetail.P_Phone = this.GetLoginInfo.MemberMobile
+        this.BuyerDetail.P_Address = this.GetLoginInfo.MemberAddress
+        this.BuyerDetail.P_Mail = this.GetLoginInfo.MemberEmail
+      }
     },
     methods: {
       ...mapActions([
@@ -179,6 +247,7 @@
       ]),
       eqPurchsase() {
         if (this.eqPurchaser === true) {
+          console.log('tt3')
           this.BuyerDetail.Recipient = this.BuyerDetail.Purchaser
           this.BuyerDetail.R_Phone = this.BuyerDetail.P_Phone
           this.BuyerDetail.R_Address = this.BuyerDetail.P_Address
@@ -207,6 +276,9 @@
     padding: 5px;
   }
 
+  .lovecodeSelect {
+    width: 350px;
+  }
   input.largerCheckbox {
     width: 20px;
     height: 20px;

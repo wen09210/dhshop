@@ -10,6 +10,8 @@ export default {
   PostGetTotalAmt: 'PostGetTotalAmt',
   GetLoginInfo: 'GetLoginInfo',
   PostLogin: 'PostLogin',
+  PostAnoyLogin: 'PostAnoyLogin',
+  PostRegister: 'PostRegister',
   LoginOut: 'LoginOut',
   SetLoginModal: 'SetLoginModal',
   GetLoginModal: 'GetLoginModal'

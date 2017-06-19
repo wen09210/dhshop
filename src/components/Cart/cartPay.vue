@@ -2,11 +2,17 @@
   <div class="container">
     <h2>金額</h2>
     <hr>
+    <template v-if="Object.keys(GetShoppingCartItem).length===0">
+      <h4>購物車內目前沒有商品，請先選購商品</h4>
+      </template>
+    
+    <template v-else>
     <div>
       <div class=" tablePay">
         <div class="row tableTitle">
           <div class="col-md-2">圖片</div>
-          <div class="col-md-3">名稱</div>
+          <!--<div class="col-md-1"></div>-->
+          <div class="col-md-2">名稱</div>
           <div class="col-md-2">樣式</div>
           <div class="col-md-1">單價</div>
           <div class="col-md-1">數量</div>
@@ -17,10 +23,11 @@
 
         <div v-for="item in GetShoppingCartItem" class="row tableTR">
           <div class="col-md-2 col-xs-6"><img src="../../assets/temporyPic\/hot1.jpg" class="payimg"></div>
-          <div class="col-md-3 col-xs-6">{{item.name}}</div>
+          <!--<div class="col-md-1 col-xs-6">加購品</div>-->
+          <div class="col-md-2 col-xs-6">{{item.name}}</div>
           <div class="col-md-2 col-xs-6">{{item.style}}</div>
           <div class="col-md-1 col-xs-6">{{item.unitPrice}}</div>
-          <div class="col-md-1 col-xs-6">{{item.count}}</div>
+          <div class="col-md-1 col-xs-6">{{item.count}}{{item.unit}}</div>
           <div class="col-md-2 col-xs-6 hideTd">{{item.totalAmt}}</div>
           <div class="col-md-1 col-xs-6 hideTd">
             <a class="btn btn-danger" @click="calAmt(item)">
@@ -44,12 +51,19 @@
       <div class="payTotal">
         <span>原價: {{GetshowAmtData.totalProdAmt}}</span>
         <span>運費: {{GetshowAmtData.totalFee}}</span>
-        <span>購物折扣: {{GetshowAmtData.discountProd}}</span>
-        <span>運費折扣: {{GetshowAmtData.discountDelivery}}</span>
+        <div>
+          <span>{{GetshowAmtData.disProdName}}</span>
+          <span>購物折扣: {{GetshowAmtData.discountProd}}</span>
+        </div>
+        <div>
+          <span>{{GetshowAmtData.disDeliveryName}}</span>
+          <span>運費折扣: {{GetshowAmtData.discountDelivery}}</span>
+        </div>        
         <span>-------------------</span>
         <span>總金額: {{GetshowAmtData.totalAmt}}</span>
       </div>
     </div>
+    </template>    
   </div>
 </template>
 

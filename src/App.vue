@@ -25,7 +25,7 @@
 
 <style>
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
+@import '../static/css/noty.css';
   #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

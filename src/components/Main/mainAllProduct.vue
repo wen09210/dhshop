@@ -1,8 +1,9 @@
 <template>
 
   <div class="container">
-    <div class="title_name"><img src="../../assets/temporyPic/clock.png"><label class="titleLabel">所有商品</label></div>    
-    <carousel :autoplay="true" :perPageCustom="[[768, 2], [1024, 4]]" :autoplayTimeout="1000">
+    <div class="allprod_title">好品嚴選</div>    
+    <div class="col-md-12 col-xs-12">
+    <carousel :autoplay="true" :perPageCustom="[[768, 2], [1024, 4]]" :autoplayTimeout="2000">
       <slide>
         <img src="../../assets/temporyPic/a1.jpg" class="img-responsive">
       </slide>
@@ -13,9 +14,13 @@
         <img src="../../assets/temporyPic/a3.jpg" class="img-responsive">
       </slide>
       <slide>
-        <img src="../../assets/temporyPic/a4.jpg" class="img-responsive">
+        <img src="../../assets/temporyPic/a5.jpg" class="img-responsive">
+      </slide>
+       <slide>
+        <img src="../../assets/temporyPic/a6.jpg" class="img-responsive">
       </slide>
     </carousel>
+    </div>
     <hr>
   </div>
   
@@ -32,12 +37,11 @@ export default {
 }
 </script>
 <style >
-  .title_name img{  
-  width:60px;
-  height:60px;
-}
-  .title_name {  
-  text-align: center;
+  .allprod_title {  
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 15px;
+  margin-top: 35px;
 }
  .VueCarousel-slide {
   margin:5px
