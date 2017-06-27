@@ -2,7 +2,7 @@
   <modal v-model="GetLoginModal" title="登入" :footer=false>
     <h3>會員登入</h3>
     <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-xs-5">
       <form role="form">
         <div class="form-group">
           <img src="../../assets/icon/dhshop_logo.svg" class="img-responsive" alt="Responsive image">
@@ -27,7 +27,7 @@
     <p class="help-block">忘記密碼 | 註冊會員。</p>
     </div>
 
-    <div class="col-md-6 ouathDiv">
+    <div class="col-md-6 col-xs-7 ouathDiv">
       <label>其他登入</label>
       <div class="form-group">
         <img src="../../assets/icon/login_google.png" class="imgOuath" alt="Responsive image" @click="goOuath('Google')">
@@ -38,7 +38,7 @@
     </div>
     </div>
     <hr>
-    <div class="form-group col-md-offset-3">
+    <div class="form-group col-md-offset-4 col-xs-offset-3">
       <button type="button" class="btn btn-warning btn-lg" @click="SetLoginModal(false)">取消</button>
     </div>
 
@@ -88,19 +88,19 @@
 
 <style scoped>
   div .form-control {
-    width: 250px;
+    width: 200px;
   }
 
   div .btn {
-    width: 250px;
+    width: 200px;
   }
 
   .imgOuath {
     width: 250px;
-    height: 45px
+    height: 50px
   }
   .ouathDiv{
-    margin-top: 50px;
+    margin-top: 40px;
   }
 
 </style>

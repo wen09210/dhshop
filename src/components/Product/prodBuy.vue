@@ -3,7 +3,7 @@
     <div class="prod_title">
       <span>現在開始改造你家!</span>
     </div>
-    <div class="row">
+    <div class="row buydiv">
       <div :class="second">
         <img src="../../assets/temporyPic/prod-d1.jpg" class="img-responsive">
       </div>
@@ -44,17 +44,17 @@
           <button class="btn btn-info" @click="itemSize++">
               <i class="fa fa-plus" aria-hidden="true"></i>
             </button>
-          <input type="text" class="inputsize" :value="itemSize" @keyup="keyNum">
+          <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
           <button class="btn btn-info" @click="itemSize--">
               <i class="fa fa-minus" aria-hidden="true"></i>
-            </button>
+          </button>
         </div>
 
         <div class="buybtn">
-          <router-link to="/cart">
-            <button class="btn btn-info btn-lg" @click="IncreaseProduct({itemShow,itemSize})">直接購買</button>
-          </router-link>
-          <button class="btn btn-danger btn-lg a" @click="addCart(itemShow, itemSize)">加入購物車</button>
+
+          <button class="btn btn-info btn-lg" @click="addCart('direct')">直接購買</button>
+
+          <button class="btn btn-danger btn-lg a" @click="addCart('')">加入購物車</button>
 
         </div>
       </div>
@@ -71,6 +71,9 @@
   } from 'vuex'
   import axios from 'axios'
   import Lockr from 'lockr'
+  import {
+    noty
+  } from '../../assets/AlertDialog.js'
   export default {
     components: {},
     props: {
@@ -92,7 +95,6 @@
     },
     data: function () {
       return {
-        test: 'col-md-4',
         item,
         itemShow: {},
         itemSize: 1,
@@ -104,7 +106,9 @@
         .then((res) => {
           console.log(res)
         })
-        .catch()
+        .catch((res) => {
+          console.log(res)
+        })
       console.log(this.$route.params.prodID)
       axios.get(`/api/Product/GetProductDetail?prodID= ${this.$route.params.prodID}`)
         .then((response) => {
@@ -120,7 +124,13 @@
     computed: {
       ...mapGetters([
         'GetShoppingCartItem'
-      ])
+      ]),
+      itemSize_check() {
+        if (this.itemSize <= 0) {
+          this.itemSize = 1
+        }
+        return this.itemSize
+      }
     },
     methods: {
       ...mapActions([
@@ -136,11 +146,49 @@
           }
         })
       },
-      addCart(itemShow, itemSize) {
-        this.IncreaseProduct({
-          itemShow,
-          itemSize
+      // 檢查數量是否足夠
+      addCart(direct) {
+        axios.get(`/api/Product/GetProductQuentity?`, {
+          params: {
+            ProdID: this.itemShow.ProdID,
+            ItemNo: this.itemShow.ItemNo
+          }
         })
+          .then((response) => {
+            console.log(response)
+            if (response.data.statu === 'err') {
+              noty.ShowAlert('系統忙碌中，請稍後操作', 'warning')
+              return false
+            }
+            var itemShow = this.itemShow
+            var itemSize = this.itemSize
+            var prodType = '1'
+            // 數量不足
+            if (response.data.data < this.itemSize) {
+              console.log(this.itemSize)
+              prodType = '3'
+              noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，是否以預購方式購買', () => {
+                this.IncreaseProduct({itemShow, itemSize, prodType})
+                // 直接購買
+                if (direct !== '') {
+                  this.$router.push({
+                    name: 'cart'
+                  })
+                }
+              })
+            } else {
+              this.IncreaseProduct({itemShow, itemSize, prodType})
+              if (direct !== '') {
+                this.$router.push({
+                  name: 'cart'
+                })
+              }
+            }
+          })
+          .catch((response) => {
+            console.log(response)
+          })
+        // this.IncreaseProduct({itemShow, itemSize})
       },
       keyNum() {
         this.itemSize = event.target.value
@@ -158,9 +206,10 @@
 
 </script>
 <style scoped>
-.test {
-  border: 2px solid red;
-}
+  .buydiv {
+    font-size: 17px;
+  }
+
   .prod_title {
     text-align: center;
     padding: 15px 0px 10px 0px;

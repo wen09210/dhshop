@@ -36,15 +36,15 @@
 
 </template>
 <script>
-  import {
-    Carousel,
-    Slide
-  } from 'vue-carousel'
+  // import {
+  //   Carousel,
+  //   Slide
+  // } from 'vue-carousel'
   export default {
-    components: {
-      Carousel,
-      Slide
-    }
+    // components: {
+    //   Carousel,
+    //   Slide
+    // }
   }
 
 </script>
@@ -63,7 +63,7 @@
 }
 .art_content{
   text-align: left;
-  font-size: 25px;
+  font-size: 20px;
 }
 .artBlock_Title{
   margin: 25px 0px;

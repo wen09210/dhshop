@@ -34,7 +34,7 @@
 
             <li class="headerIcon">
               <a class="headerIcon">
-                <popover title="購物車商品" trigger="hover" placement="bottom" auto-placement >
+                <popover title="購物車商品" :trigger="Hover" placement="bottom" auto-placement >
                   <router-link to="/cart">
                     <button type="button" class="btn BtnToA headerIcon" data-role="trigger">
                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -135,7 +135,8 @@
   export default {
     data() {
       return {
-        showNavbar: false
+        showNavbar: false,
+        hover: 'hover'
       }
     },
     components: {
@@ -148,7 +149,15 @@
         'GetShoppingCartItem',
         'GetLoginInfo',
         'GetLoginModal'
-      ])
+      ]),
+      Hover() {
+        if(this.showNavbar === true) {
+          this.hover = ''
+        }else{
+          this.hover = 'hover'
+        }
+        return this.hover
+      }
     },
     methods: {
       ...mapActions([
@@ -162,7 +171,7 @@
 
 
 
-<style scoped>
+<style >
   html .navbar-static-top,
   .navbar-fixed-top,
   .navbar-fixed-bottom {
@@ -183,8 +192,8 @@
 
   .headerIcon {
     font-size: 18px;
-    padding-left:5px;
-    padding-right: 5px; 
+    padding-left:5px !important;
+    padding-right: 5px !important; 
   }
   .loginName{
     color: darkorange
@@ -199,6 +208,8 @@
     margin-top:5px;
     width: 200px;
   }
-
+  .close{
+    display:none
+  }
 
 </style>

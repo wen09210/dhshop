@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-12 ">
-    <carousel :autoplay="true" :perPage="1" :autoplayTimeout="1000">
+    <!--<carousel :autoplay="true" :perPage="1" :autoplayTimeout="1000">
       <slide>
         <img src="../../assets/temporyPic/banner_index01.jpg" class="img-responsive">
       </slide>
@@ -10,17 +10,18 @@
       <slide>
         <img src="../../assets/temporyPic/banner3.jpg" class="img-responsive">
       </slide>
-    </carousel>
+    </carousel>-->
+    <img src="../../assets/temporyPic/banner_index01.jpg" class="img-responsive">
   </div>
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue-carousel'
+// import { Carousel, Slide } from 'vue-carousel'
 export default {
-  components: {
-    Carousel,
-    Slide
-  }
+  // components: {
+  //   Carousel,
+  //   Slide
+  // }
 }
 </script>
 <style>

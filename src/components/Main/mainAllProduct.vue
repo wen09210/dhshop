@@ -3,7 +3,10 @@
   <div class="container">
     <div class="allprod_title">好品嚴選</div>    
     <div class="col-md-12 col-xs-12">
-    <carousel :autoplay="true" :perPageCustom="[[768, 2], [1024, 4]]" :autoplayTimeout="2000">
+    <carousel 
+    :perPageCustom="[[768, 2], [1024, 4]]" 
+    :navigationEnabled="true"     
+    :paginationSize=15>
       <slide>
         <img src="../../assets/temporyPic/a1.jpg" class="img-responsive">
       </slide>

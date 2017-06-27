@@ -4,5 +4,5 @@ import { inoviceStatusToCH } from './inoviceStatusToCH.js'
 import { payStatusToCH } from './payStatusToCH.js'
 import { payTypeToCH } from './payTypeToCH.js'
 import { datetimeTrans } from './datetimeTrans.js'
-
-export default { deliveryStatusToCH, deliveryTypeToCH, inoviceStatusToCH, payStatusToCH, payTypeToCH, datetimeTrans }
+import { prodTypeToCH } from './prodTypeToCH.js'
+export default { deliveryStatusToCH, deliveryTypeToCH, inoviceStatusToCH, payStatusToCH, payTypeToCH, prodTypeToCH, datetimeTrans }

@@ -3,24 +3,33 @@ import axios from 'axios'
 import { ecpost } from './ecpost'
 import { noty } from '../../src/assets/AlertDialog'
 export default {
-  [types.IncreaseProduct]({commit}, {itemShow, itemSize}) {
-    commit(types.IncreaseProduct, {itemShow, itemSize})
+  [types.IncreaseProduct]({ commit }, { itemShow, itemSize, prodType }) {
+    commit(types.IncreaseProduct, {itemShow, itemSize, prodType})
   },
   [types.IncreaseAddProduct]({commit}, item) {
     commit(types.IncreaseAddProduct, item)
   },
-  [types.ReduceProduct]({commit}, item) {
+  [types.ReduceProduct]({ state, commit }, item) {
     commit(types.ReduceProduct, item)
   },
   [types.ClearShoppingCartItem]({commit}) {
     commit(types.ClearShoppingCartItem)
   },
+  [types.addCartCount]({ commit }, item) {
+    commit(types.addCartCount, item)
+  },
+  [types.minusCartCount]({ commit }, item) {
+    commit(types.minusCartCount, item)
+  },
+  [types.keyNumCartCount]({ commit }, { item, count }) {
+    commit(types.keyNumCartCount, { item, count })
+  },
   [types.GetMacValue]({state}, BuyerDetail) {
     BuyerDetail.listItem = state.shoppingCartItem
     console.log(BuyerDetail)
     console.log(state.LoginInfo.JWTAuthorization)
-    // ATM
-    if (BuyerDetail.PayType === '3') {
+    // 貨到付款
+    if (BuyerDetail.PayType === '5') {
       axios.post(`/api/Ecpay/PosttoCashonDel`, BuyerDetail, {
         headers: {
           'Authorization': state.LoginInfo.JWTAuthorization

@@ -11,10 +11,10 @@
     <div class=container>
       <div class="btntoDetail col-xs-12  col-md-offset-3 col-md-6">
         <button type="button" @click="goBuyerDetail" class="btn btn-info btn-lg btn-block">結帳去~早買早想享受!</button>
-        "<button type="button" @click="testcookie" class="btn-info btn-lg btn-block">testcookie</button>
+        <button type="button" @click="testcookie" class="btn-info btn-lg btn-block">testcookie</button>
       </div>
     </div>
-    <cartBuyerDetail v-if='showBuyerDetail'></cartBuyerDetail>
+    <cartBuyerDetail v-if='showDetail'></cartBuyerDetail>
 
 
   </div>
@@ -52,7 +52,15 @@
       ...mapGetters([
         'GetLoginInfo',
         'GetLoginModal'
-      ])
+      ]),
+      showDetail() {
+        if (Object.keys(this.GetLoginInfo).length !== 0) {
+          this.showBuyerDetail = true
+        }else {
+          this.showBuyerDetail = false
+        }
+        return this.showBuyerDetail
+      }
     },
     methods: {
       ...mapActions([
