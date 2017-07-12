@@ -12,20 +12,32 @@ export default {
     prodType
   }) {
     console.log(itemShow)
-    itemShow.totalAmt = itemShow.SalePrice * itemSize
-    let cartNo = state.cartNo++
-    state.shoppingCartItem.push({
-      no: cartNo,
-      prodID: itemShow.ProdID,
-      itemNo: itemShow.ItemNo,
-      name: itemShow.ProdName,
-      style: itemShow.ItemName,
-      unitPrice: itemShow.SalePrice,
-      count: itemSize,
-      totalAmt: itemShow.totalAmt,
-      unit: itemShow.Unit,
-      prodType: prodType
+    let sameProd = false
+    state.shoppingCartItem.forEach(function (el) {
+      if (el.prodID === itemShow.ProdID &&
+        el.itemNo === itemShow.ItemNo &&
+        el.prodType === prodType) {
+        el.count += parseInt(itemSize)
+        el.totalAmt += (el.count * el.unitPrice)
+        sameProd = true
+      }
     })
+    if (sameProd === false) {
+      itemShow.totalAmt = itemShow.SalePrice * parseInt(itemSize)
+      let cartNo = state.cartNo++
+      state.shoppingCartItem.push({
+        no: cartNo,
+        prodID: itemShow.ProdID,
+        itemNo: itemShow.ItemNo,
+        name: itemShow.ProdName,
+        style: itemShow.ItemName,
+        unitPrice: itemShow.SalePrice,
+        count: parseInt(itemSize),
+        totalAmt: itemShow.totalAmt,
+        unit: itemShow.Unit,
+        prodType: prodType
+      })
+    }
     Lockr.set('shoppingCartItem', state.shoppingCartItem)
     noty.ShowAlert('恭喜你! 商品已成功加入購物車囉!', 'success')
   },
@@ -97,7 +109,10 @@ export default {
       }
     }
   },
-  [types.keyNumCartCount](state, { item, count }) {
+  [types.keyNumCartCount](state, {
+    item,
+    count
+  }) {
     for (var i = 0; i < state.shoppingCartItem.length; i++) {
       if (state.shoppingCartItem[i].no === item.no) {
         if (count >= 1 && count <= 999) {

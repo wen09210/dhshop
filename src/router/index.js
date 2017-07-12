@@ -7,6 +7,7 @@ import member from '../components/Member/mebPage.vue'
 import cart from '..//components/Cart/cartPage.vue'
 import cartPay from '..//components/Cart/cartPay.vue'
 import prodPomote from '../components/Article/prodPromote.vue'
+import QandA from '../components/Other/QandA.vue'
 // import axios from 'axios'
 
 Vue.use(Router)
@@ -56,6 +57,10 @@ export default new Router({
     {
       path: '/prodPromte/:articalID/:prodID',
       component: prodPomote
+    },
+    {
+      path: '/QandA',
+      component: QandA
     }
   ]
 })

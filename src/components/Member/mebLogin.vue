@@ -9,7 +9,7 @@
         </div>
         <div class="form-group">
           <label for="account">帳號</label>
-          <input type="email" class="form-control" v-model="MemberAccount.MemberEmail" placeholder="輸入帳號">
+          <input type="email" class="form-control" v-model="MemberAccount.MemberEmail" placeholder="輸入帳號(E-mail)">
         </div>
         <div class="form-group">
           <label for="pwd">密碼</label>
