@@ -36,13 +36,16 @@
               <a class="headerIcon">
                 <popover title="購物車商品" :trigger="Hover" placement="bottom" auto-placement >
                   <router-link to="/cart">
+                  <template v-if="cartCount!== 0">
+                    <div class="cartCount">{{cartCount}}</div>
+                    </template>
                     <button type="button" class="btn BtnToA headerIcon" data-role="trigger">
                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                       購物車
                     </button>
                   </router-link>
                   <div slot="popover" class="popoverCart">
-                    <template v-if="Object.keys(GetShoppingCartItem).length!== 0">
+                    <template v-if="cartCount!== 0">
                     <table class="table table-border">
                       <thead>
                         <tr>
@@ -157,6 +160,9 @@
           this.hover = 'hover'
         }
         return this.hover
+      },
+      cartCount() {
+        return Object.keys(this.GetShoppingCartItem).length
       }
     },
     methods: {
@@ -210,6 +216,19 @@
   }
   .close{
     display:none
+  }
+  .cartCount {
+    padding-top: 1px;
+    background: #f57e28;
+    width: 25px;
+    height: 24px;
+    position: absolute;
+    z-index: 99;
+    font-size: 15px;
+    color: #FFFFFF;
+    text-align: center;
+    left: 85px;
+    border-radius: 50%;
   }
 
 </style>

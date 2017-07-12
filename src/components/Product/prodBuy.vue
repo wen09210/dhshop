@@ -79,17 +79,17 @@
     props: {
       first: {
         type: [String],
-        required: true,
+        required: false,
         'default': 'container'
       },
       second: {
         type: [String],
-        required: true,
+        required: false,
         'default': 'col-md-4'
       },
       third: {
         type: [String],
-        required: true,
+        required: false,
         'default': 'col-md-8'
       }
     },

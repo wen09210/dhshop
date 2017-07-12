@@ -88,6 +88,7 @@ export default {
               noty.ShowAlert(response.data.msg, 'warning')
               return false
             }
+            noty.ShowAlert('登入成功，歡迎您', 'success')
             commit(types.PostLogin, response.data.data)
           })
           .catch((error) => {
