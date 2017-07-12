@@ -87,18 +87,24 @@
       </div>
     </template>
 
-      <!--<pagination v-show="!ShowLoading" :cur="tcur" :all="tall" :callback="getPageData" />-->
+    <pagination :cur="tcur" :all="tall" :callback="search"></pagination>
   </div>
 </template>
 
 
 <script>
-  import pagination from '../pagination.vue'
-  import {Collapse} from 'uiv'
-  import {mapGetters} from 'vuex'
+  import pagination from '../extension/pagination.vue'
+  import {
+    Collapse
+  } from 'uiv'
+  import {
+    mapGetters
+  } from 'vuex'
   import Datepicker from 'vuejs-datepicker'
   import axios from 'axios'
-  import {noty} from '../../assets/AlertDialog.js'
+  import {
+    noty
+  } from '../../assets/AlertDialog.js'
   export default {
     components: {
       Datepicker,
@@ -117,22 +123,8 @@
         tall: 0
       }
     },
-    created() {
-      axios.post('/api/MemberAccount/SearchOrder', {}, {
-        headers: {
-          'Authorization': this.GetLoginInfo.JWTAuthorization
-        }
-      })
-      .then((response) => {
-        console.log(response)
-        if(response.data.statu === 'err') {
-          noty.ShowAlert(response.data.msg, 'warning')
-        }
-        this.orderlist = response.data.data
-      })
-      .catch((response) => {
-        console.log(response)
-      })
+    created () {
+      this.search(1)
     },
     computed: {
       ...mapGetters([
@@ -140,31 +132,25 @@
       ])
     },
     methods: {
-      search() {
-        axios.post(`/api/MemberAccount/SearchOrder`, this.searchData, {
+      search(page) {
+        axios.post(`/api/MemberAccount/SearchOrder`, {
+          model: this.searchData,
+          pageIndex: page
+        }, {
           headers: {
             'Authorization': this.GetLoginInfo.JWTAuthorization
           }
         })
           .then((response) => {
             console.log(response)
-            if(response.data.statu === 'err') {
+            if (response.data.statu === 'err') {
               noty.ShowAlert(response.data.msg, 'warning')
             }
-            this.orderlist = response.data.data
+            this.orderlist = response.data.data.list
+            this.tall = response.data.data.PageCount
+            this.tcur = page
           })
-          .catch((err) => {
-            console.log(err)
-          })
-      },
-      getPageData(page) {
-        axios.post('',
-          {model: {
-            Search: '',
-            PageIndex: page,
-            PageSize: 10
-          }}
-        )
+          .catch((err) => console.log(err))
       }
     }
   }
