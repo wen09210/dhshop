@@ -1,86 +1,99 @@
 <template>
-  <div class="Cartcontainer">
-    <h2>金額</h2>
-    <hr>
+  <div class="container">
+    <div class="pageHeader">購物車</div>
     <template v-if="Object.keys(GetShoppingCartItem).length===0">
       <h4>購物車內目前沒有商品，請先選購商品</h4>
     </template>
 
     <template v-else>
       <div>
-        <div class=" tablePay">
-          <div class="row tableTitle">
+        <div class="tablePay">
+          <div class="tableTitle row">
             <div class="col-md-2">圖片</div>
             <div class="col-md-1">類型</div>
-            <div class="col-md-2">名稱</div>
-            <div class="col-md-2">樣式</div>
+            <div class="col-md-3">名稱</div>
             <div class="col-md-1">單價</div>
             <div class="col-md-2">數量</div>
-            <div class="col-md-1">小計</div>
+            <div class="col-md-2">小計</div>
             <div class="col-md-1">功能</div>
           </div>
 
-          <div v-for="item in GetShoppingCartItem" class="row tableTR">
+          <div v-for="item in GetShoppingCartItem" class=" tableTR row">
             <div class="col-md-2 col-xs-6"><img src="../../assets/temporyPic\/hot1.jpg" class="payimg"></div>
-            <div class="col-md-1 col-xs-6 ">
-              <span class="prodType">{{item.prodType |prodTypeToCH}}</span>
+            <div class="col-md-1 col-xs-6 prodType">
+              {{item.prodType |prodTypeToCH}}
             </div>
-            <div class="col-md-2 col-xs-6">{{item.name}}</div>
-            <div class="col-md-2 col-xs-6">{{item.style}}</div>
-            <div class="col-md-1 col-xs-6">{{item.unitPrice}}</div>
-            <div class="col-md-2 col-xs-6">
-              <button class="btn btn-info" @click="minusCartCount(item)">
+            <div class="col-md-3 col-xs-6">{{item.name}}<br> {{item.style}}
+            </div>
+            <div class="col-md-1 col-xs-6">{{item.unitPrice}}元</div>
+            <div class="col-md-2 col-xs-6 btnDiv">
+              <button class="calBtn" @click="minusCartCount(item)">
                 <i class="fa fa-minus" aria-hidden="true"></i>
-              </button>
+                </button>
               <input type="text" class="inputQuentity" :value="item.count" @change="keyNum(item)">
-              <button class="btn btn-info" @click="addCartCount(item)">
+              <button class="calBtn" @click="addCartCount(item)">
                 <i class="fa fa-plus" aria-hidden="true"></i>
               </button> {{item.unit}}
             </div>
-            <div class="col-md-1 col-xs-6 hideTd">{{item.totalAmt}}</div>
+            <div class="col-md-2 col-xs-6 hideTd">{{item.totalAmt}}元</div>
             <div class="col-md-1 col-xs-6 hideTd">
-              <a class="btn btn-danger" @click="ReduceProduct(item)">
-              <i class="fa fa-trash-o fa-lg"></i>
-            </a>
+              <a class="btn btn-danger" @click="ReduceProd(item)">
+                  <i class="fa fa-trash-o fa-lg"></i>
+                </a>
             </div>
 
             <div class="col-md-2 col-xs-12  tableTd">
               <span class="leftTd">
-                    <a class="btn btn-danger" @click="ReduceProduct(item)">
+                    <a class="btn btn-danger" @click="ReduceProd(item)">
                     <i class="fa fa-trash-o fa-lg">忍痛放棄</i>
                     </a>
                 </span>
               <span class="rightTd">
-                   小計 : {{item.totalAmt}}
+                   小計 : {{item.totalAmt}} 元
                 </span>
             </div>
           </div>
 
         </div>
-        <div class="payTotal row">
+        <div class="payTotal">
           {{caculateAmt}}
-          <div class="lineContent">
-            <div class="rightContent">原價:</div>
-            <div class="rightAmt">{{GetshowAmtData.totalProdAmt}}</div>
-          </div>
-          <div class="lineContent">
-            <div class="rightContent">運費:</div>
-            <div class="rightAmt">{{GetshowAmtData.totalFee}}</div>
-          </div>
-          <div class="lineContent">
-            <div class="leftContent">{{GetshowAmtData.disProdName}}</div>
-            <div class="rightContent">購物折扣:</div>
-            <div class="rightAmt">{{GetshowAmtData.discountProd}}</div>
-          </div>
-          <div class="lineContent">
-            <div class="leftContent">{{GetshowAmtData.disDeliveryName}}</div>
-            <div class="rightContent">運費折扣:</div>
-            <div class="rightAmt">{{GetshowAmtData.discountDelivery}}</div>
-          </div>
-          <div>--------------------------------</div>
-          <div class="lineContent">
-            <div class="rightContent">總金額:</div>
-            <div class="rightAmt">{{GetshowAmtData.totalAmt}}</div>
+          <div class="tbody">
+            <div class="lineContent">
+              <div class="leftContent"></div>
+              <div class="rightContent">原價:</div>
+              <div class="rightAmt">{{GetshowAmtData.totalProdAmt}}元</div>
+            </div>
+            <div class="lineContent">
+              <div class="leftContent"></div>
+              <div class="rightContent">運費:</div>
+              <div class="rightAmt">
+                <i class="fa fa-plus" aria-hidden="true" style="color:green"></i> {{GetshowAmtData.totalFee}}元
+              </div>
+            </div>
+            <div class="lineContent">
+              <div class="leftContent">{{GetshowAmtData.disProdName}}</div>
+              <div class="rightContent">購物折扣:</div>
+              <div class="rightAmt">
+                <i class="fa fa-minus" aria-hidden="true" style="color:red"></i> {{GetshowAmtData.discountProd}}元
+              </div>
+            </div>
+            <div class="lineContent">
+              <div class="leftContent">{{GetshowAmtData.disDeliveryName}}</div>
+              <div class="rightContent">運費折扣:</div>
+              <div class="rightAmt">
+                <i class="fa fa-minus" aria-hidden="true" style="color:red"></i> {{GetshowAmtData.discountDelivery}}元
+              </div>
+            </div>
+            <div class="lineContent">
+              <div class="leftContent"></div>
+              <div class="rightContent"><hr></div>
+              <div class="rightAmt"><hr></div>
+            </div>
+            <div class="lineContent">
+              <div class="leftContent"></div>
+              <div class="rightContent finalAmt">總金額:</div>
+              <div class="rightAmt finalAmt">{{GetshowAmtData.totalAmt}}元</div>
+            </div>
           </div>
         </div>
       </div>
@@ -95,6 +108,9 @@
     mapActions,
     mapGetters
   } from 'vuex'
+  import {
+    noty
+  } from '../../assets/AlertDialog'
 
   export default {
     data() {
@@ -123,9 +139,60 @@
         'minusCartCount',
         'keyNumCartCount'
       ]),
+      ReduceProd(item) {
+        // 確認加購品是否符合
+        // 1.移除該商品
+        let cloneCart = this.GetShoppingCartItem.slice()
+        for (var s = 0; s < cloneCart.length; s++) {
+          if (cloneCart[s].no === item.no) {
+            cloneCart.splice(s, 1)
+            console.log('success')
+            break
+          }
+        }
+        console.log('clear')
+        console.log(cloneCart)
+        let reduceNo = []
+        // 加入要移除的商品
+        reduceNo.push(item.no)
+        let errAddName = ''
+        // 2.檢查加購品是否符合
+        for (var i = 0; i < cloneCart.length; i++) {
+          // 為加購品時檢查
+          if (cloneCart[i].prodType === '2') {
+            let MainProdName = cloneCart[i].MainProdName.split('|')
+            console.log(MainProdName)
+            let isAdd = false
+            // 加購品所屬主商品是否還存在
+            for (var w = 0; w < MainProdName.length; w++) {
+              let FindMain = cloneCart.find(x => x.name === MainProdName[w] && x.prodType === '1')
+              console.log(FindMain)
+              // 主商品還在
+              if (typeof FindMain !== 'undefined') {
+                isAdd = true
+              }
+            }
+            if (isAdd === false) {
+              errAddName += `<li>${cloneCart[i].name}-${cloneCart[i].style}</li> `
+              reduceNo.push(cloneCart[i].no)
+            }
+          }
+        }
+        // 顯示不能加購提示
+        if (errAddName !== '') {
+          console.log(reduceNo)
+          noty.ConfirmDialog(`取消此商品將無法加購<br>${errAddName}<br><br>您確定要取消此商品嗎?`, () => {
+            this.ReduceProduct(reduceNo)
+          })
+        } else {
+          noty.ConfirmDialog('您確定要取消此商品嗎?', () => {
+            this.ReduceProduct(reduceNo)
+          })
+        }
+      },
       keyNum(item) {
         var count = event.target.value
-        if(count < 1 || count > 999) {
+        if (count < 1 || count > 999) {
           event.target.value = item.count
         }
         console.log(count)
@@ -147,9 +214,8 @@
     width: 95%
   }
 
-  .payimg {
-    width: 160px;
-    height: 120px
+  .btnDiv {
+    display: flex;
   }
 
   .inputQuentity {
@@ -161,20 +227,20 @@
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    text-align: center;
+    height: 40px;
+     width: 60px;
   }
 
-  .payTotal {
-    display: grid;
-    font-size: 20px;
-    color: red;
-    text-align: right;
-    border-bottom: 2px solid #dddddd;
-  }
-
-  .prodType {
-    background-color: #ff5722;
-    color: #fff;
+  .calBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 1px;
+    background: transparent;
+    width: 40px;
+    height: 40px;
   }
 
   .tablePay {
@@ -183,64 +249,102 @@
 
   .tableTitle {
     border-bottom: 2px solid #dddddd;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    background: #ddd;
+    height: 50px;
+    padding: 15px 0px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+
+  .payTotal {
+    display: table;
+    width: 100%;
+    font-size: 20px;
+    text-align: right;
+    border-bottom: 2px solid #dddddd;
+    color: rgba(0, 0, 0, .8);
+  }
+
+  .tbody {
+    display: table-row-group;
   }
 
   .lineContent {
-    padding: 0px 15px;
+    display: table-row;
   }
 
   .leftContent {
-    display: inline;
-    float: left;
-    width: 50%;
+    width: 60%;
     text-align: left;
+    display: table-cell;
   }
 
   .rightContent {
-    display: inline;
-    float: center;
     width: 20%;
+    text-align: left;
+    display: table-cell;
   }
 
   .rightAmt {
-    display: inline;
-    float: right;
-    width: 30%;
+    width: 20%;
+    text-align: right;
+    display: table-cell;
+  }
+
+  .finalAmt {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff5722;
   }
 
   @media (min-width: 992px) {
+    .payimg {
+      width: 160x;
+      height: 120px
+    }
     .tableTd {
       display: none;
     }
     .tableTR {
-      border: 1px solid #77C9FF;
+      border: 1px solid #dddddd;
       border-radius: 5px;
       padding-top: 10px;
       padding-bottom: 10px;
-      margin-top: 5px;
-      margin-bottom: 5px;
+      margin: 5px 1px;
+    }
+    .prodType {
+      color: #6bc5e1;
+      text-align: center;
+      padding: 0px;
+      font-size: 18px;
+      font-weight: bold;
+      border: 2px solid #6bc5e1;
     }
   }
 
   @media (max-width: 992px) {
+    .col-xs-6 {
+      padding-bottom: 5px;
+    }
+    .payimg {
+      width: 200px;
+      height: 160px
+    }
     .tableTitle {
       display: none;
     }
     .tableTR {
-      border: 1px solid #77C9FF;
+      border: 1px solid #999;
       border-radius: 5px;
       padding-top: 10px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      margin-left: 1px;
-      margin-right: 1px;
+      margin: 5px;
     }
     .hideTd {
       display: none;
     }
     .tableTd {
-      background-color: #f7f8ff;
+      background-color: #eee;
       text-align: right;
       margin-top: 5px;
       padding: 10px;
@@ -250,6 +354,9 @@
       width: 100px;
       margin-left: 30px;
       margin-right: 30px;
+      font-weight: bold;
+      color: #ff4500;
+      font-size: 24px;
     }
     .leftTd {
       float: left;
@@ -257,6 +364,16 @@
       width: 100px;
       margin-left: 30px;
       margin-right: 30px;
+    }
+    .prodType {
+      width: 30%;
+      color: #6bc5e1;
+      text-align: center;
+      padding: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      border: 2px solid #6bc5e1;
+      margin-bottom: 10px;
     }
   }
 

@@ -2,7 +2,6 @@ export default {
   IncreaseProduct: 'IncreaseProduct',
   IncreaseAddProduct: 'IncreaseAddProduct',
   ReduceProduct: 'ReduceProduct',
-  ReduceListProduct: 'ReduceListProduct',
   GetShoppingCartItem: 'GetShoppingCartItem',
   ClearShoppingCartItem: 'ClearShoppingCartItem',
   addCartCount: 'addCartCount',

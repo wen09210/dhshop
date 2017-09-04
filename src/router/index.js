@@ -5,7 +5,8 @@ import prodPage from '../components/Product/prodPage'
 import login from '../components/Member/mebLogin'
 import member from '../components/Member/mebPage.vue'
 import cart from '..//components/Cart/cartPage.vue'
-import cartPay from '..//components/Cart/cartPay.vue'
+import cartBuyerDetail from '..//components/Cart/cartBuyerDetail.vue'
+import cartPayOK from '../components/Cart/cartPayOk.vue'
 import prodPomote from '../components/Article/prodPromote.vue'
 import QandA from '../components/Other/QandA.vue'
 // import axios from 'axios'
@@ -14,6 +15,7 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
+  scrollBehavior: () => ({y: 0}),
   routes: [
     {
       path: '/',
@@ -51,8 +53,14 @@ export default new Router({
       // }
     },
     {
-      path: '/cartPay',
-      component: cartPay
+      path: '/cartBuyerDetail',
+      name: 'cartBuyerDetail',
+      component: cartBuyerDetail
+    },
+    {
+      path: '/cartPayOK',
+      name: 'cartPayOK',
+      component: cartPayOK
     },
     {
       path: '/prodPromte/:articalID/:prodID',

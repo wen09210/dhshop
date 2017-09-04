@@ -1,167 +1,245 @@
 <template>
+
+  <!--步驟條-->
   <div class="container">
+    <div class="col-xs-4 bs-wizard-step ">
+      <div class="textbar">填寫收件資訊</div>
+      <div class="progress" style="width:50%;float:right;">
+        <div class="innerbar"></div>
+      </div>
+      <span class="Dot">
+            <span class="DotInner"></span>
+      </span>
+    </div>
+
+    <div class="col-xs-4 bs-wizard-step ">
+      <div class="textbar">選擇付款方式</div>
+      <div class="progress">
+        <div class="innerbar" :class="[{hideBar: !showPaytype}]"></div>
+      </div>
+      <span class="Dot" :class="[{ hideDot: !showPaytype }]">
+            <span class="DotInner" :class="[{ hideDotInner: !showPaytype }]"></span>
+      </span>
+    </div>
+
+    <div class="col-xs-4 bs-wizard-step ">
+      <div class="textbar">完成訂單</div>
+      <div class="progress" style="width:50%">
+        <div class=""></div>
+      </div>
+      <span class="Dot hideDot">
+            <span class="DotInner hideDotInner"></span>
+      </span>
+    </div>
+
+
     <h2>訂購資料</h2>
     <hr>
 
     <form class="form-horizontal" role="form">
-      <div class="detailBlock">
-        {{matchLoginInfo}}
-        <div class="detailTitle">
-          <span>STEP1 : 訂購人</span>
-        </div>
-        <div class="form-group">
-          <label for="Purchaser" class="col-sm-2 control-label">訂購人姓名:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" v-model="BuyerDetail.Purchaser" placeholder="訂購人姓名:">
+      <!-- 收件資訊  -->
+      <template v-if="showBuyer">
+        <div class="detailBlock">
+          {{matchLoginInfo}}
+          <div class="detailTitle">
+            <span>訂購人</span>
+          </div>
+          <div class="form-group">
+            <label for="Purchaser" class="col-sm-2 control-label">訂購人姓名:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" v-model="BuyerDetail.Purchaser" placeholder="訂購人姓名:">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="P_Address" class="col-sm-2 control-label">訂購人地址:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" v-model="BuyerDetail.P_Address" placeholder="訂購人地址:">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="P_Phone" class="col-sm-2 control-label">訂購人手機:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" v-model="BuyerDetail.P_Phone" placeholder="訂購人手機">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="P_Mail" class="col-sm-2 control-label">E-MAIL：</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" v-model="BuyerDetail.P_Mail" placeholder="E-MAIL：">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="P_Note" class="col-sm-2 control-label">備註:</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" v-model="BuyerDetail.P_Note" rows="3"></textarea>
+            </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="P_Address" class="col-sm-2 control-label">訂購人地址:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" v-model="BuyerDetail.P_Address" placeholder="訂購人地址:">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="P_Phone" class="col-sm-2 control-label">訂購人手機:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" v-model="BuyerDetail.P_Phone" placeholder="訂購人手機">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="P_Mail" class="col-sm-2 control-label">E-MAIL：</label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control" v-model="BuyerDetail.P_Mail" placeholder="E-MAIL：">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="P_Note" class="col-sm-2 control-label">備註:</label>
-          <div class="col-sm-10">
-            <textarea class="form-control" v-model="BuyerDetail.P_Note" rows="3"></textarea>
-          </div>
-        </div>
-      </div>
 
-      <div class="detailBlock">
-        <div class="detailTitle">
-          <span>STEP2 : 收件人</span>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <input type="checkbox" v-model="eqPurchaser" @click="eqPurchsase()" class="largerCheckbox">
-            <label for="eqPurchaser">
+        <div class="detailBlock">
+          <div class="detailTitle">
+            <span>收件人</span>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="checkbox" v-model="eqPurchaser" @click="eqPurchsase()" class="largerCheckbox">
+              <label for="eqPurchaser">
                  與訂購人相同請打勾
             </label>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="Recipient" class="col-sm-2 control-label">收件人姓名:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" v-model="BuyerDetail.Recipient" placeholder="收件人姓名:">
+          <div class="form-group">
+            <label for="Recipient" class="col-sm-2 control-label">收件人姓名:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" v-model="BuyerDetail.Recipient" placeholder="收件人姓名:">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="R_Address" class="col-sm-2 control-label">收件人地址:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" v-model="BuyerDetail.R_Address" placeholder="收件人地址:">
+          <div class="form-group">
+            <label for="R_Address" class="col-sm-2 control-label">收件人地址:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" v-model="BuyerDetail.R_Address" placeholder="收件人地址:">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="R_Phone" class="col-sm-2 control-label">收件人手機:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" v-model="BuyerDetail.R_Phone" placeholder="收件人手機">
+          <div class="form-group">
+            <label for="R_Phone" class="col-sm-2 control-label">收件人手機:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" v-model="BuyerDetail.R_Phone" placeholder="收件人手機">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="R_Mail" class="col-sm-2 control-label">E-MAIL：</label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control" v-model="BuyerDetail.R_Mail" placeholder="E-MAIL：">
+          <div class="form-group">
+            <label for="R_Mail" class="col-sm-2 control-label">E-MAIL：</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" v-model="BuyerDetail.R_Mail" placeholder="E-MAIL：">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="R_Time" class="col-sm-2 control-label">收件時段:</label>
-          <div class="col-sm-10">
-            <select class="form-control" v-model="BuyerDetail.R_Time">
-              <option>中午前</option>
+          <div class="form-group">
+            <label for="R_Time" class="col-sm-2 control-label">收件時段:</label>
+            <div class="col-sm-10">
+              <select class="form-control" v-model="BuyerDetail.R_Time">
+              <option>12點前</option>
               <option>12~17點</option>
               <option>17點後</option>
           </select>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="detailBlock">
-        <div class="detailTitle">
-          <span>STEP3 : 付款方式</span>
-        </div>
-        <div class="form-group">
-          <label for="PayType" class="col-sm-2 control-label">付款方式:</label>
-          <div class="col-sm-10">
-            <label class="radio-inline">
-              <input type="radio" name="PayType" value="1" v-model="BuyerDetail.PayType">ATM付款
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="PayType" value="2" v-model="BuyerDetail.PayType">信用卡(一次付清)
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="PayType" value="3" v-model="BuyerDetail.PayType">信用卡(分三期付款)
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="PayType" value="4" v-model="BuyerDetail.PayType">信用卡(分六期付款)
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="PayType" value="5" v-model="BuyerDetail.PayType">貨到付款
-            </label>
+        <!-- 上一步 -->
+        <router-link to="/cart">
+          <div class=" col-xs-3 col-md-5">
+            <button type="button" class="btn btn-success btn-lg btn-block">回購物車!</button>
           </div>
-        </div>
+        </router-link>
 
-        <div class="form-group">
-          <label for="InoviceType" class="col-sm-2 control-label">發票:</label>
-          <div class="col-sm-10">
-            <label class="radio-inline">
+        <!-- 下一步 -->
+        <div class=" col-xs-9 col-md-7">
+          <button type="button" @click="goPayType" class="btn btn-info btn-lg btn-block">下一步!</button>
+        </div>
+      </template>
+
+      <!-- 付款資訊 -->
+      <template v-if="showPaytype">
+        <div class="detailBlock">
+          <div class="detailTitle">
+            <span>付款方式</span>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-3  col-sm-2">
+              <label for="PayType" class="control-label">付款方式:</label>
+            </div>
+            <div class="col-xs-9  col-sm-10">
+              <label class="radio-inline">
+              <input type="radio" name="PayType" value="1" v-model="BuyerDetail.PayType">
+              ATM付款  
+              <span class= "amtDetail">NT ${{GetshowAmtData.totalAmt}}元</span>
+              </label>
+            </div>
+            <div class="col-xs-offset-3 col-xs-9  col-sm-offset-2 col-sm-10">
+              <label class="radio-inline">
+              <input type="radio" name="PayType" value="2" v-model="BuyerDetail.PayType">
+              信用卡(一次付清)
+              <span class= "amtDetail">NT ${{GetshowAmtData.totalAmt}}元</span>
+            </label>
+            </div>
+
+            <div class="col-xs-offset-3 col-xs-9 col-sm-offset-2 col-sm-10 creditNote">(※除不盡餘數於第一期收取)</div>
+            
+            <div class="col-xs-offset-3 col-xs-9 col-sm-offset-2 col-sm-10">
+              <label class="radio-inline">
+              <input type="radio" name="PayType" value="3" v-model="BuyerDetail.PayType">
+              信用卡(分三期付款)
+              <span class= "amtDetail">NT ${{Math.floor(GetshowAmtData.totalAmt*1.0025/3)}}元 X 3期</span>
+            </label>
+            </div>
+            <div class="col-xs-offset-3 col-xs-9 col-sm-offset-2 col-sm-10">
+              <label class="radio-inline">
+              <input type="radio" name="PayType" value="4" v-model="BuyerDetail.PayType">
+              信用卡(分六期付款)
+              <span class= "amtDetail">NT ${{Math.floor(GetshowAmtData.totalAmt*1.0175/6)}}元 X 6期</span>
+            </label>
+            </div>
+            <div class="col-xs-offset-3 col-xs-9 col-sm-offset-2 col-sm-10">
+              <label class="radio-inline">
+              <input type="radio" name="PayType" value="5" v-model="BuyerDetail.PayType">
+              貨到付款
+              <span class= "amtDetail">NT ${{GetshowAmtData.totalAmt}}元</span></span>
+            </label>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label for="InoviceType" class="col-sm-2 control-label">發票:</label>
+            <div class="col-sm-10">
+              <label class="radio-inline">
           <input type="radio" name="InoviceType" value="1" v-model="BuyerDetail.InoviceType">電子發票
           </label>
-            <label class="radio-inline">
+              <label class="radio-inline">
           <input type="radio" name="InoviceType" value="2" v-model="BuyerDetail.InoviceType">捐贈發票
           </label>
-            <label class="radio-inline">
+              <label class="radio-inline">
           <input type="radio" name="InoviceType" value="3" v-model="BuyerDetail.InoviceType">紙本發票 
           </label>
-            <label class="radio-inline">
+              <label class="radio-inline">
               <input type="radio" name="InoviceType" value="4" v-model="BuyerDetail.InoviceType">公司三聯發票
           </label>
+            </div>
           </div>
-        </div>
-        <div class="form-group" v-if="BuyerDetail.InoviceType==='2'">
-          <label for="Corporation" class="col-sm-2 control-label">捐贈單位:</label>
-          <div class="col-sm-10">
-            <select class="form-control lovecodeSelect" v-model="BuyerDetail.InoviceLoveCode">
+          <div class="form-group" v-if="BuyerDetail.InoviceType==='2'">
+            <label for="Corporation" class="col-sm-2 control-label">捐贈單位:</label>
+            <div class="col-sm-10">
+              <select class="form-control lovecodeSelect" v-model="BuyerDetail.InoviceLoveCode">
               <option v-for="item in InvoiceCode" :value="item.lovecode">{{item.name}}</option>
           </select>
+            </div>
           </div>
-        </div>
-        <div class="form-group" v-if="BuyerDetail.InoviceType==='4'">
-          <label for="Corporation" class="col-sm-2 control-label">公司抬頭:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" v-model="BuyerDetail.Corporation" placeholder="公司抬頭:">
+          <div class="form-group" v-if="BuyerDetail.InoviceType==='4'">
+            <label for="Corporation" class="col-sm-2 control-label">公司抬頭:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" v-model="BuyerDetail.Corporation" placeholder="公司抬頭:">
+            </div>
+            <label for="taxIDNum" class="col-sm-2 control-label">統一編號:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" v-model="BuyerDetail.taxIDNum" placeholder="統一編號:">
+            </div>
           </div>
-          <label for="taxIDNum" class="col-sm-2 control-label">統一編號:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" v-model="BuyerDetail.taxIDNum" placeholder="統一編號:">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="DeliveryType" class="col-sm-2 control-label">運送方式:</label>
-          <div class="col-sm-10">
-            <label class="radio-inline">
+          <div class="form-group">
+            <label for="DeliveryType" class="col-sm-2 control-label">運送方式:</label>
+            <div class="col-sm-10">
+              <label class="radio-inline">
             <input type="radio" name="DeliveryType" value="1" v-model="BuyerDetail.DeliveryType">宅配
             </label>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class=" col-xs-12  col-md-offset-3 col-md-6">
-        <button type="button" @click="GetMacValue(BuyerDetail)" class="btn btn-info btn-lg btn-block">老闆~買了!買了!</button>
-      </div>
+        <div class=" col-xs-3 col-md-5">
+          <button type="button" @click="goBuyer" class="btn btn-success btn-lg btn-block">上一步!</button>
+        </div>
+        <div class=" col-xs-9 col-md-7">
+          <button type="button" @click="GetMacValue(BuyerDetail)" class="btn btn-info btn-lg btn-block">老闆~買了!買了!</button>
+        </div>
+      </template>
+
 
     </form>
   </div>
@@ -217,11 +295,11 @@
     'R_Phone': '',
     'R_Address': '',
     'R_Mail': '',
-    'R_Time': '',
-    'PayType': '',
-    'DeliveryType': '',
-    'InoviceType': '',
-    'InoviceLoveCode': '',
+    'R_Time': '12點前',
+    'PayType': '1',
+    'DeliveryType': '1',
+    'InoviceType': '1',
+    'InoviceLoveCode': '1980198',
     'Corporation': '',
     'taxIDNum': ''
   }
@@ -230,13 +308,16 @@
       return {
         BuyerDetail: BuyerDetail,
         eqPurchaser: false,
-        InvoiceCode: InvoiceCode
+        InvoiceCode: InvoiceCode,
+        showBuyer: true,
+        showPaytype: false
       }
     },
     computed: {
       ...mapGetters([
         'GetShoppingCartItem',
-        'GetLoginInfo'
+        'GetLoginInfo',
+        'GetshowAmtData'
       ]),
       matchLoginInfo() {
         this.BuyerDetail.Purchaser = this.GetLoginInfo.MemberName
@@ -249,6 +330,15 @@
       ...mapActions([
         'GetMacValue'
       ]),
+      goPayType() {
+        this.showBuyer = false
+        this.showPaytype = true
+        window.scrollTo(0, 0)
+      },
+      goBuyer() {
+        this.showBuyer = true
+        this.showPaytype = false
+      },
       eqPurchsase() {
         if (this.eqPurchaser === true) {
           console.log('tt3')
@@ -262,7 +352,7 @@
   }
 
 </script>
-<style scoped>
+<style >
   .detailBlock {
     font-size: 18px;
     border: 1px solid #77C9FF;
@@ -289,4 +379,76 @@
     height: 20px;
   }
 
+  .textbar {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .bs-wizard-step {
+    padding: 0;
+    position: relative;
+    margin-top: 15px;
+  }
+
+  .progress {
+    overflow: hidden;
+    height: 15px;
+    margin-top: 15px;
+    margin-bottom: 21px;
+    background-color: #f5f5f5;
+    border-radius: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .innerbar {
+    height: 5px;
+    box-shadow: none;
+    background: #ff9900;
+  }
+
+  .Dot {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    display: block;
+    background: #ff9900;
+    left: 50%;
+    top: 45px;
+    margin-top: -2px;
+    margin-left: -15px;
+    border-radius: 50%;
+  }
+
+  .DotInner {
+    width: 14px;
+    height: 14px;
+    background: #ff6600;
+    border-radius: 50px;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+  }
+
+  .hideBar {
+    background: rgba(255, 255, 255, .15);
+  }
+
+  .hideDot {
+    background: #ddd;
+  }
+
+  .hideDotInner {
+    background: #ccc;
+  }
+
+.amtDetail{
+  color: #c90026;
+  font-weight: bold;
+  margin-left: 15PX;
+}
+.creditNote{
+  font-size: 14px;
+  margin-top: 10px;
+}
 </style>

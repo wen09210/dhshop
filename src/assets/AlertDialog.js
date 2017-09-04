@@ -8,16 +8,16 @@ var noty = {
       theme: 'relax',
       closeWith: ['butto'],
       text: `
-            <div style="width:200px;">
-              <div style="margin:20px;width:200px;"><h4>${msg}</h4></div>
+            <div style="width:300px;">
+              <div style="margin:20px;width:300px;"><h4>${msg}</h4></div>
             </div>
         `,
       buttons: [
-        Noty.button('是', 'btn btn-success', () => {
+        Noty.button('是', 'btn btn-success col-xs-offset-2 col-xs-4', () => {
           callback()
           n.close()
         }),
-        Noty.button('否', 'btn btn-danger', () => {
+        Noty.button('否', 'btn btn-danger col-xs-4', () => {
           n.close()
         })
       ]

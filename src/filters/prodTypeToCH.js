@@ -10,6 +10,9 @@ export const prodTypeToCH = (val) => {
     case '3':
       prodtypeCH = '預購商品'
       break
+    case '4':
+      prodtypeCH = '贈品'
+      break
   }
   return prodtypeCH
 }

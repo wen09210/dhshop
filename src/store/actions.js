@@ -2,6 +2,7 @@ import types from './types'
 import axios from 'axios'
 import { ecpost } from './ecpost'
 import { noty } from '../../src/assets/AlertDialog'
+import router from '../router'
 export default {
   [types.IncreaseProduct]({ commit }, { itemShow, itemSize, prodType }) {
     commit(types.IncreaseProduct, {itemShow, itemSize, prodType})
@@ -9,8 +10,8 @@ export default {
   [types.IncreaseAddProduct]({commit}, item) {
     commit(types.IncreaseAddProduct, item)
   },
-  [types.ReduceProduct]({ state, commit }, item) {
-    commit(types.ReduceProduct, item)
+  [types.ReduceProduct]({ state, commit }, reduceNo) {
+    commit(types.ReduceProduct, reduceNo)
   },
   [types.ClearShoppingCartItem]({commit}) {
     commit(types.ClearShoppingCartItem)
@@ -41,6 +42,9 @@ export default {
           return false
         }
         noty.ShowAlert(response.data.msg, 'success')
+        router.push({
+          name: 'cartPayOK'
+        })
       })
         .catch(function (r) {
           console.log(r)
@@ -88,7 +92,7 @@ export default {
               noty.ShowAlert(response.data.msg, 'warning')
               return false
             }
-            noty.ShowAlert('登入成功，歡迎您', 'success')
+            noty.ShowAlert('登入成功，dHshop歡迎您', 'success')
             commit(types.PostLogin, response.data.data)
           })
           .catch((error) => {
@@ -99,6 +103,11 @@ export default {
     axios.post('/api/MemberAccount/AnonymousLogin')
           .then((response) => {
             console.log(response.data)
+            if (response.data.statu === 'err') {
+              noty.ShowAlert(response.data.msg, 'warning')
+              return false
+            }
+            noty.ShowAlert('dHshop歡迎您', 'success')
             commit(types.PostAnoyLogin, response.data.data)
           })
           .catch((error) => {

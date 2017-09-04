@@ -9,7 +9,7 @@
       </div>
       <!-- -->
       <div :class="third">
-        <h1>{{ $route.params.prodID }}</h1>
+        <h1>{{$route.params.prodID }}</h1>
         <h3>{{itemShow.ProdName+'--'+itemShow.ItemName}}</h3>
         <p>{{itemShow.description}}</p>
         <div>
@@ -35,19 +35,21 @@
         <div>
           <label>樣式</label>
           <select class="selectpicker" v-model="itemSelect" @change="getItem">
-                  <option v-for="option in item"  :value="option.ItemNo">{{option.ItemName}}</option>
+                  <option v-for="option in item"  :value="option.ItemNo">
+                    {{option.ItemName}}
+                    </option>
             </select>
         </div>
 
         <div style="display:inline-block">
           <label>數量</label>
-          <button class="btn btn-info" @click="itemSize++">
-              <i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
-          <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
           <button class="btn btn-info" @click="itemSize--">
               <i class="fa fa-minus" aria-hidden="true"></i>
           </button>
+          <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
+          <button class="btn btn-info" @click="itemSize++">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
         </div>
 
         <div class="buybtn">
@@ -76,6 +78,7 @@
   } from '../../assets/AlertDialog.js'
   export default {
     components: {},
+    // 大小版css控制
     props: {
       first: {
         type: [String],
@@ -95,27 +98,27 @@
     },
     data: function () {
       return {
+        // 所有資料
         item,
+        // 樣式資料
         itemShow: {},
         itemSize: 1,
         itemSelect: ''
       }
     },
     created() {
-      axios.get('/api/Ecpay/Get')
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((res) => {
-          console.log(res)
-        })
       console.log(this.$route.params.prodID)
+      // 取回商品資料
       axios.get(`/api/Product/GetProductDetail?prodID= ${this.$route.params.prodID}`)
         .then((response) => {
-          this.item = response.data
-          this.itemShow = this.item[0]
-          this.itemSelect = this.item[0].ItemNo
-          console.log(this.item)
+          if (response.data.statu === 'err') {
+            noty.ShowAlert(response.data.msg, 'warning')
+          } else {
+            this.item = response.data.data
+            this.itemShow = this.item[0]
+            this.itemSelect = this.item[0].ItemNo
+            console.log(this.item)
+          }
         })
         .catch(function (error) {
           console.log(error)
@@ -128,6 +131,9 @@
       itemSize_check() {
         if (this.itemSize <= 0) {
           this.itemSize = 1
+        }
+        if (this.itemSize >= 500) {
+          this.itemSize = 500
         }
         return this.itemSize
       }
@@ -157,7 +163,7 @@
           .then((response) => {
             console.log(response)
             if (response.data.statu === 'err') {
-              noty.ShowAlert('系統忙碌中，請稍後操作', 'warning')
+              noty.ShowAlert('系統忙碌中，請稍待片刻後重新操作<br>或直接聯繫客服人員為您處理', 'warning')
               return false
             }
             var itemShow = this.itemShow
@@ -167,9 +173,13 @@
             if (response.data.data < this.itemSize) {
               console.log(this.itemSize)
               prodType = '3'
-              noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，是否以預購方式購買', () => {
-                this.IncreaseProduct({itemShow, itemSize, prodType})
-                // 直接購買
+              noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，<br>是否以預購方式購買，同時享受優惠', () => {
+                this.IncreaseProduct({
+                  itemShow,
+                  itemSize,
+                  prodType
+                })
+                // 直接購買則導到購物車
                 if (direct !== '') {
                   this.$router.push({
                     name: 'cart'
@@ -177,7 +187,11 @@
                 }
               })
             } else {
-              this.IncreaseProduct({itemShow, itemSize, prodType})
+              this.IncreaseProduct({
+                itemShow,
+                itemSize,
+                prodType
+              })
               if (direct !== '') {
                 this.$router.push({
                   name: 'cart'

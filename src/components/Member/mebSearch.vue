@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <h3>訂單查詢</h3>
+    <h3><i class="fa fa-list-alt" aria-hidden="true"></i>訂單狀態查詢</h3>
+    <hr>
     <form class="form-inline" role="form">
       <label>訂單號碼:</label>
       <div class="form-group">
@@ -22,10 +23,10 @@
       </div>
     </form>
     <template v-if="orderlist.length>0">
-      <div v-for="item in orderlist">
+      <div v-for="item in orderlist" class="orderDiv">
         <table class="table table-striped table-hover">
           <thead>
-            <tr>
+            <tr class="orderMain">
               <th></th>
               <th>訂單編號</th>
               <th>訂購日期</th>
@@ -42,7 +43,7 @@
               <td>
                 <button type="button" class="btn btn-info" @click="item.OpenCollapse=!item.OpenCollapse">訂單詳細</button>
               </td>
-              <td>{{item.OrderView.OrderNum}}</td>
+              <td>{{item.OrderView.MerchantTradeNo}}</td>
               <td>{{item.OrderView.OrderDate|datetimeTrans}}</td>
               <td>{{item.OrderView.AllTotalAmt}}</td>
               <td>{{item.OrderView.PayType|payTypeToCH}}</td>
@@ -56,7 +57,7 @@
         <!--商品明細-->
         <collapse v-model="item.OpenCollapse">
           <div>
-            <table class="table table-striped table-hover">
+            <table class="table  table-striped table-hover">
               <thead>
                 <tr>
                   <th>產品名稱</th>
@@ -161,5 +162,12 @@
   div .form-control {
     width: 250px;
   }
-
+  .orderMain{
+    background: #4689c2;
+    color: #fff;
+  }
+.orderDiv{
+  border:1px solid #5bc0de;
+  margin: 15px 0px;
+}
 </style>

@@ -1,52 +1,240 @@
 <template>
-
   <div class="container">
-    <div class="allprod_title">好品嚴選</div>    
-    <div class="col-md-12 col-xs-12">
-    <carousel 
-    :perPageCustom="[[768, 2], [1024, 4]]" 
-    :navigationEnabled="true"     
-    :paginationSize=15>
-      <slide>
-        <img src="../../assets/temporyPic/a1.jpg" class="img-responsive">
-      </slide>
-      <slide>
-        <img src="../../assets/temporyPic/a2.png" class="img-responsive">
-      </slide>
-      <slide>
-        <img src="../../assets/temporyPic/a3.jpg" class="img-responsive">
-      </slide>
-      <slide>
-        <img src="../../assets/temporyPic/a5.jpg" class="img-responsive">
-      </slide>
-       <slide>
-        <img src="../../assets/temporyPic/a6.jpg" class="img-responsive">
-      </slide>
-    </carousel>
+    <div class="style_intro">你想如何改善居家?</div>
+    <div class="">
+      <ul class="nav nav-pills nav-yellow">
+        <li class="col-xs-3" :class="{tabHover: tavControl.house }" @click="changeTab('house')">
+          <img src="../../assets/temporyPic/Index/01_house.png"> 空間改造
+        </li>
+        <li class="col-xs-3" :class="{tabHover: tavControl.clean }" @click="changeTab('clean')">
+          <img src="../../assets/temporyPic/Index/03_dentist-mask.png">清潔保養
+        </li>
+        <li class="col-xs-3" :class="{tabHover:tavControl.hstyle}" @click="changeTab('hstyle')">
+          <img src="../../assets/temporyPic/Index/04_lamp.png"> 氛圍營造
+        </li>
+        <li class="col-xs-3" :class="{tabHover:tavControl.good}" @click="changeTab('good')">
+          <img src="../../assets/temporyPic/Index/05_tea.png">居家好物
+        </li>
+      </ul>
     </div>
-    <hr>
+    <!--  -->
+    <div class="row">
+      <!-- 空間改造 -->
+      <div v-show="tavControl.house">
+        <!-- 左大圖 -->
+        <router-link to="/Product/1">
+          <div class="col-md-6 topPadding ">
+            <img src="../../assets/temporyPic/Index/floor.jpg" class="item_category firstPIC imgHover">
+          </div>
+        </router-link>
+        <div class="col-md-6">
+          <!-- 右上圖 -->
+          <div class="col-md-12 noPadding">
+            <router-link to="/Product/8">
+              <div class="col-md-6 col-xs-6">
+                <img src="../../assets/temporyPic/Index/wallpaper.jpg" class="item_category imgHover">
+              </div>
+            </router-link>
+            <router-link to="/Product/1">
+              <div class="col-md-6 col-xs-6">
+                <img src="../../assets/temporyPic/Index/floor2.jpg" class="item_category imgHover">
+              </div>
+            </router-link>
+          </div>
+          <!-- 右下圖 -->
+          <router-link to="/Product/3">
+            <div class="col-md-12 col-xs-12 noPadding topPadding">
+              <img src="../../assets/temporyPic/Index/paintroller.jpg" class="item_category firstPIC imgHover">
+            </div>
+          </router-link>
+        </div>
+        <!-- 下圖 -->
+        <div class="col-md-12 topPadding noPadding">
+          <div class="col-md-4">
+            <!-- Carousel -->
+            <swiper :options="swiperOption">
+                <swiper-slide>
+                  <router-link to="/Product/4">
+                  <img src="../../assets/temporyPic/Index/floortrima.jpg" class="item_category imgHover">
+                  </router-link>
+                </swiper-slide>
+              <swiper-slide>
+                <img src="../../assets/temporyPic/Index/indexroller.jpg" class="item_category imgHover">
+              </swiper-slide>
+              <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
+              <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
+            </swiper>
+          </div>
+          <div class="col-md-4">
+            <img src="../../assets/temporyPic/Index/small8.jpg" class="item_category imgHover">
+          </div>
+          <div class="col-md-4">
+            <img src="../../assets/temporyPic/Index/wallpaper2.jpg" class="item_category imgHover">
+          </div>
+        </div>
+      </div>
+      <!-- 清潔保養 -->
+      <div v-show="tavControl.clean">
+        <!-- 左大圖 -->
+        <div class="col-md-6 topPadding ">
+          <img src="../../assets/temporyPic/Index/ichimodajin.jpg" class="item_category firstPIC imgHover">
+        </div>
+        <div class="col-md-6">
+          <!-- 右上圖 -->
+          <div class="col-md-12 noPadding">
+            <div class="col-md-6 col-xs-6">
+              <img src="../../assets/temporyPic/Index/mask1.jpg" class="item_category imgHover">
+            </div>
+            <div class="col-md-6 col-xs-6">
+              <img src="../../assets/temporyPic/Index/toothbrush.jpg" class="item_category imgHover">
+            </div>
+          </div>
+          <!-- 右下圖 -->
+          <div class="col-md-12 col-xs-12 noPadding topPadding">
+            <img src="../../assets/temporyPic/Index/mite.jpg" class="item_category firstPIC imgHover">
+          </div>
+        </div>
+      </div>
+      <!-- 氛圍營造 -->
+      <div v-show="tavControl.hstyle">
+        <!-- 左大圖 -->
+        <div class="col-md-6 topPadding ">
+          <img src="../../assets/temporyPic/Index/diffuser.jpg" class="item_category firstPIC imgHover">
+        </div>
+        <div class="col-md-6">
+          <!-- 右上圖 -->
+          <div class="col-md-12 noPadding">
+            <div class="col-md-6 col-xs-6">
+              <img src="../../assets/temporyPic/Index/led_lighting.jpg" class="item_category imgHover">
+            </div>
+            <div class="col-md-6 col-xs-6">
+              <img src="../../assets/temporyPic/Index/diffuser2.jpg" class="item_category imgHover">
+            </div>
+          </div>
+          <!-- 右下圖 -->
+          <div class="col-md-12 col-xs-12 noPadding topPadding">
+            <img src="../../assets/temporyPic/Index/ledbanner.jpg" class="item_category firstPIC imgHover">
+          </div>
+        </div>
+      </div>
+      <!-- 居家好物 -->
+      <div v-show="tavControl.good">
+        <!-- 左大圖 -->
+        <div class="col-md-6 topPadding ">
+          <img src="../../assets/temporyPic/Index/tea.jpg" class="item_category firstPIC imgHover">
+        </div>
+        <div class="col-md-6">
+          <!-- 右上圖 -->
+          <div class="col-md-12 noPadding">
+            <div class="col-md-6 col-xs-6">
+              <img src="../../assets/temporyPic/Index/cup.jpg" class="item_category imgHover">
+            </div>
+            <div class="col-md-6 col-xs-6">
+              <img src="../../assets/temporyPic/Index/gluedot.jpg" class="item_category imgHover">
+            </div>
+          </div>
+          <!-- 右下圖 -->
+          <div class="col-md-12 col-xs-12 noPadding topPadding">
+            <img src="../../assets/temporyPic/Index/bottle.jpg" class="item_category firstPIC imgHover">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  
+  </div>
 </template>
 
 
 <script>
-import { Carousel, Slide } from 'vue-carousel'
-export default {
-  components: {
-    Carousel,
-    Slide
+  import {
+    swiper,
+    swiperSlide
+  } from 'vue-awesome-swiper'
+  export default {
+    components: {
+      swiper,
+      swiperSlide
+    },
+    data() {
+      return {
+        tavControl: {
+          house: true,
+          clean: false,
+          hstyle: false,
+          good: false
+        },
+        swiperOption: {
+          slidesPerView: 1,
+          loop: true,
+          nextButton: '.swiper-button-next',
+          prevButton: '.swiper-button-prev'
+        }
+      }
+    },
+    methods: {
+      changeTab(id) {
+        for (var item in this.tavControl) {
+          this.tavControl[item] = false
+        }
+        this.tavControl[id] = true
+        console.log(this.tavControl)
+      }
+    }
   }
-}
+
 </script>
-<style >
-  .allprod_title {  
-  font-weight: bold;
-  font-size: 25px;
-  margin-bottom: 15px;
-  margin-top: 35px;
-}
- .VueCarousel-slide {
-  margin:5px
-}
+<style scoped>
+  @media (max-width:768px) {
+    .nav.nav-yellow>li {
+      width: 110px;
+      margin: 10px 3px;
+      padding: 20px 15px;
+      background-color: #eee;
+      font-size: 18px;
+    }
+    .nav.nav-yellow>li>img {
+      margin: 0px 15px;
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  @media (min-width:768px) {
+    .nav.nav-yellow>li {
+      width: 150px;
+      margin: 10px 3px;
+      padding: 25px 20px;
+      background-color: #eee;
+      font-size: 18px;
+    }
+    .nav.nav-yellow>li>img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .tabHover {
+    color: #2e2e2e;
+    background-color: #ffde97 !important;
+    font-weight: 600;
+  }
+
+  .item_category {
+    width: 100%;
+    height: auto;
+  }
+
+  .noPadding {
+    padding: 0px;
+  }
+
+  .col-md-12>.col-md-6 {
+    padding: 5px 5px;
+  }
+
+  .topPadding {
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
 </style>

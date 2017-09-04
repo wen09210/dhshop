@@ -1,9 +1,9 @@
 <template>
-  <div class="container ">
+  <div class="container">
     <h3>精選加購--走過路過千萬別錯過</h3>
 
-    <div class="row detailBlock ">
-      <div class="col-md-3" v-for="item in addItemShow">
+    <div class="row detailBlockADD equal">
+      <div class="col-xs-6 col-sm-4 col-md-3 addItem" v-for="item in addItemShow">
         <div>{{item.ProdName}}</div>
         <div>
           <img src="../../assets/temporyPic\/hot1.jpg" class="payimg">
@@ -12,7 +12,7 @@
         <div>
           <select class="selectpicker" @change="changeShow(item)">
               <template v-for="(s,i) in item.DP_ItemName.length">
-                  <option :value="item.DP_ItemNo[i]">{{item.DP_ItemName[i]}}</option>                  
+                  <option :value="item.DP_ItemNo[i]">{{item.DP_ItemName[i]}}</option>
               </template>
             </select>
           <select v-model="item.quentity">
@@ -21,9 +21,18 @@
         </div>
         <div>
           <button class="btn btn-info addbtn" @click="IncreaseAndCal(item)">
-            <i class="fa fa-plus" aria-hidden="true"></i>
+            <i class="fa fa-plus" aria-hidden="true"></i> 立刻加購
           </button>
         </div>
+
+        <div class="Addnotice">
+          <i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i> 加購限定:
+          <template v-for="data in item.MainProdName.split('|')">
+            <li>{{data}}</li>
+          </template>
+
+        </div>
+
       </div>
     </div>
   </div>
@@ -107,14 +116,14 @@
 </script>
 
 <style scoped>
-  .detailBlock {
+  .detailBlockADD {
     font-size: 18px;
     border: 1px solid #77C9FF;
     border-radius: 10px;
     margin-top: 20px;
-    margin-right:2px;
-    margin-left:2px; 
-    padding: 20px;
+    margin-right: 2px;
+    margin-left: 2px;
+    padding: 10px;
   }
 
   .payimg {
@@ -131,5 +140,29 @@
     width: 180px;
     margin-top: 5px;
   }
+
+  .Addnotice {
+    font-size: 14px;
+    color: #d0012b;
+    width: 80%;
+  }
+
+  .addItem {
+    margin: 5px 0px;
+    float: left;
+  }
+  /* 
+  @media (min-width: 768px) {
+    .row.equal {
+      display: flex;
+      display: -webkit-flex;
+      flex-wrap: wrap;
+    } 
+  }
+  .equal {
+      display: flex; 
+      display: -webkit-flex;
+      flex-wrap: wrap;
+    } */
 
 </style>
