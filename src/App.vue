@@ -27,6 +27,7 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '../static/css/noty.css';
 @import '../node_modules/swiper/dist/css/swiper.css';
+@import '../node_modules/iview/dist/styles/iview.css';
   #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

@@ -5,7 +5,7 @@
     <nav class="navbar navbar-default  navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" @click="showNavbar=!showNavbar" >
+          <button type="button" class="navbar-toggle collapsed" @click="showNavbar=!showNavbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -39,7 +39,7 @@
                     <template v-if="cartCount!== 0">
                       <div class="cartCount">{{cartCount}}</div>
                     </template>
-                    <button type="button" class="btn BtnToA headerIcon" data-role="trigger"  @click="showNavbar=!showNavbar">
+                    <button type="button" class="btn BtnToA headerIcon" data-role="trigger" @click="showNavbar=!showNavbar">
                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                       購物車
                     </button>
@@ -63,11 +63,11 @@
                           <td>{{item.unitPrice}}</td>
                           <td>{{item.count}}</td>
                           <td>{{item.totalAmt}}</td>
-                        </tr>                        
+                        </tr>
                       </table>
                       <div class="col-sm-offset-4">
                         <router-link class="btn btn-info btnInPop" to='/cart'>結賬</router-link>
-                        </div>
+                      </div>
                     </template>
                     <template v-else>
                       <label>尚未加入商品至購物車</label>
@@ -90,57 +90,59 @@
             </template>
 
             <!-- 登入後 -->
-            <template v-if ="Object.keys(GetLoginInfo).length > 0">              
+            <template v-if="Object.keys(GetLoginInfo).length > 0">
               <!--FB登入-->
-              <template >
-              <dropdown tag="li">
-                <a class="headerIcon" role="button" data-role="trigger">
+              <template>
+                <dropdown tag="li">
+                  <a class="headerIcon" role="button" data-role="trigger">
                   <button type="button" class="btn  BtnToA headerIcon loginName">
                       <i class="fa fa-user-circle" aria-hidden="true"></i>
                        您好  {{GetLoginInfo.MemberName}}
                        <i class="fa fa-caret-down" aria-hidden="true"></i>
                   </button> 
                 </a>
-                <template slot="dropdown" >
-                  <!--非匿名登入-->
-                  <template v-if="GetLoginInfo.MemberJoinType !== '4'">
-                  <li>
-                    <a class="headerIcon">
-                      <router-link to="/member">
-                        <button type="button" class="btn BtnToA headerIcon" @click="showNavbar=!showNavbar">
+                  <template slot="dropdown">
+                    <!--非匿名登入-->
+                    <template v-if="GetLoginInfo.MemberJoinType !== '4'">
+                      <li>
+                        <a class="headerIcon">
+                          <router-link to="/member">
+                            <button type="button" class="btn BtnToA headerIcon" @click="showNavbar=!showNavbar">
                         <i class="fa fa-users" aria-hidden="true"></i>
                         會員專區
                         </button>
-                      </router-link>
-                    </a>
-                  </li>
-                  <li role="separator" class="divider">
-                  </li>
-                  </template>
+                          </router-link>
+                        </a>
+                      </li>
+                      <li role="separator" class="divider">
+                      </li>
+                    </template>
 
-                  <li>
-                    <a class="headerIcon">
+                    <li>
+                      <a class="headerIcon">
                       <button type="button" class="btn  BtnToA headerIcon" @click="LoginOut">
                           <i class="fa fa-sign-out" aria-hidden="true"></i>
                           登出
                       </button>
                     </a>
-                  </li> 
-                </template>
-              </dropdown>
+                    </li>
+                  </template>
+                </dropdown>
               </template>
             </template>
           </ul>
         </collapse>
       </div>
     </nav>
+    <template>
+      <Affix :offset-top="100">
+        <span class="demo-affix">固定在距离底部 20px 的位置</span>
+      </Affix>
+    </template>
+    <!-- mebLogin 彈跳視窗 -->
     <mebLogin></mebLogin>
   </div>
 </template>
-
-
-
-
 
 <script>
   import {
@@ -153,6 +155,7 @@
     mapActions
   } from 'vuex'
   import mebLogin from '../Member/mebLogin.vue'
+  import Affix from 'iview/src/components/Affix'
 
   export default {
     data() {
@@ -165,7 +168,8 @@
       Popover,
       Collapse,
       Dropdown,
-      mebLogin
+      mebLogin,
+      Affix
     },
     computed: {
       ...mapGetters([
@@ -203,7 +207,7 @@
   .navbar-fixed-bottom {
     background-color: #f7f7f7
   }
-  
+
   html .navbar-header {
     margin-top: 5px
   }
@@ -225,11 +229,13 @@
   .loginName {
     color: darkorange
   }
-  .popover-title{
+
+  .popover-title {
     font-size: 18px;
     font-weight: bold;
   }
-  .poptable{
+
+  .poptable {
     font-size: 16px;
   }
 
