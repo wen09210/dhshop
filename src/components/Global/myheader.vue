@@ -134,11 +134,6 @@
         </collapse>
       </div>
     </nav>
-    <template>
-      <Affix :offset-top="100">
-        <span class="demo-affix">固定在距离底部 20px 的位置</span>
-      </Affix>
-    </template>
     <!-- mebLogin 彈跳視窗 -->
     <mebLogin></mebLogin>
   </div>
@@ -169,7 +164,6 @@
       Collapse,
       Dropdown,
       mebLogin,
-      Affix
     },
     computed: {
       ...mapGetters([

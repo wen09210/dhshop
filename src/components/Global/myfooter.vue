@@ -1,5 +1,10 @@
 <template>
   <div class="myfooter">
+        <template>
+      <Affix :offset-bottom="80">
+        <span class="demo-affix">固定在距离底部 80px 的位置</span>
+      </Affix>
+    </template>
     <div class="myrow">
       <div class="col-md-3">
         <div class="footer_title">客服中心</div>
@@ -41,8 +46,8 @@
 
     <div class="copyright col-md-12  col-xs-12">
       <p>Copyright © 2016 dPlus Co. Ltd.
-        <span >Powered by <a href="http://www.dhshop.tw/" title="" target="_blank"> dHSHOP </a></span>
-        <span >All Rights Reserved.</span>
+        <span>Powered by <a href="http://www.dhshop.tw/" title="" target="_blank"> dHSHOP </a></span>
+        <span>All Rights Reserved.</span>
       </p>
     </div>
 
@@ -50,13 +55,20 @@
 
 </template>
 <script>
-  export default {}
+  import Affix from 'iview/src/components/Affix'
+  export default {
+    components: {
+      Affix
+    }
+  }
+
 </script>
 <style>
-.myfooter{
-  z-index:9999999;
-  margin-top:100px; 
-}
+  .myfooter {
+    z-index: 9999999;
+    margin-top: 100px;
+  }
+
   div .myrow {
     float: none;
     background: #f7f7f7;
@@ -64,23 +76,23 @@
     text-align: center;
     padding-top: 0px;
     margin: 0 auto;
-    }
+  }
 
   .footer_title {
     font-size: 18px;
     text-align: center;
-    margin-top: 10px;    
+    margin-top: 10px;
   }
 
   hr.style3 {
-	border-top: 1px dashed #8c8b8b;
-  margin-top: 5px;
-  margin-bottom: 20px;
-}
+    border-top: 1px dashed #8c8b8b;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
 
-div .copyright{
-      margin-top: 10px;
-      text-align: center;
-}
+  div .copyright {
+    margin-top: 10px;
+    text-align: center;
+  }
+
 </style>
-
