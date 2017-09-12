@@ -150,8 +150,6 @@
     mapActions
   } from 'vuex'
   import mebLogin from '../Member/mebLogin.vue'
-  import Affix from 'iview/src/components/Affix'
-
   export default {
     data() {
       return {
