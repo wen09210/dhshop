@@ -161,7 +161,7 @@
       Popover,
       Collapse,
       Dropdown,
-      mebLogin,
+      mebLogin
     },
     computed: {
       ...mapGetters([

@@ -1,6 +1,8 @@
 <template>
   <div class="">
-    <div v-html="content"></div>
+    <div v-html="ContentUp"></div>
+    <div v-html="ContentDown"></div>
+    
   </div>
 
 </template>
@@ -22,7 +24,16 @@
   export default {
     data: function () {
       return {
-        content: ''
+        // html 第一部分
+        ContentUp: '',
+        // html 第二部分
+        ContentDown: '',
+        // 輪播上
+        CarouselUp: [],
+        // 輪播下
+        CarouselDown: [],
+        // 輪播控制
+        CtrlPanel: []
       }
     },
     created() {
@@ -31,7 +42,18 @@
           if (response.data.statu === 'err') {
             noty.ShowAlert(response.data.msg)
           } else {
-            this.content = response.data.data
+            this.ContentUp = response.data.data[0].DetailContent
+            this.ContentUp = response.data.data[0].DetailContentDown
+            this.CarouselUp = response.data.data[0].CarouselUp
+            this.CarouselDown = response.data.data[0].CarouselDown
+
+            for (var i = 0; i < Object.keys(this.CarouselUp).length; i++) {
+              if (i === 0) {
+                CtrlPanel.push(true)
+              } else {
+                CtrlPanel.push(false)
+              }
+            }
             console.log(this.item)
           }
         })
@@ -41,7 +63,8 @@
 
 </script>
 <style>
-img{
-  width:100%;
-}
+  img {
+    width: 100%;
+  }
+
 </style>
