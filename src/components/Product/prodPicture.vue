@@ -1,26 +1,65 @@
 <template>
   <div class="">
     <div v-html="ContentUp"></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- 左半邊 -->
+          <template v-for="(item,index) in CarouselUp">
+            <template v-for="(itemChild,secIndex) in CarouselUp[index]">
+              <!-- Order 0 為索引 -->
+              <div class="col-md-6">
+                <img v-if="secIndex===0" :src="imgWithLoacl(itemChild.ImgUrl)" class="item_category" @click="changeCarousel(index)">
+              </div>
+            </template>
+          </template>
+        </div>
+        <!-- 右半邊 -->
+        <template v-for="(item,index) in CarouselUp">
+          <div v-show="CtrlPanel[index]" class="col-md-6">
+            <swiper :options="swiperOption_Up">
+              <template v-for="(itemChild,secIndex) in CarouselUp[index]">
+                <swiper-slide v-if="secIndex!==0">
+                  <img :src="imgWithLoacl(itemChild.ImgUrl)" class="item_category imgHover">
+                </swiper-slide>
+              </template>
+              <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
+              <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
+            </swiper>
+          </div>
+        </template>
+      </div>
+    </div>
+    <!-- html -->
     <div v-html="ContentDown"></div>
-    
+    <!-- Carousel -->
+    <div class="container">
+      <div class="col-md-6">
+        <swiper :options="swiperOption_Down">
+          <template v-for="item in CarouselDown">
+            <swiper-slide>
+              <img :src="imgWithLoacl(item.ImgUrl)" class="item_category imgHover">
+            </swiper-slide>
+          </template>
+          <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
+          <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
+        </swiper>
+      </div>
+    </div>
   </div>
 
 </template>
 
 <script>
-  //  const imgList = [
-  //    '../../assets/temporyPic/prod0.gif',
-  //    '../../assets/temporyPic/prod1.jpg',
-  //    '../../assets/temporyPic/prod2.gif',
-  //    '../../assets/temporyPic/prod3.gif',
-  //    '../../assets/temporyPic/prod4.jpg'
-  //  ]
-  //  const title = '歐巴地板'
-  //  const description = '歐巴地板00000000'
   import axios from 'axios'
   import {
     noty
   } from '../../assets/AlertDialog.js'
+  import {
+    swiper,
+    swiperSlide
+  } from 'vue-awesome-swiper'
   export default {
     data: function () {
       return {
@@ -33,8 +72,26 @@
         // 輪播下
         CarouselDown: [],
         // 輪播控制
-        CtrlPanel: []
+        CtrlPanel: [],
+        // 輪播上設定
+        swiperOption_Up: {
+          slidesPerView: 1,
+          loop: true,
+          nextButton: '.swiper-button-next',
+          // prevButton: '.swiper-button-prev'
+        },
+        // 輪播下設定
+        swiperOption_Down: {
+          slidesPerView: 1,
+          loop: true,
+          nextButton: '.swiper-button-next',
+          prevButton: '.swiper-button-prev'
+        }
       }
+    },
+    components: {
+      swiper,
+      swiperSlide
     },
     created() {
       axios.get(`/api/Product/GetProductContent?prodID= ${this.$route.params.prodID}`)
@@ -49,16 +106,30 @@
 
             for (var i = 0; i < Object.keys(this.CarouselUp).length; i++) {
               if (i === 0) {
-                CtrlPanel.push(true)
+                this.CtrlPanel.push(true)
               } else {
-                CtrlPanel.push(false)
+                this.CtrlPanel.push(false)
               }
             }
             console.log(this.item)
           }
         })
+    },
+    methods: {
+      imgWithLoacl(url) {
+        // return 'http://223.27.48.157/' + url
+        return 'http://localhost:53912/' + url
+      },
+      // 切換caresoul
+      changeCarousel(index) {
+        console.log(index)
+        for (var item in this.CtrlPanel) {
+          this.CtrlPanel[item] = false
+        }
+        this.CtrlPanel[index] = true
+        this.CtrlPanel = this.CtrlPanel.map(v => v)
+      }
     }
-
   }
 
 </script>
