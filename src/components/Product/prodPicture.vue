@@ -9,8 +9,8 @@
           <template v-for="(item,index) in CarouselUp">
             <template v-for="(itemChild,secIndex) in CarouselUp[index]">
               <!-- Order 0 為索引 -->
-              <div class="col-md-6">
-                <img v-if="secIndex===0" :src="imgWithLoacl(itemChild.ImgUrl)" class="item_category" @click="changeCarousel(index)">
+              <div class="col-md-6" v-if="secIndex===0">
+                 <img v-if="secIndex===0" :src="imgWithLoacl(itemChild.ImgUrl)" class="carousel_Index"  @click="changeCarousel(index)">
               </div>
             </template>
           </template>
@@ -21,7 +21,7 @@
             <swiper :options="swiperOption_Up">
               <template v-for="(itemChild,secIndex) in CarouselUp[index]">
                 <swiper-slide v-if="secIndex!==0">
-                  <img :src="imgWithLoacl(itemChild.ImgUrl)" class="item_category imgHover">
+                  <img :src="imgWithLoacl(itemChild.ImgUrl)" class="img-responsive imgHover">
                 </swiper-slide>
               </template>
               <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
@@ -39,7 +39,7 @@
         <swiper :options="swiperOption_Down">
           <template v-for="item in CarouselDown">
             <swiper-slide>
-              <img :src="imgWithLoacl(item.ImgUrl)" class="item_category imgHover">
+              <img :src="imgWithLoacl(item.ImgUrl)" class="img-responsive imgHover">
             </swiper-slide>
           </template>
           <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
@@ -78,7 +78,7 @@
           slidesPerView: 1,
           loop: true,
           nextButton: '.swiper-button-next',
-          // prevButton: '.swiper-button-prev'
+          prevButton: '.swiper-button-prev'
         },
         // 輪播下設定
         swiperOption_Down: {
@@ -134,8 +134,10 @@
 
 </script>
 <style>
-  img {
-    width: 100%;
+  .carousel_Index {
+    margin: 5px;
+    width:200px;
+    height:130px;
   }
 
 </style>

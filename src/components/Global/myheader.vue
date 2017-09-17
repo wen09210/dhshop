@@ -1,9 +1,8 @@
 <template>
   <div>
     <!-- header -->
-
     <nav class="navbar navbar-default  navbar-fixed-top">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" @click="showNavbar=!showNavbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -13,7 +12,7 @@
            </button>
 
           <router-link to="/">
-            <div class="LOGO">
+            <div class="navbar-brand">
               <a href="" role="button">
             <img src="../../assets/icon/dhshop_logo.svg">
           </a>
@@ -21,8 +20,8 @@
           </router-link>
         </div>
 
-        <collapse class="navbar-collapse" v-model="showNavbar">
-          <ul class="nav navbar-nav navbar-right">
+        <collapse class="navbar-collapse navbar-right" v-model="showNavbar">
+          <ul class="nav navbar-nav">
             <li class="headerIcon">
               <a class="headerIcon" href="http://www.dhshop.tw/salepage/usercenter.html">
                 <button type="button" class="btn  BtnToA headerIcon" @click="showNavbar=!showNavbar">
@@ -194,18 +193,14 @@
 
 
 <style>
-  html .navbar-static-top,
+  .navbar-static-top,
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     background-color: #f7f7f7
   }
 
-  html .navbar-header {
+  .navbar-header {
     margin-top: 5px
-  }
-
-  .LOGO {
-    margin-top: 10px;
   }
 
   .BtnToA {

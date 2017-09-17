@@ -31,19 +31,19 @@
           <!-- 右上圖 -->
           <div class="col-md-12 noPadding">
             <router-link to="/Product/8">
-              <div class="col-md-6 col-xs-6">
+              <div class="col-md-6 col-xs-6 padding5">
                 <img src="../../assets/temporyPic/Index/wallpaper.jpg" class="item_category imgHover">
               </div>
             </router-link>
             <router-link to="/Product/1">
-              <div class="col-md-6 col-xs-6">
+              <div class="col-md-6 col-xs-6 padding5">
                 <img src="../../assets/temporyPic/Index/floor2.jpg" class="item_category imgHover">
               </div>
             </router-link>
           </div>
           <!-- 右下圖 -->
           <router-link to="/Product/3">
-            <div class="col-md-12 col-xs-12 noPadding topPadding">
+            <div class="col-md-12 col-xs-12 padding5">
               <img src="../../assets/temporyPic/Index/paintroller.jpg" class="item_category firstPIC imgHover">
             </div>
           </router-link>
@@ -53,11 +53,11 @@
           <div class="col-md-4">
             <!-- Carousel -->
             <swiper :options="swiperOption">
-                <swiper-slide>
-                  <router-link to="/Product/4">
+              <swiper-slide>
+                <router-link to="/Product/4">
                   <img src="../../assets/temporyPic/Index/floortrima.jpg" class="item_category imgHover">
-                  </router-link>
-                </swiper-slide>
+                </router-link>
+              </swiper-slide>
               <swiper-slide>
                 <img src="../../assets/temporyPic/Index/indexroller.jpg" class="item_category imgHover">
               </swiper-slide>
@@ -82,15 +82,15 @@
         <div class="col-md-6">
           <!-- 右上圖 -->
           <div class="col-md-12 noPadding">
-            <div class="col-md-6 col-xs-6">
+            <div class="col-md-6 col-xs-6 padding5">
               <img src="../../assets/temporyPic/Index/mask1.jpg" class="item_category imgHover">
             </div>
-            <div class="col-md-6 col-xs-6">
+            <div class="col-md-6 col-xs-6 padding5">
               <img src="../../assets/temporyPic/Index/toothbrush.jpg" class="item_category imgHover">
             </div>
           </div>
           <!-- 右下圖 -->
-          <div class="col-md-12 col-xs-12 noPadding topPadding">
+          <div class="col-md-12 col-xs-12 padding5">
             <img src="../../assets/temporyPic/Index/mite.jpg" class="item_category firstPIC imgHover">
           </div>
         </div>
@@ -104,15 +104,15 @@
         <div class="col-md-6">
           <!-- 右上圖 -->
           <div class="col-md-12 noPadding">
-            <div class="col-md-6 col-xs-6">
+            <div class="col-md-6 col-xs-6 padding5">
               <img src="../../assets/temporyPic/Index/led_lighting.jpg" class="item_category imgHover">
             </div>
-            <div class="col-md-6 col-xs-6">
+            <div class="col-md-6 col-xs-6 padding5">
               <img src="../../assets/temporyPic/Index/diffuser2.jpg" class="item_category imgHover">
             </div>
           </div>
           <!-- 右下圖 -->
-          <div class="col-md-12 col-xs-12 noPadding topPadding">
+          <div class="col-md-12 col-xs-12 padding5">
             <img src="../../assets/temporyPic/Index/ledbanner.jpg" class="item_category firstPIC imgHover">
           </div>
         </div>
@@ -126,15 +126,15 @@
         <div class="col-md-6">
           <!-- 右上圖 -->
           <div class="col-md-12 noPadding">
-            <div class="col-md-6 col-xs-6">
+            <div class="col-md-6 col-xs-6 padding5">
               <img src="../../assets/temporyPic/Index/cup.jpg" class="item_category imgHover">
             </div>
-            <div class="col-md-6 col-xs-6">
+            <div class="col-md-6 col-xs-6 padding5">
               <img src="../../assets/temporyPic/Index/gluedot.jpg" class="item_category imgHover">
             </div>
           </div>
           <!-- 右下圖 -->
-          <div class="col-md-12 col-xs-12 noPadding topPadding">
+          <div class="col-md-12 col-xs-12 padding5">
             <img src="../../assets/temporyPic/Index/bottle.jpg" class="item_category firstPIC imgHover">
           </div>
         </div>
@@ -186,9 +186,9 @@
 <style scoped>
   @media (max-width:768px) {
     .nav.nav-yellow>li {
-      width: 110px;
+      width: 80px;
       margin: 10px 3px;
-      padding: 20px 15px;
+      padding: 10px 3px;
       background-color: #eee;
       font-size: 18px;
     }
@@ -225,7 +225,11 @@
   }
 
   .noPadding {
-    padding: 0px;
+    padding: 0px 0px;
+  }
+
+  .padding5 {
+    padding: 5px 5px;
   }
 
   .col-md-12>.col-md-6 {
