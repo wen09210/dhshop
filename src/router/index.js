@@ -8,6 +8,7 @@ import cart from '..//components/Cart/cartPage.vue'
 import cartBuyerDetail from '..//components/Cart/cartBuyerDetail.vue'
 import cartPayOK from '../components/Cart/cartPayOk.vue'
 import prodPomote from '../components/Article/prodPromote.vue'
+import AnonymousSearch from '../components/Order/AnonymousSearch.vue'
 import QandA from '../components/Other/QandA.vue'
 // import axios from 'axios'
 
@@ -36,6 +37,11 @@ export default new Router({
       path: '/member',
       name: 'member',
       component: member
+    },
+    {
+      path: '/AnonymousSearch',
+      name: 'AnonymousSearch',
+      component: AnonymousSearch
     },
     {
       path: '/cart',

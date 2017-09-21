@@ -11,7 +11,6 @@
   import myheader from './components/Global/myheader'
   import mysidebar from './components/Global/mysidebar'
   import myfooter from './components/Global/myfooter'
-  
   export default {
     name: 'app',
     components: {

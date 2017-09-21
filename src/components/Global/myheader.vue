@@ -23,11 +23,23 @@
         <collapse class="navbar-collapse navbar-right" v-model="showNavbar">
           <ul class="nav navbar-nav">
             <li class="headerIcon">
-              <a class="headerIcon" href="http://www.dhshop.tw/salepage/usercenter.html">
+              <a class="headerIcon">
+                <router-link to="/AnonymousSearch">
+                <button type="button" class="btn  BtnToA headerIcon" @click="showNavbar=!showNavbar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                       訂單查尋
+                  </button>
+                </router-link>
+              </a>
+            </li>
+            <li class="headerIcon">
+              <a class="headerIcon" >
+                <router-link to="/QandA">
                 <button type="button" class="btn  BtnToA headerIcon" @click="showNavbar=!showNavbar">
                       <i class="fa fa-question-circle"></i>
                        客服中心
                   </button>
+                  </router-link>
               </a>
             </li>
             <!-- 購物車 -->
@@ -149,6 +161,8 @@
     mapActions
   } from 'vuex'
   import mebLogin from '../Member/mebLogin.vue'
+  import Icon from 'iview/src/components/Icon'
+
   export default {
     data() {
       return {
@@ -160,7 +174,8 @@
       Popover,
       Collapse,
       Dropdown,
-      mebLogin
+      mebLogin,
+      Icon
     },
     computed: {
       ...mapGetters([
