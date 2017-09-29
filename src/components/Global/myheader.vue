@@ -14,7 +14,7 @@
           <router-link to="/">
             <div class="navbar-brand">
               <a href="" role="button">
-            <img src="../../assets/icon/dhshop_logo.svg">
+            <img src="../../assets/icon/dhshop_logo.svg" class="img-responsivie">
           </a>
             </div>
           </router-link>

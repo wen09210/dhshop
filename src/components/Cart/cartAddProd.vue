@@ -4,7 +4,7 @@
 
     <div class="row detailBlockADD equal">
       <div class="col-xs-6 col-sm-4 col-md-3 addItem" v-for="item in addItemShow">
-        <div>{{item.ProdName}}</div>
+        <div style="height:81px;">{{item.ProdName}}</div>
         <div>
           <img src="../../assets/temporyPic\/hot1.jpg" class="payimg">
         </div>
@@ -28,7 +28,7 @@
         <div class="Addnotice">
           <i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i> 加購限定:
           <template v-for="data in item.MainProdName.split('|')">
-            <li>{{data}}</li>
+            <div style="width:160px;">{{data}}</div>
           </template>
 
         </div>
@@ -127,8 +127,8 @@
   }
 
   .payimg {
-    width: 160px;
-    height: 120px;
+    width: 100%;
+    height: 100%;
     margin: 5px;
   }
 
@@ -137,7 +137,7 @@
   }
 
   .addbtn {
-    width: 180px;
+    width: 100%;
     margin-top: 5px;
   }
 
