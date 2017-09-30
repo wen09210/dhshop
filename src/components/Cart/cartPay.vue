@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="pageHeader">購物車</div>
-    <template v-if="Object.keys(GetShoppingCartItem).length===0">
+    <!-- <template v-if="Object.keys(GetShoppingCartItem).length===0">
       <h4>購物車內目前沒有商品，請先選購商品</h4>
-    </template>
-    <template v-else>
+    </template> -->
+    <template>
       <div>
         <div class="tablePay">
           <div class="tableTitle row">
@@ -52,15 +52,7 @@
             </div>
           </div>
         </div>
-        <div class="form-inline coupon">
-          <label class="coupTitle">使用優惠碼</label>
-          <div class="form-group">
-            <input type="text" value="" class="form-control">
-          </div>
-          <div class="form-group">
-            <input type="button" value="確認" class="btn btn-success">
-          </div>
-        </div>
+
         <br>
         <div class="payTotal">
           {{caculateAmt}}
@@ -276,15 +268,7 @@ export default {
 }
 
 
-.coupTitle {
-  margin: 10px;
-  font-size: 18px;
-}
 
-.coupon {
-  float: right !important;
-  margin-bottom: 10px;
-}
 
 
 @media (min-width: 992px) {
@@ -429,12 +413,5 @@ export default {
   }
 }
 
-@media (max-width:414px) {
-  .coupon {
-    float: left !important;
-    margin: 5px 0px;
-    display: flex;
-  }
-}
 
 </style>

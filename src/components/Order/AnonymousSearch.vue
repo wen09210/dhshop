@@ -47,7 +47,7 @@
       <div>
         <table class="table  table-striped table-hover">
           <thead>
-            <tr>
+            <tr>              
               <th>產品名稱</th>
               <th>產品樣式</th>
               <th>數量</th>
