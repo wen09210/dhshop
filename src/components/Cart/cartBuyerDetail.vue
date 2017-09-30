@@ -349,19 +349,17 @@ export default {
     // 驗證優惠代碼
     ValidateCoupon() {
       axios.post(`/api/Ecpay/PostValidDiscountCode`, this.GetShoppingCartItem)
-        .then((res) => {
-          console.log(res)
-          if(res.data.statu = 'ok'){
-            noty.ShowAlert(res.data,'success')            
-          }
-          else{
-            noty.ShowAlert(res.data,'warning')
+        .then((response) => {
+          console.log(response)
+          if (response.data.statu === 'ok') {
+            noty.ShowAlert(response.data.msg, 'success')
+          } else {
+            noty.ShowAlert(response.data.msg, 'warning')
           }
         })
         .catch((error) => {
           console.log(error)
         })
-
     }
   }
 }
