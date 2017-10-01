@@ -2,7 +2,7 @@
   <div>
     <template v-if="showCart">
       <!-- 購物車 -->
-      <cartPay></cartPay>
+      <cart></cart>
       <!-- 購物車end -->
       <!-- 下一步按鈕 -->
       <template v-if="Object.keys(GetShoppingCartItem).length !== 0">
@@ -25,17 +25,14 @@
 <script>
 import Cookies from 'js-cookie'
 import Lockr from 'lockr'
-import cartPay from './cartPay'
+import cart from './cart'
 import cartAddProd from './cartAddProd'
 import mebLogin from '../Member/mebLogin.vue'
-import {
-  mapActions,
-  mapGetters
-} from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   components: {
     mebLogin,
-    cartPay,
+    cart,
     cartAddProd
   },
   data() {

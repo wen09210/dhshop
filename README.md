@@ -12,7 +12,7 @@
 > 1. 商品列表 cartProd.vue
 > 1. 單一商品 cartPage.vue
 > 1. 加購商品 cartAddProd.vue
-> 1. 付款頁面 cartPay.vue
+> 1. 購物車頁面 cart.vue
 ## 會員 Member:
 > 1. 登入
 > 1. 修改
