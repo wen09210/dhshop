@@ -132,5 +132,8 @@ export default {
   },
   [types.SetCartStepBar]({ commit }, CartStep) {
     commit(types.SetCartStepBar, CartStep)
+  },
+  [types.SetBuyerDetail]({ commit }, BuyerDetail) {
+    commit(types.SetBuyerDetail, BuyerDetail)
   }
 }

@@ -161,7 +161,6 @@
     mapActions
   } from 'vuex'
   import mebLogin from '../Member/mebLogin.vue'
-  import Icon from 'iview/src/components/Icon'
 
   export default {
     data() {
@@ -174,8 +173,7 @@
       Popover,
       Collapse,
       Dropdown,
-      mebLogin,
-      Icon
+      mebLogin
     },
     computed: {
       ...mapGetters([

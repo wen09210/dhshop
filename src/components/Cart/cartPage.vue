@@ -35,8 +35,6 @@
   </div>
 </template>
 <script>
-import Steps from 'iview/src/components/steps/steps'
-import Step from 'iview/src/components/steps/step'
 import Cookies from 'js-cookie'
 import Lockr from 'lockr'
 import cart from './cart'
@@ -48,8 +46,6 @@ import { mapState, mapActions, mapGetters } from 'vuex'
 export default {
   components: {
     mebLogin,
-    Steps,
-    Step,
     cart,
     cartAddProd,
     cartBuyerDetail,
@@ -104,6 +100,22 @@ export default {
 
 </script>
 <style>
+.detailBlock {
+  font-size: 18px;
+  border: 1px solid #77C9FF;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 20px;
+}
+
+.detailTitle {
+  font-size: 25px;
+  color: #777;
+  font-weight: bold;
+  background: #f8cc2b;
+  margin-bottom: 10px;
+  padding: 5px;
+}
 .btntoDetail {
     margin-top: 20px;
     margin-bottom: 50px;

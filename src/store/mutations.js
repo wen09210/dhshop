@@ -162,5 +162,8 @@ export default {
   // 設定購物車步驟條
   [types.SetCartStepBar](state, CartStep) {
     state.CartStepBar = CartStep
+  },
+  [types.SetBuyerDetail](state, BuyerDetail) {
+    state.BuyerDetail = BuyerDetail
   }
 }

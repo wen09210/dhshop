@@ -55,12 +55,7 @@
 
 </template>
 <script>
-  import Affix from 'iview/src/components/Affix'
-  export default {
-    components: {
-      Affix
-    }
-  }
+  export default { }
 
 </script>
 <style>
