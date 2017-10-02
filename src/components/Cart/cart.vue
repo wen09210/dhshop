@@ -1,11 +1,12 @@
 <template>
   <div class="container">
     <div class="pageHeader">購物車</div>
-    <!-- <template v-if="Object.keys(GetShoppingCartItem).length===0">
+    <template v-if="Object.keys(GetShoppingCartItem).length===0">
       <h4>購物車內目前沒有商品，請先選購商品</h4>
-    </template> -->
-    <template>
+    </template>
+    <template v-else>
       <div>
+        <!-- 購買商品列 -->
         <div class="tablePay">
           <div class="tableTitle row">
             <div class="col-md-2">圖片</div>
@@ -52,8 +53,9 @@
             </div>
           </div>
         </div>
-
+        <!-- 購買商品列end -->
         <br>
+        <!-- 付款總計 -->
         <div class="payTotal">
           {{caculateAmt}}
           <div class="tbody">
@@ -99,19 +101,19 @@
             </div>
           </div>
         </div>
+        <!-- 付款總計end -->
+        <!-- 下一步  -->
+        <div class="btntoDetail col-xs-12  col-md-offset-3 col-md-6">
+          <button type="button" @click="goBuyerDetail" class="btn btn-info btn-lg btn-block">下一步 結帳去!</button>
+        </div>
+        <!-- 下一步end -->
       </div>
     </template>
   </div>
 </template>
 <script>
-import {
-  mapActions,
-  mapGetters
-} from 'vuex'
-import {
-  noty
-} from '../../assets/AlertDialog'
-
+import { mapActions, mapGetters } from 'vuex'
+import { noty } from '../../assets/AlertDialog'
 export default {
   data() {
     return {}
@@ -119,7 +121,8 @@ export default {
   computed: {
     ...mapGetters([
       'GetShoppingCartItem',
-      'GetshowAmtData'
+      'GetshowAmtData',
+      'GetLoginInfo'
     ]),
     caculateAmt() {
       // 數量改變回後端檢核價錢
@@ -137,8 +140,11 @@ export default {
       'PostGetTotalAmt',
       'addCartCount',
       'minusCartCount',
-      'keyNumCartCount'
+      'keyNumCartCount',
+      'SetLoginModal',
+      'SetCartStepBar'
     ]),
+    // 移除商品(需檢查加購商品是否一併移除)
     ReduceProd(item) {
       // 確認加購品是否符合
       // 1.移除該商品
@@ -200,6 +206,21 @@ export default {
         item,
         count
       })
+    },
+    goBuyerDetail() {
+      // 商品檢核未通過
+      console.log(this.GetshowAmtData.status)
+      if (this.GetshowAmtData.status === 'err') {
+        noty.ShowAlert(this.GetshowAmtData.errMsg + '<br>請先完成更改，再進行結帳', 'warning')
+        return false
+      }
+      // 未登入
+      if (Object.keys(this.GetLoginInfo).length === 0) {
+        this.SetLoginModal(true)
+        return false
+      } else {
+        this.SetCartStepBar(1)
+      }
     }
   }
 }
@@ -412,6 +433,5 @@ export default {
     display: table-cell;
   }
 }
-
 
 </style>

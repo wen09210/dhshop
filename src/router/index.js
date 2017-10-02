@@ -5,7 +5,7 @@ import prodPage from '../components/Product/prodPage'
 import login from '../components/Member/mebLogin'
 import member from '../components/Member/mebPage.vue'
 import cart from '..//components/Cart/cartPage.vue'
-import cartBuyerDetail from '..//components/Cart/cartBuyerDetail.vue'
+// import cartBuyerDetail from '..//components/Cart/cartBuyerDetail.vue'
 import cartPayOK from '../components/Cart/cartPayOk.vue'
 import prodPomote from '../components/Article/prodPromote.vue'
 import AnonymousSearch from '../components/Order/AnonymousSearch.vue'
@@ -58,11 +58,11 @@ export default new Router({
       //   next()
       // }
     },
-    {
-      path: '/cartBuyerDetail',
-      name: 'cartBuyerDetail',
-      component: cartBuyerDetail
-    },
+    // {
+    //   path: '/cartBuyerDetail',
+    //   name: 'cartBuyerDetail',
+    //   component: cartBuyerDetail
+    // },
     {
       path: '/cartPayOK',
       name: 'cartPayOK',

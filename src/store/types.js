@@ -8,7 +8,10 @@ export default {
   minusCartCount: 'minusCartCount',
   keyNumCartCount: 'keyNumCartCount',
   GetMacValue: 'GetMacValue',
+  // 取得購買人資料
   GetBuyerDetail: 'GetBuyerDetail',
+  // 存入購買人資料
+  SetBuyerDetail: 'SetBuyerDetail',
   GetshowAmtData: 'GetshowAmtData',
   PostGetTotalAmt: 'PostGetTotalAmt',
   GetLoginInfo: 'GetLoginInfo',
@@ -16,6 +19,10 @@ export default {
   PostAnoyLogin: 'PostAnoyLogin',
   PostRegister: 'PostRegister',
   LoginOut: 'LoginOut',
+  // 開啟登入視窗
   SetLoginModal: 'SetLoginModal',
-  GetLoginModal: 'GetLoginModal'
+  // 關閉登入視窗
+  GetLoginModal: 'GetLoginModal',
+  // 設定步驟條
+  SetCartStepBar: 'SetCartStepBar'
 }

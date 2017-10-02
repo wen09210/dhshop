@@ -13,7 +13,7 @@ export default {
   }) {
     console.log(itemShow)
     let sameProd = false
-    state.shoppingCartItem.forEach(function (el) {
+    state.shoppingCartItem.forEach(function(el) {
       if (el.prodID === itemShow.ProdID &&
         el.itemNo === itemShow.ItemNo &&
         el.prodType === prodType) {
@@ -45,7 +45,7 @@ export default {
   [types.IncreaseAddProduct](state, item) {
     console.log(item)
     let sameProd = false
-    state.shoppingCartItem.forEach(function (el) {
+    state.shoppingCartItem.forEach(function(el) {
       if (el.prodID === item.ProdID &&
         el.itemNo === item.ItemNo &&
         el.prodType === '2') {
@@ -132,6 +132,9 @@ export default {
     }
   },
   [types.PostGetTotalAmt](state, showAmt) {
+    if (showAmt.status === 'err') {
+      noty.ShowAlert(showAmt.errMsg, 'warning')
+    }
     state.showAmtData = showAmt
   },
   [types.PostLogin](state, logininfo) {
@@ -139,6 +142,7 @@ export default {
     state.LoginInfo = logininfo
     state.openLoginModal = false
   },
+  // 無痕登入
   [types.PostAnoyLogin](state, logininfo) {
     console.log(logininfo)
     state.LoginInfo = logininfo
@@ -154,5 +158,9 @@ export default {
   },
   [types.SetLoginModal](state, setvalue) {
     state.openLoginModal = setvalue
+  },
+  // 設定購物車步驟條
+  [types.SetCartStepBar](state, CartStep) {
+    state.CartStepBar = CartStep
   }
 }
