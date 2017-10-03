@@ -1,10 +1,6 @@
 <template>
   <div class="container">
-    <template>
-      <div class="demo-spin-container">
-        <Spin size="large" fix></Spin>
-      </div>
-    </template>
+    <div class="pageHeader">付款方式</div>
     <!-- 付款資訊 -->
     <div class="detailBlock">
       <div class="detailTitle">
@@ -65,16 +61,15 @@
     </div>
     <!-- 付款資訊end -->
     <!-- 上一步回購物車 -->
-    <div class=" col-xs-3 col-md-5">
+    <div class=" col-xs-5 col-md-5">
       <button type="button" class="btn btn-success btn-lg btn-block" @click="SetCartStepBar(1)">回購物車!</button>
     </div>
     <!-- 上一步回購物車end -->
     <!-- 結帳 -->
-    <div class=" col-xs-9 col-md-7">
-      <button type="button" @click="GetMacValue(BuyerDetail)" class="btn btn-info btn-lg btn-block">老闆~買了!買了!</button>
+    <div class=" col-xs-7 col-md-7">
+      <button type="button" @click="GetMacValue({$Spin,BuyerDetail})" class="btn btn-info btn-lg btn-block">老闆~買了!買了!</button>
     </div>
     <!-- 結帳end -->
-    <Button type="primary" @click="handleSpinShow()">整页显示，3秒后关闭</Button>
   </div>
 </template>
 <script>
@@ -134,10 +129,7 @@ export default {
       // 送出訂單(綠界OR貨到付款)
       'GetMacValue',
       'SetCartStepBar'
-    ]),
-    handleSpinShow() {
-      this.$Spin.show()
-    }
+    ])
   }
 }
 
@@ -146,13 +138,6 @@ export default {
 .creditNote {
   font-size: 14px;
   margin-top: 10px;
-}
-
-.demo-spin-container {
-  display: inline-block;
-  width: 200px;
-  height: 100px;
-  position: relative;
 }
 
 </style>

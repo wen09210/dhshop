@@ -104,8 +104,8 @@ export default {
   font-size: 18px;
   border: 1px solid #77C9FF;
   border-radius: 10px;
-  padding: 30px;
-  margin: 20px;
+  padding: 20px;
+  margin: 0px;
 }
 
 .detailTitle {
@@ -116,45 +116,87 @@ export default {
   margin-bottom: 10px;
   padding: 5px;
 }
+
 .btntoDetail {
-    margin-top: 20px;
-    margin-bottom: 50px;
-}
-.stepbar {
-    margin: 25px 0px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
- @media (max-width: 762px) {
-    .ivu-steps .ivu-steps-title {
-        font-size: 22px;
-        color: #495060;
-    }
-} 
- @media (min-width: 762px) {
-    .ivu-steps .ivu-steps-title {
-        font-size: 26px;
-        color: #495060;
-    }
-} 
- @media (max-width: 413px) {
-    .ivu-steps .ivu-steps-title {
-        font-size: 16px;
-        color: #495060;
-    }
-} 
+.stepbar {
+  margin: 25px 0px;
+}
+
+@media (max-width: 762px) {
+  .ivu-steps .ivu-steps-title {
+    font-size: 22px;
+    color: #495060;
+  }
+
+  .ivu-input {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 762px) {
+  .ivu-steps .ivu-steps-title {
+    font-size: 26px;
+    color: #495060;
+  }
+
+  .ivu-input {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 413px) {
+  .ivu-steps .ivu-steps-title {
+    font-size: 16px;
+    color: #495060;
+  }
+}
+
+
+/* Form字體 */
+
+.ivu-form .ivu-form-item-label {
+  font-size: 16px;
+  padding: 10px 0;
+}
+
+
+/* checkbox 大小*/
+
+.ivu-checkbox-inner {
+  width: 25px !important;
+  height: 25px !important;
+  border: solid 1px #333 !important;
+}
+
+
 /* 圖示 */
+
 .ivu-steps .ivu-steps-head-inner>.ivu-steps-icon.ivu-icon {
-    font-size: 30px;
+  font-size: 30px;
 }
+
+
+
 /* 進行中Bar */
+
 .ivu-steps-item.ivu-steps-status-process .ivu-steps-title {
-    color: #FF5722;
+  color: #FF5722;
 }
+
 .ivu-steps-item.ivu-steps-custom.ivu-steps-status-process .ivu-steps-head-inner>.ivu-steps-icon {
-    color: #FF5722;
+  color: #FF5722;
 }
+
+
+
 /* 進行中Bar end */
+
 .ivu-steps-item.ivu-steps-status-finish .ivu-steps-title {
-    color: #2b85e4;
+  color: #2b85e4;
 }
+
 </style>

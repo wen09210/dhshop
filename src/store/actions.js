@@ -4,28 +4,37 @@ import { ecpost } from './ecpost'
 import { noty } from '../../src/assets/AlertDialog'
 import router from '../router'
 export default {
+  // 商品加入購物車
   [types.IncreaseProduct]({ commit }, { itemShow, itemSize, prodType }) {
     commit(types.IncreaseProduct, { itemShow, itemSize, prodType })
   },
+  // 加購商品加入購物車
   [types.IncreaseAddProduct]({ commit }, item) {
     commit(types.IncreaseAddProduct, item)
   },
+  // 購物車商品移除
   [types.ReduceProduct]({ state, commit }, reduceNo) {
     commit(types.ReduceProduct, reduceNo)
   },
   [types.ClearShoppingCartItem]({ commit }) {
     commit(types.ClearShoppingCartItem)
   },
+  // 購物車商品 + 數量
   [types.addCartCount]({ commit }, item) {
     commit(types.addCartCount, item)
   },
+  // 購物車商品 - 數量
   [types.minusCartCount]({ commit }, item) {
     commit(types.minusCartCount, item)
   },
+  // 購物車商品 key 數量
   [types.keyNumCartCount]({ commit }, { item, count }) {
     commit(types.keyNumCartCount, { item, count })
   },
-  [types.GetMacValue]({ state }, BuyerDetail) {
+  // 送出訂單(綠界or貨到付款)
+  [types.GetMacValue]({ state }, {$Spin, BuyerDetail}) {
+    // loading 畫面
+    $Spin.show()
     BuyerDetail.listItem = state.shoppingCartItem
     console.log(BuyerDetail)
     console.log(state.LoginInfo.JWTAuthorization)
@@ -35,18 +44,22 @@ export default {
         headers: {
           'Authorization': state.LoginInfo.JWTAuthorization
         }
-      }).then(function(response) {
+      }).then((response) => {
         console.log(response.data)
         if (response.data.statu === 'err') {
           noty.ShowAlert(response.data.msg, 'warning')
+          // loading 畫面 end
+          $Spin.hide()
           return false
         }
         noty.ShowAlert(response.data.msg, 'success')
+        // loading 畫面 end
+        $Spin.hide()
         router.push({
           name: 'cartPayOK'
         })
       })
-        .catch(function(r) {
+        .catch((r) => {
           console.log(r)
         })
     } else {
@@ -59,6 +72,8 @@ export default {
         console.log(response.data)
         if (response.data.statu === 'err') {
           noty.ShowAlert(response.data.msg, 'warning')
+          // loading 畫面 end
+          $Spin.hide()
           return false
         }
         ecpost('https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V4?', response.data, 'POST')
@@ -68,6 +83,7 @@ export default {
         })
     }
   },
+  // 取得計算後總價
   [types.PostGetTotalAmt]({ commit, state }) {
     axios.post(`/api/Ecpay/PostGetTotalAmt?`, state.shoppingCartItem)
       .then((response) => {
@@ -95,6 +111,7 @@ export default {
         console.log(error)
       })
   },
+  // 第三方登入
   [types.PostAnoyLogin]({ commit }) {
     axios.post('/api/MemberAccount/AnonymousLogin')
       .then((response) => {
@@ -110,6 +127,7 @@ export default {
         console.log(error)
       })
   },
+  // 登出
   [types.LoginOut]({ commit }) {
     commit(types.LoginOut)
   },
@@ -130,9 +148,11 @@ export default {
   [types.SetLoginModal]({ commit }, setvalue) {
     commit(types.SetLoginModal, setvalue)
   },
+  // 購物車步驟條
   [types.SetCartStepBar]({ commit }, CartStep) {
     commit(types.SetCartStepBar, CartStep)
   },
+  // 購物車儲存使用者資料
   [types.SetBuyerDetail]({ commit }, BuyerDetail) {
     commit(types.SetBuyerDetail, BuyerDetail)
   }
