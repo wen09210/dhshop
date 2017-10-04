@@ -125,6 +125,7 @@
         this.payInfo = Cookies.getJSON('PayOk')
       }
       console.log(this.payInfo)
+      console.log(this.payInfo)
     },
     data() {
       return {

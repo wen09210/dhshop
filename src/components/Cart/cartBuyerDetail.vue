@@ -17,10 +17,10 @@
               <Input v-model="BuyerDetail.P_Address" placeholder="地址..."></Input>
             </FormItem>
             <FormItem label="訂購人手機:" prop="P_Phone">
-              <Input v-model="BuyerDetail.P_Phone" placeholder="手機..."></Input>
+              <Input v-model="BuyerDetail.P_Phone" placeholder="09xxxxxx."></Input>
             </FormItem>
             <FormItem label="E-MAIL:" prop="P_Mail">
-              <Input v-model="BuyerDetail.P_Mail" placeholder="E-MAIL..."></Input>
+              <Input v-model="BuyerDetail.P_Mail" placeholder="xxx@gmail.com"></Input>
             </FormItem>
             <FormItem label="備註:">
               <Input v-model="BuyerDetail.P_Note" type="textarea" :autosize="{minRows: 2,maxRows: 10}" placeholder="備註..."></Input>
@@ -67,10 +67,10 @@
               <Input v-model="BuyerDetail.R_Address" placeholder="收件人地址"></Input>
             </FormItem>
             <FormItem label="收件人手機:" prop="R_Phone">
-              <Input v-model="BuyerDetail.R_Phone" placeholder="收件人手機"></Input>
+              <Input v-model="BuyerDetail.R_Phone" placeholder="09xxxxxx"></Input>
             </FormItem>
             <FormItem label="E-MAIL:" prop="R_Mail">
-              <Input v-model="BuyerDetail.R_Mail" placeholder="E-MAIL"></Input>
+              <Input v-model="BuyerDetail.R_Mail" placeholder="xxx@gmail.com"></Input>
             </FormItem>
             <FormItem label="收件時段:" prop="R_Time">
               <Select v-model="BuyerDetail.R_Time" size="large" style="width:100px">
@@ -122,9 +122,26 @@ let BuyerDetail = {
 }
 export default {
   data() {
+    // 驗證手機
+    // const validatePhone = (rule, value, callback) => {
+    //   var regexp = new RegExp(/^09\d{8}$/, 'i')
+    //   var res = regexp.test(value)
+    //   if (!res) {
+    //     callback(new Error('手機應為09xxxxxxxx'))
+    //   }
+    // }
+    // 驗證電話為至少7位數字
+    const valiNumber = (rule, value, callback) => {
+      var regexp = new RegExp(/\d{7,}$/, 'i')
+      var res = regexp.test(value)
+      if (!res) {
+        callback(new Error('電話格式錯誤'))
+      }
+    }
     return {
       BuyerDetail: BuyerDetail,
       eqPurchaser: false,
+      valCodeIcon: '0',
       // 資料驗證規則
       RuleBuyerDetail: {
         Purchaser: [
@@ -133,7 +150,8 @@ export default {
         ],
         P_Phone: [
           { required: true, message: '訂購人電話不能為空', trigger: 'blur' },
-          { type: 'integer', min: 10, max: 10, message: '請輸入正確號碼', trigger: 'blur' }
+          { type: 'string', max: 10, message: '請輸入正確號碼(長度是否正確)', trigger: 'blur' },
+          { validator: valiNumber, trigger: 'blur' }
         ],
         P_Address: [
           { required: true, message: '訂購人地址不能為空', trigger: 'blur' }
@@ -147,7 +165,8 @@ export default {
         ],
         R_Phone: [
           { required: true, message: '收件人電話不能為空', trigger: 'blur' },
-          { type: 'integer', min: 10, max: 10, message: '請輸入正確號碼', trigger: 'blur' }
+          { type: 'string', max: 10, message: '請輸入正確號碼(長度是否正確)', trigger: 'blur' },
+          { validator: valiNumber, trigger: 'blur' }
         ],
         R_Address: [
           { required: true, message: '收件人地址不能為空', trigger: 'blur' }
@@ -159,8 +178,7 @@ export default {
         R_Time: [
           { required: true, message: '收件時間不能為空', trigger: 'change' }
         ]
-      },
-      valCodeIcon: '0'
+      }
     }
   },
   computed: {
@@ -171,7 +189,7 @@ export default {
     ]),
     matchLoginInfo() {
       // 無痕登入，不代資料
-      if (this.GetLoginInfo.JoinType !== '4') {
+      if (this.GetLoginInfo.MemberJoinType !== '4') {
         this.BuyerDetail.Purchaser = this.GetLoginInfo.MemberName
         this.BuyerDetail.P_Phone = this.GetLoginInfo.MemberMobile
         this.BuyerDetail.P_Address = this.GetLoginInfo.MemberAddress

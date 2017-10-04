@@ -5,7 +5,7 @@
       <div class="container">
         <div class="col-md-12 col-xs-12 stepbar">
           <Steps :current="CartStepBar">
-            <Step title=" 購物車  " icon="ios-cart"></Step>
+            <Step title="購  物  車" icon="ios-cart"></Step>
             <Step title="訂購資料" icon="compose"></Step>
             <Step title="付款方式" icon="card"></Step>
             <Step title="恭喜完成" icon="checkmark-circled"></Step>
@@ -122,13 +122,11 @@ export default {
   margin-bottom: 50px;
 }
 
-.stepbar {
-  margin: 25px 0px;
-}
+
 
 @media (max-width: 762px) {
   .ivu-steps .ivu-steps-title {
-    font-size: 22px;
+    font-size: 16px;
     color: #495060;
   }
 
@@ -138,11 +136,13 @@ export default {
 }
 
 @media (min-width: 762px) {
+  .stepbar {
+  margin: 25px 0px;
+}
   .ivu-steps .ivu-steps-title {
     font-size: 26px;
     color: #495060;
   }
-
   .ivu-input {
     font-size: 20px;
   }
