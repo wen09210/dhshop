@@ -1,5 +1,11 @@
 <template>
   <div>
+    <button @click="testcookie" class="btn btn-info">測試cookie</button>
+    <br>
+    <br> <label>testloginInfo:</label> {{testloginInfo}}
+    <br>
+    <br>
+    <br> <label>testshoppingCartItem</label>:{{testshoppingCartItem}}
     <!-- 步驟條 -->
     <template>
       <div class="container">
@@ -54,7 +60,9 @@ export default {
   data() {
     return {
       showCart: true,
-      current: 0
+      current: 0,
+      testloginInfo: {},
+      testshoppingCartItem: {}
     }
   },
   computed: {
@@ -91,9 +99,8 @@ export default {
     //   this.PostGetTotalAmt()
     // },
     testcookie() {
-      alert(Cookies.getJSON('testCart'))
-      alert(Cookies.getJSON('loginInfo'))
-      alert(Lockr.get('shoppingCartItem'))
+      this.testloginInfo = Cookies.getJSON('loginInfo')
+      this.testshoppingCartItem = Lockr.get('shoppingCartItem')
     }
   }
 }
@@ -138,14 +145,14 @@ export default {
 
 @media (min-width: 762px) {
   .stepbar {
-  margin: 25px 0px;
-}
+    margin: 25px 0px;
+  }
   .ivu-steps .ivu-steps-title {
     font-size: 26px;
     color: #495060;
   }
   .ivu-input {
-    border: 1px solid #8c8d8e;    
+    border: 1px solid #8c8d8e;
     font-size: 20px;
   }
 }
@@ -158,12 +165,18 @@ export default {
 }
 
 
+
+
+
 /* Form字體 */
 
 .ivu-form .ivu-form-item-label {
   font-size: 16px;
   padding: 10px 0;
 }
+
+
+
 
 
 /* checkbox 大小*/
@@ -175,11 +188,17 @@ export default {
 }
 
 
+
+
+
 /* 圖示 */
 
 .ivu-steps .ivu-steps-head-inner>.ivu-steps-icon.ivu-icon {
   font-size: 30px;
 }
+
+
+
 
 
 
@@ -192,6 +211,9 @@ export default {
 .ivu-steps-item.ivu-steps-custom.ivu-steps-status-process .ivu-steps-head-inner>.ivu-steps-icon {
   color: #FF5722;
 }
+
+
+
 
 
 
