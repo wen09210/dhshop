@@ -132,10 +132,16 @@ export default {
     }
   },
   [types.PostGetTotalAmt](state, showAmt) {
-    if (showAmt.status === 'err') {
+    if (showAmt.status === 'err' || showAmt.status === 'couponError') {
       noty.ShowAlert(showAmt.errMsg, 'warning')
+    } else if (showAmt.status === 'ok' && showAmt.errMsg !== '') {
+      // 折扣碼檢查ok
+      noty.ShowAlert(showAmt.errMsg, 'success')
     }
     state.showAmtData = showAmt
+  },
+  [types.SetCouponCode](state, couponCode) {
+    state.CouponCode = couponCode
   },
   [types.PostLogin](state, logininfo) {
     console.log(logininfo)

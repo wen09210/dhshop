@@ -55,6 +55,33 @@
         </div>
         <!-- 購買商品列end -->
         <br>
+        <!-- 折扣代碼 -->
+        <div class="CouponDiv">
+          <Row :gutter="16">
+            <Col :xs="{ span: 24}" :md="{span: 12,offset:12}">
+            <Col :xs="{ span: 6}" :md="{span: 6}">
+            <div>
+              <label class="coupTitle">折扣代碼:</label>
+            </div>
+            </Col>
+            <Col :xs="{ span: 12}" :md="{ span: 12}">
+            <Input v-model="CouponCode" placeholder="優惠(折扣)代碼" style="boreder-color:red;"></Input>
+            </Col>
+            <Col :xs="{ span: 2}" :md="{ span: 2}">
+            <template v-if="valCodeIcon==='1'">
+              <Icon type="checkmark-circled" size="22" color="green"></Icon>
+            </template>
+            <template v-if="valCodeIcon==='2'">
+              <Icon type="close-circled" size="22" color="red"></Icon>
+            </template>
+            </Col>
+            <Col :xs="{ span: 2}" :md="{ span: 4}">
+            <Button type="primary" size="large" @click="ValidateCoupon()">驗證</Button>
+            </Col>
+            </Col>
+          </Row>
+        </div>
+        <!-- 折扣代碼end -->
         <!-- 付款總計 -->
         <div class="payTotal">
           {{caculateAmt}}
@@ -86,12 +113,11 @@
               </div>
             </div>
             <div class="lineContent">
-              <div class="leftContent"></div>
-              <div class="rightContent">
-                <hr>
+              <div class="leftContent">{{GetshowAmtData.disCouponName}}</div>
+              <div class="rightContent">優惠碼折扣
               </div>
               <div class="rightAmt">
-                <hr>
+                <i class="fa fa-minus" aria-hidden="true" style="color:red"></i> {{GetshowAmtData.discountCoupon}}元
               </div>
             </div>
             <div class="lineContent">
@@ -116,7 +142,10 @@ import { mapActions, mapGetters } from 'vuex'
 import { noty } from '../../assets/AlertDialog'
 export default {
   data() {
-    return {}
+    return {
+      valCodeIcon: '0',
+      CouponCode: ''
+    }
   },
   computed: {
     ...mapGetters([
@@ -138,6 +167,7 @@ export default {
       'IncreaseProduct',
       'ReduceProduct',
       'PostGetTotalAmt',
+      'SetCouponCode',
       'addCartCount',
       'minusCartCount',
       'keyNumCartCount',
@@ -221,6 +251,16 @@ export default {
       } else {
         this.SetCartStepBar(1)
       }
+    },
+    // 驗證優惠代碼
+    ValidateCoupon() {
+      if (this.CouponCode === '') {
+        noty.ShowAlert('請先輸入優惠折扣代碼，再進行驗證', 'warning')
+        return false
+      }
+      this.SetCouponCode(this.CouponCode)
+      console.log('coupon save')
+      this.PostGetTotalAmt()
     }
   }
 }
@@ -278,8 +318,6 @@ export default {
   margin-right: 1px;
 }
 
-
-
 .tbody {
   display: table-row-group;
 }
@@ -288,8 +326,9 @@ export default {
   display: table-row;
 }
 
-
-
+.CouponDiv {
+  margin-bottom: 10px;
+}
 
 
 @media (min-width: 992px) {
@@ -345,6 +384,9 @@ export default {
     width: 20%;
     text-align: right;
     display: table-cell;
+  }
+  .coupTitle {
+    font-size: 20px;
   }
 }
 
@@ -431,6 +473,9 @@ export default {
     width: 30%;
     text-align: right;
     display: table-cell;
+  }
+  .coupTitle {
+    font-size: 17px;
   }
 }
 

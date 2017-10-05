@@ -24,5 +24,7 @@ export default {
   // 關閉登入視窗
   GetLoginModal: 'GetLoginModal',
   // 設定步驟條
-  SetCartStepBar: 'SetCartStepBar'
+  SetCartStepBar: 'SetCartStepBar',
+  // 存入優惠碼
+  SetCouponCode: 'SetCouponCode'
 }

@@ -131,6 +131,7 @@ export default {
   }
 
   .ivu-input {
+    border: 1px solid #8c8d8e;
     font-size: 16px;
   }
 }
@@ -144,6 +145,7 @@ export default {
     color: #495060;
   }
   .ivu-input {
+    border: 1px solid #8c8d8e;    
     font-size: 20px;
   }
 }

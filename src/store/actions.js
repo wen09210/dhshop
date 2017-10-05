@@ -85,7 +85,10 @@ export default {
   },
   // 取得計算後總價
   [types.PostGetTotalAmt]({ commit, state }) {
-    axios.post(`/api/Ecpay/PostGetTotalAmt?`, state.shoppingCartItem)
+    let BuyerDetail = {}
+    BuyerDetail.listItem = state.shoppingCartItem
+    BuyerDetail.CouponCode = state.CouponCode
+    axios.post(`/api/Ecpay/PostGetTotalAmt?`, BuyerDetail)
       .then((response) => {
         console.log(response)
         var showAmt = response.data.data
@@ -94,6 +97,10 @@ export default {
       .catch(function(error) {
         console.log(error)
       })
+  },
+  // 存入優惠代碼
+  [types.SetCouponCode]({commit}, couponCode) {
+    commit(types.SetCouponCode, couponCode)
   },
   [types.PostLogin]({ commit }, MemberAccount) {
     console.log(MemberAccount)

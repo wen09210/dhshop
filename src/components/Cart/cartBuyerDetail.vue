@@ -9,7 +9,7 @@
           <span>訂購人</span>
         </div>
         <div class="">
-          <Form label-position="left" :model="BuyerDetail" :rules="RuleBuyerDetail" :label-width="100">
+          <Form label-position="left" ref="BuyerDetail_P" :model="BuyerDetail" :rules="RuleBuyerDetail" :label-width="100">
             <FormItem label="訂購人姓名:" prop="Purchaser">
               <Input v-model="BuyerDetail.Purchaser" placeholder="姓名..."></Input>
             </FormItem>
@@ -26,26 +26,7 @@
               <Input v-model="BuyerDetail.P_Note" type="textarea" :autosize="{minRows: 2,maxRows: 10}" placeholder="備註..."></Input>
             </FormItem>
           </Form>
-          <Form label-position="top" :label-width="80">
-            <FormItem label="使用優惠碼">
-              <Row :gutter="16">
-                <Col span="2">
-                <template v-if="valCodeIcon==='1'">
-                  <Icon type="checkmark-circled" size="22" color="green"></Icon>
-                </template>
-                <template v-if="valCodeIcon==='2'">
-                  <Icon type="close-circled" size="22" color="red"></Icon>
-                </template>
-                </Col>
-                <Col span="12">
-                <Input v-model="BuyerDetail.CouponCode" placeholder="優惠(折扣)代碼"></Input>
-                </Col>
-                <Col span="8">
-                <Button type="primary" @click="ValidateCoupon()">驗證</Button>
-                </Col>
-              </Row>
-            </FormItem>
-          </Form>
+
         </div>
       </div>
       <!-- 訂購人資訊end  -->
@@ -56,7 +37,7 @@
           <span>收件人</span>
         </div>
         <div class="">
-          <Form label-position="left" :model="BuyerDetail" :rules="RuleBuyerDetail" :label-width="100">
+          <Form label-position="left" ref="BuyerDetail_R" :model="BuyerDetail" :rules="RuleBuyerDetail" :label-width="100">
             <FormItem :label-width="10">
               <Checkbox v-model="eqPurchaser" @on-change="eqPurchsase" size="large">與訂購人相同請打勾</Checkbox>
             </FormItem>
@@ -91,14 +72,13 @@
     <!-- 上一步回購物車end -->
     <!-- 下一步付款資訊 -->
     <div class=" col-xs-7 col-md-7">
-      <button type="button" class="btn btn-info btn-lg btn-block" @click="goPayDetail">下一步 !</button>
+      <button type="button" class="btn btn-info btn-lg btn-block" @click="goPayDetail('BuyerDetail_P','BuyerDetail_R')">下一步 !</button>
     </div>
     <!-- 下一步付款資訊end -->
   </div>
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import axios from 'axios'
 import { noty } from '../../assets/AlertDialog'
 
 let BuyerDetail = {
@@ -117,8 +97,7 @@ let BuyerDetail = {
   'InoviceType': '1',
   'InoviceLoveCode': '1980198',
   'Corporation': '',
-  'taxIDNum': '',
-  'CouponCode': ''
+  'taxIDNum': ''
 }
 export default {
   data() {
@@ -141,7 +120,6 @@ export default {
     return {
       BuyerDetail: BuyerDetail,
       eqPurchaser: false,
-      valCodeIcon: '0',
       // 資料驗證規則
       RuleBuyerDetail: {
         Purchaser: [
@@ -209,7 +187,26 @@ export default {
       this.SetCartStepBar(0)
     },
     // 進入付款資訊
-    goPayDetail() {
+    goPayDetail(name1, name2) {
+      // 表單驗證錯誤訊息
+      let errMsg = ''
+      let errMsg2 = ''
+      // 訂購人驗證
+      this.$refs[name1].validate((valid) => {
+        if (!valid) {
+          errMsg = '訂購人資料有誤<br>'
+        }
+      })
+      // 收件人驗證
+      this.$refs[name2].validate((valid) => {
+        if (!valid) {
+          errMsg2 = '收件人資料有誤<br>'
+        }
+      })
+      if (errMsg !== '' || errMsg2 !== '') {
+        noty.ShowAlert(errMsg + errMsg2, 'warning')
+        return false
+      }
       // 存訂購人資料
       this.SetBuyerDetail(this.BuyerDetail)
       // 步驟條
@@ -228,30 +225,6 @@ export default {
         this.BuyerDetail.R_Address = ''
         this.BuyerDetail.R_Mail = ''
       }
-    },
-    // 驗證優惠代碼
-    ValidateCoupon() {
-      if (this.BuyerDetail.CouponCode === '') {
-        noty.ShowAlert('請先輸入優惠折扣代碼，再進行驗證')
-        return false
-      }
-      let copyBuyerDetail = BuyerDetail
-      copyBuyerDetail.listItem = this.GetShoppingCartItem
-      // post 驗證優惠代碼
-      axios.post(`/api/Ecpay/PostValidDiscountCode`, copyBuyerDetail)
-        .then((response) => {
-          console.log(response)
-          if (response.data.statu === 'ok') {
-            noty.ShowAlert(response.data.msg, 'success')
-            this.valCodeIcon = '1'
-          } else {
-            noty.ShowAlert(response.data.msg, 'warning')
-            this.valCodeIcon = '2'
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-        })
     }
   }
 }
@@ -277,25 +250,6 @@ input.largerCheckbox {
   color: #c90026;
   font-weight: bold;
   margin-left: 15PX;
-}
-
-
-.coupTitle {
-  margin: 10px;
-  font-size: 18px;
-}
-
-.coupon {
-  float: right !important;
-  margin-bottom: 10px;
-}
-
-@media (max-width:414px) {
-  .coupon {
-    float: left !important;
-    margin: 5px 0px;
-    display: flex;
-  }
 }
 
 </style>
