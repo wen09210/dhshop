@@ -8,10 +8,19 @@ import extension from './components/extension'
 import Lockr from 'lockr'
 import iView from 'iview'
 import zhLocale from 'iview/dist/locale/zh-TW'
+import Cookies from 'js-cookie'
 
 Vue.use(iView, { zhLocale })
 Vue.config.productionTip = false
 Vue.use(extension)
+/*  Cookie擴展Decode */
+let cookies = Cookies.withConverter((value, name) => {
+  document.cookie = decodeURIComponent(document.cookie)
+  return value
+})
+Vue.prototype.$Cookies = cookies
+/*  Cookie擴展Decode */
+
 // 購物車編號
 let _cartno = Lockr.get('cartNo')
 if (typeof _cartno === 'undefined') {

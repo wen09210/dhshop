@@ -10,7 +10,7 @@ import cartPayOK from '../components/Cart/cartPayOk.vue'
 import prodPomote from '../components/Article/prodPromote.vue'
 import AnonymousSearch from '../components/Order/AnonymousSearch.vue'
 import QandA from '../components/Other/QandA.vue'
-// import axios from 'axios'
+import axios from 'axios'
 
 Vue.use(Router)
 
@@ -46,17 +46,16 @@ export default new Router({
     {
       path: '/cart',
       name: 'cart',
-      component: cart
-      // beforeEnter: (to, from, next) => {
-      //   alert(1)
-      //   axios({
-      //     method: 'get',
-      //     url: '/api/Ecpay/Get'
-      //   }).then(val => {
-      //     alert(val)
-      //   })
-      //   next()
-      // }
+      component: cart,
+      beforeEnter: (to, from, next) => {
+        axios({
+          method: 'get',
+          url: '/api/Ecpay/Get'
+        }).then(val => {
+          alert(val)
+        })
+        next()
+      }
     },
     // {
     //   path: '/cartBuyerDetail',

@@ -2,10 +2,19 @@
   <div>
     <button @click="testcookie" class="btn btn-info">測試cookie</button>
     <br>
-    <br> <label>testloginInfo:</label> {{testloginInfo}}
     <br>
     <br>
-    <br> <label>testshoppingCartItem</label>:{{testshoppingCartItem}}
+    <label>test123:</label> {{test123}}
+    <br>
+    <br>
+    <label for="">test1015</label>{{test1015}}
+    <br>
+    <br>
+    <label>testloginInfo:</label> {{testloginInfo}}
+    <br>
+    <br>
+    <br>
+    <label>testshoppingCartItem</label>:{{testshoppingCartItem}}
     <!-- 步驟條 -->
     <template>
       <div class="container">
@@ -23,6 +32,7 @@
     <!-- 購物車 -->
     <template v-if="CartStepBar ===0">
       <cart></cart>
+      <cartAddProd></cartAddProd>
     </template>
     <!-- 購物車end -->
     <!-- 訂購人資料 -->
@@ -41,7 +51,6 @@
   </div>
 </template>
 <script>
-import Cookies from 'js-cookie'
 import Lockr from 'lockr'
 import cart from './cart'
 import cartAddProd from './cartAddProd'
@@ -62,7 +71,9 @@ export default {
       showCart: true,
       current: 0,
       testloginInfo: {},
-      testshoppingCartItem: {}
+      testshoppingCartItem: {},
+      test123: {},
+      test1015: {}
     }
   },
   computed: {
@@ -99,7 +110,16 @@ export default {
     //   this.PostGetTotalAmt()
     // },
     testcookie() {
-      this.testloginInfo = Cookies.getJSON('loginInfo')
+      // var $cookies = Cookies.withConverter(function(value, name) {
+      //   var afterDecodeCookie = decodeURIComponent(document.cookie)
+      //   document.cookie = afterDecodeCookie
+      //   return value
+      // })
+      // let a = $cookies.get('mytest1015')
+      console.log($Cookies.getJSON('loginInfo'))
+      this.test123 = decodeURIComponent(document.cookie)
+      this.test1015 = $Cookies.getJSON('mytest1015')
+      this.testloginInfo = decodeURIComponent($Cookies.getJSON('loginInfo'))
       this.testshoppingCartItem = Lockr.get('shoppingCartItem')
     }
   }
@@ -168,12 +188,28 @@ export default {
 
 
 
+
+
+
+
+
+
+
+
 /* Form字體 */
 
 .ivu-form .ivu-form-item-label {
   font-size: 16px;
   padding: 10px 0;
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -191,11 +227,27 @@ export default {
 
 
 
+
+
+
+
+
+
+
+
 /* 圖示 */
 
 .ivu-steps .ivu-steps-head-inner>.ivu-steps-icon.ivu-icon {
   font-size: 30px;
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -211,6 +263,14 @@ export default {
 .ivu-steps-item.ivu-steps-custom.ivu-steps-status-process .ivu-steps-head-inner>.ivu-steps-icon {
   color: #FF5722;
 }
+
+
+
+
+
+
+
+
 
 
 

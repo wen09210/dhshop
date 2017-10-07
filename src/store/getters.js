@@ -1,5 +1,4 @@
 import types from './types'
-import Cookies from 'js-cookie'
 import Lockr from 'lockr'
 
 export default {
@@ -14,8 +13,8 @@ export default {
   [types.GetshowAmtData]: (state) => state.showAmtData,
   [types.GetLoginInfo]: (state) => {
     if (Object.keys(state.LoginInfo).length === 0) {
-      if (Cookies.getJSON('loginInfo') !== undefined) {
-        state.LoginInfo = Cookies.getJSON('loginInfo')
+      if ($Cookies.getJSON('loginInfo') !== undefined) {
+        state.LoginInfo = $Cookies.getJSON('loginInfo')
       }
     }
     return state.LoginInfo

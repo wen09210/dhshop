@@ -118,11 +118,10 @@
 </div>
 </template>
 <script>
-  import Cookies from 'js-cookie'
   export default {
     created() {
-      if (Cookies.getJSON('PayOk') !== undefined) {
-        this.payInfo = Cookies.getJSON('PayOk')
+      if ($Cookies.getJSON('PayOk') !== undefined) {
+        this.payInfo = $Cookies.getJSON('PayOk')
       }
       console.log(this.payInfo)
       console.log(this.payInfo)

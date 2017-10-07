@@ -1,9 +1,6 @@
 import types from './types'
-import Cookies from 'js-cookie'
 import Lockr from 'lockr'
-import {
-  noty
-} from '../../src/assets/AlertDialog'
+import { noty } from '../../src/assets/AlertDialog'
 
 export default {
   [types.IncreaseProduct](state, {
@@ -156,7 +153,7 @@ export default {
   },
   [types.LoginOut](state) {
     state.LoginInfo = {}
-    Cookies.remove('loginInfo')
+    $Cookies.remove('loginInfo')
   },
   [types.PostRegister](state, logininfo) {
     console.log(logininfo)
