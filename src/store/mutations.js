@@ -1,6 +1,7 @@
 import types from './types'
 import Lockr from 'lockr'
 import { noty } from '../../src/assets/AlertDialog'
+import { $decodeCookies } from '../extension/DecodeCookies'
 
 export default {
   [types.IncreaseProduct](state, {
@@ -153,7 +154,7 @@ export default {
   },
   [types.LoginOut](state) {
     state.LoginInfo = {}
-    $Cookies.remove('loginInfo')
+    $decodeCookies.remove('loginInfo')
   },
   [types.PostRegister](state, logininfo) {
     console.log(logininfo)

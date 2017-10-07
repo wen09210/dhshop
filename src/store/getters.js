@@ -1,5 +1,6 @@
 import types from './types'
 import Lockr from 'lockr'
+import {$decodeCookies} from '../extension/DecodeCookies'
 
 export default {
   [types.GetShoppingCartItem]: (state) => {
@@ -13,8 +14,8 @@ export default {
   [types.GetshowAmtData]: (state) => state.showAmtData,
   [types.GetLoginInfo]: (state) => {
     if (Object.keys(state.LoginInfo).length === 0) {
-      if ($Cookies.getJSON('loginInfo') !== undefined) {
-        state.LoginInfo = $Cookies.getJSON('loginInfo')
+      if ($decodeCookies.getJSON('loginInfo') !== undefined) {
+        state.LoginInfo = $decodeCookies.getJSON('loginInfo')
       }
     }
     return state.LoginInfo

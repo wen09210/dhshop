@@ -58,6 +58,7 @@ import cartBuyerDetail from './cartBuyerDetail'
 import cartPayDetail from './cartPayDetail'
 import mebLogin from '../Member/mebLogin.vue'
 import { mapState, mapActions, mapGetters } from 'vuex'
+// import Cookies from 'js-cookie'
 export default {
   components: {
     mebLogin,
@@ -110,16 +111,9 @@ export default {
     //   this.PostGetTotalAmt()
     // },
     testcookie() {
-      // var $cookies = Cookies.withConverter(function(value, name) {
-      //   var afterDecodeCookie = decodeURIComponent(document.cookie)
-      //   document.cookie = afterDecodeCookie
-      //   return value
-      // })
-      // let a = $cookies.get('mytest1015')
-      console.log($Cookies.getJSON('loginInfo'))
-      this.test123 = decodeURIComponent(document.cookie)
-      this.test1015 = $Cookies.getJSON('mytest1015')
-      this.testloginInfo = decodeURIComponent($Cookies.getJSON('loginInfo'))
+      this.test123 = document.cookie
+      this.test1015 = this.$decodeCookies.get('testCart')
+      this.testloginInfo = this.$decodeCookies.getJSON('loginInfo')
       this.testshoppingCartItem = Lockr.get('shoppingCartItem')
     }
   }
@@ -186,22 +180,14 @@ export default {
 
 
 
-
-
-
-
-
-
-
-
-
-
 /* Form字體 */
 
 .ivu-form .ivu-form-item-label {
   font-size: 16px;
   padding: 10px 0;
 }
+
+
 
 
 
@@ -235,11 +221,15 @@ export default {
 
 
 
+
+
 /* 圖示 */
 
 .ivu-steps .ivu-steps-head-inner>.ivu-steps-icon.ivu-icon {
   font-size: 30px;
 }
+
+
 
 
 
@@ -263,6 +253,8 @@ export default {
 .ivu-steps-item.ivu-steps-custom.ivu-steps-status-process .ivu-steps-head-inner>.ivu-steps-icon {
   color: #FF5722;
 }
+
+
 
 
 

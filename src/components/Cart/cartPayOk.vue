@@ -120,8 +120,8 @@
 <script>
   export default {
     created() {
-      if ($Cookies.getJSON('PayOk') !== undefined) {
-        this.payInfo = $Cookies.getJSON('PayOk')
+      if (this.$decodeCookies.getJSON('PayOk') !== undefined) {
+        this.payInfo = this.$decodeCookies.getJSON('PayOk')
       }
       console.log(this.payInfo)
       console.log(this.payInfo)

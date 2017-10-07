@@ -8,17 +8,13 @@ import extension from './components/extension'
 import Lockr from 'lockr'
 import iView from 'iview'
 import zhLocale from 'iview/dist/locale/zh-TW'
-import Cookies from 'js-cookie'
-
+import { $decodeCookies } from './extension/DecodeCookies'
 Vue.use(iView, { zhLocale })
 Vue.config.productionTip = false
 Vue.use(extension)
+
 /*  Cookie擴展Decode */
-let cookies = Cookies.withConverter((value, name) => {
-  document.cookie = decodeURIComponent(document.cookie)
-  return value
-})
-Vue.prototype.$Cookies = cookies
+Vue.prototype.$decodeCookies = $decodeCookies
 /*  Cookie擴展Decode */
 
 // 購物車編號
