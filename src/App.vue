@@ -4,18 +4,21 @@
       <mysidebar></mysidebar>
       <router-view></router-view>
       <myfooter></myfooter>
+      <Loading></Loading>
   </div>
 </template>
 <script>
 import myheader from './components/Global/myheader'
 import mysidebar from './components/Global/mysidebar'
 import myfooter from './components/Global/myfooter'
+import Loading from './components/Global/Loading'
 export default {
   name: 'app',
   components: {
     myheader,
     mysidebar,
-    myfooter
+    myfooter,
+    Loading
   }
 }
 

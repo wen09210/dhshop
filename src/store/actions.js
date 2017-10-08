@@ -1,9 +1,12 @@
 import types from './types'
 import axios from 'axios'
-import { ecpost } from './ecpost'
+import { ecpost } from '../extension/ecpost'
 import { noty } from '../../src/assets/AlertDialog'
 import router from '../router'
 export default {
+  [types.SetLoading]({ commit }, setting) {
+    commit(types.SetLoading, setting)
+  },
   // 商品加入購物車
   [types.IncreaseProduct]({ commit }, { itemShow, itemSize, prodType }) {
     commit(types.IncreaseProduct, { itemShow, itemSize, prodType })
@@ -32,7 +35,7 @@ export default {
     commit(types.keyNumCartCount, { item, count })
   },
   // 送出訂單(綠界or貨到付款)
-  [types.GetMacValue]({ state }, {$Spin, BuyerDetail}) {
+  [types.GetMacValue]({ state }, { $Spin, BuyerDetail }) {
     // loading 畫面
     $Spin.show()
     BuyerDetail.listItem = state.shoppingCartItem
@@ -59,9 +62,9 @@ export default {
           name: 'cartPayOK'
         })
       })
-        .catch((r) => {
-          console.log(r)
-        })
+      .catch((r) => {
+        console.log(r)
+      })
     } else {
       // 信用卡 + 匯款
       axios.post(`/api/Ecpay/PosttoGetMacValue`, BuyerDetail, {
@@ -78,9 +81,9 @@ export default {
         }
         ecpost('https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V4?', response.data, 'POST')
       })
-        .catch(function(r) {
-          console.log(r)
-        })
+      .catch(function(r) {
+        console.log(r)
+      })
     }
   },
   // 取得計算後總價
@@ -99,7 +102,7 @@ export default {
       })
   },
   // 存入優惠代碼
-  [types.SetCouponCode]({commit}, couponCode) {
+  [types.SetCouponCode]({ commit }, couponCode) {
     commit(types.SetCouponCode, couponCode)
   },
   [types.PostLogin]({ commit }, MemberAccount) {

@@ -4,6 +4,9 @@ import { noty } from '../../src/assets/AlertDialog'
 import { $decodeCookies } from '../extension/DecodeCookies'
 
 export default {
+  [types.SetLoading](state, setting) {
+    state.openLoading = setting
+  },
   [types.IncreaseProduct](state, {
     itemShow,
     itemSize,

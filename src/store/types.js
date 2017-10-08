@@ -1,4 +1,6 @@
 export default {
+  // Loading畫面顯示
+  SetLoading: 'SetLoading',
   IncreaseProduct: 'IncreaseProduct',
   IncreaseAddProduct: 'IncreaseAddProduct',
   ReduceProduct: 'ReduceProduct',

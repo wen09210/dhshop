@@ -1,3 +1,4 @@
+// 綠界post
 function ecpost(path, params, method) {
   method = method || ' post' // Set method to post by default if not specified.
 

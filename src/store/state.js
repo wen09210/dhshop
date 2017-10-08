@@ -1,4 +1,5 @@
 export default {
+  openLoading: false,
   shoppingCartItem: [],
   // cartNo: 0,
   showAmtData: {},

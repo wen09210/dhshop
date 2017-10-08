@@ -2,17 +2,11 @@
   <div>
     <button @click="testcookie" class="btn btn-info">測試cookie</button>
     <br>
-    <br>
-    <br>
     <label>test123:</label> {{test123}}
-    <br>
     <br>
     <label for="">test1015</label>{{test1015}}
     <br>
-    <br>
     <label>testloginInfo:</label> {{testloginInfo}}
-    <br>
-    <br>
     <br>
     <label>testshoppingCartItem</label>:{{testshoppingCartItem}}
     <!-- 步驟條 -->
@@ -84,14 +78,6 @@ export default {
       'GetShoppingCartItem'
     ]),
     ...mapState(['CartStepBar'])
-    // showDetail() {
-    //   if (Object.keys(this.GetLoginInfo).length !== 0) {
-    //     this.showBuyerDetail = true
-    //   } else {
-    //     this.showBuyerDetail = false
-    //   }
-    //   return this.showBuyerDetail
-    // }
   },
   methods: {
     ...mapActions([
@@ -99,17 +85,7 @@ export default {
       'SetLoginModal',
       'PostAnoyLogin'
     ]),
-    // 下一步 填寫基本資料
-    // goBuyerDetail() {
-    //   if (Object.keys(this.GetLoginInfo).length === 0) {
-    //     this.SetLoginModal(true)
-    //   } else {
-    //     this.$router.push({
-    //       name: 'cartBuyerDetail'
-    //     })
-    //   }
-    //   this.PostGetTotalAmt()
-    // },
+
     testcookie() {
       this.test123 = document.cookie
       this.test1015 = this.$decodeCookies.get('testCart')
@@ -142,8 +118,6 @@ export default {
   margin-top: 20px;
   margin-bottom: 50px;
 }
-
-
 
 @media (max-width: 762px) {
   .ivu-steps .ivu-steps-title {
@@ -178,75 +152,26 @@ export default {
   }
 }
 
-
-
-/* Form字體 */
-
 .ivu-form .ivu-form-item-label {
+  /* form字體 */
   font-size: 16px;
   padding: 10px 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* checkbox 大小*/
-
 .ivu-checkbox-inner {
+  /* checkbox 大小*/
   width: 25px !important;
   height: 25px !important;
   border: solid 1px #333 !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 圖示 */
-
 .ivu-steps .ivu-steps-head-inner>.ivu-steps-icon.ivu-icon {
+  /* 圖示 */
   font-size: 30px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 進行中Bar */
-
 .ivu-steps-item.ivu-steps-status-process .ivu-steps-title {
+  /* 進行中Bar */
   color: #FF5722;
 }
 
@@ -254,25 +179,9 @@ export default {
   color: #FF5722;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 進行中Bar end */
-
 .ivu-steps-item.ivu-steps-status-finish .ivu-steps-title {
   color: #2b85e4;
+  /* 進行中Bar end */
 }
 
 </style>

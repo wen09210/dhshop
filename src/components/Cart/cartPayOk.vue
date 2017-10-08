@@ -3,36 +3,20 @@
   <div class="container">
     <!-- 成功 -->
     <template v-if="payInfo.status ==='ok' ">
-      <!-- 進度條 -->
-      <div class="col-xs-4 bs-wizard-step ">
-        <div class="textbar">填寫收件資訊</div>
-        <div class="progress" style="width:50%;float:right;">
-          <div class="innerbar"></div>
+    <!-- 步驟條 -->
+    <template>
+      <div class="container">
+        <div class="col-md-12 col-xs-12 stepbar">
+          <Steps :current="CartStepBar">
+            <Step title="購  物  車" icon="ios-cart"></Step>
+            <Step title="訂購資料" icon="compose"></Step>
+            <Step title="付款方式" icon="card"></Step>
+            <Step title="恭喜完成" icon="checkmark-circled"></Step>
+          </Steps>
         </div>
-        <span class="Dot">
-            <span class="DotInner"></span>
-        </span>
       </div>
-
-      <div class="col-xs-4 bs-wizard-step ">
-        <div class="textbar">選擇付款方式</div>
-        <div class="progress">
-          <div class="innerbar"></div>
-        </div>
-        <span class="Dot">
-            <span class="DotInner"></span>
-        </span>
-      </div>
-
-      <div class="col-xs-4 bs-wizard-step ">
-        <div class="textbar">完成訂單</div>
-        <div class="progress" style="width:50%">
-          <div class="innerbar"></div>
-        </div>
-        <span class="Dot">
-            <span class="DotInner"></span>
-        </span>
-      </div>
+    </template>
+    <!-- 步驟條end -->
 
       <!-- 內容 -->
       <div class="col-sm-12">
@@ -124,11 +108,11 @@
         this.payInfo = this.$decodeCookies.getJSON('PayOk')
       }
       console.log(this.payInfo)
-      console.log(this.payInfo)
     },
     data() {
       return {
-        payInfo: {}
+        payInfo: {},
+        CartStepBar: 3
       }
     }
   }
