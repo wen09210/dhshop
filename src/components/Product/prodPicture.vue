@@ -54,9 +54,6 @@
 <script>
   import axios from 'axios'
   import {
-    noty
-  } from '../../assets/AlertDialog.js'
-  import {
     swiper,
     swiperSlide
   } from 'vue-awesome-swiper'
@@ -97,7 +94,7 @@
       axios.get(`/api/Product/GetProductContent?prodID= ${this.$route.params.prodID}`)
         .then((response) => {
           if (response.data.statu === 'err') {
-            noty.ShowAlert(response.data.msg)
+            this.$noty.ShowAlert(response.data.msg)
           } else {
             this.ContentUp = response.data.data[0].DetailContent
             this.ContentUp = response.data.data[0].DetailContentDown

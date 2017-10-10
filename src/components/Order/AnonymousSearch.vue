@@ -78,9 +78,6 @@
 </template>
 <script>
 import axios from 'axios'
-import {
-  noty
-} from '../../assets/AlertDialog.js'
 export default {
   data() {
     return {
@@ -99,7 +96,7 @@ export default {
         .then((response) => {
           console.log(response)
           if (response.data.statu === 'err') {
-            noty.ShowAlert(response.data.msg, 'warning')
+            this.$noty.ShowAlert(response.data.msg, 'warning')
           }
           console.log(response.data.data.orderData)
           this.orderData = response.data.data

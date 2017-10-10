@@ -1,6 +1,6 @@
 import types from './types'
 import Lockr from 'lockr'
-import { noty } from '../../src/assets/AlertDialog'
+import { noty } from '../extension/AlertDialog'
 import { $decodeCookies } from '../extension/DecodeCookies'
 
 export default {

@@ -87,87 +87,80 @@
         </collapse>
       </div>
     </template>
-
     <pagination :cur="tcur" :all="tall" :callback="search"></pagination>
   </div>
 </template>
-
-
 <script>
-  import pagination from '../extension/pagination.vue'
-  import {
-    Collapse
-  } from 'uiv'
-  import {
-    mapGetters
-  } from 'vuex'
-  import Datepicker from 'vuejs-datepicker'
-  import axios from 'axios'
-  import {
-    noty
-  } from '../../assets/AlertDialog.js'
-  export default {
-    components: {
-      Datepicker,
-      Collapse,
-      pagination
-    },
-    data() {
-      return {
-        searchData: {
-          orderId: '',
-          startdate: '',
-          enddate: ''
-        },
-        orderlist: [],
-        tcur: 1,
-        tall: 0
-      }
-    },
-    created () {
-      this.search(1)
-    },
-    computed: {
-      ...mapGetters([
-        'GetLoginInfo'
-      ])
-    },
-    methods: {
-      search(page) {
-        axios.post(`/api/MemberAccount/SearchOrder`, {
-          model: this.searchData,
-          pageIndex: page
-        }, {
-          headers: {
-            'Authorization': this.GetLoginInfo.JWTAuthorization
-          }
-        })
-          .then((response) => {
-            console.log(response)
-            if (response.data.statu === 'err') {
-              noty.ShowAlert(response.data.msg, 'warning')
-            }
-            this.orderlist = response.data.data.list
-            this.tall = response.data.data.PageCount
-            this.tcur = page
-          })
-          .catch((err) => console.log(err))
-      }
+import pagination from '../extension/pagination.vue'
+import { Collapse } from 'uiv'
+import { mapGetters } from 'vuex'
+import Datepicker from 'vuejs-datepicker'
+import axios from 'axios'
+
+export default {
+  components: {
+    Datepicker,
+    Collapse,
+    pagination
+  },
+  data() {
+    return {
+      searchData: {
+        orderId: '',
+        startdate: '',
+        enddate: ''
+      },
+      orderlist: [],
+      tcur: 1,
+      tall: 0
+    }
+  },
+  created() {
+    this.search(1)
+  },
+  computed: {
+    ...mapGetters([
+      'GetLoginInfo'
+    ])
+  },
+  methods: {
+    search(page) {
+      axios.post(`/api/MemberAccount/SearchOrder`, {
+        model: this.searchData,
+        pageIndex: page
+      }, {
+        headers: {
+          'Authorization': this.GetLoginInfo.JWTAuthorization
+        }
+      })
+      .then((response) => {
+        console.log(response)
+        if (response.data.statu === 'err') {
+          this.$noty.ShowAlert(response.data.msg, 'warning')
+        }
+        this.orderlist = response.data.data.list
+        this.tall = response.data.data.PageCount
+        this.tcur = page
+      })
+      .catch((err) => console.log(err))
     }
   }
+}
 
 </script>
-
 <style scoped>
-  div .form-control {
-    width: 250px;
-  }
-  .orderMain{
-    background: #4689c2;
-    color: #fff;
-  }
-.orderDiv{
-  border:1px solid #5bc0de;
+div .form-control {
+  width: 250px;
+}
+
+.orderMain {
+  background: #4689c2;
+  color: #fff;
+}
+
+.orderDiv {
+  border: 1px solid #5bc0de;
   margin: 15px 0px;
 }
+
 </style>

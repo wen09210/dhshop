@@ -9,13 +9,15 @@ import Lockr from 'lockr'
 import iView from 'iview'
 import zhLocale from 'iview/dist/locale/zh-TW'
 import { $decodeCookies } from './extension/DecodeCookies'
+import { noty } from './extension/AlertDialog'
 Vue.use(iView, { zhLocale })
 Vue.config.productionTip = false
 Vue.use(extension)
 
-/*  Cookie擴展Decode */
+// Cookie擴展Decode
 Vue.prototype.$decodeCookies = $decodeCookies
-/*  Cookie擴展Decode */
+// 通知Alert
+Vue.prototype.$noty = noty
 
 // 購物車編號
 let _cartno = Lockr.get('cartNo')

@@ -22,8 +22,12 @@
             <div class="col-md-1 col-xs-6 prodType">
               {{item.prodType |prodTypeToCH}}
             </div>
-            <div class="col-md-3 col-xs-6">{{item.name}}
-              <br> {{item.style}}
+            <div class="col-md-3 col-xs-6">
+              <router-link :to="{name: 'product', params: {prodID: item.prodID}}">
+                {{item.name}}
+                <br> 
+                {{item.style}}
+              </router-link>
             </div>
             <div class="col-md-1 col-xs-6">{{item.unitPrice}}元</div>
             <div class="col-md-2 col-xs-6 btnDiv">
@@ -139,7 +143,6 @@
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { noty } from '../../assets/AlertDialog'
 export default {
   data() {
     return {
@@ -217,11 +220,11 @@ export default {
       // 顯示不能加購提示
       if (errAddName !== '') {
         console.log(reduceNo)
-        noty.ConfirmDialog(`取消此商品將無法加購<br>${errAddName}<br><br>您確定要取消此商品嗎?`, () => {
+        this.$noty.ConfirmDialog(`取消此商品將無法加購<br>${errAddName}<br><br>您確定要取消此商品嗎?`, () => {
           this.ReduceProduct(reduceNo)
         })
       } else {
-        noty.ConfirmDialog('您確定要取消此商品嗎?', () => {
+        this.$noty.ConfirmDialog('您確定要取消此商品嗎?', () => {
           this.ReduceProduct(reduceNo)
         })
       }
@@ -241,7 +244,7 @@ export default {
       // 商品檢核未通過
       console.log(this.GetshowAmtData.status)
       if (this.GetshowAmtData.status === 'err') {
-        noty.ShowAlert(this.GetshowAmtData.errMsg + '<br>請先完成更改，再進行結帳', 'warning')
+        this.$noty.ShowAlert(this.GetshowAmtData.errMsg + '<br>請先完成更改，再進行結帳', 'warning')
         return false
       }
       // 未登入
@@ -255,7 +258,7 @@ export default {
     // 驗證優惠代碼
     ValidateCoupon() {
       if (this.CouponCode === '') {
-        noty.ShowAlert('請先輸入優惠折扣代碼，再進行驗證', 'warning')
+        this.$noty.ShowAlert('請先輸入優惠折扣代碼，再進行驗證', 'warning')
         return false
       }
       this.SetCouponCode(this.CouponCode)

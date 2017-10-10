@@ -73,9 +73,7 @@
   } from 'vuex'
   import axios from 'axios'
   import Lockr from 'lockr'
-  import {
-    noty
-  } from '../../assets/AlertDialog.js'
+
   export default {
     components: {},
     // 大小版css控制
@@ -112,7 +110,7 @@
       axios.get(`/api/Product/GetProductDetail?prodID= ${this.$route.params.prodID}`)
         .then((response) => {
           if (response.data.statu === 'err') {
-            noty.ShowAlert(response.data.msg, 'warning')
+            this.$noty.ShowAlert(response.data.msg, 'warning')
           } else {
             this.item = response.data.data
             this.itemShow = this.item[0]
@@ -163,7 +161,7 @@
           .then((response) => {
             console.log(response)
             if (response.data.statu === 'err') {
-              noty.ShowAlert('系統忙碌中，請稍待片刻後重新操作<br>或直接聯繫客服人員為您處理', 'warning')
+              this.$noty.ShowAlert('系統忙碌中，請稍待片刻後重新操作<br>或直接聯繫客服人員為您處理', 'warning')
               return false
             }
             var itemShow = this.itemShow
@@ -173,7 +171,7 @@
             if (response.data.data < this.itemSize) {
               console.log(this.itemSize)
               prodType = '3'
-              noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，<br>是否以預購方式購買，同時享受優惠', () => {
+              this.$noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，<br>是否以預購方式購買，同時享受優惠', () => {
                 this.IncreaseProduct({
                   itemShow,
                   itemSize,

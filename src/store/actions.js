@@ -1,7 +1,7 @@
 import types from './types'
 import axios from 'axios'
 import { ecpost } from '../extension/ecpost'
-import { noty } from '../../src/assets/AlertDialog'
+import { noty } from '../extension/AlertDialog'
 import router from '../router'
 export default {
   [types.SetLoading]({ commit }, setting) {

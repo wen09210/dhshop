@@ -79,7 +79,6 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { noty } from '../../assets/AlertDialog'
 
 let BuyerDetail = {
   'Purchaser': '',
@@ -204,7 +203,7 @@ export default {
         }
       })
       if (errMsg !== '' || errMsg2 !== '') {
-        noty.ShowAlert(errMsg + errMsg2, 'warning')
+        this.$noty.ShowAlert(errMsg + errMsg2, 'warning')
         return false
       }
       // 存訂購人資料
