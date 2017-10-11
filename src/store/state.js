@@ -1,4 +1,5 @@
 export default {
+  // Loadingd控制
   openLoading: false,
   shoppingCartItem: [],
   // cartNo: 0,

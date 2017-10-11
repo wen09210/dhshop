@@ -4,6 +4,7 @@ import { ecpost } from '../extension/ecpost'
 import { noty } from '../extension/AlertDialog'
 import router from '../router'
 export default {
+  // 控制Loading
   [types.SetLoading]({ commit }, setting) {
     commit(types.SetLoading, setting)
   },

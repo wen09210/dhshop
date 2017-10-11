@@ -104,7 +104,7 @@
             </div>
             <div class="lineContent">
               <div class="leftContent">{{GetshowAmtData.disProdName}}</div>
-              <div class="rightContent">購物折扣:</div>
+              <div class="rightContent">滿額折扣:</div>
               <div class="rightAmt">
                 <i class="fa fa-minus" aria-hidden="true" style="color:red"></i> {{GetshowAmtData.discountProd}}元
               </div>
@@ -114,6 +114,13 @@
               <div class="rightContent">運費折扣:</div>
               <div class="rightAmt">
                 <i class="fa fa-minus" aria-hidden="true" style="color:red"></i> {{GetshowAmtData.discountDelivery}}元
+              </div>
+            </div>
+             <div class="lineContent">
+              <div class="leftContent">{{GetshowAmtData.disQuantiatyName}}</div>
+              <div class="rightContent">數量折扣:</div>
+              <div class="rightAmt">
+                <i class="fa fa-minus" aria-hidden="true" style="color:red"></i> {{GetshowAmtData.discountQuantiaty}}元
               </div>
             </div>
             <div class="lineContent">
