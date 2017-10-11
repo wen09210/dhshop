@@ -379,6 +379,7 @@ export default {
     color: #ff5722;
   }
   .leftContent {
+    font-weight: 700 ;
     width: 60%;
     text-align: left;
     display: table-cell;
@@ -467,6 +468,7 @@ export default {
     color: #ff5722;
   }
   .leftContent {
+    font-weight: 800 ;
     width: 45%;
     text-align: left;
     display: table-cell;
