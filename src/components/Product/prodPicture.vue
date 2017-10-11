@@ -97,7 +97,7 @@
             this.$noty.ShowAlert(response.data.msg)
           } else {
             this.ContentUp = response.data.data[0].DetailContent
-            this.ContentUp = response.data.data[0].DetailContentDown
+            this.ContentDown = response.data.data[0].DetailContentDown
             this.CarouselUp = response.data.data[0].CarouselUp
             this.CarouselDown = response.data.data[0].CarouselDown
 
@@ -136,5 +136,7 @@
     width:200px;
     height:130px;
   }
-
+img{
+  width: 100%
+}
 </style>
