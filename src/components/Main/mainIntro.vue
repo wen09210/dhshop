@@ -41,10 +41,7 @@
   </div>
 </template>
 <script>
-import {
-  swiper,
-  swiperSlide
-} from 'vue-awesome-swiper'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   components: {
     swiper,
@@ -60,11 +57,11 @@ export default {
         prevButton: '.swiper-button-prev',
         breakpoints: {
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 20
           },
           768: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 20
           },
           640: {
@@ -97,13 +94,6 @@ export default {
 .about_dhshop {
   font-size: 18px;
   letter-spacing: 3px;
-}
-
-.style_intro {
-  font-weight: bold;
-  font-size: 25px;
-  margin-bottom: 15px;
-  margin-top: 35px;
 }
 
 </style>

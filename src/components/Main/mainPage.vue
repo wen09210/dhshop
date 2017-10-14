@@ -1,22 +1,24 @@
 <template>
   <div id="mainpage">
-    <mainCarousel></mainCarousel>
-    <mainPromotion></mainPromotion>
+    <mainTop></mainTop>
     <mainIntro></mainIntro>
+    <mainPromotion></mainPromotion>
     <mainAllProduct></mainAllProduct>
   </div>
 </template>
 
 <script>
-  import mainCarousel from './mainCarousel'
+  import mainTop from './mainTop'
   import mainIntro from './mainIntro'
   import mainPromotion from './mainPromotion'
+  import mainArtical from './mainAtrical.vue'
   import mainAllProduct from './mainAllProduct'
   export default {
     components: {
-      mainCarousel,
+      mainTop,
       mainIntro,
       mainPromotion,
+      mainArtical,
       mainAllProduct
     }
   }
@@ -27,5 +29,11 @@
     padding: 5px;
     display: inline-block;
 
+}
+.style_intro {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 15px;
+  margin-top: 35px;
 }
 </style>
