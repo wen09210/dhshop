@@ -3,6 +3,7 @@
     <mainTop></mainTop>
     <mainIntro></mainIntro>
     <mainPromotion></mainPromotion>
+    <mainArtical></mainArtical>
     <mainAllProduct></mainAllProduct>
   </div>
 </template>

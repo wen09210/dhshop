@@ -69,6 +69,7 @@ export default new Router({
     },
     {
       path: '/prodPromte/:articalID/:prodID',
+      name: 'prodPromte',
       component: prodPomote
     },
     {
