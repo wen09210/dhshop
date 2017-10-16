@@ -36,7 +36,8 @@ export default {
         count: parseInt(itemSize),
         totalAmt: parseInt(itemShow.totalAmt),
         unit: itemShow.Unit,
-        prodType: prodType
+        prodType: prodType,
+        ImgUrl: itemShow.ImgUrl
       })
       Lockr.set('cartNo', cartNo)
     }

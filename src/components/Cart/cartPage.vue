@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="testcookie" class="btn btn-info">測試cookie</button>
+    <!-- <button @click="testcookie" class="btn btn-info">測試cookie</button>
     <br>
     <label>test123:</label> {{test123}}
     <br>
@@ -8,7 +8,7 @@
     <br>
     <label>testloginInfo:</label> {{testloginInfo}}
     <br>
-    <label>testshoppingCartItem</label>:{{testshoppingCartItem}}
+    <label>testshoppingCartItem</label>:{{testshoppingCartItem}} -->
     <!-- 步驟條 -->
     <template>
       <div class="container">
@@ -45,7 +45,6 @@
   </div>
 </template>
 <script>
-import Lockr from 'lockr'
 import cart from './cart'
 import cartAddProd from './cartAddProd'
 import cartBuyerDetail from './cartBuyerDetail'
@@ -84,14 +83,13 @@ export default {
       'PostGetTotalAmt',
       'SetLoginModal',
       'PostAnoyLogin'
-    ]),
-
-    testcookie() {
-      this.test123 = document.cookie
-      this.test1015 = this.$decodeCookies.get('testCart')
-      this.testloginInfo = this.$decodeCookies.getJSON('loginInfo')
-      this.testshoppingCartItem = Lockr.get('shoppingCartItem')
-    }
+    ])
+    // testcookie() {
+    //   this.test123 = document.cookie
+    //   this.test1015 = this.$decodeCookies.get('testCart')
+    //   this.testloginInfo = this.$decodeCookies.getJSON('loginInfo')
+    //   this.testshoppingCartItem = Lockr.get('shoppingCartItem')
+    // }
   }
 }
 

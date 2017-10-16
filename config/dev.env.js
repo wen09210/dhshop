@@ -3,5 +3,6 @@ var prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  testVar: '"develop"'
+  testVar: '"develop"',
+  imgLocalUrl: '"http://localhost:53912/"'
 })

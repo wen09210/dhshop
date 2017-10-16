@@ -18,15 +18,14 @@
             <div class="col-md-1">功能</div>
           </div>
           <div v-for="item in GetShoppingCartItem" class=" tableTR row">
-            <div class="col-md-2 col-xs-6"><img src="../../assets/temporyPic\/hot1.jpg" class="payimg"></div>
+            <div class="col-md-2 col-xs-6"><img :src="imgWithLoacl(item.ImgUrl)" class="payimg"></div>
             <div class="col-md-1 col-xs-6 prodType">
               {{item.prodType |prodTypeToCH}}
             </div>
             <div class="col-md-3 col-xs-6">
               <router-link :to="{name: 'product', params: {prodID: item.prodID}}">
                 {{item.name}}
-                <br> 
-                {{item.style}}
+                <br> {{item.style}}
               </router-link>
             </div>
             <div class="col-md-1 col-xs-6">{{item.unitPrice}}元</div>
@@ -116,7 +115,7 @@
                 <i class="fa fa-minus" aria-hidden="true" style="color:red"></i> {{GetshowAmtData.discountDelivery}}元
               </div>
             </div>
-             <div class="lineContent">
+            <div class="lineContent">
               <div class="leftContent">{{GetshowAmtData.disQuantiatyName}}</div>
               <div class="rightContent">數量折扣:</div>
               <div class="rightAmt">
@@ -271,6 +270,10 @@ export default {
       this.SetCouponCode(this.CouponCode)
       console.log('coupon save')
       this.PostGetTotalAmt()
+    },
+    imgWithLoacl(url) {
+      // return 'http://223.27.48.157/' + url
+      return process.env.imgLocalUrl + url
     }
   }
 }
@@ -379,7 +382,7 @@ export default {
     color: #ff5722;
   }
   .leftContent {
-    font-weight: 700 ;
+    font-weight: 700;
     width: 60%;
     text-align: left;
     display: table-cell;
@@ -468,7 +471,7 @@ export default {
     color: #ff5722;
   }
   .leftContent {
-    font-weight: 800 ;
+    font-weight: 800;
     width: 45%;
     text-align: left;
     display: table-cell;
