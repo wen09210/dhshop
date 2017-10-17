@@ -49,6 +49,7 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 import axios from 'axios'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
@@ -85,10 +86,12 @@ export default {
     swiperSlide
   },
   created() {
+    this.SetLoading(true)
     axios.get(`/api/Product/GetProductContent?prodID= ${this.$route.params.prodID}`)
       .then((response) => {
         if (response.data.statu === 'err') {
           this.$noty.ShowAlert(response.data.msg)
+          this.SetLoading(false)
         } else {
           this.ContentUp = response.data.data[0].DetailContent
           this.ContentDown = response.data.data[0].DetailContentDown
@@ -101,11 +104,15 @@ export default {
               this.CtrlPanel.push(false)
             }
           }
+          this.SetLoading(false)
           console.log(this.item)
         }
       })
   },
   methods: {
+    ...mapActions([
+      'SetLoading'
+    ]),
     imgWithLoacl(url) {
       // return 'http://223.27.48.157/' + url
       return 'http://localhost:53912/' + url

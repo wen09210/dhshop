@@ -34,10 +34,7 @@
   </div>
 </template>
 <script>
-import {
-  mapGetters,
-  mapActions
-} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import axios from 'axios'
 
 export default {
@@ -143,6 +140,7 @@ export default {
   margin: 5px 0px;
   float: left;
 }
+
 
 
 /* 
