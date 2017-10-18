@@ -33,7 +33,7 @@ var noty = {
         open: 'noty_effects_open',
         close: 'noty_effects_close'
       },
-      timeout: 2000,
+      timeout: 4000,
       text: `
             <div style="width:350px;">
               <div style="margin:10px;width:300px;"><h4>${msg}</h4></div>
