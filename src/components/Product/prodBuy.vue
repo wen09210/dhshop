@@ -56,10 +56,10 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 <script>
-let item = []
 import { mapActions, mapGetters } from 'vuex'
 import axios from 'axios'
 
@@ -86,7 +86,7 @@ export default {
   data: function() {
     return {
       // 所有資料
-      item,
+      item: [],
       // 樣式資料
       itemShow: {},
       itemSize: 1,

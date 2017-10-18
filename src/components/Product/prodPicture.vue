@@ -110,6 +110,9 @@ export default {
       })
   },
   methods: {
+    ...mapActions([
+      'SetLoading'
+    ]),
     // 切換caresoul
     changeCarousel(index) {
       console.log(index)
