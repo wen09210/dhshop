@@ -18,7 +18,7 @@
             <div class="col-md-1">功能</div>
           </div>
           <div v-for="item in GetShoppingCartItem" class=" tableTR row">
-            <div class="col-md-2 col-xs-6"><img :src="imgWithLoacl(item.ImgUrl)" class="payimg"></div>
+            <div class="col-md-2 col-xs-6"><img :src="item.ImgUrl |UrlTransIP" class="payimg"></div>
             <div class="col-md-1 col-xs-6 prodType">
               {{item.prodType |prodTypeToCH}}
             </div>
@@ -270,10 +270,6 @@ export default {
       this.SetCouponCode(this.CouponCode)
       console.log('coupon save')
       this.PostGetTotalAmt()
-    },
-    imgWithLoacl(url) {
-      // return 'http://223.27.48.157/' + url
-      return process.env.imgLocalUrl + url
     }
   }
 }

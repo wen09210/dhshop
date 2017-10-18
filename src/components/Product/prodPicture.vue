@@ -9,7 +9,7 @@
             <template v-for="(itemChild,secIndex) in CarouselUp[index]">
               <!-- Order 0 為索引 -->
               <div class="col-md-6" v-if="secIndex===0">
-                <img v-if="secIndex===0" :src="imgWithLoacl(itemChild.ImgUrl)" class="carousel_Index" @click="changeCarousel(index)">
+                <img v-if="secIndex===0" :src="itemChild.ImgUrl|UrlTransIP" class="carousel_Index" @click="changeCarousel(index)">
               </div>
             </template>
           </template>
@@ -20,7 +20,7 @@
             <swiper :options="swiperOption_Up">
               <template v-for="(itemChild,secIndex) in CarouselUp[index]">
                 <swiper-slide v-if="secIndex!==0">
-                  <img :src="imgWithLoacl(itemChild.ImgUrl)" class="img-responsive imgHover">
+                  <img :src="itemChild.ImgUrl|UrlTransIP" class="img-responsive imgHover">
                 </swiper-slide>
               </template>
               <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
@@ -38,7 +38,7 @@
         <swiper :options="swiperOption_Down">
           <template v-for="item in CarouselDown">
             <swiper-slide>
-              <img :src="imgWithLoacl(item.ImgUrl)" class="img-responsive imgHover">
+              <img :src="item.ImgUrl|UrlTransIP" class="img-responsive imgHover">
             </swiper-slide>
           </template>
           <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
@@ -106,10 +106,6 @@ export default {
       })
   },
   methods: {
-    imgWithLoacl(url) {
-      // return 'http://223.27.48.157/' + url
-      return 'http://localhost:53912/' + url
-    },
     // 切換caresoul
     changeCarousel(index) {
       console.log(index)

@@ -5,4 +5,14 @@ import { payStatusToCH } from './payStatusToCH.js'
 import { payTypeToCH } from './payTypeToCH.js'
 import { datetimeTrans } from './datetimeTrans.js'
 import { prodTypeToCH } from './prodTypeToCH.js'
-export default { deliveryStatusToCH, deliveryTypeToCH, inoviceStatusToCH, payStatusToCH, payTypeToCH, prodTypeToCH, datetimeTrans }
+import { UrlTransIP } from './UrlTransIP'
+export default {
+  deliveryStatusToCH,
+  deliveryTypeToCH,
+  inoviceStatusToCH,
+  payStatusToCH,
+  payTypeToCH,
+  prodTypeToCH,
+  datetimeTrans,
+  UrlTransIP
+}

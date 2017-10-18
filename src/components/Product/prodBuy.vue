@@ -5,7 +5,7 @@
     </div>
     <div class="row buydiv">
       <div :class="second">
-        <img :src="imgWithLoacl(itemShow.ImgUrl)" class="img-responsive">
+        <img :src="itemShow.ImgUrl| UrlTransIP" class="img-responsive">
       </div>
       <!-- -->
       <div :class="third">
@@ -193,10 +193,6 @@ export default {
     },
     keyNum() {
       this.itemSize = event.target.value
-    },
-    imgWithLoacl(url) {
-      // return 'http://223.27.48.157/' + url
-      return process.env.imgLocalUrl + url
     }
   }
 }

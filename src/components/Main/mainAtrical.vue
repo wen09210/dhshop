@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    {{Articial}}
+    <!-- {{Articial}} -->
     <div class="style_intro">達人推薦</div>
     <swiper :options="swiper_Atical">
       <template v-for="item in Articial">
         <swiper-slide>
           <router-link :to="{name: 'prodPromte', params: {articalID: item.ArticalNo,prodID:item.ProdID}}">
             <div class="artDiv ">
-              <img :src="imgWithLoacl(item.ArticalIntroPic)" class="img-responsive imgHover ">
+              <img :src="item.ArticalIntroPic | UrlTransIP" class="img-responsive imgHover ">
               <div class="artTitle">{{item.ArticalTitle}}</div>
               <div class="artSub">{{item.ArticalBrief}}</div>
             </div>
@@ -66,12 +66,7 @@ export default {
     swiper,
     swiperSlide
   },
-  methods: {
-    imgWithLoacl(url) {
-      // return 'http://223.27.48.157/' + url
-      return 'http://localhost:53912/' + url
-    }
-  }
+  methods: { }
 }
 
 </script>
