@@ -25,6 +25,7 @@
     "vue": "^2.2.2",
     "vue-awesome-swiper": "^2.6.2",
     "vue-router": "^2.3.0",
+    "vue-scrollto": "^2.7.8",
     "vuejs-datepicker": "^0.7.13",
     "vuex": "^2.3.1"
   },

@@ -1,10 +1,6 @@
 <template>
   <div class="myfooter">
-        <template>
-      <Affix :offset-bottom="80">
-        <span class="demo-affix">固定在距离底部 80px 的位置</span>
-      </Affix>
-    </template>
+
     <div class="myrow">
       <div class="col-md-3">
         <div class="footer_title">客服中心</div>

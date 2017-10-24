@@ -10,10 +10,12 @@ import iView from 'iview'
 import zhLocale from 'iview/dist/locale/zh-TW'
 import { $decodeCookies } from './extension/DecodeCookies'
 import { noty } from './extension/AlertDialog'
+import vueScrollto from 'vue-scrollto'
+
 Vue.use(iView, { zhLocale })
 Vue.config.productionTip = false
 Vue.use(extension)
-
+Vue.use(vueScrollto)
 // Cookie擴展Decode
 Vue.prototype.$decodeCookies = $decodeCookies
 // 通知Alert
