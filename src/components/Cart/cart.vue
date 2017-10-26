@@ -30,10 +30,13 @@
             </div>
             <div class="col-md-1 col-xs-6">{{item.unitPrice}}元</div>
             <div class="col-md-2 col-xs-6 btnDiv">
+              <!-- 減減減 -->
               <button class="calBtn" @click="minusCartCount(item)">
                 <i class="fa fa-minus" aria-hidden="true"></i>
               </button>
+              <!-- 輸入數量 -->
               <input type="text" class="inputQuentity" :value="item.count" @change="keyNum(item)">
+              <!-- 加加加 -->
               <button class="calBtn" @click="addCartCount(item)">
                 <i class="fa fa-plus" aria-hidden="true"></i>
               </button> {{item.unit}}
@@ -43,7 +46,8 @@
               <a class="btn btn-danger" @click="ReduceProd(item)">
                   <i class="fa fa-trash-o fa-lg"></i>
                 </a>
-            </div>
+            </div>            
+            <!-- 手機板顯示 -->
             <div class="col-md-2 col-xs-12  tableTd">
               <span class="leftTd">
                     <a class="btn btn-danger" @click="ReduceProd(item)">
@@ -54,6 +58,7 @@
                    小計 : {{item.totalAmt}} 元
                 </span>
             </div>
+            <!-- 手機板顯示 end-->            
           </div>
         </div>
         <!-- 購買商品列end -->
@@ -235,6 +240,7 @@ export default {
         })
       }
     },
+    // 輸入數量
     keyNum(item) {
       var count = event.target.value
       if (count < 1 || count > 999) {
@@ -246,6 +252,7 @@ export default {
         count
       })
     },
+    // 下一步 填寫資料
     goBuyerDetail() {
       // 商品檢核未通過
       console.log(this.GetshowAmtData.status)

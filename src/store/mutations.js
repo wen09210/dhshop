@@ -90,33 +90,25 @@ export default {
   [types.ClearShoppingCartItem](state) {
     state.shoppingCartItem = []
   },
+  // 購物車商品 + 數量
   [types.addCartCount](state, item) {
-    console.log(item)
-    for (var i = 0; i < state.shoppingCartItem.length; i++) {
-      if (state.shoppingCartItem[i].no === item.no) {
-        let count = state.shoppingCartItem[i].count
-        if (count++ < 999) {
-          state.shoppingCartItem[i].count++
-        }
-        state.shoppingCartItem[i].totalAmt = state.shoppingCartItem[i].count * state.shoppingCartItem[i].unitPrice
-        Lockr.set('shoppingCartItem', state.shoppingCartItem)
-        break
-      }
+    let cartItem = state.shoppingCartItem.find(x => x.no === item.no)
+    console.log(cartItem)
+    if (cartItem.count++ < 999) {
+      cartItem.count++
     }
+    cartItem.totalAmt = cartItem.count * cartItem.unitPrice
+    Lockr.set('shoppingCartItem', state.shoppingCartItem)
   },
+  // 購物車商品 - 數量
   [types.minusCartCount](state, item) {
-    console.log(item)
-    for (var i = 0; i < state.shoppingCartItem.length; i++) {
-      if (state.shoppingCartItem[i].no === item.no) {
-        let count = state.shoppingCartItem[i].count
-        if (count-- > 1) {
-          state.shoppingCartItem[i].count--
-        }
-        state.shoppingCartItem[i].totalAmt = state.shoppingCartItem[i].count * state.shoppingCartItem[i].unitPrice
-        Lockr.set('shoppingCartItem', state.shoppingCartItem)
-        break
-      }
+    let cartItem = state.shoppingCartItem.find(x => x.no === item.no)
+    console.log(cartItem)
+    if (cartItem.count-- > 1) {
+      cartItem.count--
     }
+    cartItem.totalAmt = cartItem.count * cartItem.unitPrice
+    Lockr.set('shoppingCartItem', state.shoppingCartItem)
   },
   [types.keyNumCartCount](state, {
     item,

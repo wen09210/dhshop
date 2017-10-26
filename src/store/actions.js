@@ -95,8 +95,13 @@ export default {
     axios.post(`/api/Ecpay/PostGetTotalAmt?`, BuyerDetail)
       .then((response) => {
         console.log(response)
-        var showAmt = response.data.data
-        commit(types.PostGetTotalAmt, showAmt)
+        // 錯誤
+        if(response.data.statu === 'err') {
+          noty.ShowAlert(response.data.msg, 'warning')
+        }else {
+          var showAmt = response.data.data
+          commit(types.PostGetTotalAmt, showAmt)
+        }
       })
       .catch(function(error) {
         console.log(error)
