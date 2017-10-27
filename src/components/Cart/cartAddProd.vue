@@ -1,11 +1,12 @@
 <template>
-  <div class="container">
+  <!-- 有加購商品才顯示 -->
+  <div class="container" v-show = "Object.keys(addProdList).length > 0">
     <h3>精選加購--走過路過千萬別錯過</h3>
     <div class="row detailBlockADD equal">
       <div class="col-xs-6 col-sm-4 col-md-3 addItem" v-for="item in addItemShow">
         <div style="height:81px;">{{item.ProdName}}</div>
         <div>
-          <img src="../../assets/temporyPic\/hot1.jpg" class="payimg">
+          <img :src="item.ImgUrl|UrlTransIP" class="payimg">
         </div>
         <div>加購價: {{item.AddPrice}}元</div>
         <div>
@@ -14,9 +15,11 @@
               <option :value="item.DP_ItemNo[i]">{{item.DP_ItemName[i]}}</option>
             </template>
           </select>
+          <!-- 加購數量 -->
           <select v-model="item.quentity">
-            <option v-for="option in 10" :value="option">{{option}}{{item.Unit}}</option>
+            <option v-for="option in item.InventoryVal" :value="option">{{option}}{{item.Unit}}</option>
           </select>
+          <!-- 加購數量 end-->          
         </div>
         <div>
           <button class="btn btn-info addbtn" @click="IncreaseAndCal(item)">
@@ -40,7 +43,9 @@ import axios from 'axios'
 export default {
   data: function() {
     return {
+      // 所有商品
       addProdList: [],
+      // 每種商品，要顯示的第一個商品樣式
       addItemShow: []
     }
   },
@@ -49,11 +54,13 @@ export default {
     axios.post(`/api/Product/PostToGetAddProduct`, this.GetShoppingCartItem)
       .then((response) => {
         console.log(response)
-        this.addProdList = response.data
-        /** 取第一個樣式顯示 */
+        this.addProdList = response.data.data
+        /** 取第一個商品樣式，顯示 */
         for (var i = 0; i < this.addProdList.length; i++) {
+          // 加入要顯示的第一個商品樣式
           let t = this.addProdList[i].AddProdList[0]
           this.addItemShow.push(t)
+          // 加入下拉選單
           this.addItemShow[i].DP_ItemName = []
           this.addItemShow[i].DP_ItemNo = []
           for (var s = 0; s < this.addProdList[i].AddProdList.length; s++) {
@@ -84,6 +91,7 @@ export default {
       let allLens = this.addProdList.length
       for (var i = 0; i < allLens; i++) {
         for (var k = 0; k < this.addProdList[i].AddProdList.length; k++) {
+          // 替換顯示所選擇的商品樣式
           if (this.addProdList[i].AddProdList[k].ItemNo === event.target.value) {
             currentItem.ItemNo = this.addProdList[i].AddProdList[k].ItemNo
             currentItem.ItemName = this.addProdList[i].AddProdList[k].ItemName
@@ -92,6 +100,7 @@ export default {
             currentItem.SalePrice = this.addProdList[i].AddProdList[k].SalePrice
             currentItem.AddPrice = this.addProdList[i].AddProdList[k].AddPrice
             currentItem.InventoryVal = this.addProdList[i].AddProdList[k].InventoryVal
+            currentItem.ImgUrl = this.addProdList[i].AddProdList[k].ImgUrl
           }
         }
       }

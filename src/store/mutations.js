@@ -68,7 +68,8 @@ export default {
         totalAmt: item.quentity * item.AddPrice,
         unit: item.Unit,
         prodType: '2',
-        MainProdName: item.MainProdName
+        MainProdName: item.MainProdName,
+        ImgUrl: item.ImgUrl
       })
       Lockr.set('cartNo', cartNo)
       Lockr.set('shoppingCartItem', state.shoppingCartItem)
