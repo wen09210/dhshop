@@ -1,8 +1,13 @@
 import types from './types'
 import Lockr from 'lockr'
-import { noty } from '../extension/AlertDialog'
+// import { noty } from '../extension/AlertDialog'
 import { $decodeCookies } from '../extension/DecodeCookies'
-
+import Notice from 'iview/src/components/notice'
+// Notice公用設定
+Notice.config({
+  top: 100,
+  duration: 4
+})
 export default {
   [types.SetLoading](state, setting) {
     state.openLoading = setting
@@ -42,7 +47,10 @@ export default {
       Lockr.set('cartNo', cartNo)
     }
     Lockr.set('shoppingCartItem', state.shoppingCartItem)
-    noty.ShowAlert('恭喜你! 商品已成功加入購物車囉!', 'success')
+    Notice.success({
+      title: 'dHSHOP 恭喜你',
+      desc: '商品已成功加入購物車囉!'
+    })
   },
   [types.IncreaseAddProduct](state, item) {
     console.log(item)
@@ -52,7 +60,10 @@ export default {
         el.itemNo === item.ItemNo &&
         el.prodType === '2') {
         sameProd = true
-        noty.ShowAlert('提醒您! 購物車已經有相同加購商品囉，請直接於「數量」上添加即可。', 'warning')
+        Notice.warning({
+          title: 'dHSHOP 提醒',
+          desc: '購物車已經有相同加購商品囉，請直接於「數量」上添加即可。'
+        })
       }
     })
     if (sameProd === false) {
@@ -73,7 +84,10 @@ export default {
       })
       Lockr.set('cartNo', cartNo)
       Lockr.set('shoppingCartItem', state.shoppingCartItem)
-      noty.ShowAlert('恭喜你! <br>加購商品已成功加入購物車囉!', 'success')
+      Notice.success({
+        title: 'dHSHOP 恭喜你',
+        desc: '加購商品已成功加入購物車囉!'
+      })
     }
   },
   [types.ReduceProduct](state, reduceNo) {
@@ -128,10 +142,16 @@ export default {
   },
   [types.PostGetTotalAmt](state, showAmt) {
     if (showAmt.status === 'err' || showAmt.status === 'couponError') {
-      noty.ShowAlert(showAmt.errMsg, 'warning')
+      Notice.warning({
+        title: 'dHSHOP 提醒',
+        desc: showAmt.errMsg
+      })
     } else if (showAmt.status === 'ok' && showAmt.errMsg !== '') {
       // 折扣碼檢查ok
-      noty.ShowAlert(showAmt.errMsg, 'success')
+      Notice.success({
+        title: 'dHSHOP 恭喜您',
+        desc: showAmt.errMsg
+      })
     }
     state.showAmtData = showAmt
   },
@@ -152,6 +172,10 @@ export default {
   [types.LoginOut](state) {
     state.LoginInfo = {}
     $decodeCookies.remove('loginInfo')
+    Notice.warning({
+      title: 'dHSHOP 提醒',
+      desc: '已登出'
+    })
   },
   [types.PostRegister](state, logininfo) {
     console.log(logininfo)

@@ -24,6 +24,17 @@ import axios from 'axios'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   created() {
+    this.$Modal.confirm({
+      title: '确认对话框标题',
+      content: '<p>一些对话框内容</p><p>一些对话框内容</p>',
+      onOk: () => {
+        this.$Message.info('点击了确定')
+      },
+      onCancel: () => {
+        this.$Message.info('点击了取消')
+      }
+    })
+
     axios.get(`/api/Artical/GetArticalList`)
       .then((response) => {
         if (response.data.statu === 'ok') {
@@ -66,7 +77,7 @@ export default {
     swiper,
     swiperSlide
   },
-  methods: { }
+  methods: {}
 }
 
 </script>

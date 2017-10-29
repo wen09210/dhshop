@@ -1,8 +1,13 @@
 import types from './types'
 import axios from 'axios'
 import { ecpost } from '../extension/ecpost'
-import { noty } from '../extension/AlertDialog'
 import router from '../router'
+import Notice from 'iview/src/components/notice'
+// Notice公用設定
+Notice.config({
+  top: 100,
+  duration: 4
+})
 export default {
   // 控制Loading
   [types.SetLoading]({ commit }, setting) {
@@ -51,12 +56,18 @@ export default {
       }).then((response) => {
         console.log(response.data)
         if (response.data.statu === 'err') {
-          noty.ShowAlert(response.data.msg, 'warning')
+          Notice.warning({
+            title: 'dHSHOP 提醒',
+            desc: response.data.msg
+          })
           // loading 畫面 end
           $Spin.hide()
           return false
         }
-        noty.ShowAlert(response.data.msg, 'success')
+        Notice.success({
+          title: 'dHSHOP 恭喜您',
+          desc: response.data.msg
+        })
         // loading 畫面 end
         $Spin.hide()
         router.push({
@@ -75,16 +86,20 @@ export default {
       }).then(function(response) {
         console.log(response.data)
         if (response.data.statu === 'err') {
-          noty.ShowAlert(response.data.msg, 'warning')
+          Notice.warning({
+            title: 'dHSHOP 提醒',
+            desc: response.data.msg
+          })
           // loading 畫面 end
           $Spin.hide()
           return false
         }
+        // 綠界POST
         ecpost('https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V4?', response.data, 'POST')
       })
-      .catch(function(r) {
-        console.log(r)
-      })
+        .catch(function(r) {
+          console.log(r)
+        })
     }
   },
   // 取得計算後總價
@@ -96,9 +111,12 @@ export default {
       .then((response) => {
         console.log(response)
         // 錯誤
-        if(response.data.statu === 'err') {
-          noty.ShowAlert(response.data.msg, 'warning')
-        }else {
+        if (response.data.statu === 'err') {
+          Notice.warning({
+            title: 'dHSHOP 提醒',
+            desc: response.data.msg
+          })
+        } else {
           var showAmt = response.data.data
           commit(types.PostGetTotalAmt, showAmt)
         }
@@ -117,10 +135,16 @@ export default {
       .then((response) => {
         console.log(response.data)
         if (response.data.statu === 'err') {
-          noty.ShowAlert(response.data.msg, 'warning')
+          Notice.warning({
+            title: 'dHSHOP 提醒',
+            desc: response.data.msg
+          })
           return false
         }
-        noty.ShowAlert('登入成功，dHshop歡迎您', 'success')
+        Notice.success({
+          title: 'dHSHOP 恭喜您',
+          desc: '登入成功，dHshop歡迎您'
+        })
         commit(types.PostLogin, response.data.data)
       })
       .catch((error) => {
@@ -133,10 +157,17 @@ export default {
       .then((response) => {
         console.log(response.data)
         if (response.data.statu === 'err') {
-          noty.ShowAlert(response.data.msg, 'warning')
+          Notice.warning({
+            title: 'dHSHOP 提醒',
+            desc: response.data.msg
+          })
           return false
         }
-        noty.ShowAlert('dHshop歡迎您', 'success')
+        // 登入訊息
+        Notice.success({
+          title: 'dHSHOP 恭喜您',
+          desc: '無痕登入成功，dHSHOP歡迎您'
+        })
         commit(types.PostAnoyLogin, response.data.data)
       })
       .catch((error) => {
@@ -153,7 +184,10 @@ export default {
       .then((response) => {
         console.log(response.data)
         if (response.data.statu === 'err') {
-          noty.ShowAlert(response.data.msg, 'warning')
+          Notice.warning({
+            title: 'dHSHOP 提醒',
+            desc: response.data.msg
+          })
         }
         commit(types.PostRegister, response.data.data)
       })

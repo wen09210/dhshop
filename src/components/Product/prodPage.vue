@@ -35,7 +35,6 @@ export default {
 .buybtn_fixfoot {
   background-color: rgba(0, 0, 0, .6);
   height: 80px;
-  font-size: 24px;
 }
 
 .ivu-btn-primary {
@@ -46,6 +45,8 @@ export default {
   float: right;
   width: 40%;
   height: 60%;
+  font-size: 26px !important;
+  
 }
 
 </style>

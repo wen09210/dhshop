@@ -1,6 +1,7 @@
 <template>
   <div class="">
     <div v-html="ContentUp"></div>
+    <!-- Carousel 上半-->
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -20,19 +21,20 @@
             <swiper :options="swiperOption_Up">
               <template v-for="(itemChild,secIndex) in CarouselUp[index]">
                 <swiper-slide v-if="secIndex!==0">
-                  <img :src="itemChild.ImgUrl|UrlTransIP" class="img-responsive imgHover">
+                  <img :src="itemChild.ImgUrl|UrlTransIP" class="imgHover carousel_Img">
                 </swiper-slide>
               </template>
-              <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
-              <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
+              <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+              <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
             </swiper>
           </div>
         </template>
       </div>
     </div>
+    <!-- Carousel 上半 end-->
     <!-- html -->
     <div v-html="ContentDown"></div>
-    <!-- Carousel -->
+    <!-- Carousel 下半-->
     <div class="container">
       <div class="col-md-6">
         <swiper :options="swiperOption_Down">
@@ -41,11 +43,12 @@
               <img :src="item.ImgUrl|UrlTransIP" class="img-responsive imgHover">
             </swiper-slide>
           </template>
-          <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
-          <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
+          <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+          <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
         </swiper>
       </div>
     </div>
+    <!-- Carousel 下半 end-->
   </div>
 </template>
 <script>
@@ -132,9 +135,12 @@ export default {
   width: 200px;
   height: 130px;
 }
-
+.carousel_Img{
+  width: 100%;
+  height: 600px;
+}
 img {
-  width: 100%
+  width: 100%; 
 }
 
 </style>

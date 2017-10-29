@@ -26,7 +26,6 @@
               <Input v-model="BuyerDetail.P_Note" type="textarea" :autosize="{minRows: 2,maxRows: 10}" placeholder="備註..."></Input>
             </FormItem>
           </Form>
-
         </div>
       </div>
       <!-- 訂購人資訊end  -->
@@ -184,6 +183,7 @@ export default {
     // 回購物車
     backCart() {
       this.SetCartStepBar(0)
+      window.scroll(0, 70)
     },
     // 進入付款資訊
     goPayDetail(name1, name2) {
@@ -210,6 +210,7 @@ export default {
       this.SetBuyerDetail(this.BuyerDetail)
       // 步驟條
       this.SetCartStepBar(2)
+      window.scroll(0, 70)
     },
     // 同訂購人勾選
     eqPurchsase() {
@@ -230,9 +231,6 @@ export default {
 
 </script>
 <style>
-.lovecodeSelect {
-  width: 350px;
-}
 
 input.largerCheckbox {
   width: 20px;

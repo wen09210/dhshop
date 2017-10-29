@@ -1,0 +1,15 @@
+/* Notice訊息 */
+.ivu-notice-title{
+  font-size: 18px !important;
+}
+.ivu-notice-desc {
+  font-size: 16px !important;  
+}
+
+/* Confirm */
+.ivu-modal-confirm-head-title{
+  font-size: 18px !important;  
+}
+.ivu-modal-confirm-body{
+  font-size: 16px !important;  
+}

@@ -94,13 +94,13 @@ export default {
 }
 
 </script>
-<style>
+<style >
 .detailBlock {
   font-size: 18px;
   border: 1px solid #77C9FF;
   border-radius: 10px;
   padding: 20px;
-  margin: 0px;
+  margin: 10px;
 }
 
 .detailTitle {

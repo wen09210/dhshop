@@ -14,6 +14,13 @@ import myfooter from './components/Global/myfooter'
 import Loading from './components/Global/Loading'
 export default {
   name: 'app',
+  created() {
+    // Alert全局設定
+    this.$Notice.config({
+      top: 100,
+      duration: 4
+    })
+  },
   components: {
     myheader,
     mysidebar,
@@ -28,6 +35,7 @@ export default {
 @import '../static/css/noty.css';
 @import '../node_modules/swiper/dist/css/swiper.css';
 @import '../node_modules/iview/dist/styles/iview.css';
+@import '../static/css/ivewPersonal.css';
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
