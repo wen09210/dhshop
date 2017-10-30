@@ -105,6 +105,7 @@ export default {
           this.itemShow = this.item[0]
           this.itemSelect = this.item[0].ItemNo
           console.log(this.item)
+          this.$parent.$emit('passProdInf', this.itemShow)
         }
       })
       .catch(function(error) {
@@ -200,7 +201,7 @@ export default {
 </script>
 <style scoped>
 .buydiv {
-  font-size: 17px;
+  font-size: 18px !important;
 }
 
 .prod_title {
