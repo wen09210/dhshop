@@ -2,13 +2,13 @@
   <modal v-model="GetLoginModal" title="登入" size="sm" :footer="false">
     <div class="row">
       <div class="col-xs-12">
-        <img src="../../assets/icon/dhshop_logo.svg" class="img-responsive modalImg" alt="Responsive image">
+        <img src="../../assets/icon/new_dhshop_logo.svg" class="img-responsive modalImg" alt="Responsive image">
       </div>
       <!-- <div class="col-md-6 col-xs-12">
 
       <form role="form">
         <div class="form-group">
-          <img src="../../assets/icon/dhshop_logo.svg" class="img-responsive" alt="Responsive image">
+          <img src="../../assets/icon/new_dhshop_logo.svg" class="img-responsive" alt="Responsive image">
         </div>
         <div class="form-group">
           <label for="account">帳號</label>

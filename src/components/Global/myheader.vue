@@ -13,7 +13,7 @@
           <router-link to="/">
             <div class="navbar-brand">
               <a href="" role="button" >
-              <img src="../../assets/icon/dhshop_logo.svg" class="img-responsivie">
+              <img src="../../assets/icon/new_dhshop_logo.svg" class="img-responsivie">
            </a>
             </div>
           </router-link>

@@ -5,7 +5,7 @@
     <div class="col-md-6">
       <form role="form">
         <div class="form-group">
-          <img src="../../assets/icon/dhshop_logo.svg" class="img-responsive" alt="Responsive image">
+          <img src="../../assets/icon/new_dhshop_logo.svg" class="img-responsive" alt="Responsive image">
         </div>
         <template v-if="Object.keys(GetLoginInfo).length!==0">
           <h5>您好，已經註冊囉~</h5>

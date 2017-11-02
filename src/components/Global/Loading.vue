@@ -5,7 +5,7 @@
     <Spin fix>
       <Icon type="load-c" size=50 class="demo-spin-icon-load"></Icon>
       <div class="LoadingFont">
-        <img src="../../assets/icon/dhshop_logo.svg">
+        <img src="../../assets/icon/new_dhshop_logo.svg">
         <!-- <span>處理中...</span> -->
       </div>
     </Spin>
