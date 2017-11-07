@@ -13,3 +13,10 @@
 .ivu-modal-confirm-body{
   font-size: 16px !important;  
 }
+/* RadioButton */
+.ivu-radio-group-button .ivu-radio-wrapper-checked {
+    background: #2196F3;
+    border-color: #2d8cf0;
+    color: #f8f9f9;
+    box-shadow: -1px 0 0 0 #2d8cf0;
+}

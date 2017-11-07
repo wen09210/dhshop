@@ -14,15 +14,15 @@
         <p>{{itemShow.description}}</p>
         <div>
           <label>原價:</label>
-          <span>{{itemShow.OrignPrice}}</span>
+          <span>{{itemShow.OrignPrice}} 元</span>
         </div>
         <div>
           <label>售價:</label>
-          <span>{{itemShow.SalePrice}}</span>
+          <span>{{itemShow.SalePrice}} 元</span>
         </div>
         <div>
-          <label>數量:</label>
-          <span>{{itemShow.InventoryVal}}</span>
+          <label>剩餘數量:</label>
+          <span>{{itemShow.InventoryVal}} {{itemShow.Unit}}</span>
         </div>
         <div>
           <label>規格:</label>
@@ -34,6 +34,14 @@
         </div>
         <div>
           <label>樣式</label>
+          {{getItem}}
+          <RadioGroup v-model="itemSelect" type="button" size="large">
+            <template v-for="option in item">
+              <Radio :label="option.ItemNo">
+                <span>{{option.ItemName}}</span>
+              </Radio>
+            </template>
+          </RadioGroup>
           <select class="selectpicker" v-model="itemSelect" @change="getItem">
             <option v-for="option in item" :value="option.ItemNo">
               {{option.ItemName}}
@@ -56,7 +64,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 <script>
@@ -124,12 +131,7 @@ export default {
         this.itemSize = 500
       }
       return this.itemSize
-    }
-  },
-  methods: {
-    ...mapActions([
-      'IncreaseProduct'
-    ]),
+    },
     getItem() {
       console.log(this.itemShow.ItemNo)
       this.item.forEach(val => {
@@ -139,7 +141,12 @@ export default {
           return
         }
       })
-    },
+    }
+  },
+  methods: {
+    ...mapActions([
+      'IncreaseProduct'
+    ]),
     // 檢查數量是否足夠
     addCart(direct) {
       axios.get(`/api/Product/GetProductQuentity?`, {
@@ -148,48 +155,48 @@ export default {
           ItemNo: this.itemShow.ItemNo
         }
       })
-        .then((response) => {
-          console.log(response)
-          if (response.data.statu === 'err') {
-            this.$noty.ShowAlert('系統忙碌中，請稍待片刻後重新操作<br>或直接聯繫客服人員為您處理', 'warning')
-            return false
-          }
-          var itemShow = this.itemShow
-          var itemSize = this.itemSize
-          var prodType = '1'
-          // 數量不足
-          if (response.data.data < this.itemSize) {
-            console.log(this.itemSize)
-            prodType = '3'
-            this.$noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，<br>是否以預購方式購買，同時享受優惠', () => {
-              this.IncreaseProduct({
-                itemShow,
-                itemSize,
-                prodType
-              })
-              // 直接購買則導到購物車
-              if (direct !== '') {
-                this.$router.push({
-                  name: 'cart'
-                })
-              }
-            })
-          } else {
+      .then((response) => {
+        console.log(response)
+        if (response.data.statu === 'err') {
+          this.$noty.ShowAlert('系統忙碌中，請稍待片刻後重新操作<br>或直接聯繫客服人員為您處理', 'warning')
+          return false
+        }
+        var itemShow = this.itemShow
+        var itemSize = this.itemSize
+        var prodType = '1'
+        // 數量不足
+        if (response.data.data < this.itemSize) {
+          console.log(this.itemSize)
+          prodType = '3'
+          this.$noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，<br>是否以預購方式購買，同時享受優惠', () => {
             this.IncreaseProduct({
               itemShow,
               itemSize,
               prodType
             })
+            // 直接購買則導到購物車
             if (direct !== '') {
               this.$router.push({
                 name: 'cart'
               })
             }
+          })
+        } else {
+          this.IncreaseProduct({
+            itemShow,
+            itemSize,
+            prodType
+          })
+          if (direct !== '') {
+            this.$router.push({
+              name: 'cart'
+            })
           }
-        })
-        .catch((response) => {
-          console.log(response)
-        })
+        }
+      })
+      .catch((response) => {
+        console.log(response)
+      })
       // this.IncreaseProduct({itemShow, itemSize})
     },
     keyNum() {
