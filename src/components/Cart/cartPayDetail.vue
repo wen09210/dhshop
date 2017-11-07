@@ -16,7 +16,7 @@
               </span>
                 <span v-else-if="item.No ==='4'" class="amtDetail">
                 NT${{Math.floor(GetshowAmtData.totalAmt*1.0175/6)}}元 X6期                
-              </span>
+              </span>              
                 <span v-else class="amtDetail">
                 NT${{GetshowAmtData.totalAmt}}元                
               </span>
@@ -101,7 +101,7 @@ export default {
   },
   created() {
     this.SetLoading(true)
-    axios.get(`/api/Ecpay/GetPayType`)
+    axios.get(`/api/PayType/GetPayType`)
       .then((res) => {
         if (res.data.statu === 'err') {
           this.$Notice.warning({
