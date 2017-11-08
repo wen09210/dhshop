@@ -111,7 +111,12 @@ export default {
   margin-bottom: 10px;
   padding: 5px;
 }
-
+.ivu-steps .ivu-steps-tail{
+   top:20px;
+ }
+ .ivu-steps .ivu-steps-head{
+   top:5px;
+ }
 .btntoDetail {
   margin-top: 20px;
   margin-bottom: 50px;

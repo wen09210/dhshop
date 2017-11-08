@@ -9,9 +9,11 @@
       </div>
       <!-- -->
       <div :class="third">
-        <h1>{{$route.params.prodID }}</h1>
-        <h3>{{itemShow.ProdName+'--'+itemShow.ItemName}}</h3>
-        <p>{{itemShow.description}}</p>
+        <!-- <h1>{{$route.params.prodID }}</h1> -->
+        <h3>{{itemShow.ProdName+'—'+itemShow.ItemName}}</h3>
+        <br>
+        <p>{{itemShow.Description}}</p>
+        <br>
         <div>
           <label>原價:</label>
           <span>{{itemShow.OrignPrice}} 元</span>
@@ -42,11 +44,11 @@
               </Radio>
             </template>
           </RadioGroup>
-          <select class="selectpicker" v-model="itemSelect" @change="getItem">
+          <!-- <select class="selectpicker" v-model="itemSelect" @change="getItem">
             <option v-for="option in item" :value="option.ItemNo">
               {{option.ItemName}}
             </option>
-          </select>
+          </select> -->
         </div>
         <div style="display:inline-block">
           <label>數量</label>

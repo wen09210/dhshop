@@ -12,6 +12,21 @@
     </div>
     <swiper :options="swiperOption">
       <swiper-slide>
+        <img src="../../assets/temporyPic/Index/User5.png" class="img-responsive">
+      </swiper-slide>
+      <swiper-slide>
+        <img src="../../assets/temporyPic/Index/User7.png" class="img-responsive">
+      </swiper-slide>
+      <swiper-slide>
+        <img src="../../assets/temporyPic/Index/User8.png" class="img-responsive">
+      </swiper-slide>
+      <swiper-slide>
+        <img src="../../assets/temporyPic/Index/User6.png" class="img-responsive">
+      </swiper-slide>
+      <swiper-slide>
+        <img src="../../assets/temporyPic/Index/User4.png" class="img-responsive">
+      </swiper-slide>
+      <swiper-slide>
         <img src="../../assets/temporyPic/Index/User1.png" class="img-responsive">
       </swiper-slide>
       <swiper-slide>
@@ -19,21 +34,6 @@
       </swiper-slide>
       <swiper-slide>
         <img src="../../assets/temporyPic/Index/User3.png" class="img-responsive">
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../../assets/temporyPic/Index/User4.png" class="img-responsive">
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../../assets/temporyPic/Index/User5.png" class="img-responsive">
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../../assets/temporyPic/Index/User6.png" class="img-responsive">
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../../assets/temporyPic/Index/User7.png" class="img-responsive">
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../../assets/temporyPic/Index/User8.png" class="img-responsive">
       </swiper-slide>\
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
@@ -50,7 +50,7 @@ export default {
   data() {
     return {
       swiperOption: {
-        slidesPerView: 4,
+        slidesPerView: 3,
         spaceBetween: 20,
         loop: true,
         nextButton: '.swiper-button-next',

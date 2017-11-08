@@ -190,8 +190,12 @@ export default {
 
 </script>
 <style>
+.container-fluid{
+   max-width:1200px;
+ }
 .navbar-brand {
   padding-top: 10px;
+  margin-top: 5px;
 }
 
 .navbar-default {

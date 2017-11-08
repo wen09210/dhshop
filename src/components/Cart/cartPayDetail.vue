@@ -16,7 +16,7 @@
               </span>
                 <span v-else-if="item.No ==='4'" class="amtDetail">
                 NT${{Math.floor(GetshowAmtData.totalAmt*1.0175/6)}}元 X6期                
-              </span>              
+              </span>
                 <span v-else class="amtDetail">
                 NT${{GetshowAmtData.totalAmt}}元                
               </span>
@@ -82,7 +82,7 @@
     <!-- 上一步回購物車end -->
     <!-- 結帳 -->
     <div class=" col-xs-7 col-md-7">
-      <button type="button" @click="GetMacValue({$Spin,BuyerDetail})" class="btn btn-info btn-lg btn-block">老闆~買了!買了!</button>
+      <button type="button" @click="StartPay" class="btn btn-info btn-lg btn-block">老闆~買了!買了!</button>
     </div>
     <!-- 結帳end -->
   </div>
@@ -136,6 +136,20 @@ export default {
     goBuyerDetail() {
       this.SetCartStepBar(1)
       window.scroll(0, 70)
+    },
+    StartPay() {
+      if (this.BuyerDetail.PayType === '5') {
+        this.$Modal.confirm({
+          title: 'dHSHOP 提醒',
+          content: '<p>因運送體積限制，選擇「貨到付款」將依商品分成多筆訂單，再請注意您的訂單資訊。</p>',
+          onOk: () => {
+            this.GetMacValue({
+              $Spin: this.$Spin,
+              BuyerDetail: this.BuyerDetail
+            })
+          }
+        })
+      }
     }
   }
 }
