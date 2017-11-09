@@ -149,6 +149,11 @@ export default {
             })
           }
         })
+      } else {
+        this.GetMacValue({
+          $Spin: this.$Spin,
+          BuyerDetail: this.BuyerDetail
+        })
       }
     }
   }
@@ -158,6 +163,7 @@ export default {
 <style scoped>
 .lovecodeSelect {
   width: 80%;
+  font-size: 16px !important;
 }
 
 .ivu-select-selected-value {

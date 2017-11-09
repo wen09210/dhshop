@@ -45,6 +45,7 @@ export default {
     // loading 畫面
     $Spin.show()
     BuyerDetail.listItem = state.shoppingCartItem
+    BuyerDetail.CouponCode = state.CouponCode
     console.log(BuyerDetail)
     console.log(state.LoginInfo.JWTAuthorization)
     // 貨到付款
@@ -95,7 +96,7 @@ export default {
           return false
         }
         // 綠界POST
-        ecpost('https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V4?', response.data, 'POST')
+        ecpost(response.data.postUrl, response.data.Value, 'POST')
       })
         .catch(function(r) {
           console.log(r)
@@ -107,6 +108,7 @@ export default {
     let BuyerDetail = {}
     BuyerDetail.listItem = state.shoppingCartItem
     BuyerDetail.CouponCode = state.CouponCode
+    BuyerDetail.MemberOwnCode = state.LoginInfo.MemberOwnCode
     axios.post(`/api/Ecpay/PostGetTotalAmt?`, BuyerDetail)
       .then((response) => {
         console.log(response)

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="style_intro">你想如何改善居家?</div>
-    <div class="">
+    <div class="row">
       <ul class="nav nav-pills nav-yellow">
         <li class="col-xs-3" :class="{tabHover: tavControl.house }" @click="changeTab('house')">
           <img src="../../assets/temporyPic/Index/01_house.png"><span> 空間改造</span>
@@ -244,6 +244,7 @@ export default {
 
 
 
+
 /* } */
 
 .tabHover {
@@ -251,6 +252,7 @@ export default {
   background-color: #ffde97 !important;
   font-weight: 600;
 }
+
 
 
 
@@ -295,7 +297,7 @@ export default {
     margin: 0px 15px;
   }
   .nav.nav-yellow>li span {
-    padding: 10px;
+    /* padding: 10px; */
     text-align: center;
     display: block;
   }

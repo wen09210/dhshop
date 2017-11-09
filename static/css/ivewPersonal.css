@@ -43,3 +43,7 @@
   border: 1px solid #2d8cf0;
   background: #fff;
 }
+
+.ivu-select-single .ivu-select-selection .ivu-select-placeholder, .ivu-select-single .ivu-select-selection .ivu-select-selected-value{
+  font-size: 14px;
+}
