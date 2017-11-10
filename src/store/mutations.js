@@ -2,13 +2,11 @@ import types from './types'
 import Lockr from 'lockr'
 // import { noty } from '../extension/AlertDialog'
 import { $decodeCookies } from '../extension/DecodeCookies'
-import Notice from 'iview/src/components/notice'
-// Notice公用設定
-Notice.config({
-  top: 100,
-  duration: 4
-})
+let Notice
 export default {
+  [types.PassNoticeFc](INotice) {
+    Notice = INotice
+  },
   [types.SetLoading](state, setting) {
     state.openLoading = setting
   },

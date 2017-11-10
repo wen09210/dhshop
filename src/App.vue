@@ -1,10 +1,10 @@
 <template>
   <div>
-      <myheader> </myheader>
-      <mysidebar></mysidebar>
-      <router-view></router-view>
-      <myfooter></myfooter>
-      <Loading></Loading>
+    <myheader> </myheader>
+    <mysidebar></mysidebar>
+    <router-view></router-view>
+    <myfooter></myfooter>
+    <Loading></Loading>
   </div>
 </template>
 <script>
@@ -12,6 +12,7 @@ import myheader from './components/Global/myheader'
 import mysidebar from './components/Global/mysidebar'
 import myfooter from './components/Global/myfooter'
 import Loading from './components/Global/Loading'
+import { mapActions } from 'vuex'
 export default {
   name: 'app',
   created() {
@@ -20,12 +21,18 @@ export default {
       top: 100,
       duration: 4
     })
+    this.PassNoticeFc(this.$Notice)
   },
   components: {
     myheader,
     mysidebar,
     myfooter,
     Loading
+  },
+  methods: {
+    ...mapActions([
+      'PassNoticeFc'
+    ])
   }
 }
 

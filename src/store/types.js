@@ -28,5 +28,6 @@ export default {
   // 設定步驟條
   SetCartStepBar: 'SetCartStepBar',
   // 存入優惠碼
-  SetCouponCode: 'SetCouponCode'
+  SetCouponCode: 'SetCouponCode',
+  'PassNoticeFc': 'PassNoticeFc'
 }

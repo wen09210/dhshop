@@ -2,13 +2,13 @@ import types from './types'
 import axios from 'axios'
 import { ecpost } from '../extension/ecpost'
 import router from '../router'
-import Notice from 'iview/src/components/notice'
-// Notice公用設定
-Notice.config({
-  top: 100,
-  duration: 4
-})
+let Notice
+
 export default {
+  [types.PassNoticeFc]({commit}, INotice) {
+    Notice = INotice
+    commit(types.PassNoticeFc, Notice)
+  },
   // 控制Loading
   [types.SetLoading]({ commit }, setting) {
     commit(types.SetLoading, setting)

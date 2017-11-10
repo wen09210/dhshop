@@ -229,9 +229,15 @@
 <script>
 import { Collapse } from 'uiv'
 let Qarr = new Array(20)
-Qarr.fill(false)
+// Qarr.fill(false)
+Qarr.forEach(function(e) {
+  e = false
+}, this)
 let cssarr = new Array(20)
-cssarr.fill('fa fa-chevron-right chColor')
+cssarr.forEach(function(el) {
+  el = 'fa fa-chevron-right chColor'
+}, this)
+// cssarr.fill('fa fa-chevron-right chColor')
 export default {
   components: {
     Collapse
