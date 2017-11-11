@@ -46,7 +46,7 @@
               <a class="btn btn-danger" @click="ReduceProd(item)">
                   <i class="fa fa-trash-o fa-lg"></i>
                 </a>
-            </div>            
+            </div>
             <!-- 手機板顯示 -->
             <div class="col-md-2 col-xs-12  tableTd">
               <span class="leftTd">
@@ -58,7 +58,7 @@
                    小計 : {{item.totalAmt}} 元
                 </span>
             </div>
-            <!-- 手機板顯示 end-->            
+            <!-- 手機板顯示 end-->
           </div>
         </div>
         <!-- 購買商品列end -->
@@ -256,6 +256,10 @@ export default {
     goBuyerDetail() {
       // 商品檢核未通過
       console.log(this.GetshowAmtData.status)
+      if (Object.keys((this.GetshowAmtData).length === 0)) {
+        this.PostGetTotalAmt()
+        return false
+      }
       if (this.GetshowAmtData.status === 'err') {
         this.$noty.ShowAlert(this.GetshowAmtData.errMsg + '<br>請先完成更改，再進行結帳', 'warning')
         return false

@@ -4,8 +4,8 @@ import Lockr from 'lockr'
 import { $decodeCookies } from '../extension/DecodeCookies'
 let Notice
 export default {
-  [types.PassNoticeFc](INotice) {
-    Notice = INotice
+  [types.PassNoticeFc](state, IINotice) {
+    Notice = IINotice
   },
   [types.SetLoading](state, setting) {
     state.openLoading = setting

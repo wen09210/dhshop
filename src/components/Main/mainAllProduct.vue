@@ -35,9 +35,9 @@
                 <img src="../../assets/temporyPic/Index/wallpaper.jpg" class="item_category imgHover">
               </div>
             </router-link>
-            <router-link to="/Product/1">
+            <router-link to="/Product/20">
               <div class="col-md-6 col-xs-6 padding5">
-                <img src="../../assets/temporyPic/Index/floor2.jpg" class="item_category imgHover">
+                <img src="../../assets/temporyPic/Index/small8.jpg" class="item_category imgHover">
               </div>
             </router-link>
           </div>
@@ -68,9 +68,9 @@
               <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
               <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
             </swiper> -->
-          <router-link to="/Product/3">
+          <router-link to="/Product/21">
             <div class="col-md-4 topdownMargin10">
-              <img src="../../assets/temporyPic/Index/small8.jpg" class="item_category imgHover">
+              <img src="../../assets/temporyPic/Index/paint.jpg" class="item_category imgHover">
             </div>
           </router-link>
           <router-link to="/Product/8">
@@ -163,11 +163,23 @@
             </router-link>
           </div>
           <!-- 右下圖 -->
-          <router-link to="/Product/19">
+           <div class="col-md-12 noPadding">
+            <router-link to="/Product/19">
+              <div class="col-md-6 col-xs-6 padding5">
+                <img src="../../assets/temporyPic/Index/disneybottle.jpg" class="item_category imgHover">
+              </div>
+            </router-link>
+            <router-link to="/Product/18">
+              <div class="col-md-6 col-xs-6 padding5">
+                <img src="../../assets/temporyPic/Index/keyholder.jpg" class="item_category imgHover">
+              </div>
+            </router-link>
+          </div>
+          <!-- <router-link to="/Product/19">
             <div class="col-md-12 col-xs-12 padding5">
               <img src="../../assets/temporyPic/Index/bottle.jpg" class="item_category firstPIC imgHover">
             </div>
-          </router-link>
+          </router-link> -->
         </div>
       </div>
     </div>

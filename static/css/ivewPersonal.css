@@ -14,12 +14,6 @@
   font-size: 16px !important;  
 }
 /* RadioButton */
-.ivu-radio-group-button .ivu-radio-wrapper-checked {
-    background: #2196F3;
-    border-color: #2d8cf0;
-    color: #f8f9f9;
-    box-shadow: -1px 0 0 0 #2d8cf0;
-}
 .ivu-radio-group-button.ivu-radio-group-large .ivu-radio-wrapper {
   height: 36px;
   line-height: 34px;
@@ -43,12 +37,14 @@
   border: 1px solid #2d8cf0;
   background: #fff;
 }
-.ivu-radio-group-button .ivu-radio-wrapper-checked:hover {
-  border-color: #57a3f3;
-  box-shadow: -1px 0 0 0 #57a3f3;
-  color: #f6f7f9;
+.ivu-radio-group-button .ivu-radio-wrapper-checked {
   background: #2d8cf0;
+  border-color: #2d8cf0;
+  color: #f9f9fa;
+  box-shadow: -1px 0 0 0 #2d8cf0;
 }
+
+
 /* 下拉 */
 .ivu-select-single
 .ivu-select-selection

@@ -11,7 +11,7 @@
       <div :class="third">
         <!-- <h1>{{$route.params.prodID }}</h1> -->
         <h3 class="titleProd">{{itemShow.ProdName+'—'+itemShow.ItemName}}</h3>
-        <p>{{itemShow.Description}}</p>
+        <h3 class="descriptProd">{{itemShow.Description}}</h3>
         <div>
           <label>原價:</label>
           <span>{{itemShow.OrignPrice}} 元</span>
@@ -21,7 +21,7 @@
           <span>{{itemShow.SalePrice}} 元</span>
         </div>
         <div>
-          <label>剩餘數量:</label>
+          <label>數量:</label>
           <span>{{itemShow.InventoryVal}} {{itemShow.Unit}}</span>
         </div>
         <div>
@@ -50,17 +50,17 @@
         </div>
         <div style="display:inline-block">
           <label>數量</label>
-          <button class="btn btn-info" @click="itemSize--">
+          <button class="btn btn-primary" @click="itemSize--">
             <i class="fa fa-minus" aria-hidden="true"></i>
           </button>
           <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
-          <button class="btn btn-info" @click="itemSize++">
+          <button class="btn btn-primary" @click="itemSize++">
             <i class="fa fa-plus" aria-hidden="true"></i>
           </button>
         </div>
         <div class="buybtn">
-          <button class="btn btn-info btn-lg" @click="addCart('direct')">直接購買</button>
-          <button class="btn btn-danger btn-lg a" @click="addCart('')">加入購物車</button>
+            <button class="btn btn-primary btn-lg" @click="addCart('direct')">直接購買</button>
+            <button class="btn btn-danger btn-lg" @click="addCart('')">加入購物車</button>
         </div>
       </div>
     </div>
@@ -218,6 +218,10 @@ export default {
   border-radius: 5px;
   margin-bottom: 5px;
   font-weight: bold;
+}
+
+.descriptProd {
+  margin-bottom: 10px;
 }
 
 .prod_title {

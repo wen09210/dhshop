@@ -3,7 +3,7 @@
     <prodPicture></prodPicture>
     <template>
       <div>
-        {{getProdInfo}}
+        {{getProdInfo}} {{showMessageBtn}}
         <Affix :offset-bottom="0" @on-change="hideAffix = !hideAffix">
           <Row class="buybtn_fixfoot" v-show="!hideAffix">
             <Col :xs="{ span: 12}" :md="{ span: 18}">
@@ -41,6 +41,14 @@ export default {
         console.log(data)
         this.ProdInfo = data
       })
+    },
+    // 控制全局右邊按鈕隱藏
+    showMessageBtn() {
+      if (this.hideAffix) {
+        document.getElementById('wh-widget-send-button').style.visibility = 'visible'
+      } else {
+        document.getElementById('wh-widget-send-button').style.visibility = 'hidden'
+      }
     }
   },
   data: function() {
@@ -53,15 +61,14 @@ export default {
 
 </script>
 <style scoped>
-
 @media (max-width:1024px) {
   .buybtn_fixfoot {
     background-color: rgba(0, 0, 0, .6);
-    height: 90px;
+    /* height: 90px; */
   }
 
   .A_title {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
     color: white;
     margin-left: 10px;
@@ -80,7 +87,7 @@ export default {
 @media (min-width:1024px) {
   .buybtn_fixfoot {
     background-color: rgba(0, 0, 0, .6);
-    height: 90px;
+    /* height: 90px; */
   }
   .A_title {
     font-size: 28px;
