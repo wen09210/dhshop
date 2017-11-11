@@ -24,7 +24,7 @@
               <a class="headerIcon">
                 <router-link to="/AnonymousSearch">
                   <button type="button" class="btn  BtnToA headerIcon" @click="showNavbar=!showNavbar">
-                    <i class="fa fa-search" aria-hidden="true"></i> 訂單查尋
+                    <i class="fa fa-search" aria-hidden="true"></i> 訂單查詢
                   </button>
                 </router-link>
               </a>

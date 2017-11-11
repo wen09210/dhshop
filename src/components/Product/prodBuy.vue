@@ -10,10 +10,8 @@
       <!-- -->
       <div :class="third">
         <!-- <h1>{{$route.params.prodID }}</h1> -->
-        <h3>{{itemShow.ProdName+'—'+itemShow.ItemName}}</h3>
-        <br>
+        <h3 class="titleProd">{{itemShow.ProdName+'—'+itemShow.ItemName}}</h3>
         <p>{{itemShow.Description}}</p>
-        <br>
         <div>
           <label>原價:</label>
           <span>{{itemShow.OrignPrice}} 元</span>
@@ -157,48 +155,48 @@ export default {
           ItemNo: this.itemShow.ItemNo
         }
       })
-      .then((response) => {
-        console.log(response)
-        if (response.data.statu === 'err') {
-          this.$noty.ShowAlert('系統忙碌中，請稍待片刻後重新操作<br>或直接聯繫客服人員為您處理', 'warning')
-          return false
-        }
-        var itemShow = this.itemShow
-        var itemSize = this.itemSize
-        var prodType = '1'
-        // 數量不足
-        if (response.data.data < this.itemSize) {
-          console.log(this.itemSize)
-          prodType = '3'
-          this.$noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，<br>是否以預購方式購買，同時享受優惠', () => {
+        .then((response) => {
+          console.log(response)
+          if (response.data.statu === 'err') {
+            this.$noty.ShowAlert('系統忙碌中，請稍待片刻後重新操作<br>或直接聯繫客服人員為您處理', 'warning')
+            return false
+          }
+          var itemShow = this.itemShow
+          var itemSize = this.itemSize
+          var prodType = '1'
+          // 數量不足
+          if (response.data.data < this.itemSize) {
+            console.log(this.itemSize)
+            prodType = '3'
+            this.$noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，<br>是否以預購方式購買，同時享受優惠', () => {
+              this.IncreaseProduct({
+                itemShow,
+                itemSize,
+                prodType
+              })
+              // 直接購買則導到購物車
+              if (direct !== '') {
+                this.$router.push({
+                  name: 'cart'
+                })
+              }
+            })
+          } else {
             this.IncreaseProduct({
               itemShow,
               itemSize,
               prodType
             })
-            // 直接購買則導到購物車
             if (direct !== '') {
               this.$router.push({
                 name: 'cart'
               })
             }
-          })
-        } else {
-          this.IncreaseProduct({
-            itemShow,
-            itemSize,
-            prodType
-          })
-          if (direct !== '') {
-            this.$router.push({
-              name: 'cart'
-            })
           }
-        }
-      })
-      .catch((response) => {
-        console.log(response)
-      })
+        })
+        .catch((response) => {
+          console.log(response)
+        })
       // this.IncreaseProduct({itemShow, itemSize})
     },
     keyNum() {
@@ -211,6 +209,15 @@ export default {
 <style scoped>
 .buydiv {
   font-size: 18px !important;
+}
+
+.titleProd {
+  padding: 10px;
+  background: #dddee1;
+  width: 90%;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .prod_title {

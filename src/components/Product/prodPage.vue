@@ -16,7 +16,7 @@
             <Col :xs="{ span: 24}" :sm="{ span: 12}" :md="{ span: 6}" class="A_Price">優惠: {{ProdInfo.SalePrice}}元</Col>
             </Col>
             <Col :xs="{ span: 12}" :md="{ span: 6 }">
-            <Button type="primary" size="large" v-scroll-to="'#botBuy'">我要選樣式</Button>
+            <Button type="primary" size="large" v-scroll-to="'#botBuy'">立即搶購</Button>
             </Col>
           </Row>
         </Affix>
@@ -101,8 +101,8 @@ export default {
 
 .ivu-btn-primary {
   color: #fff;
-  background-color: #2d8cf0;
-  border-color: #2d8cf0;
+  background-color: #ff662b;
+  border-color: #ff662b;
   margin: 10px 0px;
   /* float: right; */
   width: 90%;

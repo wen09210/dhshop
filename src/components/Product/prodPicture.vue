@@ -4,12 +4,12 @@
     <!-- Carousel 上半-->
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-xs-12 col-md-6">
           <!-- 左半邊 -->
           <template v-for="(item,index) in CarouselUp">
             <template v-for="(itemChild,secIndex) in CarouselUp[index]">
               <!-- Order 0 為索引 -->
-              <div class="col-md-6" v-if="secIndex===0">
+              <div class="col-xs-4 col-md-4 padding5" v-if="secIndex===0">
                 <img v-if="secIndex===0" :src="itemChild.ImgUrl|UrlTransIP" class="carousel_Index" @click="changeCarousel(index)">
               </div>
             </template>
@@ -17,7 +17,7 @@
         </div>
         <!-- 右半邊 -->
         <template v-for="(item,index) in CarouselUp">
-          <div v-show="CtrlPanel[index]" class="col-md-6">
+          <div v-show="CtrlPanel[index]" class="col-xs-12 col-md-6">
             <swiper :options="swiperOption_Up">
               <template v-for="(itemChild,secIndex) in CarouselUp[index]">
                 <swiper-slide v-if="secIndex!==0">
@@ -36,7 +36,7 @@
     <div v-html="ContentDown"></div>
     <!-- Carousel 下半-->
     <div class="container">
-      <div class="col-md-6">
+      <div class="col-xs-12 col-md-12">
         <swiper :options="swiperOption_Down">
           <template v-for="item in CarouselDown">
             <swiper-slide>
@@ -131,16 +131,28 @@ export default {
 </script>
 <style>
 .carousel_Index {
-  margin: 5px;
-  width: 200px;
-  height: 130px;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
 }
-.carousel_Img{
+
+.carousel_Img {
   width: 100%;
-  height: 600px;
+  height: 450px;
 }
+
 img {
-  width: 100%; 
+  width: 100%;
+}
+
+@media (max-width:768px) {
+  .carousel_Img {
+    width: 100%;
+    height: 350px;
+  }
+  .padding5{
+    padding-left:5px;
+    padding-right:5px;
+  }
 }
 
 </style>

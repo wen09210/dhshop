@@ -3,8 +3,9 @@
     <mainTop></mainTop>
     <mainIntro></mainIntro>
     <mainPromotion></mainPromotion>
-    <mainArtical></mainArtical>
+    <!-- <mainArtical></mainArtical> -->
     <mainAllProduct></mainAllProduct>
+    <mainIgFrame></mainIgFrame>
   </div>
 </template>
 
@@ -12,15 +13,17 @@
   import mainTop from './mainTop'
   import mainIntro from './mainIntro'
   import mainPromotion from './mainPromotion'
-  import mainArtical from './mainAtrical.vue'
+  // import mainArtical from './mainAtrical.vue'
   import mainAllProduct from './mainAllProduct'
+  import mainIgFrame from './mainIgFrame.vue'
   export default {
     components: {
       mainTop,
       mainIntro,
       mainPromotion,
-      mainArtical,
-      mainAllProduct
+      // mainArtical,
+      mainAllProduct,
+      mainIgFrame
     }
   }
 </script>

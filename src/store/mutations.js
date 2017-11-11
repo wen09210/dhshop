@@ -107,7 +107,7 @@ export default {
   [types.addCartCount](state, item) {
     let cartItem = state.shoppingCartItem.find(x => x.no === item.no)
     console.log(cartItem)
-    if (cartItem.count++ < 999) {
+    if (cartItem.count <= 200) {
       cartItem.count++
     }
     cartItem.totalAmt = cartItem.count * cartItem.unitPrice
@@ -117,7 +117,7 @@ export default {
   [types.minusCartCount](state, item) {
     let cartItem = state.shoppingCartItem.find(x => x.no === item.no)
     console.log(cartItem)
-    if (cartItem.count-- > 1) {
+    if (cartItem.count >= 2) {
       cartItem.count--
     }
     cartItem.totalAmt = cartItem.count * cartItem.unitPrice

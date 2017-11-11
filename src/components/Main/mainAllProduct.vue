@@ -1,19 +1,19 @@
 <template>
   <div class="container">
     <div class="style_intro">你想如何改善居家?</div>
-    <div class="row">
+    <div class="row" style="padding-left:10px">
       <ul class="nav nav-pills nav-yellow">
         <li class="col-xs-3" :class="{tabHover: tavControl.house }" @click="changeTab('house')">
-          <img src="../../assets/temporyPic/Index/01_house.png"><span> 空間改造</span>
+          <img src="../../assets/temporyPic/Index/01_house.png"> 空間改造
         </li>
         <li class="col-xs-3" :class="{tabHover: tavControl.clean }" @click="changeTab('clean')">
-          <img src="../../assets/temporyPic/Index/03_dentist-mask.png"><span>清潔保養</span>
+          <img src="../../assets/temporyPic/Index/03_dentist-mask.png">清潔保養
         </li>
         <li class="col-xs-3" :class="{tabHover:tavControl.hstyle}" @click="changeTab('hstyle')">
-          <img src="../../assets/temporyPic/Index/04_lamp.png"> <span>氛圍營造</span>
+          <img src="../../assets/temporyPic/Index/04_lamp.png">氛圍營造
         </li>
         <li class="col-xs-3" :class="{tabHover:tavControl.good}" @click="changeTab('good')">
-          <img src="../../assets/temporyPic/Index/05_tea.png"><span>居家好物</span>
+          <img src="../../assets/temporyPic/Index/05_tea.png">居家好物
         </li>
       </ul>
     </div>
@@ -49,10 +49,10 @@
           </router-link>
         </div>
         <!-- 下圖 -->
-        <div class="col-md-12 topPadding noPadding">
+        <div class="col-md-12 topPadding noPadding ">
           <!-- Carousel -->
           <router-link to="/Product/4">
-            <div class="col-md-4">
+            <div class="col-md-4 topdownMargin10">
               <img src="../../assets/temporyPic/Index/floortrima.jpg" class="item_category imgHover">
             </div>
           </router-link>
@@ -69,12 +69,12 @@
               <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
             </swiper> -->
           <router-link to="/Product/3">
-            <div class="col-md-4">
+            <div class="col-md-4 topdownMargin10">
               <img src="../../assets/temporyPic/Index/small8.jpg" class="item_category imgHover">
             </div>
           </router-link>
           <router-link to="/Product/8">
-            <div class="col-md-4">
+            <div class="col-md-4 topdownMargin10">
               <img src="../../assets/temporyPic/Index/wallpaper2.jpg" class="item_category imgHover">
             </div>
           </router-link>
@@ -210,7 +210,7 @@ export default {
 
 </script>
 <style scoped>
-/* @media (max-width:768px) {
+@media (max-width:768px) {
   .nav.nav-yellow>li {
     width: 80px;
     margin: 10px 3px;
@@ -223,29 +223,28 @@ export default {
     width: 45px;
     height: 45px;
   }
-}
-
-@media (min-width:768px) { */
-
-.nav.nav-yellow>li {
-  width: 150px;
-  margin: 10px 3px;
-  padding: 25px 20px;
-  background-color: #eee;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.nav.nav-yellow>li>img {
-  width: 30px;
-  height: 30px;
+  .topdownMargin10{
+    margin-top:10px;
+    margin-down:10px;
+  }
 }
 
 
+@media (min-width: 768px) {
+  .nav.nav-yellow>li {
+    width: 150px;
+    margin: 10px 3px;
+    padding: 25px 20px;
+    background-color: #eee;
+    font-size: 18px;
+  }
 
+  .nav.nav-yellow>li>img {
+    width: 30px;
+    height: 30px;
+  }
+}
 
-
-/* } */
 
 .tabHover {
   color: #2e2e2e;
@@ -254,56 +253,32 @@ export default {
 }
 
 
-
-
-
-/* .item_category {
+.item_category {
   width: 100%;
   height: auto;
 }
 
 
+.noPadding {
+  padding: 0px;
+}
 
 .padding5 {
   padding: 5px 5px;
 }
 
+
 .col-md-12>.col-md-6 {
   padding: 5px 5px;
-} */
+  padding: 5px 5px;
+}
+
 
 .topPadding {
   padding-bottom: 5px;
+  padding-bottom: 5px;
   padding-top: 5px;
-}
-
-.noPadding {
-  padding: 0px 0px;
-}
-
-.topPadding+.col-md-6 {
-  margin: 0px
-}
-
-@media (max-width:768px) {
-  .nav.nav-yellow>li {
-    width: 80px;
-    margin: 10px 3px;
-    padding: 10px 3px;
-    background-color: #eee;
-    font-size: 18px;
-  }
-  .nav.nav-yellow>li>img {
-    margin: 0px 15px;
-  }
-  .nav.nav-yellow>li span {
-    /* padding: 10px; */
-    text-align: center;
-    display: block;
-  }
-  .nav {
-    display: flex;
-  }
+  padding-top: 5px;
 }
 
 </style>
