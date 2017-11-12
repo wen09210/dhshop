@@ -1,26 +1,23 @@
 <template>
-
   <div class="container">
     <!-- 成功 -->
     <template v-if="payInfo.status ==='ok' ">
-    <!-- 步驟條 -->
-    <template>
-      <div class="container">
-        <div class="col-md-12 col-xs-12 stepbar">
-          <Steps :current="CartStepBar">
-            <Step title="購  物  車" icon="ios-cart"></Step>
-            <Step title="訂購資料" icon="compose"></Step>
-            <Step title="付款方式" icon="card"></Step>
-            <Step title="恭喜完成" icon="checkmark-circled"></Step>
-          </Steps>
+      <!-- 步驟條 -->
+      <template>
+        <div class="container">
+          <div class="col-md-12 col-xs-12 stepbar">
+            <Steps :current="CartStepBar">
+              <Step title="購  物  車" icon="ios-cart"></Step>
+              <Step title="訂購資料" icon="compose"></Step>
+              <Step title="付款方式" icon="card"></Step>
+              <Step title="恭喜完成" icon="checkmark-circled"></Step>
+            </Steps>
+          </div>
         </div>
-      </div>
-    </template>
-    <!-- 步驟條end -->
-
+      </template>
+      <!-- 步驟條end -->
       <!-- 內容 -->
       <div class="col-sm-12">
-
         <div class="thank">感謝您的購買，還差一步!!</div>
         <div class="note col-sm-offset-3 col-xs-offset-1 ">
           <p>訂購明細已寄至所填信箱，我們會盡快處理您的訂單，</p>
@@ -45,144 +42,150 @@
             </table>
           </div>
         </template>
-
-
         <div class="hidden-xs LineDiv">
           <a href="https://line.me/R/ti/p/%40eat5207g"><img src="http://www.dhshop.tw/salepage/img/shared/lineat.jpg" alt="" class="lineImg" style="width:200px;wheight:200px;"></a>
         </div>
         <div class="visible-xs LineDiv">
           <a href="https://line.me/R/ti/p/%40eat5207g"><img height="142" border="0" alt="加入好友" src="http://www.dhshop.tw/salepage/img/shared/dhshoplinebtn.png" class="lineImg img-responsive"></a>
         </div>
-        <div class="t_w1">「加入LINE@隨時追蹤您的訂單」<br><span style="font-size: .8em;">(手機可直接點擊加入喔)</span></div>
+        <div class="t_w1">「加入LINE@隨時追蹤您的訂單」
+          <br><span style="font-size: .8em;">(手機可直接點擊加入喔)</span></div>
       </div>
       <div class="col-sm-12 thank_word">
         <img src="../../assets/temporyPic/antifraud.gif" alt="" style="width: 100%;max-width: 891px;">
       </div>
-  </template>
-
-  <template v-else>
-    <div class="container">
-      <div class="thank">很抱歉，您的訂單成立失敗。</div>
-      <template v-if="payInfo.type === 'Credit'">
-        <div class="row">
-          <div class="col-sm-offset-2 col-sm-10 creditQuestion">
-            <span style="font-size:20px;"><b>可能的原因有：</b></span></br>
-            </br>
-            <p>1. 信用卡第一次使用尚未開卡。</p>
-            <p>2. 信用卡卡號或到期日輸入錯誤。</p>
-            <p>3. 信用卡已超過到期日使用期限。</p>
-            <p>4. 超出信用卡使用額度或餘額不足。</p>
-            <p>5. 信用卡發卡銀行內部系統問題…等。</p>
-            <p>6. 此筆卡號同時有人刷卡授權中，因此視窗會跳出。</p>
-            <p>7. 信用卡授權時，網路斷線。</p>
-            </br>
-            <li>若您的信用卡並未超出使用額度，請回到商店重新購買。</li>
-            <li style="color:red">提醒您！請留意輸入的信用卡卡號、姓名、到期日以及卡片背後末3碼是否正確。<br>如果依然收到授權失敗的通知，可能原因為發卡銀行內部系統作業問題，請與您的信用卡發卡銀行聯絡。</li>
+    </template>
+    <template v-else>
+      <div class="container">
+        <div class="thank">很抱歉，您的訂單成立失敗。</div>
+        <template v-if="payInfo.type === 'Credit'">
+          <div class="row">
+            <div class="col-sm-offset-2 col-sm-10 creditQuestion">
+              <span style="font-size:20px;"><b>可能的原因有：</b></span></br>
+              </br>
+              <p>1. 信用卡第一次使用尚未開卡。</p>
+              <p>2. 信用卡卡號或到期日輸入錯誤。</p>
+              <p>3. 信用卡已超過到期日使用期限。</p>
+              <p>4. 超出信用卡使用額度或餘額不足。</p>
+              <p>5. 信用卡發卡銀行內部系統問題…等。</p>
+              <p>6. 此筆卡號同時有人刷卡授權中，因此視窗會跳出。</p>
+              <p>7. 信用卡授權時，網路斷線。</p>
+              </br>
+              <li>若您的信用卡並未超出使用額度，請回到商店重新購買。</li>
+              <li style="color:red">提醒您！請留意輸入的信用卡卡號、姓名、到期日以及卡片背後末3碼是否正確。
+                <br>如果依然收到授權失敗的通知，可能原因為發卡銀行內部系統作業問題，請與您的信用卡發卡銀行聯絡。</li>
+            </div>
           </div>
-        </div>
-      </template>
-      <div class="note row">
-        <div class=" col-xs-offset-3 col-sm-offset-3 col-sm-4">
-          <p>如有疑問，歡迎請與客服聯繫</p>
-          <p>客服電話:0966-140567</p>
-          <p>客服信箱:cs.dhshop@gmail.com</p>
-          <p>line@帳號:@eat5207g</p>
-        </div>
-        <div class="col-sm-3">
-          <div class="hidden-xs LineDiv">
-            <a href="https://line.me/R/ti/p/%40eat5207g"><img src="http://www.dhshop.tw/salepage/img/shared/lineat.jpg" alt="" class="lineImg" style="width:200px;wheight:200px;"></a>
+        </template>
+        <div class="note row">
+          <div class=" col-xs-offset-3 col-sm-offset-3 col-sm-4">
+            <p>如有疑問，歡迎請與客服聯繫</p>
+            <p>客服電話:0966-140567</p>
+            <p>客服信箱:cs.dhshop@gmail.com</p>
+            <p>line@帳號:@eat5207g</p>
           </div>
-          <div class="visible-xs LineDiv">
-            <a href="https://line.me/R/ti/p/%40eat5207g"><img height="142" border="0" alt="加入好友" src="http://www.dhshop.tw/salepage/img/shared/dhshoplinebtn.png" class="lineImg img-responsive"></a>
+          <div class="col-sm-3">
+            <div class="hidden-xs LineDiv">
+              <a href="https://line.me/R/ti/p/%40eat5207g"><img src="http://www.dhshop.tw/salepage/img/shared/lineat.jpg" alt="" class="lineImg" style="width:200px;wheight:200px;"></a>
+            </div>
+            <div class="visible-xs LineDiv">
+              <a href="https://line.me/R/ti/p/%40eat5207g"><img height="142" border="0" alt="加入好友" src="http://www.dhshop.tw/salepage/img/shared/dhshoplinebtn.png" class="lineImg img-responsive"></a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </template>
-</div>
+    </template>
+  </div>
 </template>
 <script>
-  export default {
-    created() {
-      if (this.$decodeCookies.getJSON('PayOk') !== undefined) {
-        this.payInfo = this.$decodeCookies.getJSON('PayOk')
-      }
-      console.log(this.payInfo)
-    },
-    data() {
-      return {
-        payInfo: {},
-        CartStepBar: 3
+import Lockr from 'lockr'
+export default {
+  created() {
+    if (this.$decodeCookies.getJSON('PayOk') !== undefined) {
+      this.payInfo = this.$decodeCookies.getJSON('PayOk')
+      if (this.payInfo.status === 'ok') {
+        let cartItem = Lockr.get('shoppingCartItem')
+        let oldHistory = Lockr.get('oldCartItem')
+        for (var cart in cartItem) {
+          
+        }
       }
     }
+  },
+  data() {
+    return {
+      payInfo: {},
+      CartStepBar: 3
+    }
   }
+}
 
 </script>
 <style scoped>
-  .LineDiv {
-    vertical-align: middle;
-  }
+.LineDiv {
+  vertical-align: middle;
+}
 
-  .lineImg {
-    display: block;
-    margin: 0 auto;
-  }
+.lineImg {
+  display: block;
+  margin: 0 auto;
+}
 
-  .note {
+.note {
 
-    font-size: 20px;
-    margin-bottom: 20px;
-    margin-top: 30px;
-  }
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
 
-  .creditQuestion {
-    font-size: 16px;
-    background: #eee;
-    padding: 5px 10px;
-  }
+.creditQuestion {
+  font-size: 16px;
+  background: #eee;
+  padding: 5px 10px;
+}
 
-  .atmNote {
-    margin-top: 1em;
-    padding-top: 1em;
-  }
+.atmNote {
+  margin-top: 1em;
+  padding-top: 1em;
+}
 
-  .thank {
-    padding: 1% 0%;
-    width: 100%;
-    font-size: 3em;
-    text-align: center;
-    font-family: "微軟正黑體";
-    font-weight: bolder;
-    text-shadow: 4px 4px 4px #c5bfbf;
-  }
+.thank {
+  padding: 1% 0%;
+  width: 100%;
+  font-size: 3em;
+  text-align: center;
+  font-family: "微軟正黑體";
+  font-weight: bolder;
+  text-shadow: 4px 4px 4px #c5bfbf;
+}
 
-  .thank_word {
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1em;
-  }
+.thank_word {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1em;
+}
 
-  .t_w1 {
-    font-size: 1.5em;
-    color: #676767;
-    text-align: center;
-  }
+.t_w1 {
+  font-size: 1.5em;
+  color: #676767;
+  text-align: center;
+}
 
-  .account {
-    background: #eee;
-    margin: 20px auto;
-    padding: 30px;
-    text-align: center;
-    font-size: 20px;
-  }
+.account {
+  background: #eee;
+  margin: 20px auto;
+  padding: 30px;
+  text-align: center;
+  font-size: 20px;
+}
 
-  .account td {
-    height: 40px;
-    padding: 0px 50px;
-  }
+.account td {
+  height: 40px;
+  padding: 0px 50px;
+}
 
-  .account tr td:nth-child(odd) {
-    background: #fff3d7;
-  }
+.account tr td:nth-child(odd) {
+  background: #fff3d7;
+}
 
 </style>
