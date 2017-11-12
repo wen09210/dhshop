@@ -1,5 +1,6 @@
 <template>
   <div class="myfooter">
+    {{updateHis}}
     <div class="fixRightHistory">
       <Tooltip placement="left">
         <div class="circleHis" @click="openHis = !openHis">
@@ -17,8 +18,31 @@
           <Icon type="close-circled" color="white" size=40></Icon>
         </div>
         <div class="HisImgContent">
-          <div class="col-md-3">
-            <img src='../../assets/temporyPic/bulb.jpg' class="HistoryImg">
+          <div class="row">
+            <template v-if="Object.keys(oldHistory).length > 0">
+              <swiper :options="swiperOption">
+                <template v-for="item in oldHistory">
+                  <swiper-slide>
+                    <router-link :to="{name: 'product', params: {prodID: item.prodID}}">
+                      <div class="">
+                        <p class="HisItemTitle">{{item.name}}</p>
+                        <img :src='item.ImgUrl |UrlTransIP' class="HistoryImg">
+                      </div>
+                    </router-link>
+                  </swiper-slide>
+                </template>
+                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              </swiper>
+            </template>
+            <template v-else>
+              <div class="col-md-offset-5 col-md-4">
+                <br>
+                <h4 style="color:white">無任何紀錄喔，趕快買了別猶豫</h4>
+                <br>
+                <br>                
+              </div>
+            </template>
           </div>
         </div>
       </div>
@@ -28,10 +52,9 @@
         <div class="footer_title">客服中心</div>
         <hr class="style3">
         <div class="col-md-12 col-xs-4  ">
-          <p><a href="http://www.dhshop.tw/salepage/usercenter.html">常見問題</a></p>
-        </div>
-        <div class="col-md-12 col-xs-4">
-          <p><a href="http://www.dhshop.tw/salepage/aboutus.html">關於我們</a></p>
+          <p>
+            <router-link to="/QandA">常見問題</router-link>
+          </p>
         </div>
         <div class="col-md-12 col-xs-4">
           <p><a href="http://www.dhshop.tw/salepage/corporation.html">廠商合作專區</a></p>
@@ -67,10 +90,49 @@
   </div>
 </template>
 <script>
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import Lockr from 'lockr'
 export default {
   data: function() {
     return {
-      openHis: false
+      openHis: false,
+      oldHistory: [],
+      swiperOption: {
+        centeredSlides: true,
+        slidesPerView: 4,
+        spaceBetween: 20,
+        loop: false,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        breakpoints: {
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 10
+          },
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 5
+          }
+        }
+      }
+    }
+  },
+  components: {
+    swiper,
+    swiperSlide
+  },
+  computed: {
+    updateHis() {
+      let oldHistory = Lockr.get('oldCartItem')
+      this.oldHistory = oldHistory
     }
   }
 }
@@ -145,7 +207,10 @@ div .copyright {
 }
 
 .HisImgContent {
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 40px;
+  padding-left: 40px;
 }
 
 .HistoryImg {
@@ -158,6 +223,11 @@ div .copyright {
   position: fixed;
   z-index: 20000000;
   cursor: pointer;
+}
+
+.HisItemTitle {
+  font-size: 16px;
+  color: white;
 }
 
 .slide-fade-enter-active {

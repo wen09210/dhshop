@@ -104,11 +104,27 @@ export default {
     if (this.$decodeCookies.getJSON('PayOk') !== undefined) {
       this.payInfo = this.$decodeCookies.getJSON('PayOk')
       if (this.payInfo.status === 'ok') {
+        debugger
+        // 當前購物車
         let cartItem = Lockr.get('shoppingCartItem')
+        let insertItem = cartItem.map((el) => {
+          return { 'prodID': el.prodID, 'name': el.name, 'ImgUrl': el.ImgUrl }
+        })
+        // 歷史記錄
         let oldHistory = Lockr.get('oldCartItem')
-        for (var cart in cartItem) {
-          
+        // 查無直接塞入
+        if (oldHistory === undefined) {
+          Lockr.set('oldCartItem', insertItem)
+        } else {
+          // 塞入無重複的
+          insertItem.forEach((item) => {
+            if (oldHistory.find(x => x.prodID === item.prodID) === undefined) {
+              oldHistory.push(item)
+            }
+          }, this)
         }
+        //  清空購物車
+        Lockr.rm('shoppingCartItem')
       }
     }
   },
