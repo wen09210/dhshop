@@ -126,23 +126,27 @@ export default {
   methods: {
     search(page) {
       axios.post(`/api/MemberAccount/SearchOrder`, {
-        model: this.searchData,
-        pageIndex: page
-      }, {
-        headers: {
-          'Authorization': this.GetLoginInfo.JWTAuthorization
-        }
-      })
-      .then((response) => {
-        console.log(response)
-        if (response.data.statu === 'err') {
-          this.$noty.ShowAlert(response.data.msg, 'warning')
-        }
-        this.orderlist = response.data.data.list
-        this.tall = response.data.data.PageCount
-        this.tcur = page
-      })
-      .catch((err) => console.log(err))
+          model: this.searchData,
+          pageIndex: page
+        }, {
+          headers: {
+            'Authorization': this.GetLoginInfo.JWTAuthorization
+          }
+        })
+        .then((response) => {
+          console.log(response)
+          if (response.data.statu === 'err') {
+            // this.$noty.ShowAlert(response.data.msg, 'warning')
+            this.$Notice.warning({
+              title: 'dHSHOP 提醒',
+              desc: response.data.msg
+            })
+          }
+          this.orderlist = response.data.data.list
+          this.tall = response.data.data.PageCount
+          this.tcur = page
+        })
+        .catch((err) => console.log(err))
     }
   }
 }

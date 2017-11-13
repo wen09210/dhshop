@@ -231,13 +231,27 @@ export default {
       // 顯示不能加購提示
       if (errAddName !== '') {
         console.log(reduceNo)
-        this.$noty.ConfirmDialog(`取消此商品將無法加購<br>${errAddName}<br><br>您確定要取消此商品嗎?`, () => {
-          this.ReduceProduct(reduceNo)
+        this.$Modal.confirm({
+          title: 'dHSHOP 提醒您',
+          content: '取消此商品將無法加購<br>${errAddName}<br><br>您確定要取消此商品嗎?',
+          onOk: () => {
+            this.ReduceProduct(reduceNo)
+          }
         })
+        // this.$noty.ConfirmDialog(`取消此商品將無法加購<br>${errAddName}<br><br>您確定要取消此商品嗎?`, () => {
+        //   this.ReduceProduct(reduceNo)
+        // })
       } else {
-        this.$noty.ConfirmDialog('您確定要取消此商品嗎?', () => {
-          this.ReduceProduct(reduceNo)
+        this.$Modal.confirm({
+          title: 'dHSHOP 提醒您',
+          content: '您確定要取消此商品嗎?',
+          onOk: () => {
+            this.ReduceProduct(reduceNo)
+          }
         })
+        // this.$noty.ConfirmDialog('您確定要取消此商品嗎?', () => {
+        //   this.ReduceProduct(reduceNo)
+        // })
       }
     },
     // 輸入數量

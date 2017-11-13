@@ -47,7 +47,7 @@
       <div>
         <table class="table  table-striped table-hover">
           <thead>
-            <tr>              
+            <tr>
               <th>產品名稱</th>
               <th>產品樣式</th>
               <th>數量</th>
@@ -96,7 +96,12 @@ export default {
         .then((response) => {
           console.log(response)
           if (response.data.statu === 'err') {
-            this.$noty.ShowAlert(response.data.msg, 'warning')
+            // this.$noty.ShowAlert(response.data.msg, 'warning')
+            this.$Notice.warning({
+              title: 'dHSHOP 提醒',
+              desc: response.data.msg
+            })
+
           }
           console.log(response.data.data.orderData)
           this.orderData = response.data.data
@@ -111,8 +116,10 @@ export default {
 div .form-control {
   width: 250px;
 }
-  .orderMain{
-    background: #4689c2;
-    color: #fff;
-  }
+
+.orderMain {
+  background: #4689c2;
+  color: #fff;
+}
+
 </style>

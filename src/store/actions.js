@@ -14,7 +14,7 @@ export default {
     commit(types.SetLoading, setting)
   },
   // 商品加入購物車
-  [types.IncreaseProduct]({ commit }, { itemShow, itemSize, prodType }) {
+  [types.IncreaseProduct]({ commit }, { IsPreProduct, IsActivity, itemShow, itemSize, prodType }) {
     commit(types.IncreaseProduct, { itemShow, itemSize, prodType })
   },
   // 加購商品加入購物車

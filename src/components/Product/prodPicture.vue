@@ -93,7 +93,11 @@ export default {
     axios.get(`/api/Product/GetProductContent?prodID= ${this.$route.params.prodID}`)
       .then((response) => {
         if (response.data.statu === 'err') {
-          this.$noty.ShowAlert(response.data.msg)
+          // this.$noty.ShowAlert(response.data.msg)
+          this.$Notice.warning({
+            title: 'dHSHOP 提醒',
+            desc: response.data.msg
+          })
           this.SetLoading(false)
         } else {
           this.ContentUp = response.data.data[0].DetailContent
@@ -149,9 +153,9 @@ img {
     width: 100%;
     height: 350px;
   }
-  .padding5{
-    padding-left:5px;
-    padding-right:5px;
+  .padding5 {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 

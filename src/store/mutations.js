@@ -11,6 +11,8 @@ export default {
     state.openLoading = setting
   },
   [types.IncreaseProduct](state, {
+    IsPreProduct,
+    IsActivity,
     itemShow,
     itemSize,
     prodType
@@ -40,7 +42,18 @@ export default {
         totalAmt: parseInt(itemShow.totalAmt),
         unit: itemShow.Unit,
         prodType: prodType,
-        ImgUrl: itemShow.ImgUrl
+        ImgUrl: itemShow.ImgUrl,
+        // 原價
+        SalePrice: itemShow.SalePrice,
+        PreOrderPrice: itemShow.PreOrderPrice,
+        AddPrice: itemShow.AddPrice,
+        // 預購、活動相關
+        IsActivity: IsActivity,
+        IsPreProduct: IsPreProduct,
+        ActivityPrice: itemShow.AcivityPrice,
+        ActivityName: itemShow.ActivityName,
+        ActivityStart: itemShow.ActivityStart,
+        ActivityEnd: itemShow.ActivityEnd
       })
       Lockr.set('cartNo', cartNo)
     }
@@ -78,7 +91,13 @@ export default {
         unit: item.Unit,
         prodType: '2',
         MainProdName: item.MainProdName,
-        ImgUrl: item.ImgUrl
+        ImgUrl: item.ImgUrl,
+        IsActivity: false,
+        IsPreProduct: false,
+        ActivityPrice: 9999,
+        ActivityName: '',
+        ActivityStart: '',
+        ActivityEnd: ''
       })
       Lockr.set('cartNo', cartNo)
       Lockr.set('shoppingCartItem', state.shoppingCartItem)

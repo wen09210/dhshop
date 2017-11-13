@@ -203,7 +203,11 @@ export default {
         }
       })
       if (errMsg !== '' || errMsg2 !== '') {
-        this.$noty.ShowAlert(errMsg + errMsg2, 'warning')
+        // this.$noty.ShowAlert(errMsg + errMsg2, 'warning')
+        this.$Notice.warning({
+          title: 'dHSHOP 提醒',
+          desc: errMsg + errMsg2
+        })
         return false
       }
       // 存訂購人資料
