@@ -28,7 +28,26 @@
                 <br> {{item.style}}
               </router-link>
             </div>
-            <div class="col-md-1 col-xs-6">{{item.unitPrice}}元</div>
+            <template v-if="item.IsActivity">
+              <div class="col-md-1 col-xs-6">
+                <div class="linethrough">
+                  <span class="textblack">
+                    {{item.SalePrice}}元
+                    </span>
+                </div>
+                <br>優惠{{item.unitPrice}}元</div>
+            </template>
+            <template v-else-if="item.IsPreProduct && !item.IsActivity">
+              <div class="col-md-1 col-xs-6">
+                <span class="linethrough">
+                  <span class="textblack">{{item.SalePrice}}元
+                    </span>
+                </span>
+                <br>{{item.unitPrice}}元</div>
+            </template>
+            <template v-else>
+              <div class="col-md-1 col-xs-6">{{item.unitPrice}}元</div>
+            </template>
             <div class="col-md-2 col-xs-6 btnDiv">
               <!-- 減減減 -->
               <button class="calBtn" @click="minusCartCount(item)">
@@ -233,7 +252,7 @@ export default {
         console.log(reduceNo)
         this.$Modal.confirm({
           title: 'dHSHOP 提醒您',
-          content: '取消此商品將無法加購<br>${errAddName}<br><br>您確定要取消此商品嗎?',
+          content: `取消此商品將無法加購<br>${errAddName}<br><br>您確定要取消此商品嗎?`,
           onOk: () => {
             this.ReduceProduct(reduceNo)
           }
@@ -301,6 +320,15 @@ export default {
 
 </script>
 <style scoped>
+span.linethrough {
+  color: red;
+  text-decoration: line-through;
+}
+
+span.textblack {
+  color: black;
+}
+
 .Cartcontainer {
   padding-right: 15px;
   padding-left: 15px;
@@ -324,7 +352,7 @@ export default {
   border: 1px solid #ccc;
   text-align: center;
   height: 40px;
-  width: 60px;
+  width: 40px;
 }
 
 .calBtn {

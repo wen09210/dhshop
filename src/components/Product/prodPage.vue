@@ -2,20 +2,21 @@
   <div>
     <prodPicture></prodPicture>
     <template>
+        {{getProdInfo}} 
+        {{showMessageBtn}}
       <div>
-        {{getProdInfo}} {{showMessageBtn}}
         <Affix :offset-bottom="0" @on-change="hideAffix = !hideAffix">
           <Row class="buybtn_fixfoot" v-show="!hideAffix">
             <Col :xs="{ span: 12}" :md="{ span: 18}">
-              <Col :xs="{ span: 24}" :sm="{ span:24}" :md="{ span: 12}" class="A_title">{{ProdInfo.ProdName}}
-              </Col>
-              <Col :xs="{ span: 24}" :sm="{ span: 12}" :md="{ span: 6}" class="A_Price">
-                <strike style="color:red;">
+            <Col :xs="{ span: 24}" :sm="{ span:24}" :md="{ span: 12}" class="A_title">{{ProdInfo.ProdName}}
+            </Col>
+            <Col :xs="{ span: 24}" :sm="{ span: 12}" :md="{ span: 6}" class="A_Price">
+            <strike style="color:red;">
                   <span style='color:white'>原價: {{ProdInfo.OrignPrice}}元</span>
-                </strike>
-              </Col>
-              <Col :xs="{ span: 24}" :sm="{ span: 12}" :md="{ span: 6}" class="A_Price">優惠: {{ProdInfo.SalePrice}}元
-              </Col>              
+            </strike>
+            </Col>
+            <Col :xs="{ span: 24}" :sm="{ span: 12}" :md="{ span: 6}" class="A_Price">優惠: {{ProdInfo.SalePrice}}元
+            </Col>
             </Col>
             <Col :xs="{ span: 12}" :md="{ span: 6 }">
             <Button type="primary" size="large" v-scroll-to="'#botBuy'">立即搶購</Button>
@@ -46,10 +47,14 @@ export default {
     },
     // 控制全局右邊按鈕隱藏
     showMessageBtn() {
-      if (this.hideAffix) {
-        document.getElementById('wh-widget-send-button').style.visibility = 'visible'
-      } else {
-        document.getElementById('wh-widget-send-button').style.visibility = 'hidden'
+      console.log(this.hideAffix)
+      if (document.getElementById('wh-widget-send-button') !== null) {
+        console.log(document.getElementById('wh-widget-send-button'))
+        if (this.hideAffix) {
+          document.getElementById('wh-widget-send-button').style.visibility = 'visible'
+        } else {
+          document.getElementById('wh-widget-send-button').style.visibility = 'hidden'
+        }
       }
     }
   },

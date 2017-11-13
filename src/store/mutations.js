@@ -31,13 +31,21 @@ export default {
     if (sameProd === false) {
       itemShow.totalAmt = itemShow.SalePrice * parseInt(itemSize)
       let cartNo = Lockr.get('cartNo')
+      let unitPrice = 0
+      if (IsActivity) {
+        unitPrice = itemShow.AcivityPrice
+      } else if (IsPreProduct) {
+        unitPrice = itemShow.PreOrderPrice
+      } else {
+        unitPrice = itemShow.SalePrice
+      }
       state.shoppingCartItem.push({
         no: cartNo++,
         prodID: itemShow.ProdID,
         itemNo: itemShow.ItemNo,
         name: itemShow.ProdName,
         style: itemShow.ItemName,
-        unitPrice: parseInt(itemShow.SalePrice),
+        unitPrice: parseInt(unitPrice),
         count: parseInt(itemSize),
         totalAmt: parseInt(itemShow.totalAmt),
         unit: itemShow.Unit,
@@ -45,7 +53,9 @@ export default {
         ImgUrl: itemShow.ImgUrl,
         // 原價
         SalePrice: itemShow.SalePrice,
+        // 預購價
         PreOrderPrice: itemShow.PreOrderPrice,
+        // 加購價
         AddPrice: itemShow.AddPrice,
         // 預購、活動相關
         IsActivity: IsActivity,
@@ -92,6 +102,13 @@ export default {
         prodType: '2',
         MainProdName: item.MainProdName,
         ImgUrl: item.ImgUrl,
+        // 原價
+        SalePrice: item.SalePrice,
+        // 預購價
+        PreOrderPrice: 9999,
+        // 加購價
+        AddPrice: item.AddPrice,
+        // 活動相關
         IsActivity: false,
         IsPreProduct: false,
         ActivityPrice: 9999,

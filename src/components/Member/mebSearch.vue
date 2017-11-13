@@ -126,13 +126,13 @@ export default {
   methods: {
     search(page) {
       axios.post(`/api/MemberAccount/SearchOrder`, {
-          model: this.searchData,
-          pageIndex: page
-        }, {
-          headers: {
-            'Authorization': this.GetLoginInfo.JWTAuthorization
-          }
-        })
+        model: this.searchData,
+        pageIndex: page
+      }, {
+        headers: {
+          'Authorization': this.GetLoginInfo.JWTAuthorization
+        }
+      })
         .then((response) => {
           console.log(response)
           if (response.data.statu === 'err') {

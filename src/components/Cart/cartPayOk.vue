@@ -104,7 +104,7 @@ export default {
     if (this.$decodeCookies.getJSON('PayOk') !== undefined) {
       this.payInfo = this.$decodeCookies.getJSON('PayOk')
       if (this.payInfo.status === 'ok') {
-        debugger
+        // debugger
         // 當前購物車
         let cartItem = Lockr.get('shoppingCartItem')
         let insertItem = cartItem.map((el) => {

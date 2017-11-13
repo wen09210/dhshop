@@ -19,15 +19,21 @@
         </template>
         <div>
           <label>原價:</label>
-          <span>{{itemShow.OrignPrice}} 元</span>
+          <span class="linethrough">
+          <span class="textblack">{{itemShow.OrignPrice}} 元
+           </span>
+           </span>
         </div>
         <div>
           <label>售價:</label>
-          <span>{{itemShow.SalePrice}} 元</span>
+          <span :class="{'linethrough':checkPreProd || checkActivity}">
+          <span :class="{'textblack':checkPreProd || checkActivity}">{{itemShow.SalePrice}} 元
+           </span>
+           </span>
         </div>
         <template v-if="checkPreProd && !checkActivity">
           <div>
-            <label>預購優惠價:</label>
+            <label>預購優惠:</label>
             <span class="activityFont">{{itemShow.AddPrice}} 元</span>
           </div>
         </template>
@@ -194,11 +200,11 @@ export default {
     // 檢查數量是否足夠
     addCart(direct) {
       axios.get(`/api/Product/GetProductQuentity?`, {
-          params: {
-            ProdID: this.itemShow.ProdID,
-            ItemNo: this.itemShow.ItemNo
-          }
-        })
+        params: {
+          ProdID: this.itemShow.ProdID,
+          ItemNo: this.itemShow.ItemNo
+        }
+      })
         .then((response) => {
           console.log(response)
           if (response.data.statu === 'err') {
@@ -211,6 +217,8 @@ export default {
           }
           var itemShow = this.itemShow
           var itemSize = this.itemSize
+          var IsPreProduct = this.IsPreProduct
+          var IsActivity = this.IsActivity
           var prodType = '1'
           // 數量不足(預購)
           if (response.data.data < this.itemSize) {
@@ -237,7 +245,7 @@ export default {
               itemSize,
               prodType
             })
-            // 直接購買則導到購物車            
+            // 直接購買則導到購物車
             if (direct !== '') {
               this.$router.push({
                 name: 'cart'
@@ -258,6 +266,20 @@ export default {
 
 </script>
 <style scoped>
+.linethrough {
+  color: red;
+  text-decoration: line-through;
+}
+
+.textblack {
+  color: black;
+}
+.label{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
 .buydiv {
   font-size: 18px !important;
 }

@@ -19,7 +19,7 @@
         </div>
         <div class="HisImgContent">
           <div class="row">
-            <template v-if="Object.keys(oldHistory).length > 0">
+            <template v-if="typeof (this.oldHistory) === undefined">
               <swiper :options="swiperOption">
                 <template v-for="item in oldHistory">
                   <swiper-slide>
@@ -40,7 +40,7 @@
                 <br>
                 <h4 style="color:white">無任何紀錄喔，趕快買了別猶豫</h4>
                 <br>
-                <br>                
+                <br>
               </div>
             </template>
           </div>

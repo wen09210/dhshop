@@ -101,7 +101,6 @@ export default {
               title: 'dHSHOP 提醒',
               desc: response.data.msg
             })
-
           }
           console.log(response.data.data.orderData)
           this.orderData = response.data.data
@@ -110,16 +109,13 @@ export default {
     }
   }
 }
-
 </script>
 <style scoped>
 div .form-control {
   width: 250px;
 }
-
 .orderMain {
   background: #4689c2;
   color: #fff;
 }
-
 </style>
