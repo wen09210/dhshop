@@ -102,8 +102,8 @@
               <Icon type="close-circled" size="22" color="red"></Icon>
             </template>
             </Col>
-            <Col :xs="{ span: 2}" :md="{ span: 4}">
-            <Button type="primary" size="large" @click="ValidateCoupon()">驗證</Button>
+            <Col :xs="{ span: 4}" :md="{ span: 4}">
+            <Button type="primary" size="large" @click="ValidateCoupon">驗證</Button>
             </Col>
             </Col>
           </Row>
@@ -187,6 +187,7 @@ export default {
       'GetLoginInfo'
     ]),
     caculateAmt() {
+      console.log('caculateAmt')
       // 數量改變回後端檢核價錢
       var a = []
       this.GetShoppingCartItem.forEach((item) => {
@@ -285,11 +286,17 @@ export default {
         count
       })
     },
+    minus(item) {
+
+    },
+    plus (item) {
+
+    },
     // 下一步 填寫資料
     goBuyerDetail() {
       // 商品檢核未通過
       console.log(this.GetshowAmtData.status)
-      if (Object.keys((this.GetshowAmtData).length === 0)) {
+      if (Object.keys(this.GetshowAmtData).length === 0) {
         this.PostGetTotalAmt()
         return false
       }
@@ -313,7 +320,7 @@ export default {
       }
       this.SetCouponCode(this.CouponCode)
       console.log('coupon save')
-      this.PostGetTotalAmt()
+      // this.PostGetTotalAmt()
     }
   }
 }

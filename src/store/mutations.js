@@ -180,6 +180,8 @@ export default {
         title: 'dHSHOP 提醒',
         desc: showAmt.errMsg
       })
+      // 清空
+      state.CouponCode = ''
     } else if (showAmt.status === 'ok' && showAmt.errMsg !== '') {
       // 折扣碼檢查ok
       Notice.success({

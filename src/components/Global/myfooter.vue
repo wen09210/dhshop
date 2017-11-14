@@ -2,7 +2,7 @@
   <div class="myfooter">
     {{updateHis}}
     <div class="fixRightHistory">
-      <Tooltip placement="left" always=true>
+      <Tooltip placement="left" :always="true">
         <div class="circleHis" @click="openHis = !openHis">
           <Icon type="bookmark" size=40></Icon>
         </div>
