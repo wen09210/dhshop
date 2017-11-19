@@ -19,7 +19,8 @@
         </div>
         <div class="HisImgContent">
           <div class="row">
-            <template v-if="typeof (this.oldHistory) === undefined">
+            {{this.oldHistory}}
+            <template v-if="typeof (this.oldHistory) !== undefined">
               <swiper :options="swiperOption">
                 <template v-for="item in oldHistory">
                   <swiper-slide>
@@ -125,6 +126,9 @@ export default {
       }
     }
   },
+  created() {
+    console.log(Lockr.get('oldCartItem'))
+  },
   components: {
     swiper,
     swiperSlide
@@ -132,6 +136,7 @@ export default {
   computed: {
     updateHis() {
       let oldHistory = Lockr.get('oldCartItem')
+      console.log(oldHistory)
       this.oldHistory = oldHistory
     }
   }

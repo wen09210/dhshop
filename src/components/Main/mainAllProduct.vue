@@ -237,7 +237,7 @@ export default {
   }
   .topdownMargin10{
     margin-top:10px;
-    margin-down:10px;
+    margin-bottom:10px;
   }
 }
 

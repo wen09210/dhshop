@@ -88,7 +88,6 @@ export default {
     margin-left: 20px;
   }
 
-  .A_Sale {}
 }
 
 @media (min-width:1024px) {
@@ -110,7 +109,6 @@ export default {
     color: white;
   }
 
-  .A_Sale {}
 }
 
 .ivu-btn-primary {

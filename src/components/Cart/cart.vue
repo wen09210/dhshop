@@ -286,12 +286,6 @@ export default {
         count
       })
     },
-    minus(item) {
-
-    },
-    plus (item) {
-
-    },
     // 下一步 填寫資料
     goBuyerDetail() {
       // 商品檢核未通過

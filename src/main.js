@@ -7,12 +7,12 @@ import filters from './filters'
 import extension from './components/extension'
 import Lockr from 'lockr'
 import iView from 'iview'
-import zhLocale from 'iview/dist/locale/zh-TW'
+import zhLocal from 'iview/dist/locale/zh-TW'
 import { $decodeCookies } from './extension/DecodeCookies'
 import { noty } from './extension/AlertDialog'
 import vueScrollto from 'vue-scrollto'
 
-Vue.use(iView, { zhLocale })
+Vue.use(iView, { zhLocal })
 Vue.config.productionTip = false
 Vue.use(extension)
 Vue.use(vueScrollto)

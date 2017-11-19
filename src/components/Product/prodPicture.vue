@@ -134,6 +134,10 @@ export default {
 
 </script>
 <style>
+.swiper-slide img.img-responsive.imgHover {
+    width: 100%;
+    max-width: 100%;
+}
 .carousel_Index {
   margin-top: 2.5px;
   margin-bottom: 2.5px;

@@ -94,7 +94,7 @@ export default {
 }
 
 </script>
-<style >
+<style>
 .detailBlock {
   font-size: 18px;
   border: 1px solid #77C9FF;
@@ -121,6 +121,7 @@ export default {
   margin-top: 20px;
   margin-bottom: 50px;
 }
+
 
 @media (max-width: 762px) {
   .ivu-steps .ivu-steps-title {

@@ -46,11 +46,7 @@
 
 
 /* 下拉 */
-.ivu-select-single
-.ivu-select-selection
-.ivu-select-placeholder
-.ivu-select-single
-.ivu-select-selection
-.ivu-select-selected-value{
-  font-size: 14px;
+.ivu-select-single .ivu-select-selection .ivu-select-placeholder, .ivu-select-single .ivu-select-selection .ivu-select-selected-value {
+  font-size: 16px !important;
+  border: 1px solid #8c8d8e;
 }

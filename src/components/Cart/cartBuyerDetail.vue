@@ -14,6 +14,25 @@
               <Input v-model="BuyerDetail.Purchaser" placeholder="姓名..."></Input>
             </FormItem>
             <FormItem label="訂購人地址:" prop="P_Address">
+              <Row>
+                <Col :xs="{ span:24}" :sm="{ span: 12}" :md="{ span: 12}">
+                <Select v-model="BuyerDetail.P_City" placeholder="縣市" :on-change="GetDist('P')">
+                  <Option v-for="item in TWZipcode.city" :value="item.name" :key="item.name">
+                    {{ item.name }}
+                  </Option>
+                </Select>
+                </Col>
+                <Col :xs="{ span:24}" :sm="{ span: 12}" :md="{ span: 12}">
+                <!-- {{GetDist}} -->
+                <Select v-model="BuyerDetail.P_Dist" placeholder="鄉鎮區">
+                  <template v-if="P_ZipList.length >0 ">
+                    <Option v-for="items in P_ZipList" :value="items.c3+items.name" :key="items.name">
+                      {{ items.c3+items.name }}
+                    </Option>
+                  </template>
+                </Select>
+                </Col>
+              </Row>
               <Input v-model="BuyerDetail.P_Address" placeholder="地址..."></Input>
             </FormItem>
             <FormItem label="訂購人手機:" prop="P_Phone">
@@ -44,6 +63,25 @@
               <Input v-model="BuyerDetail.Recipient" placeholder="收件人姓名"></Input>
             </FormItem>
             <FormItem label="收件人地址:" prop="R_Address">
+              <Row>
+                <Col :xs="{ span:24}" :sm="{ span: 12}" :md="{ span: 12}">
+                <Select v-model="BuyerDetail.R_City" placeholder="縣市" :on-change="GetDist('R')">
+                  <Option v-for="item in TWZipcode.city" :value="item.name" :key="item.name">
+                    {{ item.name }}
+                  </Option>
+                </Select>
+                </Col>
+                <Col :xs="{ span:24}" :sm="{ span: 12}" :md="{ span: 12}">
+                <!-- {{GetDist}} -->
+                <Select v-model="BuyerDetail.R_Dist" placeholder="鄉鎮區">
+                  <template v-if="R_ZipList.length >0 ">
+                    <Option v-for="items in R_ZipList" :value="items.c3+items.name" :key="items.name">
+                      {{ items.c3+items.name }}
+                    </Option>
+                  </template>
+                </Select>
+                </Col>
+              </Row>
               <Input v-model="BuyerDetail.R_Address" placeholder="收件人地址"></Input>
             </FormItem>
             <FormItem label="收件人手機:" prop="R_Phone">
@@ -78,15 +116,19 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
-
+import TWZipcode from '../../../static/file/TaiwanZipCode.json'
 let BuyerDetail = {
   'Purchaser': '',
   'P_Phone': '',
+  'P_City': '',
+  'P_Dist': '',
   'P_Address': '',
   'P_Mail': '',
   'P_Note': '',
   'Recipient': '',
   'R_Phone': '',
+  'R_City': '',
+  'R_Dist': '',
   'R_Address': '',
   'R_Mail': '',
   'R_Time': '12點前',
@@ -115,7 +157,11 @@ export default {
         callback(new Error('電話格式錯誤'))
       }
     }
+    console.log(TWZipcode)
     return {
+      TWZipcode: TWZipcode,
+      P_ZipList: [],
+      R_ZipList: [],
       BuyerDetail: BuyerDetail,
       eqPurchaser: false,
       // 資料驗證規則
@@ -185,6 +231,20 @@ export default {
       this.SetCartStepBar(0)
       window.scroll(0, 70)
     },
+    GetDist(PorR) {
+      if (PorR === 'P' && this.BuyerDetail.P_City !== '') {
+        console.log(this.TWZipcode)
+        let temp = this.TWZipcode.city.find(x => x.name === this.BuyerDetail.P_City)
+        console.log(temp)
+        this.P_ZipList = temp.dist
+      }
+      if (PorR === 'R' && this.BuyerDetail.R_City !== '') {
+        console.log(this.TWZipcode)
+        let temp = this.TWZipcode.city.find(x => x.name === this.BuyerDetail.R_City)
+        console.log(temp.dist)
+        this.R_ZipList = temp.dist
+      }
+    },
     // 進入付款資訊
     goPayDetail(name1, name2) {
       // 表單驗證錯誤訊息
@@ -221,11 +281,15 @@ export default {
       if (this.eqPurchaser === true) {
         this.BuyerDetail.Recipient = this.BuyerDetail.Purchaser
         this.BuyerDetail.R_Phone = this.BuyerDetail.P_Phone
+        this.BuyerDetail.R_City = this.BuyerDetail.P_City
+        this.BuyerDetail.R_Dist = this.BuyerDetail.P_Dist
         this.BuyerDetail.R_Address = this.BuyerDetail.P_Address
         this.BuyerDetail.R_Mail = this.BuyerDetail.P_Mail
       } else {
         this.BuyerDetail.Recipient = ''
         this.BuyerDetail.R_Phone = ''
+        this.BuyerDetail.R_City = ''
+        this.BuyerDetail.R_Dist = ''
         this.BuyerDetail.R_Address = ''
         this.BuyerDetail.R_Mail = ''
       }
@@ -235,7 +299,6 @@ export default {
 
 </script>
 <style>
-
 input.largerCheckbox {
   width: 20px;
   height: 20px;

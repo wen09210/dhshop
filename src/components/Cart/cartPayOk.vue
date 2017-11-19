@@ -2,57 +2,59 @@
   <div class="container">
     <!-- 成功 -->
     <template v-if="payInfo.status ==='ok' ">
-      <!-- 步驟條 -->
-      <template>
-        <div class="container">
-          <div class="col-md-12 col-xs-12 stepbar">
-            <Steps :current="CartStepBar">
-              <Step title="購  物  車" icon="ios-cart"></Step>
-              <Step title="訂購資料" icon="compose"></Step>
-              <Step title="付款方式" icon="card"></Step>
-              <Step title="恭喜完成" icon="checkmark-circled"></Step>
-            </Steps>
+      <div class="Row">
+        <!-- 步驟條 -->
+        <!-- <template>
+          <div class="">
+            <div class="col-md-12 col-xs-12 stepbar">
+              <Steps :current="CartStepBar">
+                <Step title="購  物  車" icon="ios-cart"></Step>
+                <Step title="訂購資料" icon="compose"></Step>
+                <Step title="付款方式" icon="card"></Step>
+                <Step title="恭喜完成" icon="checkmark-circled"></Step>
+              </Steps>
+            </div>
           </div>
-        </div>
-      </template>
-      <!-- 步驟條end -->
-      <!-- 內容 -->
-      <div class="col-sm-12">
-        <div class="thank">感謝您的購買，還差一步!!</div>
-        <div class="note col-sm-offset-3 col-xs-offset-1 ">
-          <p>訂購明細已寄至所填信箱，我們會盡快處理您的訂單，</p>
-          <p>出貨前會以電話聯繫您，請再留意手機來電。</p>
-        </div>
-        <template v-if="payInfo.type === 'ATM'">
-          <div>
-            <p class="t_w1">匯款帳號</p>
-            <table class="account">
-              <tr>
-                <td>銀行代碼
-                  <td>{{payInfo.BankCode}}</td>
-              </tr>
-              <tr>
-                <td>帳號</td>
-                <td>{{payInfo.vAccount}}</td>
-              </tr>
-              <tr>
-                <td>期限</td>
-                <td>{{payInfo.ExpireDate}}</td>
-              </tr>
-            </table>
+        </template> -->
+        <!-- 步驟條end -->
+        <!-- 內容 -->
+        <div class="col-md-12 col-xs-12">
+          <div class="thank">感謝您的購買，還差一步!!</div>
+          <div class="note col-sm-offset-3 col-xs-offset-1 ">
+            <p>訂購明細已寄至所填信箱，我們會盡快處理您的訂單，</p>
+            <p>出貨前會以電話聯繫您，請再留意手機來電。</p>
           </div>
-        </template>
-        <div class="hidden-xs LineDiv">
-          <a href="https://line.me/R/ti/p/%40eat5207g"><img src="http://www.dhshop.tw/salepage/img/shared/lineat.jpg" alt="" class="lineImg" style="width:200px;wheight:200px;"></a>
+          <template v-if="payInfo.type === 'ATM'">
+            <div class="col-md-12 col-xs-12">
+              <p class="t_w1">匯款帳號</p>
+              <table class="table account">
+                <tr>
+                  <td>銀行代碼
+                    <td>{{payInfo.BankCode}}</td>
+                </tr>
+                <tr>
+                  <td>帳號</td>
+                  <td>{{payInfo.vAccount}}</td>
+                </tr>
+                <tr>
+                  <td>期限</td>
+                  <td>{{payInfo.ExpireDate}}</td>
+                </tr>
+              </table>
+            </div>
+          </template>
+          <div class="hidden-xs LineDiv">
+            <a href="https://line.me/R/ti/p/%40eat5207g"><img src="http://www.dhshop.tw/salepage/img/shared/lineat.jpg" alt="" class="lineImg" style="width:200px;wheight:200px;"></a>
+          </div>
+          <div class="visible-xs LineDiv">
+            <a href="https://line.me/R/ti/p/%40eat5207g"><img height="142" border="0" alt="加入好友" src="http://www.dhshop.tw/salepage/img/shared/dhshoplinebtn.png" class="lineImg img-responsive"></a>
+          </div>
+          <div class="t_w1">「加入LINE@隨時追蹤您的訂單」
+            <br><span style="font-size: .8em;">(手機可直接點擊加入喔)</span></div>
         </div>
-        <div class="visible-xs LineDiv">
-          <a href="https://line.me/R/ti/p/%40eat5207g"><img height="142" border="0" alt="加入好友" src="http://www.dhshop.tw/salepage/img/shared/dhshoplinebtn.png" class="lineImg img-responsive"></a>
+        <div class="col-md-12 col-xs-12 thank_word">
+          <img src="../../assets/temporyPic/antifraud.gif" alt="" style="width: 100%;max-width: 891px;">
         </div>
-        <div class="t_w1">「加入LINE@隨時追蹤您的訂單」
-          <br><span style="font-size: .8em;">(手機可直接點擊加入喔)</span></div>
-      </div>
-      <div class="col-sm-12 thank_word">
-        <img src="../../assets/temporyPic/antifraud.gif" alt="" style="width: 100%;max-width: 891px;">
       </div>
     </template>
     <template v-else>
@@ -107,9 +109,12 @@ export default {
         // debugger
         // 當前購物車
         let cartItem = Lockr.get('shoppingCartItem')
-        let insertItem = cartItem.map((el) => {
-          return { 'prodID': el.prodID, 'name': el.name, 'ImgUrl': el.ImgUrl }
-        })
+        let insertItem
+        if (cartItem) {
+          insertItem = cartItem.map((el) => {
+            return { 'prodID': el.prodID, 'name': el.name, 'ImgUrl': el.ImgUrl }
+          })
+        }
         // 歷史記錄
         let oldHistory = Lockr.get('oldCartItem')
         // 查無直接塞入
@@ -138,6 +143,7 @@ export default {
 
 </script>
 <style scoped>
+
 .LineDiv {
   vertical-align: middle;
 }
@@ -168,7 +174,7 @@ export default {
 .thank {
   padding: 1% 0%;
   width: 100%;
-  font-size: 3em;
+  font-size: 2.5em;
   text-align: center;
   font-family: "微軟正黑體";
   font-weight: bolder;
@@ -196,8 +202,8 @@ export default {
 }
 
 .account td {
-  height: 40px;
-  padding: 0px 50px;
+  height: 30px;
+  padding: 0px 10px;
 }
 
 .account tr td:nth-child(odd) {
