@@ -12,7 +12,7 @@
           </button>
           <router-link to="/">
             <div class="navbar-brand">
-              <a href="" role="button" >
+              <a href="" role="button">
               <img src="../../assets/icon/new_dhshop_logo.svg" class="img-responsivie">
            </a>
             </div>
@@ -72,7 +72,7 @@
                         </tr>
                       </table>
                       <div class="col-sm-offset-4">
-                        <router-link class="btn btn-info btnInPop" to='/cart'>結賬</router-link>
+                        <btn class="btn btn-info btnInPop" @click="go">結賬</btn>
                       </div>
                     </template>
                     <template v-else>
@@ -184,15 +184,21 @@ export default {
     ...mapActions([
       'LoginOut',
       'SetLoginModal'
-    ])
+    ]),
+    go() {
+      this.$router.push({
+        name: 'cart'
+      })
+    }
   }
 }
 
 </script>
 <style>
-.container-fluid{
-   max-width:1200px;
- }
+.container-fluid {
+  max-width: 1200px;
+}
+
 .navbar-brand {
   padding-top: 10px;
   margin-top: 5px;

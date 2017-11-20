@@ -82,7 +82,7 @@ export default {
     ]),
     goOuath(loginType) {
       // window.location.href = `http://localhost:53912/api/MemberAccount/GetExLogin?loginType=${loginType}`
-      window.location.href = `http://223.27.48.157/api/MemberAccount/GetExLogin?loginType=${loginType}`
+      window.location.href = `https://223.27.48.157/api/MemberAccount/GetExLogin?loginType=${loginType}`
     },
     goanoyLogin() {
       this.PostAnoyLogin()

@@ -44,10 +44,10 @@
             </div>
           </template>
           <div class="hidden-xs LineDiv">
-            <a href="https://line.me/R/ti/p/%40eat5207g"><img src="http://www.dhshop.tw/salepage/img/shared/lineat.jpg" alt="" class="lineImg" style="width:200px;wheight:200px;"></a>
+            <a href="https://line.me/R/ti/p/%40eat5207g"><img src="../../assets//icon/lineat.jpg" alt="" class="lineImg" style="width:200px;wheight:200px;"></a>
           </div>
           <div class="visible-xs LineDiv">
-            <a href="https://line.me/R/ti/p/%40eat5207g"><img height="142" border="0" alt="加入好友" src="http://www.dhshop.tw/salepage/img/shared/dhshoplinebtn.png" class="lineImg img-responsive"></a>
+            <a href="https://line.me/R/ti/p/%40eat5207g"><img height="142" border="0" alt="加入好友" src="../../assets/icon/dhshoplinebtn.png" class="lineImg img-responsive"></a>
           </div>
           <div class="t_w1">「加入LINE@隨時追蹤您的訂單」
             <br><span style="font-size: .8em;">(手機可直接點擊加入喔)</span></div>
@@ -88,10 +88,10 @@
           </div>
           <div class="col-sm-3">
             <div class="hidden-xs LineDiv">
-              <a href="https://line.me/R/ti/p/%40eat5207g"><img src="http://www.dhshop.tw/salepage/img/shared/lineat.jpg" alt="" class="lineImg" style="width:200px;wheight:200px;"></a>
+              <a href="https://line.me/R/ti/p/%40eat5207g"><img src="../../assets/icon/lineat.jpg" alt="" class="lineImg" style="width:200px;wheight:200px;"></a>
             </div>
             <div class="visible-xs LineDiv">
-              <a href="https://line.me/R/ti/p/%40eat5207g"><img height="142" border="0" alt="加入好友" src="http://www.dhshop.tw/salepage/img/shared/dhshoplinebtn.png" class="lineImg img-responsive"></a>
+              <a href="https://line.me/R/ti/p/%40eat5207g"><img height="142" border="0" alt="加入好友" src="../../assets/icon/lineat.jpg" class="lineImg img-responsive"></a>
             </div>
           </div>
         </div>

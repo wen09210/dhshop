@@ -22,14 +22,14 @@
           <span class="linethrough">
           <span class="textblack">{{itemShow.OrignPrice}} 元
            </span>
-           </span>
+          </span>
         </div>
         <div>
           <label>售價:</label>
           <span :class="{'linethrough':checkPreProd || checkActivity}">
           <span :class="{'textblack':checkPreProd || checkActivity}">{{itemShow.SalePrice}} 元
            </span>
-           </span>
+          </span>
         </div>
         <template v-if="checkPreProd && !checkActivity">
           <div>
@@ -43,10 +43,10 @@
             <span class="activityFont">{{itemShow.ActivityPrice}} 元</span>
           </div>
         </template>
-        <div>
+        <!-- <div>
           <label>數量:</label>
           <span>{{itemShow.InventoryVal}} {{itemShow.Unit}}</span>
-        </div>
+        </div> -->
         <div>
           <label>規格:</label>
           <span>{{itemShow.ItemSpec}}</span>
@@ -199,6 +199,13 @@ export default {
     ]),
     // 檢查數量是否足夠
     addCart(direct) {
+      /* global fbq */
+      fbq('track', 'AddToCart', { content_ids: [this.itemShow.ItemNo], content_type: this.itemShow.ProdID, value: this.itemShow.SalePrice, currency: 'TWD' })
+      /* global ga */
+      ga('send', 'event', this.itemShow.ItemName, '加到購物車', this.itemShow.ItemName)
+      /* global hj */
+      hj('trigger', 'addtocart_mainproduct')
+      hj('tagRecording', ['addtocart_mainproduct'])
       axios.get(`/api/Product/GetProductQuentity?`, {
         params: {
           ProdID: this.itemShow.ProdID,
@@ -220,8 +227,17 @@ export default {
           var IsPreProduct = this.IsPreProduct
           var IsActivity = this.IsActivity
           var prodType = '1'
+          // 完售
+          if (response.data.data.S_PreVal === 0) {
+            this.$Notice.warning({
+              title: 'dHSHOP 提醒',
+              desc: '很抱歉，同時間商品已被搶購一空，請選擇其他商品購買'
+            })
+            return false
+          }
           // 數量不足(預購)
-          if (response.data.data < this.itemSize) {
+          if (response.data.data.InventoryVal < this.itemSize) {
+            // 檢查購物車內是否有現貨
             console.log(this.itemSize)
             prodType = '3'
             // this.$noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，<br>是否以預購方式購買，同時享受優惠', () => {
@@ -274,12 +290,14 @@ export default {
 .textblack {
   color: black;
 }
-.label{
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 5px;
-    font-weight: 700;
+
+.label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
 }
+
 .buydiv {
   font-size: 18px !important;
 }

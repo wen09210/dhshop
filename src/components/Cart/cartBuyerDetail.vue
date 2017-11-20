@@ -15,14 +15,14 @@
             </FormItem>
             <FormItem label="訂購人地址:" prop="P_Address">
               <Row>
-                <Col :xs="{ span:24}" :sm="{ span: 12}" :md="{ span: 12}">
+                <Col :xs="{ span:24}" :sm="{ span: 6}" :md="{ span: 6}">
                 <Select v-model="BuyerDetail.P_City" placeholder="縣市" :on-change="GetDist('P')">
                   <Option v-for="item in TWZipcode.city" :value="item.name" :key="item.name">
                     {{ item.name }}
                   </Option>
                 </Select>
                 </Col>
-                <Col :xs="{ span:24}" :sm="{ span: 12}" :md="{ span: 12}">
+                <Col :xs="{ span:24}" :sm="{ span: 6, offset:1}" :md="{ span: 6, offset:1}">
                 <!-- {{GetDist}} -->
                 <Select v-model="BuyerDetail.P_Dist" placeholder="鄉鎮區">
                   <template v-if="P_ZipList.length >0 ">
@@ -64,14 +64,14 @@
             </FormItem>
             <FormItem label="收件人地址:" prop="R_Address">
               <Row>
-                <Col :xs="{ span:24}" :sm="{ span: 12}" :md="{ span: 12}">
+                <Col :xs="{ span:24}" :sm="{ span: 6}" :md="{ span: 6}">
                 <Select v-model="BuyerDetail.R_City" placeholder="縣市" :on-change="GetDist('R')">
                   <Option v-for="item in TWZipcode.city" :value="item.name" :key="item.name">
                     {{ item.name }}
                   </Option>
                 </Select>
                 </Col>
-                <Col :xs="{ span:24}" :sm="{ span: 12}" :md="{ span: 12}">
+                <Col :xs="{ span:24}" :sm="{ span: 6, offset:1}" :md="{ span: 6, offset:1}">
                 <!-- {{GetDist}} -->
                 <Select v-model="BuyerDetail.R_Dist" placeholder="鄉鎮區">
                   <template v-if="R_ZipList.length >0 ">
@@ -91,12 +91,25 @@
               <Input v-model="BuyerDetail.R_Mail" placeholder="xxx@gmail.com"></Input>
             </FormItem>
             <FormItem label="收件時段:" prop="R_Time">
-              <Select v-model="BuyerDetail.R_Time" size="large" style="width:100px">
+              <Select v-model="BuyerDetail.R_Time" size="large" style="width:200px">
                 <Option value="12點前">12點前</option>
                 <Option value="12~17點">12~17點</option>
                 <Option value="17點後">17點後</option>
               </Select>
             </FormItem>
+            <template v-if="GetShoppingCartItem.find(x=>x.prodID === 1)">
+              <FormItem label="搬運狀況:" prop="R_Carry">
+                <Select v-model="BuyerDetail.R_Carry" placeholder="請選擇" size="large" style="width:200px" :on-change="GetCarryNotice()">
+                  <Option value="">請選擇</option>
+                  <Option value="寄放警衛室">寄放警衛室</option>
+                  <Option value="有社區中庭">有社區中庭</option>
+                  <Option value="透天獨棟">透天獨棟</option>
+                  <Option value="無電梯">無電梯</option>
+                  <Option value="有電梯可運送">有電梯可運送</option>
+                </Select>
+                <div style="color:red;font-size:16px">{{R_Carry_Message}}</div>
+              </FormItem>
+            </template>
           </Form>
         </div>
       </div>
@@ -132,6 +145,7 @@ let BuyerDetail = {
   'R_Address': '',
   'R_Mail': '',
   'R_Time': '12點前',
+  'R_Carry': '',
   'PayType': '1',
   'DeliveryType': '1',
   'InoviceType': '1',
@@ -162,6 +176,7 @@ export default {
       TWZipcode: TWZipcode,
       P_ZipList: [],
       R_ZipList: [],
+      R_Carry_Message: '',
       BuyerDetail: BuyerDetail,
       eqPurchaser: false,
       // 資料驗證規則
@@ -232,6 +247,11 @@ export default {
       window.scroll(0, 70)
     },
     GetDist(PorR) {
+      /* global fbq */
+      fbq('track', 'AddPaymentInfo')
+      /* global hj */
+      hj('trigger', 'keyin')
+      hj('tagRecording', ['keyin'])
       if (PorR === 'P' && this.BuyerDetail.P_City !== '') {
         console.log(this.TWZipcode)
         let temp = this.TWZipcode.city.find(x => x.name === this.BuyerDetail.P_City)
@@ -243,6 +263,29 @@ export default {
         let temp = this.TWZipcode.city.find(x => x.name === this.BuyerDetail.R_City)
         console.log(temp.dist)
         this.R_ZipList = temp.dist
+      }
+    },
+    GetCarryNotice() {
+      switch (this.BuyerDetail.R_Carry) {
+        case '寄放警衛室':
+          this.R_Carry_Message = '寄放警衛室，請及早提醒代收人員注意貨件'
+          break
+        case '有社區中庭':
+          this.R_Carry_Message = '有社區中庭，因商品重達14公斤，每箱將會酌收30元搬運費(司機將會現場與您收取)'
+          break
+
+        case '透天獨棟':
+          this.R_Carry_Message = '因商品重達14公斤，若需搬運上樓需酌收搬運費'
+          break
+
+        case '無電梯':
+          this.R_Carry_Message = '無電梯，因商品重達14公斤，每箱每層將會酌收30元登高費(司機將會現場與您收取)'
+          break
+
+        case '有電梯可運送':
+          this.R_Carry_Message = '若搬運到電梯距離過遠，司機可能酌收搬運費'
+          break
+
       }
     },
     // 進入付款資訊

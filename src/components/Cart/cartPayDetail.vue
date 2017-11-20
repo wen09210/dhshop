@@ -38,7 +38,9 @@
               <span class="amtDetail">NT${{GetshowAmtData.totalAmt}}元</span>
             </Radio> -->
           </RadioGroup>
-          <span class="col-sm-10 creditNote">(※除不盡餘數於第一期收取)</span>
+          <!-- <span class="col-sm-10 creditNote">(※除不盡餘數於第一期收取)</span> -->
+          <span class="col-sm-10 creditNote">(※預購商品不接受貨到付款)</span>       
+          
         </FormItem>
         <template v-if="Object.keys(BuyerDetail).length >0">
           <FormItem label="發票:">

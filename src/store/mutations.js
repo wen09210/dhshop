@@ -175,14 +175,14 @@ export default {
     }
   },
   [types.PostGetTotalAmt](state, showAmt) {
-    if (showAmt.status === 'err' || showAmt.status === 'couponError') {
+    if (showAmt.statu === 'err' || showAmt.statu === 'couponError') {
       Notice.warning({
         title: 'dHSHOP 提醒',
         desc: showAmt.errMsg
       })
       // 清空
       state.CouponCode = ''
-    } else if (showAmt.status === 'ok' && showAmt.errMsg !== '') {
+    } else if (showAmt.statu === 'ok' && showAmt.errMsg !== '') {
       // 折扣碼檢查ok
       Notice.success({
         title: 'dHSHOP 恭喜您',

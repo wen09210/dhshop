@@ -58,7 +58,7 @@
           </p>
         </div>
         <div class="col-md-12 col-xs-4">
-          <p><a href="http://www.dhshop.tw/salepage/corporation.html">廠商合作專區</a></p>
+          <!-- <p><a href="http://www.dhshop.tw/salepage/corporation.html">廠商合作專區</a></p> -->
         </div>
       </div>
       <div class="col-md-5">
@@ -71,7 +71,7 @@
           <p>line@帳號:<a href="https://line.me/R/ti/p/%40eat5207g">@eat5207g</a></p>
         </div>
         <div class="col-md-5 col-xs-5 ">
-          <a href="https://line.me/R/ti/p/%40eat5207g"><img src="http://www.dhshop.tw/salepage/img/shared/lineat.jpg" alt="" style="width:150px"></a>
+          <a href="https://line.me/R/ti/p/%40eat5207g"><img src="../../assets/icon/lineat.jpg" alt="" style="width:150px"></a>
         </div>
       </div>
       <div class="col-md-4 ">
@@ -84,7 +84,7 @@
     </div>
     <div class="copyright col-md-12  col-xs-12">
       <p>Copyright © 2016 dPlus Co. Ltd.
-        <span>Powered by <a href="http://www.dhshop.tw/" title="" target="_blank"> dHSHOP </a></span>
+        <span>Powered by <a href="https://www.dhshop.tw/" title="" target="_blank"> dHSHOP </a></span>
         <span>All Rights Reserved.</span>
       </p>
     </div>

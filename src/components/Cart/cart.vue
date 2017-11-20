@@ -288,6 +288,14 @@ export default {
     },
     // 下一步 填寫資料
     goBuyerDetail() {
+      /* global fbq */
+      fbq('track', 'Purchase', { 'currency': 'TWD' }, { 'value': this.GetshowAmtData.totalAmt })
+      fbq('track', 'InitiateCheckout')
+      /* global hj */
+      hj('trigger', 'purchase')
+      hj('tagRecording', ['purchase'])
+      /* global ga */
+      ga('send', 'event', '購買')
       // 商品檢核未通過
       console.log(this.GetshowAmtData.status)
       if (Object.keys(this.GetshowAmtData).length === 0) {
