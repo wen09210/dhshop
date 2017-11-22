@@ -13,14 +13,17 @@
 <script src="//assets.juicer.io/embed.js" type="text/javascript"></script>
 <script>
 export default {}
+
 </script>
 <style scroped>
 li.feed-item.juicer.image-post {
   display: none;
 }
+
 ul.juicer-feed.j-initialized.j-modern.j-desktop.polaroid.loaded>h1.referral {
-    display: none;
+  display: none;
 }
+
 .col-xs-12 .juicer-feed.polaroid li.feed-item {
   padding: 10px;
   text-align: center;
@@ -28,4 +31,13 @@ ul.juicer-feed.j-initialized.j-modern.j-desktop.polaroid.loaded>h1.referral {
   border-radius: 5px;
 }
 
+/* li.feed-item.juicer.image-post,ul.juicer-feed.j-initialized.j-modern.polaroid.loaded>h1.referral {
+   display: none;
+}
+ul.juicer-feed.j-initialized.j-modern.j-mobile.polaroid.loaded>h1 {
+    display: none;
+}
+li.feed-item.juicer.image-post, ul.juicer-feed.j-initialized.j-modern.j-desktop.polaroid.loaded>h1.referral {
+    display: none;
+} */
 </style>

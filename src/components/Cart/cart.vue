@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    {{caculateAmt}}
     <div class="pageHeader">購物車</div>
     <template v-if="Object.keys(GetShoppingCartItem).length===0">
       <h4>購物車內目前沒有商品，請先選購商品</h4>
@@ -111,7 +112,6 @@
         <!-- 折扣代碼end -->
         <!-- 付款總計 -->
         <div class="payTotal">
-          {{caculateAmt}}
           <div class="tbody">
             <div class="lineContent">
               <div class="leftContent"></div>
@@ -208,6 +208,9 @@ export default {
       'SetLoginModal',
       'SetCartStepBar'
     ]),
+    test() {
+      alert('xxx')
+    },
     // 移除商品(需檢查加購商品是否一併移除)
     ReduceProd(item) {
       // 確認加購品是否符合
@@ -216,12 +219,12 @@ export default {
       for (var s = 0; s < cloneCart.length; s++) {
         if (cloneCart[s].no === item.no) {
           cloneCart.splice(s, 1)
-          console.log('success')
+          // console.log('success')
           break
         }
       }
-      console.log('clear')
-      console.log(cloneCart)
+      // console.log('clear')
+      // console.log(cloneCart)
       let reduceNo = []
       // 加入要移除的商品
       reduceNo.push(item.no)
@@ -231,12 +234,12 @@ export default {
         // 為加購品時檢查
         if (cloneCart[i].prodType === '2') {
           let MainProdName = cloneCart[i].MainProdName.split('|')
-          console.log(MainProdName)
+          // console.log(MainProdName)
           let isAdd = false
           // 加購品所屬主商品是否還存在
           for (var w = 0; w < MainProdName.length; w++) {
             let FindMain = cloneCart.find(x => x.name === MainProdName[w] && x.prodType === '1')
-            console.log(FindMain)
+            // console.log(FindMain)
             // 主商品還在
             if (typeof FindMain !== 'undefined') {
               isAdd = true
@@ -250,9 +253,10 @@ export default {
       }
       // 顯示不能加購提示
       if (errAddName !== '') {
-        console.log(reduceNo)
+        // console.log(reduceNo)
         this.$Modal.confirm({
           title: 'dHSHOP 提醒您',
+          okText: '確認',
           content: `取消此商品將無法加購<br>${errAddName}<br><br>您確定要取消此商品嗎?`,
           onOk: () => {
             this.ReduceProduct(reduceNo)
@@ -264,6 +268,7 @@ export default {
       } else {
         this.$Modal.confirm({
           title: 'dHSHOP 提醒您',
+          okText: '確認',
           content: '您確定要取消此商品嗎?',
           onOk: () => {
             this.ReduceProduct(reduceNo)
@@ -280,7 +285,7 @@ export default {
       if (count < 1 || count > 999) {
         event.target.value = item.count
       }
-      console.log(count)
+      // console.log(count)
       this.keyNumCartCount({
         item,
         count
@@ -297,13 +302,16 @@ export default {
       /* global ga */
       ga('send', 'event', '購買')
       // 商品檢核未通過
-      console.log(this.GetshowAmtData.status)
+      // console.log(this.GetshowAmtData.status)
       if (Object.keys(this.GetshowAmtData).length === 0) {
         this.PostGetTotalAmt()
         return false
       }
       if (this.GetshowAmtData.status === 'err') {
-        this.$noty.ShowAlert(this.GetshowAmtData.errMsg + '<br>請先完成更改，再進行結帳', 'warning')
+        this.$Notice.warning({
+          title: 'dHSHOP 提醒',
+          desc: this.GetshowAmtData.errMsg + '<br>請先完成更改，再進行結帳'
+        })
         return false
       }
       // 未登入
@@ -311,17 +319,33 @@ export default {
         this.SetLoginModal(true)
         return false
       } else {
+        this.SetCouponCode(this.CouponCode)
+        if (this.GetshowAmtData.status === 'couponError') {
+          this.$Modal.confirm({
+            title: 'dHSHOP 提醒您',
+            okText: '確認',
+            content: `優惠折扣代碼輸入錯誤，是否放棄使用`,
+            onOk: () => {
+              this.SetCouponCode('')
+              this.SetCartStepBar(1)
+            }
+          })
+          return false
+        }
         this.SetCartStepBar(1)
       }
     },
     // 驗證優惠代碼
     ValidateCoupon() {
       if (this.CouponCode === '') {
-        this.$noty.ShowAlert('請先輸入優惠折扣代碼，再進行驗證', 'warning')
+        this.$Notice.warning({
+          title: 'dHSHOP 提醒',
+          desc: '請先輸入優惠折扣代碼，再進行驗證'
+        })
         return false
       }
       this.SetCouponCode(this.CouponCode)
-      console.log('coupon save')
+      // console.log('coupon save')
       // this.PostGetTotalAmt()
     }
   }
@@ -405,7 +429,7 @@ span.textblack {
 @media (min-width: 992px) {
   .payimg {
     width: 120px;
-    height: 90px
+    height: 120px
   }
   .tableTd {
     display: none;
@@ -468,7 +492,7 @@ span.textblack {
   }
   .payimg {
     width: 150px;
-    height: 120px
+    height: 150px;
   }
   .tableTitle {
     display: none;

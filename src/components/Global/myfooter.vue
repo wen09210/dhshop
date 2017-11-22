@@ -1,7 +1,7 @@
 <template>
   <div class="myfooter">
     {{updateHis}}
-    <div class="fixRightHistory">
+    <!-- <div class="fixRightHistory">
       <Tooltip placement="left" :always="true">
         <div class="circleHis" @click="openHis = !openHis">
           <Icon type="bookmark" size=40></Icon>
@@ -10,7 +10,7 @@
           <p>瀏覽紀錄</p>
         </div>
       </Tooltip>
-    </div>
+    </div> -->
     <!-- 歷史紀錄 -->
     <transition name="slide-fade">
       <div v-if="openHis" class="HistorrBox">
@@ -77,8 +77,9 @@
       <div class="col-md-4 ">
         <div class="footer_title">Facebook</div>
         <hr class="style3">
+        <div id="fb-root"></div>
         <div class="fb-page" data-href="https://www.facebook.com/dhshoptw/" data-tabs="timeline" data-height="70" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-          <blockquote cite="https://www.facebook.com/dhshoptw/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/dhshoptw/">dHshop</a></blockquote>
+          <blockquote cite="https://www.facebook.com/dhshoptw/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/dhshoptw/">dHSHOP</a></blockquote>
         </div>
       </div>
     </div>
@@ -91,6 +92,16 @@
   </div>
 </template>
 <script>
+(function(d, s, id) {
+  var fjs = d.getElementsByTagName(s)[0]
+  var js = d.getElementsByTagName(s)[0]
+  if (d.getElementById(id)) return
+  js = d.createElement(s)
+  js.id = id
+  js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.11&appId=1238259759578123'
+  fjs.parentNode.insertBefore(js, fjs)
+}(document, 'script', 'facebook-jssdk'))
+
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import Lockr from 'lockr'
 export default {
@@ -127,7 +138,7 @@ export default {
     }
   },
   created() {
-    console.log(Lockr.get('oldCartItem'))
+    // console.log(Lockr.get('oldCartItem'))
   },
   components: {
     swiper,

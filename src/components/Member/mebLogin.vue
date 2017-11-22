@@ -39,7 +39,6 @@
           </button>
         </div>
         <div class="btnCenter">
-          <!-- <img src="../../assets/icon/login_fb.png" class="imgOuath" alt="Responsive image" @click="goOuath('Facebook')"> -->
           <button type="button" class="btn  btn-lg imgOuath" @click="goOuath('Facebook')">
             <p>Facebook登入</p>
           </button>
@@ -82,7 +81,7 @@ export default {
     ]),
     goOuath(loginType) {
       // window.location.href = `http://localhost:53912/api/MemberAccount/GetExLogin?loginType=${loginType}`
-      window.location.href = `https://223.27.48.157/api/MemberAccount/GetExLogin?loginType=${loginType}`
+      window.location.href = `https://www.dhshop.tw/api/MemberAccount/GetExLogin?loginType=${loginType}`
     },
     goanoyLogin() {
       this.PostAnoyLogin()

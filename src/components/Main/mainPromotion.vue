@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div class="style_intro">歐巴影片精選</div>
-    <div class="embed-responsive embed-responsive-16by9 ">
       <swiper :options="swiperFB">
         <swiper-slide>
           <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1627499783967677/ " data-allowfullscreen="true"></div> -->
@@ -54,7 +53,6 @@
         <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
         <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
       </swiper>
-    </div>
   </div>
   </div>
   <!-- <router-link to="/prodPromte/1/1">

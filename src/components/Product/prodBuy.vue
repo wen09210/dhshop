@@ -127,7 +127,7 @@ export default {
     }
   },
   created() {
-    console.log(this.$route.params.prodID)
+    // console.log(this.$route.params.prodID)
     // 取回商品資料
     axios.get(`/api/Product/GetProductDetail?prodID= ${this.$route.params.prodID}`)
       .then((response) => {
@@ -141,7 +141,7 @@ export default {
           this.item = response.data.data
           this.itemShow = this.item[0]
           this.itemSelect = this.item[0].ItemNo
-          console.log(this.item)
+          // console.log(this.item)
           this.$parent.$emit('passProdInf', this.itemShow)
         }
       })
@@ -183,10 +183,10 @@ export default {
       return this.itemSize
     },
     getItem() {
-      console.log(this.itemShow.ItemNo)
+      // console.log(this.itemShow.ItemNo)
       this.item.forEach(val => {
         if (val.ItemNo === this.itemSelect) {
-          console.log(this.itemShow.ItemNo)
+          // console.log(this.itemShow.ItemNo)
           this.itemShow = val
           return
         }
@@ -213,7 +213,7 @@ export default {
         }
       })
         .then((response) => {
-          console.log(response)
+          // console.log(response)
           if (response.data.statu === 'err') {
             // this.$noty.ShowAlert('系統忙碌中，請稍待片刻後重新操作<br>或直接聯繫客服人員為您處理', 'warning')
             this.$Notice.warning({
@@ -227,18 +227,19 @@ export default {
           var IsPreProduct = this.IsPreProduct
           var IsActivity = this.IsActivity
           var prodType = '1'
-          // 完售
-          if (response.data.data.S_PreVal === 0) {
-            this.$Notice.warning({
-              title: 'dHSHOP 提醒',
-              desc: '很抱歉，同時間商品已被搶購一空，請選擇其他商品購買'
-            })
-            return false
-          }
           // 數量不足(預購)
           if (response.data.data.InventoryVal < this.itemSize) {
+            // 完售
+            let PreVal = response.data.data.F_PreVal + response.data.data.S_PreVal
+            if (PreVal < this.itemSize) {
+              this.$Notice.warning({
+                title: 'dHSHOP 提醒',
+                desc: '很抱歉，同時間商品已被搶購一空，請選擇其他商品購買'
+              })
+              return false
+            }
             // 檢查購物車內是否有現貨
-            console.log(this.itemSize)
+            // console.log(this.itemSize)
             prodType = '3'
             // this.$noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，<br>是否以預購方式購買，同時享受優惠', () => {
             this.IncreaseProduct({
@@ -279,7 +280,6 @@ export default {
     }
   }
 }
-
 </script>
 <style scoped>
 .linethrough {

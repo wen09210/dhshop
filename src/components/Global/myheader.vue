@@ -72,7 +72,7 @@
                         </tr>
                       </table>
                       <div class="col-sm-offset-4">
-                        <btn class="btn btn-info btnInPop" @click="go">結賬</btn>
+                        <button class="btn btn-info btnInPop" @click="go">結賬</button>
                       </div>
                     </template>
                     <template v-else>

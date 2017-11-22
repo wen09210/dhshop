@@ -112,7 +112,7 @@ export default {
             }
           }
           this.SetLoading(false)
-          console.log(this.item)
+          // console.log(this.item)
         }
       })
   },

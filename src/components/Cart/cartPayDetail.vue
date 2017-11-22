@@ -39,8 +39,7 @@
             </Radio> -->
           </RadioGroup>
           <!-- <span class="col-sm-10 creditNote">(※除不盡餘數於第一期收取)</span> -->
-          <span class="col-sm-10 creditNote">(※預購商品不接受貨到付款)</span>       
-          
+          <span class="col-sm-10 creditNote">(※預購商品不接受貨到付款)</span>
         </FormItem>
         <template v-if="Object.keys(BuyerDetail).length >0">
           <FormItem label="發票:">
@@ -141,16 +140,20 @@ export default {
     },
     StartPay() {
       if (this.BuyerDetail.PayType === '5') {
-        this.$Modal.confirm({
-          title: 'dHSHOP 提醒',
-          content: '<p>因運送體積限制，選擇「貨到付款」將依商品分成多筆訂單，再請注意您的訂單資訊。</p>',
-          onOk: () => {
-            this.GetMacValue({
-              $Spin: this.$Spin,
-              BuyerDetail: this.BuyerDetail
-            })
-          }
+        this.GetMacValue({
+          $Spin: this.$Spin,
+          BuyerDetail: this.BuyerDetail
         })
+        // this.$Modal.confirm({
+        //   title: 'dHSHOP 提醒',
+        //   content: '<p>因運送體積限制，選擇「貨到付款」將依商品分成多筆訂單，再請注意您的訂單資訊。</p>',
+        //   onOk: () => {
+        //     this.GetMacValue({
+        //       $Spin: this.$Spin,
+        //       BuyerDetail: this.BuyerDetail
+        //     })
+        //   }
+        // })
       } else {
         this.GetMacValue({
           $Spin: this.$Spin,

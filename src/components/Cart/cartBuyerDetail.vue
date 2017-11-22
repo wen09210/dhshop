@@ -86,6 +86,7 @@
             </FormItem>
             <FormItem label="收件人手機:" prop="R_Phone">
               <Input v-model="BuyerDetail.R_Phone" placeholder="09xxxxxx"></Input>
+              <div>*此為接收dHSHOP訂單通知，請確實填寫(如門號有啟動拒收企業簡訊，請關閉)</div>
             </FormItem>
             <FormItem label="E-MAIL:" prop="R_Mail">
               <Input v-model="BuyerDetail.R_Mail" placeholder="xxx@gmail.com"></Input>
@@ -171,7 +172,7 @@ export default {
         callback(new Error('電話格式錯誤'))
       }
     }
-    console.log(TWZipcode)
+    // console.log(TWZipcode)
     return {
       TWZipcode: TWZipcode,
       P_ZipList: [],
@@ -253,15 +254,15 @@ export default {
       hj('trigger', 'keyin')
       hj('tagRecording', ['keyin'])
       if (PorR === 'P' && this.BuyerDetail.P_City !== '') {
-        console.log(this.TWZipcode)
+        // console.log(this.TWZipcode)
         let temp = this.TWZipcode.city.find(x => x.name === this.BuyerDetail.P_City)
-        console.log(temp)
+        // console.log(temp)
         this.P_ZipList = temp.dist
       }
       if (PorR === 'R' && this.BuyerDetail.R_City !== '') {
-        console.log(this.TWZipcode)
+        // console.log(this.TWZipcode)
         let temp = this.TWZipcode.city.find(x => x.name === this.BuyerDetail.R_City)
-        console.log(temp.dist)
+        // console.log(temp.dist)
         this.R_ZipList = temp.dist
       }
     },

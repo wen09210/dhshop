@@ -53,7 +53,7 @@ export default {
     console.log(this.GetShoppingCartItem)
     axios.post(`/api/Product/PostToGetAddProduct`, this.GetShoppingCartItem)
       .then((response) => {
-        console.log(response)
+        // console.log(response)
         this.addProdList = response.data.data
         /** 取第一個商品樣式，顯示 */
         for (var i = 0; i < this.addProdList.length; i++) {
@@ -72,7 +72,7 @@ export default {
       .catch(function(error) {
         console.log(error)
       })
-    console.log(this.addItemShow)
+    // console.log(this.addItemShow)
   },
   mounted() {},
   computed: {

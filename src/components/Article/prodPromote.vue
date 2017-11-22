@@ -104,8 +104,8 @@
       prodBuy
     },
     created() {
-      console.log(this.$route.params.articalID)
-      console.log(this.$route.params.prodID)
+      // console.log(this.$route.params.articalID)
+      // console.log(this.$route.params.prodID)
     }
   }
 
