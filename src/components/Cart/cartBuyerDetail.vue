@@ -95,7 +95,6 @@
               <Select v-model="BuyerDetail.R_Time" size="large" style="width:200px">
                 <Option value="12點前">12點前</option>
                 <Option value="12~17點">12~17點</option>
-                <Option value="17點後">17點後</option>
               </Select>
             </FormItem>
             <template v-if="GetShoppingCartItem.find(x=>x.prodID === 1)">

@@ -21,5 +21,6 @@ export default {
     return state.LoginInfo
   },
   [types.GetLoginModal]: (state) => state.openLoginModal,
-  [types.GetBuyerDetail]: (state) => state.BuyerDetail
+  [types.GetBuyerDetail]: (state) => state.BuyerDetail,
+  [types.GetCouponCode]: (state) => state.CouponCode
 }

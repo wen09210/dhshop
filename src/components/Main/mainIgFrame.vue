@@ -30,7 +30,9 @@ ul.juicer-feed.j-initialized.j-modern.j-desktop.polaroid.loaded>h1.referral {
   border: 1px solid #dedede;
   border-radius: 5px;
 }
-
+.referral{
+  display:none;
+}
 /* li.feed-item.juicer.image-post,ul.juicer-feed.j-initialized.j-modern.polaroid.loaded>h1.referral {
    display: none;
 }

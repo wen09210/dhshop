@@ -112,8 +112,17 @@ export default {
     axios.post(`/api/Ecpay/PostGetTotalAmt?`, BuyerDetail)
       .then((response) => {
         console.log(response)
-        var showAmt = response.data.data
-        commit(types.PostGetTotalAmt, showAmt)
+        // writejsonerr
+        if (response.data.statu === 'err' || response.data === 'couponError') {
+          console.log('test')
+          Notice.warning({
+            title: 'dHSHOP 提醒',
+            desc: response.data.msg
+          })
+        }else {
+          var showAmt = response.data.data
+          commit(types.PostGetTotalAmt, showAmt)
+        }
       })
       .catch(function(error) {
         console.log(error)

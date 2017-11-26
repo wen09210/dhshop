@@ -50,7 +50,7 @@ export default {
     }
   },
   created() {
-    console.log(this.GetShoppingCartItem)
+    // console.log(this.GetShoppingCartItem)
     axios.post(`/api/Product/PostToGetAddProduct`, this.GetShoppingCartItem)
       .then((response) => {
         // console.log(response)

@@ -180,11 +180,15 @@ export default {
       CouponCode: ''
     }
   },
+  created() {
+    this.SetCouponCode('')
+  },
   computed: {
     ...mapGetters([
       'GetShoppingCartItem',
       'GetshowAmtData',
-      'GetLoginInfo'
+      'GetLoginInfo',
+      'GetCouponCode'
     ]),
     caculateAmt() {
       console.log('caculateAmt')
@@ -344,9 +348,8 @@ export default {
         })
         return false
       }
+      this.SetCouponCode('')
       this.SetCouponCode(this.CouponCode)
-      // console.log('coupon save')
-      // this.PostGetTotalAmt()
     }
   }
 }

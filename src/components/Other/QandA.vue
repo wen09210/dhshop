@@ -23,7 +23,7 @@
           </div>
           <collapse v-model="showAccordion[1]">
             <div class="UserAnswer">
-              公司發票將於商品到貨日15日後以平信寄出。
+              電子發票將隨信寄送。
             </div>
           </collapse>
         </div>

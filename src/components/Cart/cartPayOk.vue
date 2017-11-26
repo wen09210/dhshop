@@ -143,7 +143,6 @@ export default {
 
 </script>
 <style scoped>
-
 .LineDiv {
   vertical-align: middle;
 }

@@ -29,34 +29,39 @@
         </router-link>
         <div class="col-md-6">
           <!-- 右上圖 -->
-          <div class="col-md-12 noPadding">
-            <router-link to="/Product/8">
-              <div class="col-md-6 col-xs-6 padding5">
-                <img src="../../assets/temporyPic/Index/wallpaper.jpg" class="item_category imgHover">
-              </div>
-            </router-link>
-            <router-link to="/Product/20">
-              <div class="col-md-6 col-xs-6 padding5">
-                <img src="../../assets/temporyPic/Index/small8.jpg" class="item_category imgHover">
-              </div>
-            </router-link>
-          </div>
-          <!-- 右下圖 -->
-          <router-link to="/Product/3">
-            <div class="col-md-12 col-xs-12 padding5">
-              <img src="../../assets/temporyPic/Index/paintroller.jpg" class="item_category firstPIC imgHover">
+          <div class="Row">
+            <div class="col-md-12 noPadding">
+              <router-link to="/Product/24">
+                <div class="col-md-6 col-xs-6 padding5">
+                  <img src="../../assets/temporyPic/Index/cancerPic.jpg" class="item_category imgHover">
+                </div>
+              </router-link>
+              <router-link to="/Product/20">
+                <div class="col-md-6 col-xs-6 padding5">
+                  <img src="../../assets/temporyPic/Index/small8.jpg" class="item_category imgHover">
+                </div>
+              </router-link>
             </div>
-          </router-link>
+            <!-- 右下圖 -->
+            <div class="col-md-12 noPadding">
+              <router-link to="/Product/3">
+                <div class="col-md-12 col-xs-12 padding5">
+                  <img src="../../assets/temporyPic/Index/paintroller.jpg" class="item_category firstPIC imgHover">
+                </div>
+              </router-link>
+            </div>
+          </div>
         </div>
         <!-- 下圖 -->
-        <div class="col-md-12 topPadding noPadding ">
+        <div class="col-md-12 topPadding noPadding " style="float:left">
           <!-- Carousel -->
-          <router-link to="/Product/4">
-            <div class="col-md-4 topdownMargin10">
-              <img src="../../assets/temporyPic/Index/floortrima.jpg" class="item_category imgHover">
-            </div>
-          </router-link>
-          <!-- <swiper :options="swiperOption">
+          <div class="Row">
+            <router-link to="/Product/4">
+              <div class="col-md-4 topdownMargin10">
+                <img src="../../assets/temporyPic/Index/floortrima.jpg" class="item_category imgHover">
+              </div>
+            </router-link>
+            <!-- <swiper :options="swiperOption">
               <swiper-slide>
                 <router-link to="/Product/4">
                   <img src="../../assets/temporyPic/Index/floortrima.jpg" class="item_category imgHover">
@@ -68,16 +73,17 @@
               <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
               <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
             </swiper> -->
-          <router-link to="/Product/21">
-            <div class="col-md-4 topdownMargin10">
-              <img src="../../assets/temporyPic/Index/paint.jpg" class="item_category imgHover">
-            </div>
-          </router-link>
-          <router-link to="/Product/8">
-            <div class="col-md-4 topdownMargin10">
-              <img src="../../assets/temporyPic/Index/wallpaper2.jpg" class="item_category imgHover">
-            </div>
-          </router-link>
+            <router-link to="/Product/21">
+              <div class="col-md-4 topdownMargin10">
+                <img src="../../assets/temporyPic/Index/paint.jpg" class="item_category imgHover">
+              </div>
+            </router-link>
+            <router-link to="/Product/8">
+              <div class="col-md-4 topdownMargin10">
+                <img src="../../assets/temporyPic/Index/wallpaper2.jpg" class="item_category imgHover">
+              </div>
+            </router-link>
+          </div>
         </div>
       </div>
       <!-- 清潔保養 -->
@@ -134,7 +140,7 @@
           </div>
           <!-- 右下圖 -->
           <router-link to="/Product/2">
-            <div class="col-md-12 col-xs-12 padding5">
+            <div class="col-md-12 col-xs-12 padding5" style="float:left">
               <img src="../../assets/temporyPic/Index/ledbanner.jpg" class="item_category firstPIC imgHover">
             </div>
           </router-link>
@@ -163,7 +169,7 @@
             </router-link>
           </div>
           <!-- 右下圖 -->
-           <div class="col-md-12 noPadding">
+          <div class="col-md-12 noPadding" style="float:left">
             <router-link to="/Product/19">
               <div class="col-md-6 col-xs-6 padding5">
                 <img src="../../assets/temporyPic/Index/disneybottle.jpg" class="item_category imgHover">
@@ -235,9 +241,9 @@ export default {
     width: 45px;
     height: 45px;
   }
-  .topdownMargin10{
-    margin-top:10px;
-    margin-bottom:10px;
+  .topdownMargin10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 

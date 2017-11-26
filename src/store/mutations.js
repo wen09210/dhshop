@@ -176,6 +176,7 @@ export default {
   },
   [types.PostGetTotalAmt](state, showAmt) {
     console.log('test2')
+    // showAmt裡 status
     if (showAmt.status === 'err' || showAmt.status === 'couponError') {
       console.log('test')
       Notice.warning({

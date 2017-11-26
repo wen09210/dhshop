@@ -78,12 +78,12 @@
     <!-- 付款資訊end -->
     <!-- 上一步回訂購資料 -->
     <div class=" col-xs-5 col-md-5">
-      <button type="button" class="btn btn-success btn-lg btn-block" @click="goBuyerDetail">修改訂購資料!</button>
+      <button type="button" class="btn btn-success btn-lg btn-block" @click="goBuyerDetail">修改訂購資料</button>
     </div>
     <!-- 上一步回購物車end -->
     <!-- 結帳 -->
     <div class=" col-xs-7 col-md-7">
-      <button type="button" @click="StartPay" class="btn btn-info btn-lg btn-block">老闆~買了!買了!</button>
+      <button type="button" @click="StartPay" class="btn btn-info btn-lg btn-block">確認購買!</button>
     </div>
     <!-- 結帳end -->
   </div>

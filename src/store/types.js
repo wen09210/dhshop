@@ -14,6 +14,8 @@ export default {
   GetBuyerDetail: 'GetBuyerDetail',
   // 存入購買人資料
   SetBuyerDetail: 'SetBuyerDetail',
+  // 取得折扣碼
+  GetCouponCode: 'GetCouponCode',
   GetshowAmtData: 'GetshowAmtData',
   PostGetTotalAmt: 'PostGetTotalAmt',
   GetLoginInfo: 'GetLoginInfo',

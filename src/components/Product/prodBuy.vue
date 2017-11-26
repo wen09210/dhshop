@@ -24,13 +24,15 @@
            </span>
           </span>
         </div>
-        <div>
-          <label>售價:</label>
-          <span :class="{'linethrough':checkPreProd || checkActivity}">
+        <template v-if="!checkPreProd">
+          <div>
+            <label>售價:</label>
+            <span :class="{'linethrough':checkPreProd || checkActivity}">
           <span :class="{'textblack':checkPreProd || checkActivity}">{{itemShow.SalePrice}} 元
            </span>
-          </span>
-        </div>
+            </span>
+          </div>
+        </template>
         <template v-if="checkPreProd && !checkActivity">
           <div>
             <label>預購優惠:</label>
@@ -280,6 +282,7 @@ export default {
     }
   }
 }
+
 </script>
 <style scoped>
 .linethrough {

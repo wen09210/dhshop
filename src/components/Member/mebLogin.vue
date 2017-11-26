@@ -35,7 +35,7 @@
         <img src="../../assets/icon/login_google.png" class="imgOuath" alt="Responsive image" @click="goOuath('Google')">-->
         <div class="btnCenter">
           <button type="button" class="btn btn-success btn-lg" @click="goanoyLogin">
-            無痕登入
+            訪客登入
           </button>
         </div>
         <div class="btnCenter">
