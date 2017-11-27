@@ -88,6 +88,14 @@
           <button class="btn btn-primary btnCust" @click="itemSize++">
             <i class="fa fa-plus" aria-hidden="true"></i>
           </button>
+        
+        <template v-if="BtnSpecialNumber.length > 0">
+            <template v-for="itemBtn in BtnSpecialNumber">
+              <button class="btn btn-success btn-lg" @click="spcBtn(itemBtn.number)">
+                <Icon type="ios-pricetags"></Icon> {{itemBtn.title}}
+              </button>
+            </template>
+        </template>
         </div>
         <div class="buybtn">
           <button class="btn btn-primary btn-lg" @click="addCart('direct')">直接購買</button>
@@ -131,31 +139,37 @@ export default {
       // 檢查是否檔期優惠
       IsActivity: false,
       // 檢查是否預購優惠
-      IsPreProduct: false
+      IsPreProduct: false,
+      BtnSpecialNumber: []
     }
   },
   created() {
     // console.log(this.$route.params.prodID)
     // 取回商品資料
-    axios.get(`/api/Product/GetProductDetail?prodID= ${this.$route.params.prodID}`)
-      .then((response) => {
-        if (response.data.statu === 'err') {
-          // this.$noty.ShowAlert(response.data.msg, 'warning')
-          this.$Notice.warning({
-            title: 'dHSHOP 提醒',
-            desc: response.data.msg
-          })
-        } else {
-          this.item = response.data.data
-          this.itemShow = this.item[0]
-          this.itemSelect = this.item[0].ItemNo
-          // console.log(this.item)
-          this.$parent.$emit('passProdInf', this.itemShow)
-        }
-      })
-      .catch(function(error) {
-        console.log(error)
-      })
+    // axios.get(`/api/Product/GetProductDetail?prodID= ${this.$route.params.prodID}`)
+    //   .then((response) => {
+    //     if (response.data.statu === 'err') {
+    //       // this.$noty.ShowAlert(response.data.msg, 'warning')
+    //       this.$Notice.warning({
+    //         title: 'dHSHOP 提醒',
+    //         desc: response.data.msg
+    //       })
+    //     } else {
+    //       this.item = response.data.data
+    //       this.itemShow = this.item[0]
+    //       this.itemSelect = this.item[0].ItemNo
+    //       // 大坪數按鈕
+    //       // this.BtnSpecialNumber =JSON.parse(this.item[0].BtnSpecialNumber)
+    //       this.BtnSpecialNumber = JSON.parse('[{"title":"6坪專案","number":"12"},{"title":"15坪專案","number":"30"}]')
+    //       // console.log(this.item)
+    //       this.$parent.$emit('passProdInf', this.itemShow)
+    //     }
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error)
+    //   })
+    this.BtnSpecialNumber = JSON.parse('[{"title":"6坪專案","number":"12"},{"title":"15坪專案","number":"30"}]')
+    console.log(this.BtnSpecialNumber)
   },
   computed: {
     ...mapGetters([
@@ -285,6 +299,11 @@ export default {
     keyNum() {
       this.itemSize = event.target.value
     },
+    spcBtn(number) {
+      if (number !== '') {
+        this.itemSize = number
+      }
+    },
     // 檢查是否現貨、預購同時
     checkProdType(type) {
       let resType = this.GetShoppingCartItem.find(x => x.prodType === type)
@@ -393,15 +412,17 @@ export default {
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  margin:0px -5px !important;
-   height: 40px;
+  margin: 0px -5px !important;
+  height: 40px;
 }
-.btnCust{
+
+.btnCust {
   border-radius: 0px;
   font-size: 18px;
   background: #2d8cf0;
   border: 1px solid #2d8cf0;
 }
+
 .buybtn {
   margin-top: 20px;
 }
@@ -419,5 +440,7 @@ export default {
   padding-left: 10px;
   border-radius: 2px;
 }
-
+.btn {
+  margin: 0px 5px;
+}
 </style>
