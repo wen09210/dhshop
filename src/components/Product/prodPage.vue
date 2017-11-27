@@ -2,21 +2,22 @@
   <div>
     <prodPicture></prodPicture>
     <template>
-        {{getProdInfo}} 
-        {{showMessageBtn}}
+      {{getProdInfo}} {{showMessageBtn}}
       <div>
         <Affix :offset-bottom="0" @on-change="hideAffix = !hideAffix">
           <Row class="buybtn_fixfoot" v-show="!hideAffix">
             <Col :xs="{ span: 12}" :md="{ span: 18}">
-            <Col :xs="{ span: 24}" :sm="{ span:24}" :md="{ span: 12}" class="A_title">{{ProdInfo.ProdName}}
+            <Col :xs="{ span: 24}" :sm="{ span:12}" :md="{ span: 12}" class="A_title"> {{ProdInfo.ProdName}}
             </Col>
-            <Col :xs="{ span: 24}" :sm="{ span: 12}" :md="{ span: 6}" class="A_Price">
+            <Col :xs="{ span: 24}" :sm="{ span:12}" :md="{ span: 10}" class="A_Note"> {{ProdInfo.NoteForBuy}}
+            </Col>
+            <!-- <Col :xs="{ span: 24}" :sm="{ span: 12}" :md="{ span: 6}" class="A_Price">
             <strike style="color:red;">
                   <span style='color:white'>原價: {{ProdInfo.OrignPrice}}元</span>
             </strike>
             </Col>
             <Col :xs="{ span: 24}" :sm="{ span: 12}" :md="{ span: 6}" class="A_Price">優惠: {{ProdInfo.SalePrice}}元
-            </Col>
+            </Col> -->
             </Col>
             <Col :xs="{ span: 12}" :md="{ span: 6 }">
             <Button type="primary" size="large" v-scroll-to="'#botBuy'">立即搶購</Button>
@@ -75,19 +76,25 @@ export default {
   }
 
   .A_title {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     color: white;
     margin-left: 10px;
+    text-align: center;
+    
   }
-
+  .A_Note {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+  }
   .A_Price {
     font-size: 18px;
     font-weight: bold;
     color: white;
     margin-left: 20px;
   }
-
 }
 
 @media (min-width:1024px) {
@@ -99,16 +106,21 @@ export default {
     font-size: 28px;
     font-weight: bold;
     color: white;
+    text-align: center;
+    padding-top: 15px;
+  }
+  .A_Note {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
     margin-left: 20px;
     padding-top: 20px;
   }
-
   .A_Price {
     font-size: 24px;
     font-weight: bold;
     color: white;
   }
-
 }
 
 .ivu-btn-primary {

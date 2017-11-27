@@ -17,6 +17,11 @@
         <template v-if="checkActivity">
           <h4 class="activityFont">{{itemShow.ActivityName}}</h4>
         </template>
+        <template v-if="itemShow.StyleNoteForSale !== null">
+          <div class="StyleNote">
+            {{itemShow.StyleNoteForSale}}
+          </div>
+        </template>
         <div>
           <label>原價:</label>
           <span class="linethrough">
@@ -75,11 +80,12 @@
         </div>
         <div style="display:inline-block">
           <label>數量</label>
-          <button class="btn btn-primary" @click="itemSize--">
+          <br>
+          <button class="btn btn-primary btnCust" @click="itemSize--">
             <i class="fa fa-minus" aria-hidden="true"></i>
           </button>
           <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
-          <button class="btn btn-primary" @click="itemSize++">
+          <button class="btn btn-primary btnCust" @click="itemSize++">
             <i class="fa fa-plus" aria-hidden="true"></i>
           </button>
         </div>
@@ -201,6 +207,7 @@ export default {
     ]),
     // 檢查數量是否足夠
     addCart(direct) {
+      // #region
       /* global fbq */
       fbq('track', 'AddToCart', { content_ids: [this.itemShow.ItemNo], content_type: this.itemShow.ProdID, value: this.itemShow.SalePrice, currency: 'TWD' })
       /* global ga */
@@ -208,6 +215,7 @@ export default {
       /* global hj */
       hj('trigger', 'addtocart_mainproduct')
       hj('tagRecording', ['addtocart_mainproduct'])
+      // #endregion
       axios.get(`/api/Product/GetProductQuentity?`, {
         params: {
           ProdID: this.itemShow.ProdID,
@@ -224,14 +232,10 @@ export default {
             })
             return false
           }
-          var itemShow = this.itemShow
-          var itemSize = this.itemSize
-          var IsPreProduct = this.IsPreProduct
-          var IsActivity = this.IsActivity
-          var prodType = '1'
+          var prodType = '1' // (現貨)
           // 數量不足(預購)
           if (response.data.data.InventoryVal < this.itemSize) {
-            // 完售
+            //  檢查是否完售
             let PreVal = response.data.data.F_PreVal + response.data.data.S_PreVal
             if (PreVal < this.itemSize) {
               this.$Notice.warning({
@@ -241,35 +245,36 @@ export default {
               return false
             }
             // 檢查購物車內是否有現貨
+            if (!this.checkProdType('1')) {
+              return false
+            }
             // console.log(this.itemSize)
-            prodType = '3'
-            // this.$noty.ConfirmDialog('很抱歉，同時間商品已被搶購一空，<br>是否以預購方式購買，同時享受優惠', () => {
-            this.IncreaseProduct({
-              IsPreProduct,
-              IsActivity,
-              itemShow,
-              itemSize,
-              prodType
-            })
-            // 直接購買則導到購物車
-            if (direct !== '') {
-              this.$router.push({
-                name: 'cart'
+            prodType = '3' // (預購)
+            // #region檢查檔期預購或一般預購
+            // 非檔期時預購
+            if (response.data.data.InventoryVal !== 0) {
+              this.$Modal.confirm({
+                title: 'dHSHOP 提醒',
+                okText: '確定',
+                content: `目前現貨數量為 ${response.data.data.InventoryVal}${this.itemShow.Unit}，是否以預購方式購買，同時享有優惠。`,
+                onOk: () => {
+                  // 加入購物車
+                  this.IncreasePrd(prodType, direct)
+                }
               })
+            } else {
+              // 檔期時預購不問直接加
+              // 加入購物車
+              this.IncreasePrd(prodType, direct)
             }
-            // })
+            // #endregion
           } else {
-            this.IncreaseProduct({
-              itemShow,
-              itemSize,
-              prodType
-            })
-            // 直接購買則導到購物車
-            if (direct !== '') {
-              this.$router.push({
-                name: 'cart'
-              })
+            // 檢查購物車內是否有現貨
+            if (!this.checkProdType('3')) {
+              return false
             }
+            // 加入購物車
+            this.IncreasePrd(prodType, direct)
           }
         })
         .catch((response) => {
@@ -279,6 +284,47 @@ export default {
     },
     keyNum() {
       this.itemSize = event.target.value
+    },
+    // 檢查是否現貨、預購同時
+    checkProdType(type) {
+      let resType = this.GetShoppingCartItem.find(x => x.prodType === type)
+      if (!resType) {
+        console.log(true)
+        return true
+      } else {
+        this.$Modal.confirm({
+          title: 'dHSHOP 提醒',
+          okText: '立即結帳',
+          content: `因出貨時間不同，為了讓您能快速收到商品，現貨商品與預購商品需分開結帳。`,
+          onOk: () => {
+            this.$router.push({
+              name: 'cart'
+            })
+          }
+        })
+        return false
+      }
+    },
+    // 加入購物車動作
+    IncreasePrd(prodType, direct) {
+      var itemShow = this.itemShow
+      var itemSize = this.itemSize
+      var IsPreProduct = this.IsPreProduct
+      var IsActivity = this.IsActivity
+      // 加入購物車
+      this.IncreaseProduct({
+        IsPreProduct,
+        IsActivity,
+        itemShow,
+        itemSize,
+        prodType
+      })
+      // 直接購買則導到購物車
+      if (direct !== '') {
+        this.$router.push({
+          name: 'cart'
+        })
+      }
     }
   }
 }
@@ -339,7 +385,7 @@ export default {
 }
 
 .inputsize {
-  height: 34px;
+  max-width: 100px;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -347,16 +393,31 @@ export default {
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  margin:0px -5px !important;
+   height: 40px;
 }
-
+.btnCust{
+  border-radius: 0px;
+  font-size: 18px;
+  background: #2d8cf0;
+  border: 1px solid #2d8cf0;
+}
 .buybtn {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .activityFont {
   color: #E55C6B;
   font-size: bold;
+}
+
+.StyleNote {
+  background: #E55C6B;
+  width: 50%;
+  color: white;
+  padding: 3px;
+  padding-left: 10px;
+  border-radius: 2px;
 }
 
 </style>
