@@ -12,7 +12,7 @@
       <!-- -->
       <div :class="third">
         <!-- <h1>{{$route.params.prodID }}</h1> -->
-        <h3 class="titleProd">{{itemShow.ProdName+'—'+itemShow.ItemName}}</h3>
+        <h3 class="titleProd">{{itemShow.InventoryVal <= 0 ?"[預購]":""}}{{itemShow.ProdName+'—'+itemShow.ItemName}}</h3>
         <h3 class="descriptProd">{{itemShow.Description}}</h3>
         <template v-if="checkActivity">
           <h4 class="activityFont">{{itemShow.ActivityName}}</h4>
@@ -68,7 +68,7 @@
           <RadioGroup v-model="itemSelect" type="button" size="large">
             <template v-for="option in item">
               <Radio :label="option.ItemNo">
-                <span>{{option.ItemName}}</span>
+                <span>{{option.InventoryVal <= 0 ?"[預購]":""}}{{option.ItemName}}</span>
               </Radio>
             </template>
           </RadioGroup>
@@ -78,24 +78,45 @@
             </option>
           </select> -->
         </div>
-        <div style="display:inline-block">
+        <div>
           <label>數量</label>
-          <br>
-          <button class="btn btn-primary btnCust" @click="itemSize--">
-            <i class="fa fa-minus" aria-hidden="true"></i>
-          </button>
-          <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
-          <button class="btn btn-primary btnCust" @click="itemSize++">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-          </button>
-        
-        <template v-if="BtnSpecialNumber.length > 0">
-            <template v-for="itemBtn in BtnSpecialNumber">
-              <button class="btn btn-success btn-lg" @click="spcBtn(itemBtn.number)">
-                <Icon type="ios-pricetags"></Icon> {{itemBtn.title}}
-              </button>
+          <table class="table table-striped">
+                <tbody>
+            <tr>
+              <td>
+                <label>方案 1.</label>                
+              </td>
+              <td>
+                <input type="radio" name="spec">自選數量</input>  
+                <br>              
+                <button class="btn btn-primary btnCust" @click="itemSize--">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </button>
+                <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
+                <button class="btn btn-primary btnCust" @click="itemSize++">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+              </td>
+            </tr>
+             <tr>
+               <td colspan="2"><b>量大更優惠</b></td>
+            </tr>
+            <template v-if="BtnSpecialNumber !==null && BtnSpecialNumber.length > 0">
+              <template v-for="(itemBtn, i) in BtnSpecialNumber">
+                <tr>
+                  <td>
+                    <label>方案 {{i+2}}.</label>
+                  </td>
+                  <td>
+                    <input type="radio" name="spec"  @click="spcBtn(itemBtn.number)">
+                      {{itemBtn.title}}
+                    </input>
+                  </td>
+                </tr>
+              </template>
             </template>
-        </template>
+            </tbody>
+          </table>
         </div>
         <div class="buybtn">
           <button class="btn btn-primary btn-lg" @click="addCart('direct')">直接購買</button>
@@ -144,30 +165,30 @@ export default {
     }
   },
   created() {
-    // console.log(this.$route.params.prodID)
+    console.log(this.$route.params.prodID)
     // 取回商品資料
-    // axios.get(`/api/Product/GetProductDetail?prodID= ${this.$route.params.prodID}`)
-    //   .then((response) => {
-    //     if (response.data.statu === 'err') {
-    //       // this.$noty.ShowAlert(response.data.msg, 'warning')
-    //       this.$Notice.warning({
-    //         title: 'dHSHOP 提醒',
-    //         desc: response.data.msg
-    //       })
-    //     } else {
-    //       this.item = response.data.data
-    //       this.itemShow = this.item[0]
-    //       this.itemSelect = this.item[0].ItemNo
-    //       // 大坪數按鈕
-    //       // this.BtnSpecialNumber =JSON.parse(this.item[0].BtnSpecialNumber)
-    //       this.BtnSpecialNumber = JSON.parse('[{"title":"6坪專案","number":"12"},{"title":"15坪專案","number":"30"}]')
-    //       // console.log(this.item)
-    //       this.$parent.$emit('passProdInf', this.itemShow)
-    //     }
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error)
-    //   })
+    axios.get(`/api/Product/GetProductDetail?prodID= ${this.$route.params.prodID}`)
+      .then((response) => {
+        if (response.data.statu === 'err') {
+          // this.$noty.ShowAlert(response.data.msg, 'warning')
+          this.$Notice.warning({
+            title: 'dHSHOP 提醒',
+            desc: response.data.msg
+          })
+        } else {
+          this.item = response.data.data
+          this.itemShow = this.item[0]
+          this.itemSelect = this.item[0].ItemNo
+          // 大坪數按鈕
+          this.BtnSpecialNumber = JSON.parse(this.item[0].BtnSpecialNumber)
+          // this.BtnSpecialNumber = JSON.parse('')
+          console.log(this.BtnSpecialNumber)
+          this.$parent.$emit('passProdInf', this.itemShow)
+        }
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
     this.BtnSpecialNumber = JSON.parse('[{"title":"6坪專案","number":"12"},{"title":"15坪專案","number":"30"}]')
     console.log(this.BtnSpecialNumber)
   },
@@ -412,7 +433,7 @@ export default {
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  margin: 0px -5px !important;
+  margin: 0px -10px !important;
   height: 40px;
 }
 
@@ -440,7 +461,13 @@ export default {
   padding-left: 10px;
   border-radius: 2px;
 }
+
 .btn {
   margin: 0px 5px;
 }
+
+.margintop5 {
+  margin-top: 5px;
+}
+
 </style>
