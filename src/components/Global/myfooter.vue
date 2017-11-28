@@ -11,7 +11,6 @@
         </div>
       </Tooltip>
     </div> -->
-    <!-- 歷史紀錄 -->
     <transition name="slide-fade">
       <div v-if="openHis" class="HistorrBox">
         <div class="HisX" @click="openHis = !openHis">
@@ -48,6 +47,48 @@
         </div>
       </div>
     </transition>
+    <!-- 購物車-->
+    <div class="fixRightHistory">
+      <div class="circleHis" @click="openCART = !openCART">
+        <Icon type="ios-cart" size=40></Icon>
+      </div>
+    </div>
+    <Modal v-model="openCART">
+      <p slot="header" style="color:#f60;text-align:center">
+        <Icon type="ios-cart" size=20></Icon>
+        <span style="font-size:2rem">購物車商品</span>
+      </p>
+      <div style="text-align:center">
+        <template v-if="Object.keys(GetShoppingCartItem).length!== 0">
+          <table class="table table-stripedd custTABLE">
+            <thead>
+              <tr>
+                <th>商品</th>
+                <th>樣式</th>
+                <th>單價</th>
+                <th>數量</th>
+                <th>小計</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tr v-for="item in GetShoppingCartItem">
+              <td>{{item.name}}</td>
+              <td>{{item.style}}</td>
+              <td>{{item.unitPrice}}</td>
+              <td>{{item.count}}</td>
+              <td>{{item.totalAmt}}</td>
+            </tr>
+          </table>
+        </template>
+        <template v-else>
+          <label>尚未加入商品至購物車</label>
+        </template>
+      </div>
+      <div slot="footer">
+        <Button type="info" size="large" long @click="goCart" style="font-size:1.7rem">結帳</Button>
+      </div>
+    </Modal>
+    <!-- 購物車END-->
     <div class="myrow">
       <div class="col-md-3">
         <div class="footer_title">客服中心</div>
@@ -103,11 +144,13 @@
 }(document, 'script', 'facebook-jssdk'))
 
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { mapGetters } from 'vuex'
 import Lockr from 'lockr'
 export default {
   data: function() {
     return {
       openHis: false,
+      openCART: false,
       oldHistory: [],
       swiperOption: {
         centeredSlides: true,
@@ -145,10 +188,21 @@ export default {
     swiperSlide
   },
   computed: {
+    ...mapGetters([
+      'GetShoppingCartItem'
+    ]),
     updateHis() {
       let oldHistory = Lockr.get('oldCartItem')
       console.log(oldHistory)
       this.oldHistory = oldHistory
+    }
+  },
+  methods: {
+    goCart() {
+      this.$router.push({
+        name: 'cart'
+      })
+      this.openCART = !this.openCART
     }
   }
 }
@@ -164,7 +218,9 @@ export default {
   z-index: 9999999;
   margin-top: 100px;
 }
-
+.custTABLE{
+  font-size: 1.7rem;
+}
 div .myrow {
   float: none;
   background: #f7f7f7;
@@ -257,10 +313,11 @@ div .copyright {
 .slide-fade-enter,
 .slide-fade-leave-to
 /* .slide-fade-leave-active for below version 2.1.8 */
-
 {
   transform: translateY(10px);
   opacity: 0;
 }
-
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 5px;
+}
 </style>

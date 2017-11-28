@@ -20,7 +20,7 @@
         </div>
         <collapse class="navbar-collapse navbar-right" v-model="showNavbar">
           <ul class="nav navbar-nav">
-            <li class="headerIcon">
+            <!-- <li class="headerIcon">
               <a class="headerIcon">
                 <router-link to="/AnonymousSearch">
                   <button type="button" class="btn  BtnToA headerIcon" @click="showNavbar=!showNavbar">
@@ -28,7 +28,7 @@
                   </button>
                 </router-link>
               </a>
-            </li>
+            </li> -->
             <li class="headerIcon">
               <a class="headerIcon">
                 <router-link to="/QandA">
@@ -138,15 +138,8 @@
   </div>
 </template>
 <script>
-import {
-  Popover,
-  Collapse,
-  Dropdown
-} from 'uiv'
-import {
-  mapGetters,
-  mapActions
-} from 'vuex'
+import { Popover, Collapse, Dropdown } from 'uiv'
+import { mapGetters, mapActions } from 'vuex'
 import mebLogin from '../Member/mebLogin.vue'
 
 export default {

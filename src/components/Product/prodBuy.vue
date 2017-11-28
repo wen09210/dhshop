@@ -15,7 +15,7 @@
         <h3 class="titleProd">{{itemShow.InventoryVal <= 0 ?"[預購]":""}}{{itemShow.ProdName+'—'+itemShow.ItemName}}</h3>
         <h3 class="descriptProd">{{itemShow.Description}}</h3>
         <template v-if="checkActivity">
-          <h4 class="activityFont">{{itemShow.ActivityName}}</h4>
+          <div class="activityName">{{itemShow.ActivityName}}</div>
         </template>
         <template v-if="itemShow.StyleNoteForSale !== null">
           <div class="StyleNote">
@@ -25,15 +25,16 @@
         <div>
           <label>原價:</label>
           <span class="linethrough">
-          <span class="textblack">{{itemShow.OrignPrice}} 元
+          <span class="textblack" style="color:black;font-size:2.3rem;">{{itemShow.OrignPrice}} 元
            </span>
           </span>
         </div>
-        <template v-if="!checkPreProd">
+        <template v-if="(checkPreProd && checkActivity) || (!checkPreProd && !checkActivity)">
           <div>
             <label>售價:</label>
             <span :class="{'linethrough':checkPreProd || checkActivity}">
-          <span :class="{'textblack':checkPreProd || checkActivity}">{{itemShow.SalePrice}} 元
+            <span :class="{'textblack':checkPreProd || checkActivity}" style="color:red;font-size:2.3rem;">
+              {{itemShow.SalePrice}} 元
            </span>
             </span>
           </div>
@@ -41,13 +42,13 @@
         <template v-if="checkPreProd && !checkActivity">
           <div>
             <label>預購優惠:</label>
-            <span class="activityFont">{{itemShow.AddPrice}} 元</span>
+            <span class="activityFont" style="color:red;font-size:2.3rem;">{{itemShow.AddPrice}} 元</span>
           </div>
         </template>
         <template v-if="checkActivity">
           <div>
             <label>活動價:</label>
-            <span class="activityFont">{{itemShow.ActivityPrice}} 元</span>
+            <span class="activityFont" style="color:red;font-size:2.3rem;">{{itemShow.ActivityPrice}} 元</span>
           </div>
         </template>
         <!-- <div>
@@ -58,10 +59,10 @@
           <label>規格:</label>
           <span>{{itemShow.ItemSpec}}</span>
         </div>
-        <div>
+        <!-- <div>
           <label>單位:</label>
           <span>{{itemShow.Unit}}</span>
-        </div>
+        </div> -->
         <div>
           <label>樣式</label>
           {{getItem}}
@@ -80,47 +81,44 @@
         </div>
         <div>
           <label>數量</label>
+          <br>
+          <button class="btn btn-primary btnCust" @click="itemSize--">
+            <i class="fa fa-minus" aria-hidden="true"></i>
+          </button>
+          <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
+          <button class="btn btn-primary btnCust" @click="itemSize++">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+          <span style="font-size: 2.3rem;"><b>{{itemShow.Unit}}</b></span>
           <table class="table table-striped">
-                <tbody>
-            <tr>
-              <td>
-                <label>方案 1.</label>                
-              </td>
-              <td>
-                <input type="radio" name="spec">自選數量</input>  
-                <br>              
-                <button class="btn btn-primary btnCust" @click="itemSize--">
-                  <i class="fa fa-minus" aria-hidden="true"></i>
-                </button>
-                <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
-                <button class="btn btn-primary btnCust" @click="itemSize++">
-                  <i class="fa fa-plus" aria-hidden="true"></i>
-                </button>
-              </td>
-            </tr>
-             <tr>
-               <td colspan="2"><b>量大更優惠</b></td>
-            </tr>
-            <template v-if="BtnSpecialNumber !==null && BtnSpecialNumber.length > 0">
-              <template v-for="(itemBtn, i) in BtnSpecialNumber">
+            <tbody>
+              <template v-if="BtnSpecialNumber !==null && BtnSpecialNumber.length > 0">
                 <tr>
-                  <td>
-                    <label>方案 {{i+2}}.</label>
-                  </td>
-                  <td>
-                    <input type="radio" name="spec"  @click="spcBtn(itemBtn.number)">
-                      {{itemBtn.title}}
-                    </input>
-                  </td>
+                  <td colspan="2"><b>優惠方案</b></td>
                 </tr>
+                <template v-for="(itemBtn, i) in BtnSpecialNumber">
+                  <tr>
+                    <td>
+                      <label>方案 {{i+1}}.</label>
+                    </td>
+                    <td style="color: red;">
+                      <div v-html="itemBtn.title"></div>
+                      <!-- <input type="radio" name="spec" @click="spcBtn(itemBtn.number)"> {{itemBtn.title}}
+                      </input> -->
+                    </td>
+                  </tr>
+                </template>
               </template>
-            </template>
             </tbody>
           </table>
         </div>
         <div class="buybtn">
-          <button class="btn btn-primary btn-lg" @click="addCart('direct')">直接購買</button>
-          <button class="btn btn-danger btn-lg" @click="addCart('')">加入購物車</button>
+          <div class="col-md-5 col-xs-12">
+            <button class="btn-direct btn btn-primary btn-lg" @click="addCart('direct')">直接購買</button>
+          </div>
+          <div class="col-md-5 col-xs-12">
+            <button class="btn-buy btn btn-danger btn-lg" @click="addCart('')">加入購物車</button>
+          </div>
         </div>
       </div>
     </div>
@@ -141,12 +139,12 @@ export default {
     second: {
       type: [String],
       required: false,
-      'default': 'col-md-4'
+      'default': 'col-md-5'
     },
     third: {
       type: [String],
       required: false,
-      'default': 'col-md-8'
+      'default': 'col-md-7'
     }
   },
   data: function() {
@@ -189,8 +187,6 @@ export default {
       .catch(function(error) {
         console.log(error)
       })
-    this.BtnSpecialNumber = JSON.parse('[{"title":"6坪專案","number":"12"},{"title":"15坪專案","number":"30"}]')
-    console.log(this.BtnSpecialNumber)
   },
   computed: {
     ...mapGetters([
@@ -198,7 +194,8 @@ export default {
     ]),
     checkActivity() {
       // 檢查是否在活動區間
-      if (this.itemShow.ActivityStart >= new Date() && this.itemShow.ActivityStart <= new Date()) {
+      if (this.itemShow.ActivityStart <= new Date().getTime() / 1000 &&
+        this.itemShow.ActivityEnd >= new Date().getTime() / 1000) {
         this.IsActivity = true
         return true
       } else {
@@ -371,6 +368,20 @@ export default {
 
 </script>
 <style scoped>
+/*購買按鍵*/
+.btn-buy{
+  width:100%;
+  margin: 2px;
+}
+.btn-direct{
+   width:100%;
+  margin: 2px;
+   
+   }
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+  border-bottom:1px solid #ccc;
+  border-top:0px;
+ }
 .linethrough {
   color: red;
   text-decoration: line-through;
@@ -394,7 +405,7 @@ export default {
 .titleProd {
   padding: 10px;
   background: #dddee1;
-  width: 90%;
+  width: 100%;
   border-radius: 5px;
   margin-bottom: 5px;
   font-weight: bold;
@@ -428,6 +439,7 @@ export default {
   max-width: 100px;
   padding: 6px 12px;
   font-size: 14px;
+  font-weight: bold;
   line-height: 1.42857143;
   color: #555;
   background-color: #fff;
@@ -440,8 +452,9 @@ export default {
 .btnCust {
   border-radius: 0px;
   font-size: 18px;
-  background: #2d8cf0;
-  border: 1px solid #2d8cf0;
+  background: #ff9900;
+  border: 1px solid #ff9900;
+  color:#fff;
 }
 
 .buybtn {
@@ -453,8 +466,19 @@ export default {
   font-size: bold;
 }
 
+.activityName {
+  margin: 5px 0px;
+  background-color: #ed3f14;
+  width: 50%;
+  color: white;
+  padding: 3px;
+  padding-left: 10px;
+  border-radius: 2px;
+}
+
 .StyleNote {
-  background: #E55C6B;
+  margin: 5px 0px;
+  background: #57a3f3ad;
   width: 50%;
   color: white;
   padding: 3px;
@@ -463,11 +487,16 @@ export default {
 }
 
 .btn {
-  margin: 0px 5px;
+  margin: 5px 0px;
 }
 
 .margintop5 {
   margin-top: 5px;
 }
-
+@media (max-width:768px){
+.btn-direct{
+   width:100%;
+   margin:10px 0px;
+ }
+}
 </style>

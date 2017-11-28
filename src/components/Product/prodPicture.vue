@@ -145,7 +145,7 @@ export default {
 
 .carousel_Img {
   width: 100%;
-  height: 425px;
+  height: 600px;
 }
 
 img {

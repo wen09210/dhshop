@@ -29,16 +29,16 @@ export default {
       }
     })
     if (sameProd === false) {
-      itemShow.totalAmt = itemShow.SalePrice * parseInt(itemSize)
       let cartNo = Lockr.get('cartNo')
       let unitPrice = 0
       if (IsActivity) {
-        unitPrice = itemShow.AcivityPrice
+        unitPrice = itemShow.ActivityPrice
       } else if (IsPreProduct) {
         unitPrice = itemShow.PreOrderPrice
       } else {
         unitPrice = itemShow.SalePrice
       }
+      itemShow.totalAmt = unitPrice * parseInt(itemSize)
       state.shoppingCartItem.push({
         no: cartNo++,
         prodID: itemShow.ProdID,
@@ -60,7 +60,7 @@ export default {
         // 預購、活動相關
         IsActivity: IsActivity,
         IsPreProduct: IsPreProduct,
-        ActivityPrice: itemShow.AcivityPrice,
+        ActivityPrice: itemShow.ActivityPrice,
         ActivityName: itemShow.ActivityName,
         ActivityStart: itemShow.ActivityStart,
         ActivityEnd: itemShow.ActivityEnd

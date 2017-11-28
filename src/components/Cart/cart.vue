@@ -25,26 +25,32 @@
             </div>
             <div class="col-md-3 col-xs-6">
               <router-link :to="{name: 'product', params: {prodID: item.prodID}}">
+                <template v-if="item.IsActivity">
+                  <span class="actName">{{item.ActivityName}}</span>
+                  <br>
+                </template>
                 {{item.name}}
                 <br> {{item.style}}
               </router-link>
             </div>
             <template v-if="item.IsActivity">
+              <!-- 活動價 -->
               <div class="col-md-1 col-xs-6">
-                <div class="linethrough">
+                <span class="linethrough">
                   <span class="textblack">
                     {{item.SalePrice}}元
-                    </span>
-                </div>
-                <br>優惠{{item.unitPrice}}元</div>
+                  </span>
+                </span>
+                {{item.unitPrice}}元</div>
             </template>
             <template v-else-if="item.IsPreProduct && !item.IsActivity">
+              <!-- 預購價 -->
               <div class="col-md-1 col-xs-6">
                 <span class="linethrough">
                   <span class="textblack">{{item.SalePrice}}元
-                    </span>
+                  </span>
                 </span>
-                <br>{{item.unitPrice}}元</div>
+                {{item.unitPrice}}元</div>
             </template>
             <template v-else>
               <div class="col-md-1 col-xs-6">{{item.unitPrice}}元</div>
@@ -428,6 +434,12 @@ span.textblack {
   margin-bottom: 10px;
 }
 
+.actName {
+  background-color: #ed3f14;
+  color: white;
+  padding: 2px;
+  font-weight: bold;
+}
 
 @media (min-width: 992px) {
   .payimg {
