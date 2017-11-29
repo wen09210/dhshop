@@ -12,10 +12,10 @@
             <template v-for="item in PayType">
               <Radio :label="item.No">{{item.PayTypeName}}
                 <span v-if="item.No ==='3'" class="amtDetail">
-                NT${{Math.floor(GetshowAmtData.totalAmt*1.0025/3)}}元 X3期                
+                NT${{Math.floor(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/3)}}元 X3期                
               </span>
                 <span v-else-if="item.No ==='4'" class="amtDetail">
-                NT${{Math.floor(GetshowAmtData.totalAmt*1.0175/6)}}元 X6期                
+                NT${{Math.floor(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/6)}}元 X6期                
               </span>
                 <span v-else class="amtDetail">
                 NT${{GetshowAmtData.totalAmt}}元                

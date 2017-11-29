@@ -18,7 +18,7 @@
   height: 36px;
   line-height: 34px;
   font-size: 14px;
-  margin: 5px;
+  margin: 7px;
 }
 .ivu-radio-group-button .ivu-radio-wrapper:first-child {
   border-radius: 4px 0 0 4px;
@@ -44,6 +44,11 @@
   box-shadow: -1px 0 0 0 #2d8cf0;
 }
 
+.ivu-radio-group-button .ivu-radio-wrapper-checked:hover {
+  border-color: #57a3f3;
+  box-shadow: -1px 0 0 0 #57a3f3;
+  color: #f3f3f3;
+}
 
 /* 下拉 */
 .ivu-select-single .ivu-select-selection .ivu-select-placeholder, .ivu-select-single .ivu-select-selection .ivu-select-selected-value {

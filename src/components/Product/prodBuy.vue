@@ -69,6 +69,10 @@
           <RadioGroup v-model="itemSelect" type="button" size="large">
             <template v-for="option in item">
               <Radio :label="option.ItemNo">
+                <!-- 47折標籤 -->
+                <template v-if="optionCheckActivity(option)">
+                  <div class="actBtn">47折</div>
+                </template>
                 <span>{{option.InventoryVal <= 0 ?"[預購]":""}}{{option.ItemName}}</span>
               </Radio>
             </template>
@@ -81,16 +85,36 @@
         </div>
         <div>
           <label>數量</label>
+          {{CalLargeQCal}}
           <br>
           <button class="btn btn-primary btnCust" @click="itemSize--">
             <i class="fa fa-minus" aria-hidden="true"></i>
           </button>
+          <!-- 輸入數字框 -->
           <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
           <button class="btn btn-primary btnCust" @click="itemSize++">
             <i class="fa fa-plus" aria-hidden="true"></i>
           </button>
           <span style="font-size: 2.3rem;"><b>{{itemShow.Unit}}</b></span>
-          <table class="table table-striped">
+          <!-- 折扣資訊 -->
+          <template v-if="Object.keys(LargeQCal).length > 0">
+            <span style="font-size: 2.3rem;"><br>
+            <Icon type="ios-information" size="35" color="#f60"></Icon>
+              <template v-if="LargeQCal.type==='1'">
+                <span>還差<b class="colorRed">{{LargeQCal.needCount}}</b>{{itemShow.Unit}}，即可現省${{LargeQCal.disAmt}}元起</span>
+              </template>
+              <template v-if="LargeQCal.type==='2'">
+                <span>已享優惠${{LargeQCal.disPrice}}元起<br>                  
+                  還差<b class="colorRed">{{LargeQCal.needCount}}</b>{{itemShow.Unit}}，即可現省${{LargeQCal.disAmt}}元起
+                </span>
+              </template>
+              <template v-if="LargeQCal.type==='3'">
+                <span>已優惠${{LargeQCal.disPrice}}元起</span>
+              </template>
+              </span>
+          </template>
+          <!-- 量大優惠 -->
+          <table class="table table-striped" style="margin-top:10px;">
             <tbody>
               <template v-if="BtnSpecialNumber !==null && BtnSpecialNumber.length > 0">
                 <tr>
@@ -155,6 +179,13 @@ export default {
       itemShow: {},
       itemSize: 1,
       itemSelect: '',
+      // 動態算大數量優惠差距
+      LargeQCal: {
+        type: '', // 1.未滿 2.區間 3.最後區間
+        disPrice: 0, // 已優惠金額
+        needCount: 0, // 尚差 x 數量
+        disAmt: 0 // 達數量，現省xxx元
+      },
       // 檢查是否檔期優惠
       IsActivity: false,
       // 檢查是否預購優惠
@@ -231,12 +262,49 @@ export default {
           return
         }
       })
+    },
+    CalLargeQCal() {
+      if (this.BtnSpecialNumber !== null && this.BtnSpecialNumber.length > 0) {
+        // 計算每一區間
+        for (var i = 0; i < this.BtnSpecialNumber.length; i++) {
+          console.log(i)
+          console.log(parseInt(this.BtnSpecialNumber[i].number))
+          console.log(parseInt(this.BtnSpecialNumber[i].eachdiscount))
+          var minus = parseInt(this.itemSize) - parseInt(this.BtnSpecialNumber[i].number)
+          // 第一區間(未滿)
+          if (minus < 0 && i === 0) {
+            this.LargeQCal.type = '1'
+            this.LargeQCal.needCount = -minus
+            this.LargeQCal.disAmt = parseInt(this.BtnSpecialNumber[i].number) * parseInt(this.BtnSpecialNumber[i].eachdiscount)
+            break
+          } else if (minus >= 0 && i === this.BtnSpecialNumber.length - 1) {
+            // 最後區間
+            this.LargeQCal.type = '3'
+            this.LargeQCal.disPrice = parseInt(this.itemSize) * parseInt(this.BtnSpecialNumber[i].eachdiscount)
+          } else if (minus < 0 && i !== 0) {
+            // 其他中間區間
+            this.LargeQCal.type = '2'
+            this.LargeQCal.needCount = -minus
+            this.LargeQCal.disPrice = parseInt(this.itemSize) * parseInt(this.BtnSpecialNumber[i - 1].eachdiscount)
+            this.LargeQCal.disAmt = parseInt(this.BtnSpecialNumber[i].number) * parseInt(this.BtnSpecialNumber[i].eachdiscount)
+            break
+          }
+        }
+      }
     }
   },
   methods: {
     ...mapActions([
       'IncreaseProduct'
     ]),
+    optionCheckActivity(option) {
+      if (option.ActivityStart <= new Date().getTime() / 1000 &&
+        option.ActivityEnd >= new Date().getTime() / 1000) {
+        return true
+      } else {
+        return false
+      }
+    },
     // 檢查數量是否足夠
     addCart(direct) {
       // #region
@@ -369,19 +437,27 @@ export default {
 </script>
 <style scoped>
 /*購買按鍵*/
-.btn-buy{
-  width:100%;
+
+.btn-buy {
+  width: 100%;
   margin: 2px;
 }
-.btn-direct{
-   width:100%;
+
+.btn-direct {
+  width: 100%;
   margin: 2px;
-   
-   }
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
-  border-bottom:1px solid #ccc;
-  border-top:0px;
- }
+}
+
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+  border-bottom: 1px solid #ccc;
+  border-top: 0px;
+}
+
 .linethrough {
   color: red;
   text-decoration: line-through;
@@ -437,28 +513,32 @@ export default {
 
 .inputsize {
   max-width: 100px;
-  padding: 6px 12px;
-  font-size: 14px;
+  padding: 2px 10px;
+  font-size: 18px;
   font-weight: bold;
   line-height: 1.42857143;
   color: #555;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  margin: 0px -10px !important;
+  margin: 0px -5px !important;
   height: 40px;
 }
 
 .btnCust {
   border-radius: 0px;
-  font-size: 18px;
-  background: #ff9900;
-  border: 1px solid #ff9900;
-  color:#fff;
+  font-size: 19px;
+  background: #2d8cf0;
+  border: 1px solid #2d8cf0;
+  color: #fff;
 }
 
 .buybtn {
   margin-top: 20px;
+}
+
+.colorRed {
+  color: red;
 }
 
 .activityFont {
@@ -468,7 +548,7 @@ export default {
 
 .activityName {
   margin: 5px 0px;
-  background-color: #ed3f14;
+  background-color: #f57e28;
   width: 50%;
   color: white;
   padding: 3px;
@@ -478,7 +558,7 @@ export default {
 
 .StyleNote {
   margin: 5px 0px;
-  background: #57a3f3ad;
+  background: #57a3f3;
   width: 50%;
   color: white;
   padding: 3px;
@@ -493,10 +573,33 @@ export default {
 .margintop5 {
   margin-top: 5px;
 }
-@media (max-width:768px){
-.btn-direct{
-   width:100%;
-   margin:10px 0px;
- }
+
+@media (max-width:768px) {
+  .btn-direct {
+    width: 100%;
+    margin: 10px 0px;
+  }
+  .activityName { 
+  width: 80%;
 }
+.StyleNote {
+  width: 80%;
+}
+}
+
+.actBtn {
+  background: #fac;
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  z-index: 99;
+  font-size: 15px;
+  color: #FFFFFF;
+  text-align: center;
+  left: -20px;
+  top: -13px;
+  border-radius: 80%;
+  transform: rotate(-20deg);
+}
+
 </style>
