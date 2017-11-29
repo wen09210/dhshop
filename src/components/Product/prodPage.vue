@@ -48,9 +48,9 @@ export default {
     },
     // 控制全局右邊按鈕隱藏
     showMessageBtn() {
-      console.log(this.hideAffix)
+      // console.log(this.hideAffix)
       if (document.getElementById('wh-widget-send-button') !== null) {
-        console.log(document.getElementById('wh-widget-send-button'))
+        // console.log(document.getElementById('wh-widget-send-button'))
         if (this.hideAffix) {
           document.getElementById('wh-widget-send-button').style.visibility = 'visible'
         } else {

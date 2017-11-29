@@ -99,7 +99,9 @@
           <!-- 折扣資訊 -->
           <template v-if="Object.keys(LargeQCal).length > 0">
             <span style="font-size: 2.3rem;"><br>
-            <Icon type="ios-information" size="35" color="#f60"></Icon>
+            <template v-if="LargeQCal.type!==''">
+              <Icon type="ios-information" size="35" color="#f60"></Icon>
+            </template>
               <template v-if="LargeQCal.type==='1'">
                 <span>還差<b class="colorRed">{{LargeQCal.needCount}}</b>{{itemShow.Unit}}，即可現省${{LargeQCal.disAmt}}元起</span>
               </template>
@@ -267,9 +269,9 @@ export default {
       if (this.BtnSpecialNumber !== null && this.BtnSpecialNumber.length > 0) {
         // 計算每一區間
         for (var i = 0; i < this.BtnSpecialNumber.length; i++) {
-          console.log(i)
-          console.log(parseInt(this.BtnSpecialNumber[i].number))
-          console.log(parseInt(this.BtnSpecialNumber[i].eachdiscount))
+          // console.log(i)
+          // console.log(parseInt(this.BtnSpecialNumber[i].number))
+          // console.log(parseInt(this.BtnSpecialNumber[i].eachdiscount))
           var minus = parseInt(this.itemSize) - parseInt(this.BtnSpecialNumber[i].number)
           // 第一區間(未滿)
           if (minus < 0 && i === 0) {
