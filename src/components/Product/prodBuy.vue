@@ -83,6 +83,29 @@
             </option>
           </select> -->
         </div>
+        <!-- 量大優惠 -->
+        <table class="table table-striped" style="margin-top:10px;">
+          <tbody>
+            <template v-if="BtnSpecialNumber !==null && BtnSpecialNumber.length > 0">
+              <tr>
+                <td colspan="2"><b>優惠方案</b></td>
+              </tr>
+              <template v-for="(itemBtn, i) in BtnSpecialNumber">
+                <tr>
+                  <td>
+                    <label>方案 {{i+1}}.</label>
+                  </td>
+                  <td style="color: red;">
+                    <div v-html="itemBtn.title"></div>
+                    <!-- <input type="radio" name="spec" @click="spcBtn(itemBtn.number)"> {{itemBtn.title}}
+                      </input> -->
+                  </td>
+                </tr>
+              </template>
+            </template>
+          </tbody>
+        </table>
+        <!-- 量大優惠 end-->
         <div>
           <label>數量</label>
           {{CalLargeQCal}}
@@ -104,51 +127,29 @@
             </template>
               <template v-if="LargeQCal.type==='1'">
                 <span>還差<b class="colorRed">{{LargeQCal.needCount}}</b>{{itemShow.Unit}}，即可現省${{LargeQCal.disAmt}}元起</span>
-              </template>
-              <template v-if="LargeQCal.type==='2'">
-                <span>已享優惠${{LargeQCal.disPrice}}元起<br>                  
+          </template>
+          <template v-if="LargeQCal.type==='2'">
+            <span>已享優惠${{LargeQCal.disPrice}}元起<br>                  
                   還差<b class="colorRed">{{LargeQCal.needCount}}</b>{{itemShow.Unit}}，即可現省${{LargeQCal.disAmt}}元起
                 </span>
-              </template>
-              <template v-if="LargeQCal.type==='3'">
-                <span>已優惠${{LargeQCal.disPrice}}元起</span>
-              </template>
-              </span>
           </template>
-          <!-- 量大優惠 -->
-          <table class="table table-striped" style="margin-top:10px;">
-            <tbody>
-              <template v-if="BtnSpecialNumber !==null && BtnSpecialNumber.length > 0">
-                <tr>
-                  <td colspan="2"><b>優惠方案</b></td>
-                </tr>
-                <template v-for="(itemBtn, i) in BtnSpecialNumber">
-                  <tr>
-                    <td>
-                      <label>方案 {{i+1}}.</label>
-                    </td>
-                    <td style="color: red;">
-                      <div v-html="itemBtn.title"></div>
-                      <!-- <input type="radio" name="spec" @click="spcBtn(itemBtn.number)"> {{itemBtn.title}}
-                      </input> -->
-                    </td>
-                  </tr>
-                </template>
-              </template>
-            </tbody>
-          </table>
-        </div>
-        <div class="buybtn">
-          <div class="col-md-5 col-xs-12">
-            <button class="btn-direct btn btn-primary btn-lg" @click="addCart('direct')">直接購買</button>
-          </div>
-          <div class="col-md-5 col-xs-12">
-            <button class="btn-buy btn btn-danger btn-lg" @click="addCart('')">加入購物車</button>
-          </div>
-        </div>
-      </div>
-    </div>
+          <template v-if="LargeQCal.type==='3'">
+            <span>已優惠${{LargeQCal.disPrice}}元起</span>
+          </template>
+          </span>
+</template>
+</div>
+<div class="buybtn">
+  <div class="col-md-5 col-xs-12">
+    <button class="btn-direct btn btn-primary btn-lg" @click="addCart('direct')">直接購買</button>
   </div>
+  <div class="col-md-5 col-xs-12">
+    <button class="btn-buy btn btn-danger btn-lg" @click="addCart('')">加入購物車</button>
+  </div>
+</div>
+</div>
+</div>
+</div>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
@@ -196,7 +197,7 @@ export default {
     }
   },
   created() {
-    console.log(this.$route.params.prodID)
+    // console.log(this.$route.params.prodID)
     // 取回商品資料
     axios.get(`/api/Product/GetProductDetail?prodID= ${this.$route.params.prodID}`)
       .then((response) => {
@@ -213,7 +214,7 @@ export default {
           // 大坪數按鈕
           this.BtnSpecialNumber = JSON.parse(this.item[0].BtnSpecialNumber)
           // this.BtnSpecialNumber = JSON.parse('')
-          console.log(this.BtnSpecialNumber)
+          // console.log(this.BtnSpecialNumber)
           this.$parent.$emit('passProdInf', this.itemShow)
         }
       })
@@ -396,7 +397,7 @@ export default {
     checkProdType(type) {
       let resType = this.GetShoppingCartItem.find(x => x.prodType === type)
       if (!resType) {
-        console.log(true)
+        // console.log(true)
         return true
       } else {
         this.$Modal.confirm({
@@ -581,12 +582,12 @@ export default {
     width: 100%;
     margin: 10px 0px;
   }
-  .activityName { 
-  width: 80%;
-}
-.StyleNote {
-  width: 80%;
-}
+  .activityName {
+    width: 80%;
+  }
+  .StyleNote {
+    width: 80%;
+  }
 }
 
 .actBtn {

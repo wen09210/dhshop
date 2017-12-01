@@ -79,12 +79,12 @@ const router = new Router({
   ]
 })
 router.beforeEach((to, from, next) => {
-  console.log(to.fullPath)
+  // console.log(to.fullPath)
   Cookies.set('userlastUrl', to.fullPath)
   // 進入商品按鈕可能消失，故觸動顯示
-  if (document.getElementById('wh-widget-send-button') !== null) {
-    document.getElementById('wh-widget-send-button').style.visibility = 'visible'
-  }
+  // if (document.getElementById('wh-widget-send-button') !== null) {
+  //   document.getElementById('wh-widget-send-button').style.visibility = 'visible'
+  // }
   next()
 })
 export default router

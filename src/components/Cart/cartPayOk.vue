@@ -97,12 +97,28 @@
         </div>
       </div>
     </template>
+    <div style="display:inline;">
+      <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/1021000868/?value=2000.00&currency_code=TWD&label=E7ROCLWmw3QQpPns5gM&guid=ON&script=0" />
+    </div>
   </div>
 </template>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
 <script>
 import Lockr from 'lockr'
+import { mapGetters } from 'vuex'
 export default {
   created() {
+    if(Object.keys(this.GetshowAmtData).length > 0) {
+      this.gaValue = this.GetshowAmtData.totalAmt
+      alert(this.gaValue)
+    }
+    /* eslint-disable */
+    var google_conversion_id = 1021000868
+    var google_conversion_label = 'E7ROCLWmw3QQpPns5gM'
+    var google_conversion_value = this.gaValue
+    var google_conversion_currency = 'TWD'
+    var google_remarketing_only = false
+    /* eslint-enable */
     if (this.$decodeCookies.getJSON('PayOk') !== undefined) {
       this.payInfo = this.$decodeCookies.getJSON('PayOk')
       if (this.payInfo.status === 'ok') {
@@ -133,10 +149,16 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters([
+      'GetshowAmtData'
+    ])
+  },
   data() {
     return {
       payInfo: {},
-      CartStepBar: 3
+      CartStepBar: 3,
+      gaValue: 0
     }
   }
 }

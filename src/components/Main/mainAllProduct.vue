@@ -45,8 +45,13 @@
             <!-- 右下圖 -->
             <div class="col-md-12 noPadding">
               <router-link to="/Product/3">
-                <div class="col-md-12 col-xs-12 padding5">
-                  <img src="../../assets/temporyPic/Index/paintroller.jpg" class="item_category firstPIC imgHover">
+                <div class="col-md-6 col-xs-6 padding5">
+                  <img src="../../assets/temporyPic/Index/NEWsamll7.1b5bff1.jpg" class="item_category firstPIC imgHover">
+                </div>
+              </router-link>
+              <router-link to="/Product/22">
+                <div class="col-md-6 col-xs-6 padding5">
+                  <img src="../../assets/temporyPic/Index/F&W_combine sale.jpg" class="item_category imgHover">
                 </div>
               </router-link>
             </div>
