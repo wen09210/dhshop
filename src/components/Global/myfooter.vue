@@ -197,7 +197,7 @@ export default {
     ]),
     updateHis() {
       let oldHistory = Lockr.get('oldCartItem')
-      console.log(oldHistory)
+      // console.log(oldHistory)
       this.oldHistory = oldHistory
     }
   },

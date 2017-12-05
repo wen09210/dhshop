@@ -114,10 +114,9 @@ export default {
     BuyerDetail.MemberOwnCode = state.LoginInfo.MemberOwnCode
     axios.post(`/api/Ecpay/PostGetTotalAmt?`, BuyerDetail)
       .then((response) => {
-        console.log(response)
+        // console.log(response)
         // writejsonerr
         if (response.data.statu === 'err' || response.data === 'couponError') {
-          console.log('test')
           Notice.warning({
             title: 'dHSHOP 提醒',
             desc: response.data.msg
