@@ -10,17 +10,33 @@
         <FormItem label="付款方式:">
           <RadioGroup v-model="BuyerDetail.PayType" size="large" vertical v-if="PayType.length >0">
             <template v-for="item in PayType">
-              <Radio :label="item.No">{{item.PayTypeName}}
-                <span v-if="item.No ==='3'" class="amtDetail">
+              <template v-if="item.No ==='5' && (BuyerDetail.R_City==='澎湖縣' ||BuyerDetail.R_City==='金門縣'||BuyerDetail.R_City==='連江縣')">
+                <Radio :label="item.No" disabled>
+                  {{item.PayTypeName}}
+                  <span class="amtDetail">
+                NT${{GetshowAmtData.totalAmt}}元
+                <span class="col-sm-10 creditNote">(※離島地區因貨運限制，尚不能選擇貨到付款)</span>                           
+              </span>
+                </Radio>
+              </template>
+              <template v-else>
+                <Radio :label="item.No">
+                  {{item.PayTypeName}}
+                  <span v-if="item.No ==='3'" class="amtDetail">
                 NT${{Math.floor(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/3)}}元 X3期                
               </span>
-                <span v-else-if="item.No ==='4'" class="amtDetail">
+                  <span v-else-if="item.No ==='4'" class="amtDetail">
                 NT${{Math.floor(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/6)}}元 X6期                
               </span>
-                <span v-else class="amtDetail">
-                NT${{GetshowAmtData.totalAmt}}元                
+                  <span v-else-if="item.No ==='5'" class="amtDetail">
+                NT${{GetshowAmtData.totalAmt}}元
+                <span class="col-sm-10 creditNote">(※預購商品尚不能選擇貨到付款)</span>                             
               </span>
-              </Radio>
+              <span v-else class="amtDetail">
+                NT${{GetshowAmtData.totalAmt}}元
+              </span>
+                </Radio>
+              </template>
             </template>
             <!-- <Radio label="1">ATM付款
               <span class="amtDetail">NT${{GetshowAmtData.totalAmt}}元</span>
@@ -39,7 +55,6 @@
             </Radio> -->
           </RadioGroup>
           <!-- <span class="col-sm-10 creditNote">(※除不盡餘數於第一期收取)</span> -->
-          <span class="col-sm-10 creditNote">(※預購商品不接受貨到付款)</span>
         </FormItem>
         <template v-if="Object.keys(BuyerDetail).length >0">
           <FormItem label="發票:">

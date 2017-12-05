@@ -271,6 +271,9 @@ export default {
     width: 30px;
     height: 30px;
   }
+  .topdownMargin10 {
+    padding: 5px;
+  }
 }
 
 
