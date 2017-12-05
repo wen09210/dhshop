@@ -7,11 +7,29 @@
     </div>
     <div class="row buydiv">
       <div :class="second">
-        <img :src="itemShow.ImgUrl| UrlTransIP" class="img-responsive">
+        <template v-for="(prod,i) in item">
+          <template v-if="i===isSelectedCarousel">
+            <div class="prodImage">
+              <img :src="prod.ImgUrl| UrlTransIP" class="img-responsive">
+            </div>
+          </template>
+        </template>
+        <!-- 輪播圖 -->
+        <swiper :options="swiperOptionThumbs" ref="swiperThumbs">
+          <template v-for="(prod,i) in item">
+            <swiper-slide :class="{'selectedCarousel':i===isSelectedCarousel}">
+              <img :src="prod.ImgUrl| UrlTransIP" class="img-responsive" @click="selectCarousel(i,prod.ItemNo)">
+            </swiper-slide>
+          </template>
+          <div class="swiper-button-prev swiper-button-white" style="left:1px" slot="button-prev"></div>
+          <div class="swiper-button-next swiper-button-white" style="right:1px" slot="button-next"></div>
+        </swiper>
       </div>
-      <!-- -->
+      <!-- 輪播圖  end-->
+
       <div :class="third">
         <!-- <h1>{{$route.params.prodID }}</h1> -->
+        <!-- <h1>{{$route.query }}</h1> -->
         <h3 class="titleProd">{{itemShow.InventoryVal <= 0 ?"[預購]":""}}{{itemShow.ProdName+'—'+itemShow.ItemName}}</h3>
         <h3 class="descriptProd">{{itemShow.Description}}</h3>
         <template v-if="checkActivity">
@@ -67,21 +85,16 @@
           <label>樣式</label>
           {{getItem}}
           <RadioGroup v-model="itemSelect" type="button" size="large">
-            <template v-for="option in item">
+            <template v-for="(option,i) in item">
               <Radio :label="option.ItemNo">
-                <!-- 47折標籤 -->
+                <!-- 47折標籤 暫時人工改-->
                 <template v-if="optionCheckActivity(option)">
-                  <div class="actBtn">47折</div>
+                  <div class="actBtn">49折</div>
                 </template>
-                <span>{{option.InventoryVal <= 0 ?"[預購]":""}}{{option.ItemName}}</span>
+                <span @click="selectCarousel(i,option.ItemNo)">{{option.InventoryVal <= 0 ?"[預購]":""}}{{option.ItemName}}</span>
               </Radio>
             </template>
           </RadioGroup>
-          <!-- <select class="selectpicker" v-model="itemSelect" @change="getItem">
-            <option v-for="option in item" :value="option.ItemNo">
-              {{option.ItemName}}
-            </option>
-          </select> -->
         </div>
         <!-- 量大優惠 -->
         <table class="table table-striped" style="margin-top:10px;">
@@ -152,10 +165,12 @@
 </div>
 </template>
 <script>
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import Lockr from 'lockr'
 import { mapActions, mapGetters } from 'vuex'
 import axios from 'axios'
 export default {
-  components: {},
+  components: { swiper, swiperSlide },
   // 大小版css控制
   props: {
     first: {
@@ -181,6 +196,7 @@ export default {
       // 樣式資料
       itemShow: {},
       itemSize: 1,
+      // 選擇的樣式id
       itemSelect: '',
       // 動態算大數量優惠差距
       LargeQCal: {
@@ -193,10 +209,21 @@ export default {
       IsActivity: false,
       // 檢查是否預購優惠
       IsPreProduct: false,
-      BtnSpecialNumber: []
+      BtnSpecialNumber: [],
+      // // 輪播參數
+      swiperOptionThumbs: {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev'
+        // slidesOffsetBefore: 10
+      },
+      // 已選擇的輪播圖
+      isSelectedCarousel: 0
     }
   },
   created() {
+    Lockr.set('utmTrack', JSON.stringify(this.$route.query))
     // console.log(this.$route.params.prodID)
     // 取回商品資料
     axios.get(`/api/Product/GetProductDetail?prodID= ${this.$route.params.prodID}`)
@@ -256,6 +283,7 @@ export default {
       }
       return this.itemSize
     },
+    // 樣式選擇改變，切換呈現
     getItem() {
       // console.log(this.itemShow.ItemNo)
       this.item.forEach(val => {
@@ -433,6 +461,15 @@ export default {
           name: 'cart'
         })
       }
+    },
+    // 選擇輪播圖
+    selectCarousel(index, itemNo) {
+      this.itemSelect = itemNo
+      this.isSelectedCarousel = index
+      // 移至該位置
+      // console.log(index)
+      const swiperThumbs = this.$refs.swiperThumbs.swiper
+      swiperThumbs.slideTo(index, 1000, false) // 切换到第一个slide，速度为1秒
     }
   }
 }
@@ -604,5 +641,11 @@ export default {
   border-radius: 80%;
   transform: rotate(-20deg);
 }
-
+.selectedCarousel {
+  border: 4px solid #2d8cf0;
+  cursor: pointer; 
+}
+.prodImage{
+  margin-bottom: 5px;
+}
 </style>

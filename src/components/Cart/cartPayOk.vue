@@ -110,7 +110,7 @@ export default {
   created() {
     if(Object.keys(this.GetshowAmtData).length > 0) {
       this.gaValue = this.GetshowAmtData.totalAmt
-      alert(this.gaValue)
+      // alert(this.gaValue)
     }
     /* eslint-disable */
     var google_conversion_id = 1021000868

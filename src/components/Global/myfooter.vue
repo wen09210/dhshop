@@ -124,6 +124,10 @@
         </div>
       </div>
     </div>
+    <!-- fb messager -->
+    <div class="fb_chat">
+      <a href="https://m.me/68462466158853" target="_blank"><img src="../../assets/icon/fbmessenger.png" alt=""></a>
+    </div>
     <div class="copyright col-md-12  col-xs-12">
       <p>Copyright © 2016 dPlus Co. Ltd.
         <span>Powered by <a href="https://www.dhshop.tw/" title="" target="_blank"> dHSHOP </a></span>
@@ -218,9 +222,11 @@ export default {
   z-index: 9999999;
   margin-top: 100px;
 }
-.custTABLE{
+
+.custTABLE {
   font-size: 1.7rem;
 }
+
 div .myrow {
   float: none;
   background: #f7f7f7;
@@ -313,11 +319,33 @@ div .copyright {
 .slide-fade-enter,
 .slide-fade-leave-to
 /* .slide-fade-leave-active for below version 2.1.8 */
+
 {
   transform: translateY(10px);
   opacity: 0;
 }
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-    padding: 5px;
+
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+  padding: 5px;
 }
+
+.footer_title .style3 .col-md-7{
+   text-align: left;
+ }
+ .fb_chat img{
+   z-index: 2;
+   position: fixed;
+   bottom: 30px;
+   right: 20px;
+   cursor: pointer;
+   width:50px;
+   height:50px;
+   border-radius:100px;
+		  
+ }
 </style>

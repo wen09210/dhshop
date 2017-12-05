@@ -33,6 +33,11 @@ ul.juicer-feed.j-initialized.j-modern.j-desktop.polaroid.loaded>h1.referral {
 .referral{
   display:none;
 }
+.juicer-feed h1.referral a {
+    color: #f05a4b;
+    display: inline-block;
+    display: none !important;
+}
 /* li.feed-item.juicer.image-post,ul.juicer-feed.j-initialized.j-modern.polaroid.loaded>h1.referral {
    display: none;
 }

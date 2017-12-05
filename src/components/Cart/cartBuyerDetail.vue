@@ -36,7 +36,8 @@
               <Input v-model="BuyerDetail.P_Address" placeholder="地址..."></Input>
             </FormItem>
             <FormItem label="訂購人手機:" prop="P_Phone">
-              <Input v-model="BuyerDetail.P_Phone" placeholder="09xxxxxx."></Input>
+              <Input v-model="BuyerDetail.P_Phone" placeholder="09xxxxxx." :maxlength=10></Input>
+              <div>*此為接收dHSHOP訂單通知，請確實填寫(如門號有啟動拒收企業簡訊，請關閉)</div>              
             </FormItem>
             <FormItem label="E-MAIL:" prop="P_Mail">
               <Input v-model="BuyerDetail.P_Mail" placeholder="xxx@gmail.com"></Input>
@@ -85,7 +86,7 @@
               <Input v-model="BuyerDetail.R_Address" placeholder="收件人地址"></Input>
             </FormItem>
             <FormItem label="收件人手機:" prop="R_Phone">
-              <Input v-model="BuyerDetail.R_Phone" placeholder="09xxxxxx"></Input>
+              <Input v-model="BuyerDetail.R_Phone" placeholder="09xxxxxx" :maxlength=10></Input>
               <div>*此為接收dHSHOP訂單通知，請確實填寫(如門號有啟動拒收企業簡訊，請關閉)</div>
             </FormItem>
             <FormItem label="E-MAIL:" prop="R_Mail">
@@ -164,13 +165,13 @@ export default {
     //   }
     // }
     // 驗證電話為至少7位數字
-    const valiNumber = (rule, value, callback) => {
-      var regexp = new RegExp(/\d{7,}$/, 'i')
-      var res = regexp.test(value)
-      if (!res) {
-        callback(new Error('電話格式錯誤'))
-      }
-    }
+    // const valiNumber = (rule, value, callback) => {
+    //   var regexp = new RegExp(/\d{7,}$/, 'i')
+    //   var res = regexp.test(value)
+    //   if (!res) {
+    //     callback(new Error('電話格式錯誤'))
+    //   }
+    // }
     // console.log(TWZipcode)
     return {
       TWZipcode: TWZipcode,
@@ -187,8 +188,8 @@ export default {
         ],
         P_Phone: [
           { required: true, message: '訂購人電話不能為空', trigger: 'blur' },
-          { type: 'string', max: 10, message: '請輸入正確號碼(長度是否正確)', trigger: 'blur' },
-          { validator: valiNumber, trigger: 'blur' }
+          { type: 'string', max: 10, message: '請輸入正確號碼(長度是否正確)', trigger: 'blur' }
+          // { validator: valiNumber, trigger: 'blur' }
         ],
         P_Address: [
           { required: true, message: '訂購人地址不能為空', trigger: 'blur' }
@@ -202,8 +203,8 @@ export default {
         ],
         R_Phone: [
           { required: true, message: '收件人電話不能為空', trigger: 'blur' },
-          { type: 'string', max: 10, message: '請輸入正確號碼(長度是否正確)', trigger: 'blur' },
-          { validator: valiNumber, trigger: 'blur' }
+          { type: 'string', max: 10, message: '請輸入正確號碼(長度是否正確)', trigger: 'blur' }
+          // { validator: valiNumber, trigger: 'blur' }
         ],
         R_Address: [
           { required: true, message: '收件人地址不能為空', trigger: 'blur' }
@@ -306,6 +307,7 @@ export default {
         }
       })
       if (errMsg !== '' || errMsg2 !== '') {
+        console.log('val')
         // this.$noty.ShowAlert(errMsg + errMsg2, 'warning')
         this.$Notice.warning({
           title: 'dHSHOP 提醒',
@@ -336,6 +338,22 @@ export default {
         this.BuyerDetail.R_Address = ''
         this.BuyerDetail.R_Mail = ''
       }
+    },
+    test(name1, name2) {
+      // 訂購人驗證
+      this.$refs[name1].validate((valid) => {
+        if (!valid) {
+          console.log(valid)
+          console.log('訂購人資料有誤<br>')
+        }
+      })
+      // 收件人驗證
+      this.$refs[name2].validate((valid) => {
+        if (!valid) {
+          console.log(valid)
+          console.log('收件人資料有誤<br>')
+        }
+      })
     }
   }
 }

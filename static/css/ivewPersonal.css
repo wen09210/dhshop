@@ -21,7 +21,7 @@
   margin: 7px;
 }
 .ivu-radio-group-button .ivu-radio-wrapper:first-child {
-  border-radius: 4px 0 0 4px;
+  border-radius: 0px 0px 0px 0px;
   border-left: 1px solid #2d8cf0;
 }
 .ivu-radio-group-button .ivu-radio-wrapper {
@@ -49,9 +49,15 @@
   box-shadow: -1px 0 0 0 #57a3f3;
   color: #f3f3f3;
 }
-
+.ivu-radio-group-button .ivu-radio-wrapper:last-child {
+  border-radius: 0 0px 0px 0;
+}
 /* 下拉 */
+.ivu-select-selection{
+ border: 0px solid #dddee1;
+}
 .ivu-select-single .ivu-select-selection .ivu-select-placeholder, .ivu-select-single .ivu-select-selection .ivu-select-selected-value {
-  font-size: 16px !important;
+  font-size: 20px !important;
   border: 1px solid #8c8d8e;
+  border-radius: 4px;
 }

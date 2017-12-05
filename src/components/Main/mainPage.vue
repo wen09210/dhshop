@@ -16,7 +16,11 @@
   // import mainArtical from './mainAtrical.vue'
   import mainAllProduct from './mainAllProduct'
   import mainIgFrame from './mainIgFrame.vue'
+  import Lockr from 'lockr'
   export default {
+    created() {
+      Lockr.set('utmTrack', JSON.stringify(this.$route.query))
+    },
     components: {
       mainTop,
       mainIntro,

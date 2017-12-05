@@ -2,6 +2,8 @@ import types from './types'
 import axios from 'axios'
 import { ecpost } from '../extension/ecpost'
 import router from '../router'
+import Lockr from 'lockr'
+
 let Notice
 
 export default {
@@ -46,6 +48,7 @@ export default {
     $Spin.show()
     BuyerDetail.listItem = state.shoppingCartItem
     BuyerDetail.CouponCode = state.CouponCode
+    BuyerDetail.utmTrackUrl = Lockr.get('utmTrack')
     console.log(BuyerDetail)
     console.log(state.LoginInfo.JWTAuthorization)
     // 貨到付款

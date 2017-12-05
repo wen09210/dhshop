@@ -78,9 +78,14 @@
               <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
               <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
             </swiper> -->
-            <router-link to="/Product/21">
+            <!-- <router-link to="/Product/21">
               <div class="col-md-4 topdownMargin10">
                 <img src="../../assets/temporyPic/Index/paint.jpg" class="item_category imgHover">
+              </div>
+            </router-link> -->
+            <router-link to="/Product/2">
+              <div class="col-md-4  topdownMargin10">
+                <img src="../../assets/temporyPic/Index/led_lighting.jpg" class="item_category imgHover">
               </div>
             </router-link>
             <router-link to="/Product/8">
