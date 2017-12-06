@@ -49,8 +49,7 @@ export default {
     BuyerDetail.listItem = state.shoppingCartItem
     BuyerDetail.CouponCode = state.CouponCode
     BuyerDetail.utmTrackUrl = Lockr.get('utmTrack')
-    console.log(BuyerDetail)
-    console.log(state.LoginInfo.JWTAuthorization)
+    // console.log(state.LoginInfo.JWTAuthorization)
     // 貨到付款
     if (BuyerDetail.PayType === '5') {
       axios.post(`/api/Ecpay/PosttoCashonDel`, BuyerDetail, {
@@ -58,7 +57,7 @@ export default {
           'Authorization': state.LoginInfo.JWTAuthorization
         }
       }).then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         if (response.data.statu === 'err') {
           Notice.warning({
             title: 'dHSHOP 提醒',
@@ -88,7 +87,7 @@ export default {
           'Authorization': state.LoginInfo.JWTAuthorization
         }
       }).then(function(response) {
-        console.log(response.data)
+        // console.log(response.data)
         if (response.data.statu === 'err') {
           Notice.warning({
             title: 'dHSHOP 提醒',
@@ -135,10 +134,10 @@ export default {
     commit(types.SetCouponCode, couponCode)
   },
   [types.PostLogin]({ commit }, MemberAccount) {
-    console.log(MemberAccount)
+    // console.log(MemberAccount)
     axios.post('/api/MemberAccount/Login', MemberAccount)
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         if (response.data.statu === 'err') {
           Notice.warning({
             title: 'dHSHOP 提醒',
@@ -160,7 +159,7 @@ export default {
   [types.PostAnoyLogin]({ commit }) {
     axios.post('/api/MemberAccount/AnonymousLogin')
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         if (response.data.statu === 'err') {
           Notice.warning({
             title: 'dHSHOP 提醒',
@@ -184,10 +183,10 @@ export default {
     commit(types.LoginOut)
   },
   [types.PostRegister]({ commit }, MemberAccount) {
-    console.log(MemberAccount)
+    // console.log(MemberAccount)
     axios.post('/api/MemberAccount/Register', MemberAccount)
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         if (response.data.statu === 'err') {
           Notice.warning({
             title: 'dHSHOP 提醒',

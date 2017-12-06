@@ -103,7 +103,7 @@ export default {
           this.searchData
         )
         .then((response) => {
-          console.log(response)
+          // console.log(response)
           if (response.data.statu === 'err') {
             // this.$noty.ShowAlert(response.data.msg, 'warning')
             this.$Notice.warning({
@@ -111,7 +111,7 @@ export default {
               desc: response.data.msg
             })
           }
-          console.log(response.data.data.orderData)
+          // console.log(response.data.data.orderData)
           this.orderData = response.data.data
         })
         .catch((err) => console.log(err))

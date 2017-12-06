@@ -22,13 +22,18 @@
               <template v-else>
                 <Radio :label="item.No">
                   {{item.PayTypeName}}
-                  <span v-if="item.No ==='3'" class="amtDetail">
-                NT${{Math.floor(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/3)}}元 X3期                
+               </span>
+              <span v-if="item.No ==='1'" class="amtDetail">
+                NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000))}}元
+                <span v-if="parseInt(item.CreditRate)<0">(現省{{-Math.ceil(GetshowAmtData.totalAmt*(item.CreditRate/1000))}}元)</span>         
+              </span>
+                  <span v-else-if="item.No ==='3'" class="amtDetail">
+                NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/3)}}元 X3期                
               </span>
                   <span v-else-if="item.No ==='4'" class="amtDetail">
-                NT${{Math.floor(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/6)}}元 X6期                
+                NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/6)}}元 X6期                
               </span>
-                  <span v-else-if="item.No ==='5'" class="amtDetail">
+              <span v-else-if="item.No ==='5'" class="amtDetail">
                 NT${{GetshowAmtData.totalAmt}}元
                 <span class="col-sm-10 creditNote">(※預購商品尚不能選擇貨到付款)</span>                             
               </span>

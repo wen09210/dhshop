@@ -17,7 +17,7 @@ export default {
     itemSize,
     prodType
   }) {
-    console.log(itemShow)
+    // console.log(itemShow)
     let sameProd = false
     state.shoppingCartItem.forEach(function(el) {
       if (el.prodID === itemShow.ProdID &&
@@ -74,7 +74,7 @@ export default {
     })
   },
   [types.IncreaseAddProduct](state, item) {
-    console.log(item)
+    // console.log(item)
     let sameProd = false
     state.shoppingCartItem.forEach(function(el) {
       if (el.prodID === item.ProdID &&
@@ -125,9 +125,9 @@ export default {
     }
   },
   [types.ReduceProduct](state, reduceNo) {
-    console.log(reduceNo)
+    // console.log(reduceNo)
     for (var i = 0; i < state.shoppingCartItem.length; i++) {
-      console.log(state.shoppingCartItem[i])
+      // console.log(state.shoppingCartItem[i])
       for (var s = 0; s < reduceNo.length; s++) {
         if (state.shoppingCartItem[i].no === reduceNo[s]) {
           state.shoppingCartItem.splice(i, 1)
@@ -142,7 +142,7 @@ export default {
   // 購物車商品 + 數量
   [types.addCartCount](state, item) {
     let cartItem = state.shoppingCartItem.find(x => x.no === item.no)
-    console.log(cartItem)
+    // console.log(cartItem)
     if (cartItem.count <= 200) {
       cartItem.count++
     }
@@ -152,7 +152,7 @@ export default {
   // 購物車商品 - 數量
   [types.minusCartCount](state, item) {
     let cartItem = state.shoppingCartItem.find(x => x.no === item.no)
-    console.log(cartItem)
+    // console.log(cartItem)
     if (cartItem.count >= 2) {
       cartItem.count--
     }
@@ -175,10 +175,10 @@ export default {
     }
   },
   [types.PostGetTotalAmt](state, showAmt) {
-    console.log('test2')
+    // console.log('test2')
     // showAmt裡 status
     if (showAmt.status === 'err' || showAmt.status === 'couponError') {
-      console.log('test')
+      // console.log('test')
       Notice.warning({
         title: 'dHSHOP 提醒',
         desc: showAmt.errMsg
@@ -198,13 +198,13 @@ export default {
     state.CouponCode = couponCode
   },
   [types.PostLogin](state, logininfo) {
-    console.log(logininfo)
+    // console.log(logininfo)
     state.LoginInfo = logininfo
     state.openLoginModal = false
   },
   // 無痕登入
   [types.PostAnoyLogin](state, logininfo) {
-    console.log(logininfo)
+    // console.log(logininfo)
     state.LoginInfo = logininfo
     state.openLoginModal = false
   },
@@ -217,7 +217,7 @@ export default {
     })
   },
   [types.PostRegister](state, logininfo) {
-    console.log(logininfo)
+    // console.log(logininfo)
     state.LoginInfo = logininfo
   },
   [types.SetLoginModal](state, setvalue) {

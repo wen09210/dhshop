@@ -197,7 +197,7 @@ export default {
       'GetCouponCode'
     ]),
     caculateAmt() {
-      console.log('caculateAmt')
+      // console.log('caculateAmt')
       // 數量改變回後端檢核價錢
       var a = []
       this.GetShoppingCartItem.forEach((item) => {

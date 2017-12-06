@@ -122,7 +122,7 @@ export default {
     ]),
     // 切換caresoul
     changeCarousel(index) {
-      console.log(index)
+      // console.log(index)
       for (var item in this.CtrlPanel) {
         this.CtrlPanel[item] = false
       }
