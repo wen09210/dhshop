@@ -34,10 +34,11 @@
                 </Col>
               </Row>
               <Input v-model="BuyerDetail.P_Address" placeholder="地址..."></Input>
+              <div class="alertDist">{{alertDist}}</div>
             </FormItem>
             <FormItem label="訂購人手機:" prop="P_Phone">
               <Input v-model="BuyerDetail.P_Phone" placeholder="09xxxxxx." :maxlength=10></Input>
-              <div>*此為接收dHSHOP訂單通知，請確實填寫(如門號有啟動拒收企業簡訊，請關閉)</div>
+              <div class="alertPhone">*此為接收dHSHOP訂單通知，請確實填寫(如門號有啟動拒收企業簡訊，請關閉)</div>
             </FormItem>
             <FormItem label="E-MAIL:" prop="P_Mail">
               <Input v-model="BuyerDetail.P_Mail" placeholder="xxx@gmail.com"></Input>
@@ -84,11 +85,11 @@
                 </Col>
               </Row>
               <Input v-model="BuyerDetail.R_Address" placeholder="收件人地址"></Input>
-              <span>{{alertDist()}}</span>
+              <div class="alertDist">{{alertDist}}</div>
             </FormItem>
             <FormItem label="收件人手機:" prop="R_Phone">
               <Input v-model="BuyerDetail.R_Phone" placeholder="09xxxxxx" :maxlength=10></Input>
-              <div>*此為接收dHSHOP訂單通知，請確實填寫(如門號有啟動拒收企業簡訊，請關閉)</div>
+              <div class="alertPhone">*此為接收dHSHOP訂單通知，請確實填寫(如門號有啟動拒收企業簡訊，請關閉)</div>
             </FormItem>
             <FormItem label="E-MAIL:" prop="R_Mail">
               <Input v-model="BuyerDetail.R_Mail" placeholder="xxx@gmail.com"></Input>
@@ -236,7 +237,8 @@ export default {
       }
     },
     alertDist() {
-      if (this.BuyerDetail.R_City === '澎湖縣' || this.BuyerDetail.R_City === '金門縣' || this.BuyerDetail.R_City === '連江縣') {
+      if (this.BuyerDetail.R_City === '澎湖縣' || this.BuyerDetail.R_City === '金門縣' || this.BuyerDetail.R_City === '連江縣' ||
+        this.BuyerDetail.P_City === '澎湖縣' || this.BuyerDetail.P_City === '金門縣' || this.BuyerDetail.P_City === '連江縣') {
         return '外島地區因貨運區域限制，將因地區酌收不同運費金額'
       }
     }
@@ -376,11 +378,16 @@ input.largerCheckbox {
   text-align: center;
 }
 
-
-.amtDetail {
+.alertDist {
   color: #c90026;
   font-weight: bold;
-  margin-left: 15PX;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.alertPhone {
+  font-size: 16px;
+  line-height: 16px;
 }
 
 </style>

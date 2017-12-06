@@ -204,5 +204,10 @@ export default {
 .ivu-radio-large.ivu-radio-wrapper {
   font-size: 16px;
 }
-
+.amtDetail {
+  color: #c90026;
+  font-weight: bold;
+  margin-left: 15px;
+  line-height: 16px;
+}
 </style>

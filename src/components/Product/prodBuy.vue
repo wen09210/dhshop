@@ -431,7 +431,7 @@ export default {
         this.$Modal.confirm({
           title: 'dHSHOP 提醒',
           okText: '立即結帳',
-          content: `因出貨時間不同，為了讓您能快速收到商品，現貨商品與預購商品需分開結帳。`,
+          content: `因出貨時間不同，為了讓您能快速收到商品，「現貨商品」與「預購商品」需分開結帳。`,
           onOk: () => {
             this.$router.push({
               name: 'cart'
