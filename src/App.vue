@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-// 2017.12.09 Test GitLab
+// 2017.12.09 Test GitLab2
 import myheader from './components/Global/myheader'
 import mysidebar from './components/Global/mysidebar'
 import myfooter from './components/Global/myfooter'
