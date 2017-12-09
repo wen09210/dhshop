@@ -303,8 +303,9 @@ export default {
     },
     // 下一步 填寫資料
     goBuyerDetail() {
+      var val = this.GetshowAmtData.totalAmt
       /* global fbq */
-      fbq('track', 'Purchase', { 'currency': 'TWD' }, { 'value': this.GetshowAmtData.totalAmt })
+      fbq('track', 'Purchase', { 'currency': 'TWD', 'value': val })
       fbq('track', 'InitiateCheckout')
       /* global hj */
       hj('trigger', 'purchase')

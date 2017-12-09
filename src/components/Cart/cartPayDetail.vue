@@ -14,30 +14,33 @@
                 <Radio :label="item.No" disabled>
                   {{item.PayTypeName}}
                   <span class="amtDetail">
-                NT${{GetshowAmtData.totalAmt}}元
+                  NT${{GetshowAmtData.totalAmt}}元
                 <span class="col-sm-10 creditNote">(※離島地區因貨運限制，尚不能選擇貨到付款)</span>                           
               </span>
                 </Radio>
               </template>
+              <!-- 非離島 -->
               <template v-else>
-                <Radio :label="item.No">
-                  {{item.PayTypeName}}
-               </span>
-              <span v-if="item.No ==='1'" class="amtDetail">
-                NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000))}}元
-                <span v-if="parseInt(item.CreditRate)<0">(現省{{-Math.ceil(GetshowAmtData.totalAmt*(item.CreditRate/1000))}}元)</span>         
+                <Radio :label="item.No" class="RadioBtn">
+                <span >{{item.PayTypeName}}</span>               
+              <span v-if="item.No ==='1'" class="amtDetail noteMobile">
+                <span>NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000))}}元</span>
+                <span v-if="parseInt(item.CreditRate)<0">
+                  (現省{{-Math.ceil(GetshowAmtData.totalAmt*(item.CreditRate/1000))}}元)
+                  </span>         
               </span>
-                  <span v-else-if="item.No ==='3'" class="amtDetail">
+                  <span v-else-if="item.No ==='3'" class="amtDetail noteMobile">
                 NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/3)}}元 X3期                
               </span>
-                  <span v-else-if="item.No ==='4'" class="amtDetail">
+                  <span v-else-if="item.No ==='4'" class="amtDetail noteMobile">
                 NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/6)}}元 X6期                
               </span>
-              <span v-else-if="item.No ==='5'" class="amtDetail">
+              <span v-else-if="item.No ==='5'" class="amtDetail noteMobile">
                 NT${{GetshowAmtData.totalAmt}}元
-                <span class="col-sm-10 creditNote">(※預購商品尚不能選擇貨到付款)</span>                             
+                <br>
+                <span class="col-sm-12 creditNote">(※預購商品尚不能選擇貨到付款)</span>                             
               </span>
-              <span v-else class="amtDetail">
+              <span v-else class="amtDetail noteMobile">
                 NT${{GetshowAmtData.totalAmt}}元
               </span>
                 </Radio>
@@ -195,11 +198,6 @@ export default {
   font-size: 16px !important;
 }
 
-.creditNote {
-  font-size: 14px;
-  margin-top: 10px;
-}
-
 .ivu-radio-large .ivu-radio-wrapper,
 .ivu-radio-large.ivu-radio-wrapper {
   font-size: 16px;
@@ -207,7 +205,17 @@ export default {
 .amtDetail {
   color: #c90026;
   font-weight: bold;
-  margin-left: 15px;
+  /* margin-left: 15px; */
   line-height: 16px;
+}
+@media (max-width:768px) {
+  .noteMobile{
+    display:block;
+    padding-left: 20px;
+    box-shadow: 0 4px 6px -6px #222;
+  }
+  .RadioBtn{
+    margin-top: 20px;
+  }
 }
 </style>
