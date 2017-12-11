@@ -89,7 +89,7 @@
               <Radio :label="option.ItemNo">
                 <!-- 47折標籤 暫時人工改-->
                 <template v-if="optionCheckActivity(option)">
-                  <div class="actBtn">47折</div>
+                  <div class="activityBtn">47折</div>
                 </template>
                 <span @click="selectCarousel(i,option.ItemNo)">{{option.InventoryVal <= 0 ?"[預購]":""}}{{option.ItemName}}</span>
               </Radio>
@@ -627,7 +627,7 @@ export default {
   }
 }
 
-.actBtn {
+.activityBtn {
   background: #fac;
   width: 50px;
   height: 30px;
