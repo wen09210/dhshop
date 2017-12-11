@@ -131,28 +131,28 @@
                 <i class="fa fa-plus" aria-hidden="true" style="color:green"></i> {{GetshowAmtData.totalFee}}元
               </div>
             </div>
-            <div class="lineContent">
+            <div class="lineContent" v-show="parseInt(GetshowAmtData.discountProd)>0">
               <div class="leftContent">{{GetshowAmtData.disProdName}}</div>
               <div class="rightContent">滿額折扣:</div>
               <div class="rightAmt">
                 <i class="fa fa-minus" aria-hidden="true" style="color:red"></i> {{GetshowAmtData.discountProd}}元
               </div>
             </div>
-            <div class="lineContent">
+            <div class="lineContent" v-show="parseInt(GetshowAmtData.discountDelivery)>0">
               <div class="leftContent">{{GetshowAmtData.disDeliveryName}}</div>
               <div class="rightContent">運費折扣:</div>
               <div class="rightAmt">
                 <i class="fa fa-minus" aria-hidden="true" style="color:red"></i> {{GetshowAmtData.discountDelivery}}元
               </div>
             </div>
-            <div class="lineContent">
+            <div class="lineContent" v-show="parseInt(GetshowAmtData.discountQuantiaty)>0">
               <div class="leftContent">{{GetshowAmtData.disQuantiatyName}}</div>
               <div class="rightContent">數量折扣:</div>
               <div class="rightAmt">
                 <i class="fa fa-minus" aria-hidden="true" style="color:red"></i> {{GetshowAmtData.discountQuantiaty}}元
               </div>
             </div>
-            <div class="lineContent">
+            <div class="lineContent" v-show="parseInt(GetshowAmtData.discountCoupon)>0">
               <div class="leftContent">{{GetshowAmtData.disCouponName}}</div>
               <div class="rightContent">優惠碼折扣
               </div>

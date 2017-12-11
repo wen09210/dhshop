@@ -6,6 +6,16 @@
       <div class="detailTitle">
         <span>付款方式</span>
       </div>
+      {{AlertAtmOver}}
+      <Modal v-model="openAtmAlert" title="dHSHOP 提醒" ok-text="了解" cancel-text="">
+        <p slot="header" style="color:#f60;text-align:center;font-size:20px;">
+            <Icon type="information-circled"></Icon>
+            <span>dHSHOP 提醒</span>
+        </p>
+        <h4>ATM付款超過3萬元，記得選擇<b style="color:red">「繳費」</b>才能順利完成付款喔</h4>
+        <br>
+        <img src="../../assets/temporyPic/atmAlert.jpg" class="img-responsive">
+      </Modal>
       <Form label-position="top">
         <FormItem label="付款方式:">
           <RadioGroup v-model="BuyerDetail.PayType" size="large" vertical v-if="PayType.length >0">
@@ -15,52 +25,37 @@
                   {{item.PayTypeName}}
                   <span class="amtDetail">
                   NT${{GetshowAmtData.totalAmt}}元
-                <span class="col-sm-10 creditNote">(※離島地區因貨運限制，尚不能選擇貨到付款)</span>                           
-              </span>
+                <span class="col-sm-10 creditNote">(※離島地區因貨運限制，尚不能選擇貨到付款)</span>
+                  </span>
                 </Radio>
               </template>
               <!-- 非離島 -->
               <template v-else>
                 <Radio :label="item.No" class="RadioBtn">
-                <span >{{item.PayTypeName}}</span>               
-              <span v-if="item.No ==='1'" class="amtDetail noteMobile">
+                  <span>{{item.PayTypeName}}</span>
+                  <span v-if="item.No ==='1'" class="amtDetail noteMobile">
                 <span>NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000))}}元</span>
-                <span v-if="parseInt(item.CreditRate)<0">
+                  <span v-if="parseInt(item.CreditRate)<0">
                   (現省{{-Math.ceil(GetshowAmtData.totalAmt*(item.CreditRate/1000))}}元)
-                  </span>         
-              </span>
+                  </span>
+                  </span>
                   <span v-else-if="item.No ==='3'" class="amtDetail noteMobile">
                 NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/3)}}元 X3期                
               </span>
                   <span v-else-if="item.No ==='4'" class="amtDetail noteMobile">
                 NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/6)}}元 X6期                
               </span>
-              <span v-else-if="item.No ==='5'" class="amtDetail noteMobile">
+                  <span v-else-if="item.No ==='5'" class="amtDetail noteMobile">
                 NT${{GetshowAmtData.totalAmt}}元
                 <br>
-                <span class="col-sm-12 creditNote">(※預購商品尚不能選擇貨到付款)</span>                             
-              </span>
-              <span v-else class="amtDetail noteMobile">
+                <span class="col-sm-12 creditNote">(※預購商品尚不能選擇貨到付款)</span>
+                  </span>
+                  <span v-else class="amtDetail noteMobile">
                 NT${{GetshowAmtData.totalAmt}}元
               </span>
                 </Radio>
               </template>
             </template>
-            <!-- <Radio label="1">ATM付款
-              <span class="amtDetail">NT${{GetshowAmtData.totalAmt}}元</span>
-            </Radio>
-            <Radio label="2">信用卡(一次付清)
-              <span class="amtDetail">NT${{GetshowAmtData.totalAmt}}元</span>
-            </Radio>
-            <Radio label="3">信用卡(分三期付款)
-              <span class="amtDetail">NT${{Math.floor(GetshowAmtData.totalAmt*1.0025/3)}}元 X3期</span>
-            </Radio>
-            <Radio label="4">信用卡(分六期付款)
-              <span class="amtDetail">NT${{Math.floor(GetshowAmtData.totalAmt*1.0175/6)}}元 X6期</span>
-            </Radio>
-            <Radio label="5">貨到付款
-              <span class="amtDetail">NT${{GetshowAmtData.totalAmt}}元</span>
-            </Radio> -->
           </RadioGroup>
           <!-- <span class="col-sm-10 creditNote">(※除不盡餘數於第一期收取)</span> -->
         </FormItem>
@@ -101,12 +96,12 @@
     <!-- 付款資訊end -->
     <!-- 上一步回訂購資料 -->
     <div class=" col-xs-5 col-md-5">
-      <button type="button" class="btn btn-success btn-lg btn-block" @click="goBuyerDetail">修改訂購資料</button>
+      <button type="button" class="btn btn-success btn-lg btn-block" @click="goBuyerDetail">修改資料</button>
     </div>
     <!-- 上一步回購物車end -->
     <!-- 結帳 -->
     <div class=" col-xs-7 col-md-7">
-      <button type="button" @click="StartPay" class="btn btn-info btn-lg btn-block">確認購買!</button>
+      <button type="button" @click="StartPay" class="btn btn-info btn-lg btn-block"><b>確認購買!</b></button>
     </div>
     <!-- 結帳end -->
   </div>
@@ -120,7 +115,8 @@ export default {
     return {
       PayType: [],
       BuyerDetail: {},
-      InvoiceCode: InvoiceCode
+      InvoiceCode: InvoiceCode,
+      openAtmAlert: true
     }
   },
   created() {
@@ -148,7 +144,14 @@ export default {
     ...mapGetters([
       'GetshowAmtData',
       'GetBuyerDetail'
-    ])
+    ]),
+    AlertAtmOver() {
+      if (this.BuyerDetail.PayType === '1' && parseInt(this.GetshowAmtData.totalAmt) > 30000) {
+        this.openAtmAlert = true
+      } else {
+        this.openAtmAlert = false
+      }
+    }
   },
   methods: {
     ...mapActions([
@@ -162,27 +165,10 @@ export default {
       window.scroll(0, 70)
     },
     StartPay() {
-      if (this.BuyerDetail.PayType === '5') {
-        this.GetMacValue({
-          $Spin: this.$Spin,
-          BuyerDetail: this.BuyerDetail
-        })
-        // this.$Modal.confirm({
-        //   title: 'dHSHOP 提醒',
-        //   content: '<p>因運送體積限制，選擇「貨到付款」將依商品分成多筆訂單，再請注意您的訂單資訊。</p>',
-        //   onOk: () => {
-        //     this.GetMacValue({
-        //       $Spin: this.$Spin,
-        //       BuyerDetail: this.BuyerDetail
-        //     })
-        //   }
-        // })
-      } else {
-        this.GetMacValue({
-          $Spin: this.$Spin,
-          BuyerDetail: this.BuyerDetail
-        })
-      }
+      this.GetMacValue({
+        $Spin: this.$Spin,
+        BuyerDetail: this.BuyerDetail
+      })
     }
   }
 }
@@ -202,20 +188,26 @@ export default {
 .ivu-radio-large.ivu-radio-wrapper {
   font-size: 16px;
 }
+
 .amtDetail {
   color: #c90026;
   font-weight: bold;
   /* margin-left: 15px; */
   line-height: 16px;
 }
+
 @media (max-width:768px) {
-  .noteMobile{
-    display:block;
+  .noteMobile {
+    display: block;
     padding-left: 20px;
     box-shadow: 0 4px 6px -6px #222;
   }
-  .RadioBtn{
+  .RadioBtn {
     margin-top: 20px;
   }
+}
+.col-xs-7 {
+    padding-right: 5px;
+    padding-left: 5px;
 }
 </style>

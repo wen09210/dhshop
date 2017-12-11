@@ -140,6 +140,9 @@ export default {
     border: 1px solid #8c8d8e;
     font-size: 16px;
   }
+  textarea.ivu-input{
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 762px) {
@@ -152,6 +155,9 @@ export default {
   }
   .ivu-input {
     border: 1px solid #8c8d8e;
+    font-size: 20px;
+  }
+    textarea.ivu-input{
     font-size: 20px;
   }
 }
