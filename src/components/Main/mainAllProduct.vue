@@ -36,9 +36,9 @@
                   <img src="../../assets/temporyPic/Index/cancerPic.jpg" class="item_category imgHover">
                 </div>
               </router-link>
-              <router-link to="/Product/20">
+              <router-link to="/Product/21">
                 <div class="col-md-6 col-xs-6 padding5">
-                  <img src="../../assets/temporyPic/Index/small8.jpg" class="item_category imgHover">
+                  <img src="../../assets/temporyPic/Index/paint.jpg" class="item_category imgHover">
                 </div>
               </router-link>
             </div>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="first">
+  <div :class="first" v-show="this.item.length>0">
     <div class="prod_title">
       <!-- {{checkActivity}}
       {{checkPreProd}} -->
