@@ -26,8 +26,11 @@
         </swiper>
       </div>
       <!-- 輪播圖  end-->
-
-      <div :class="third">
+      <!-- 商品選擇 -->
+      <button class="btn btn-info" @click = "mobileBuy = !mobileBuy">顯示</button>
+      <transition name="slide-fade">
+      <!-- <div :class="[third,{'isMobileBuy':mobileBuy}]" v-if="mobileBuy"> -->
+      <div :class="third" >        
         <!-- <h1>{{$route.params.prodID }}</h1> -->
         <!-- <h1>{{$route.query }}</h1> -->
         <h3 class="titleProd">{{itemShow.InventoryVal <= 0 ?"[預購]":""}}{{itemShow.ProdName+'—'+itemShow.ItemName}}</h3>
@@ -81,7 +84,6 @@
           <label>單位:</label>
           <span>{{itemShow.Unit}}</span>
         </div> -->
-        <div>
           <label>樣式</label>
           {{getItem}}
           <RadioGroup v-model="itemSelect" type="button" size="large">
@@ -95,7 +97,6 @@
               </Radio>
             </template>
           </RadioGroup>
-        </div>
         <!-- 量大優惠 -->
         <table class="table table-striped" style="margin-top:10px;">
           <tbody>
@@ -119,6 +120,7 @@
           </tbody>
         </table>
         <!-- 量大優惠 end-->
+        <!-- 數量差xxx個 -->
         <div>
           <label>數量</label>
           {{CalLargeQCal}}
@@ -134,34 +136,44 @@
           <span style="font-size: 2.3rem;"><b>{{itemShow.Unit}}</b></span>
           <!-- 折扣資訊 -->
           <template v-if="Object.keys(LargeQCal).length > 0">
-            <span style="font-size: 2.3rem;"><br>
+            <span style="font-size: 2.3rem;">
+              <br>
             <template v-if="LargeQCal.type!==''">
               <Icon type="ios-information" size="35" color="#f60"></Icon>
             </template>
               <template v-if="LargeQCal.type==='1'">
-                <span>還差<b class="colorRed">{{LargeQCal.needCount}}</b>{{itemShow.Unit}}，即可現省${{LargeQCal.disAmt}}元起</span>
-          </template>
-          <template v-if="LargeQCal.type==='2'">
-            <span>已享優惠${{LargeQCal.disPrice}}元起<br>                  
-                  還差<b class="colorRed">{{LargeQCal.needCount}}</b>{{itemShow.Unit}}，即可現省${{LargeQCal.disAmt}}元起
+                <span>還差
+                  <b class="colorRed">{{LargeQCal.needCount}}</b>
+                {{itemShow.Unit}}，即可現省${{LargeQCal.disAmt}}元起
                 </span>
+              </template>
+              <template v-if="LargeQCal.type==='2'">
+                <span>已享優惠${{LargeQCal.disPrice}}元起
+                  <br>                  
+                      還差
+                      <b class="colorRed">{{LargeQCal.needCount}}</b>
+                      {{itemShow.Unit}}，即可現省${{LargeQCal.disAmt}}元起
+                    </span>
+              </template>
+              <template v-if="LargeQCal.type==='3'">
+                <span>已優惠${{LargeQCal.disPrice}}元起</span>
+              </template>
+            </span>
           </template>
-          <template v-if="LargeQCal.type==='3'">
-            <span>已優惠${{LargeQCal.disPrice}}元起</span>
-          </template>
-          </span>
-</template>
-</div>
-<div class="buybtn">
-  <div class="col-md-5 col-xs-12">
-    <button class="btn-direct btn btn-primary btn-lg" @click="addCart('direct')">直接購買</button>
+        </div>
+        <!-- 數量差xxx個 end -->
+        <div class="buybtn">
+        <div class="col-md-5 col-xs-12">
+          <button class="btn-direct btn btn-primary btn-lg" @click="addCart('direct')">直接購買</button>
+        </div>
+        <div class="col-md-5 col-xs-12">
+          <button class="btn-buy btn btn-danger btn-lg" @click="addCart('')">加入購物車</button>
+        </div>
+        </div>
+      </div>
+      </transition>
+    <!-- 商品選擇 end -->
   </div>
-  <div class="col-md-5 col-xs-12">
-    <button class="btn-buy btn btn-danger btn-lg" @click="addCart('')">加入購物車</button>
-  </div>
-</div>
-</div>
-</div>
 </div>
 </template>
 <script>
@@ -219,7 +231,8 @@ export default {
         // slidesOffsetBefore: 10
       },
       // 已選擇的輪播圖
-      isSelectedCarousel: 0
+      isSelectedCarousel: 0,
+      mobileBuy: false
     }
   },
   created() {
@@ -641,11 +654,20 @@ export default {
   border-radius: 80%;
   transform: rotate(-20deg);
 }
+
 .selectedCarousel {
   border: 4px solid #2d8cf0;
-  cursor: pointer; 
+  cursor: pointer;
 }
-.prodImage{
+
+.prodImage {
   margin-bottom: 5px;
+}
+.isMobileBuy{
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 20000000;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 </style>

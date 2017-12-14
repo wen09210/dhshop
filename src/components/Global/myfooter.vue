@@ -279,7 +279,6 @@ div .copyright {
   background: rgba(0, 0, 0, 0.6);
   z-index: 20000000;
   position: fixed;
-
   bottom: 0;
   width: 100%;
 }
@@ -306,23 +305,6 @@ div .copyright {
 .HisItemTitle {
   font-size: 16px;
   color: white;
-}
-
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-
-.slide-fade-leave-active {
-  transition: all .3s ease;
-}
-
-.slide-fade-enter,
-.slide-fade-leave-to
-/* .slide-fade-leave-active for below version 2.1.8 */
-
-{
-  transform: translateY(10px);
-  opacity: 0;
 }
 
 .table>tbody>tr>td,
