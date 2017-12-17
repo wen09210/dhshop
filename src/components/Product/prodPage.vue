@@ -7,9 +7,11 @@
         <Affix :offset-bottom="0" @on-change="hideAffix = !hideAffix">
           <Row class="buybtn_fixfoot" v-show="!hideAffix">
             <Col :xs="{ span: 12}" :md="{ span: 18}">
-            <Col :xs="{ span: 24}" :sm="{ span:12}" :md="{ span: 12}" class="A_title"> {{ProdInfo.ProdName}}
+            <Col :xs="{ span: 24}" :sm="{ span:12}" :md="{ span: 12}" class="A_title"> 
+            {{ProdInfo.ProdName}}
             </Col>
-            <Col :xs="{ span: 24}" :sm="{ span:12}" :md="{ span: 10}" class="A_Note"> {{ProdInfo.NoteForBuy}}
+            <Col :xs="{ span: 24}" :sm="{ span:12}" :md="{ span: 10}" class="A_Note"> 
+            {{ProdInfo.NoteForBuy}}
             </Col>
             <!-- <Col :xs="{ span: 24}" :sm="{ span: 12}" :md="{ span: 6}" class="A_Price">
             <strike style="color:red;">
@@ -20,6 +22,7 @@
             </Col> -->
             </Col>
             <Col :xs="{ span: 12}" :md="{ span: 6 }">
+            <!-- 畫面滾到標題 -->
             <Button type="primary" size="large" v-scroll-to="'#botBuy'">立即搶購</Button>
             </Col>
           </Row>
@@ -72,6 +75,8 @@ export default {
 @media (max-width:1024px) {
   .buybtn_fixfoot {
     background-color: rgba(0, 0, 0, .6);
+    width: 100%;
+    bottom: 5px;
     /* height: 90px; */
   }
 
@@ -81,7 +86,6 @@ export default {
     color: white;
     margin-left: 10px;
     text-align: center;
-    
   }
   .A_Note {
     font-size: 18px;
@@ -100,6 +104,7 @@ export default {
 @media (min-width:1024px) {
   .buybtn_fixfoot {
     background-color: rgba(0, 0, 0, .6);
+    width: 100%;
     /* height: 90px; */
   }
   .A_title {
@@ -125,8 +130,8 @@ export default {
 
 .ivu-btn-primary {
   color: #fff;
-  background-color: #ff662b;
-  border-color: #ff662b;
+  background-color: #f57e28;
+  border-color: #f57e28;
   margin: 10px 0px;
   /* float: right; */
   width: 90%;

@@ -10,6 +10,7 @@ import cartPayOK from '../components/Cart/cartPayOk.vue'
 import prodPomote from '../components/Article/prodPromote.vue'
 import AnonymousSearch from '../components/Order/AnonymousSearch.vue'
 import QandA from '../components/Other/QandA.vue'
+import Case from '../components/Case/Case.vue'
 // import axios from 'axios'
 import Cookies from 'js-cookie'
 Vue.use(Router)
@@ -75,6 +76,10 @@ const router = new Router({
     {
       path: '/QandA',
       component: QandA
+    },
+    {
+      path: '/Case',
+      component: Case
     }
   ]
 })

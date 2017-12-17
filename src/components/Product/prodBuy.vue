@@ -1,6 +1,6 @@
 <template>
   <div :class="first" v-show="this.item.length>0">
-    <div class="prod_title">
+    <div class="prod_title" >
       <!-- {{checkActivity}}
       {{checkPreProd}} -->
       <span>現在開始改造你家!</span>
@@ -8,11 +8,9 @@
     <div class="row buydiv">
       <div :class="second">
         <template v-for="(prod,i) in item">
-          <template v-if="i===isSelectedCarousel">
-            <div class="prodImage">
+            <div v-show="i===isSelectedCarousel" class="prodImage">
               <img :src="prod.ImgUrl| UrlTransIP" class="img-responsive">
             </div>
-          </template>
         </template>
         <!-- 輪播圖 -->
         <swiper :options="swiperOptionThumbs" ref="swiperThumbs">
@@ -27,89 +25,119 @@
       </div>
       <!-- 輪播圖  end-->
       <!-- 商品選擇 -->
-      <button class="btn btn-info" @click = "mobileBuy = !mobileBuy">顯示</button>
+      <!-- <button class="btn btn-info" @click = "mobileBuy = !mobileBuy">顯示</button> -->
       <transition name="slide-fade">
       <!-- <div :class="[third,{'isMobileBuy':mobileBuy}]" v-if="mobileBuy"> -->
       <div :class="third" >        
         <!-- <h1>{{$route.params.prodID }}</h1> -->
         <!-- <h1>{{$route.query }}</h1> -->
-        <h3 class="titleProd">{{itemShow.InventoryVal <= 0 ?"[預購]":""}}{{itemShow.ProdName+'—'+itemShow.ItemName}}</h3>
-        <h3 class="descriptProd">{{itemShow.Description}}</h3>
+        <h3 class="titleProd">{{itemShow.InventoryVal <= 0 ?"[預購]":""}}{{itemShow.ProdName+'-'+itemShow.ItemName}}</h3>
+        <!-- <h3 class="descriptProd">{{itemShow.Description}}</h3> -->
+        <div style="display:inline">
         <template v-if="checkActivity">
-          <div class="activityName">{{itemShow.ActivityName}}</div>
+          <div class="activityNameNew">
+            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+            {{itemShow.ActivityName}}
+            </div>
         </template>
         <template v-if="itemShow.StyleNoteForSale !== null">
           <div class="StyleNote">
+            <i class="fa fa-truck" aria-hidden="true"></i>
             {{itemShow.StyleNoteForSale}}
           </div>
         </template>
-        <div>
-          <label>原價:</label>
+        </div>
+        <!-- 小版商品圖 -->
+        <div class="col-xs-6 mobilePic">
+          <template v-for="(prod,i) in item">
+          <template >
+            <div v-show="i===isSelectedCarousel" class="prodImage">
+              <img :src="prod.ImgUrl| UrlTransIP" class="img-responsive">
+            </div>
+          </template>
+        </template>
+        </div>
+        <!-- 小版商品圖end -->        
+        <!-- 小版售價靠右 --> 
+        <div>       
+        <div class="mobileSale">
+        <div >
+          <span class="textblack">原價:</span>
           <span class="linethrough">
-          <span class="textblack" style="color:black;font-size:2.3rem;">{{itemShow.OrignPrice}} 元
+          <span class="">&nbsp{{itemShow.OrignPrice}} 元
            </span>
           </span>
         </div>
         <template v-if="(checkPreProd && checkActivity) || (!checkPreProd && !checkActivity)">
           <div>
-            <label>售價:</label>
+            <span :class="['activityLabel',{'textblack':checkPreProd || checkActivity}]">售價:</span>
             <span :class="{'linethrough':checkPreProd || checkActivity}">
-            <span :class="{'textblack':checkPreProd || checkActivity}" style="color:red;font-size:2.3rem;">
-              {{itemShow.SalePrice}} 元
+            <span :class="['activityFont',{'textblack':checkPreProd || checkActivity}]">
+              &nbsp{{itemShow.SalePrice}} 元
            </span>
             </span>
           </div>
         </template>
         <template v-if="checkPreProd && !checkActivity">
-          <div>
-            <label>預購優惠:</label>
-            <span class="activityFont" style="color:red;font-size:2.3rem;">{{itemShow.AddPrice}} 元</span>
+          <div class="">
+            <span class="activityLabel">預購價:</span>
+            <span class="activityFont">&nbsp{{itemShow.AddPrice}} 元</span>
           </div>
         </template>
         <template v-if="checkActivity">
-          <div>
-            <label>活動價:</label>
-            <span class="activityFont" style="color:red;font-size:2.3rem;">{{itemShow.ActivityPrice}} 元</span>
+          <div class="">
+            <span class="activityLabel">活動價:</span>
+            <span class="activityFont">&nbsp{{itemShow.ActivityPrice}} 元</span>
           </div>
         </template>
+        </div>
+        </div>
+        <!-- 小版靠右 end -->
+        
         <!-- <div>
           <label>數量:</label>
           <span>{{itemShow.InventoryVal}} {{itemShow.Unit}}</span>
         </div> -->
-        <div>
-          <label>規格:</label>
-          <span>{{itemShow.ItemSpec}}</span>
-        </div>
+        
         <!-- <div>
           <label>單位:</label>
           <span>{{itemShow.Unit}}</span>
         </div> -->
-          <label>樣式</label>
+          <div class="col-xs-12 noPadding margin5px">
+          <!-- <span>樣式</span> -->
           {{getItem}}
-          <RadioGroup v-model="itemSelect" type="button" size="large">
+          <RadioGroup v-model="itemSelect" type="button" size="large" class="margin5px">
             <template v-for="(option,i) in item">
               <Radio :label="option.ItemNo">
                 <!-- 47折標籤 暫時人工改-->
                 <template v-if="optionCheckActivity(option)">
                   <div class="activityBtn">47折</div>
                 </template>
-                <span @click="selectCarousel(i,option.ItemNo)">{{option.InventoryVal <= 0 ?"[預購]":""}}{{option.ItemName}}</span>
+                <span  style="font-weight:500;" @click="selectCarousel(i,option.ItemNo)">{{option.InventoryVal <= 0 ?"[預購]":""}}{{option.ItemName}}</span>
               </Radio>
             </template>
           </RadioGroup>
+          </div>
+          <div class="col-xs-12 noPadding">
+            <span>規格:</span>
+            <span style="font-weight:300;">&nbsp{{itemShow.ItemSpec}}</span>
+          </div>
         <!-- 量大優惠 -->
-        <table class="table table-striped" style="margin-top:10px;">
+        <table class="table" style="margin-bottom: 10px;">
           <tbody>
             <template v-if="BtnSpecialNumber !==null && BtnSpecialNumber.length > 0">
               <tr>
-                <td colspan="2"><b>優惠方案</b></td>
+                <td colspan="2">
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                  <b>優惠方案</b>
+                  </td>
               </tr>
               <template v-for="(itemBtn, i) in BtnSpecialNumber">
-                <tr>
+                <tr >
                   <td>
-                    <label>方案 {{i+1}}.</label>
+                    <span>方案 {{i+1}}.</span>
                   </td>
-                  <td style="color: red;">
+                  <td class="">
                     <div v-html="itemBtn.title"></div>
                     <!-- <input type="radio" name="spec" @click="spcBtn(itemBtn.number)"> {{itemBtn.title}}
                       </input> -->
@@ -122,9 +150,8 @@
         <!-- 量大優惠 end-->
         <!-- 數量差xxx個 -->
         <div>
-          <label>數量</label>
+          <span>數量</span>
           {{CalLargeQCal}}
-          <br>
           <button class="btn btn-primary btnCust" @click="itemSize--">
             <i class="fa fa-minus" aria-hidden="true"></i>
           </button>
@@ -133,26 +160,27 @@
           <button class="btn btn-primary btnCust" @click="itemSize++">
             <i class="fa fa-plus" aria-hidden="true"></i>
           </button>
-          <span style="font-size: 2.3rem;"><b>{{itemShow.Unit}}</b></span>
-          <!-- 折扣資訊 -->
+          <span style="font-size: 2.1rem;">{{itemShow.Unit}}</span>
+          <!-- 折扣資訊-->
           <template v-if="Object.keys(LargeQCal).length > 0">
-            <span style="font-size: 2.3rem;">
+            <span style="font-size: 2.1rem;">
               <br>
             <template v-if="LargeQCal.type!==''">
-              <Icon type="ios-information" size="35" color="#f60"></Icon>
+              <i class="fa fa-cart-plus" aria-hidden="true" style="color:#f57e28;font-size: 28px;"></i>
+              <!-- <Icon type="ios-information" size="35" color="#f57e28"></Icon> -->
             </template>
               <template v-if="LargeQCal.type==='1'">
                 <span>還差
-                  <b class="colorRed">{{LargeQCal.needCount}}</b>
-                {{itemShow.Unit}}，即可現省${{LargeQCal.disAmt}}元起
+                  <b class="colorOrange">{{LargeQCal.needCount}}</b>
+                {{itemShow.Unit}}，即可現省<b class="colorOrange">${{LargeQCal.disAmt}}元</b>起
                 </span>
               </template>
               <template v-if="LargeQCal.type==='2'">
                 <span>已享優惠${{LargeQCal.disPrice}}元起
                   <br>                  
                       還差
-                      <b class="colorRed">{{LargeQCal.needCount}}</b>
-                      {{itemShow.Unit}}，即可現省${{LargeQCal.disAmt}}元起
+                      <b class="colorOrange">{{LargeQCal.needCount}}</b>
+                      {{itemShow.Unit}}，即可現省<b class="colorOrange">${{LargeQCal.disAmt}}元</b>起
                     </span>
               </template>
               <template v-if="LargeQCal.type==='3'">
@@ -160,14 +188,16 @@
               </template>
             </span>
           </template>
+          <!-- 折扣資訊 end-->
+          
         </div>
         <!-- 數量差xxx個 end -->
-        <div class="buybtn">
-        <div class="col-md-5 col-xs-12">
-          <button class="btn-direct btn btn-primary btn-lg" @click="addCart('direct')">直接購買</button>
+        <div class="buybtn row">        
+        <div class="col-md-5 col-xs-5 noPadding">
+          <button class="btnBlue btn btn-danger btn-lg btn-block" @click="addCart('')">加入購物車</button>
         </div>
-        <div class="col-md-5 col-xs-12">
-          <button class="btn-buy btn btn-danger btn-lg" @click="addCart('')">加入購物車</button>
+        <div class="col-md-7 col-xs-7 noPadding">
+          <button class="btnOrange btn btn-primary  btn-lg btn-block" @click="addCart('direct')">直接購買</button>
         </div>
         </div>
       </div>
@@ -227,7 +257,25 @@ export default {
         spaceBetween: 10,
         slidesPerView: 4,
         nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev'
+        prevButton: '.swiper-button-prev',
+        breakpoints: {
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 5
+          },
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 5
+          },
+          320: {
+            slidesPerView: 3,
+            spaceBetween: 5
+          }
+        }
         // slidesOffsetBefore: 10
       },
       // 已選擇的輪播圖
@@ -489,18 +537,6 @@ export default {
 
 </script>
 <style scoped>
-/*購買按鍵*/
-
-.btn-buy {
-  width: 100%;
-  margin: 2px;
-}
-
-.btn-direct {
-  width: 100%;
-  margin: 2px;
-}
-
 .table>tbody>tr>td,
 .table>tbody>tr>th,
 .table>tfoot>tr>td,
@@ -510,14 +546,27 @@ export default {
   border-bottom: 1px solid #ccc;
   border-top: 0px;
 }
-
+.margin5px{
+  margin: 5px 0px;
+}
 .linethrough {
-  color: red;
+  color: rgba(0, 0, 0, 0.3686274509803922);
   text-decoration: line-through;
 }
 
 .textblack {
-  color: black;
+  font-size: 1.8rem !important;
+  color: rgba(0, 0, 0, 0.3686274509803922) !important;
+  font-weight: normal !important;
+}
+.activityLabel{
+  font-size: 1.8rem;
+  /* font-weight: bold; */
+}
+.activityFont {
+  font-size: 2.3rem;
+  color: #f57e28;
+  font-weight: bold;
 }
 
 .label {
@@ -532,12 +581,13 @@ export default {
 }
 
 .titleProd {
-  padding: 10px;
-  background: #dddee1;
+  padding: 0px 0px 10px 0px;
+  /* background: #dddee1; */
   width: 100%;
   border-radius: 5px;
   margin-bottom: 5px;
   font-weight: bold;
+  border-bottom: 2px dashed #dddee1
 }
 
 .descriptProd {
@@ -553,110 +603,149 @@ export default {
   border-bottom: 1px solid #222222;
 }
 
-.selectpicker {
-  width: 220px;
-  margin: 10px;
-  background: 0 0;
-  padding: 5px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  height: 34px;
-  border-radius: 5px;
-}
-
 .inputsize {
   max-width: 100px;
-  padding: 2px 10px;
-  font-size: 18px;
+  padding: 3px 10px 10px 20px;
+  font-size: 20px;
   font-weight: bold;
   line-height: 1.42857143;
   color: #555;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  margin: 0px -5px !important;
-  height: 40px;
+  margin: 0px -4px !important;
 }
 
 .btnCust {
   border-radius: 0px;
-  font-size: 19px;
-  background: #2d8cf0;
-  border: 1px solid #2d8cf0;
-  color: #fff;
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #ccc;
+  font-size: 20px
 }
 
 .buybtn {
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+.btnOrange{
+  background: #f57e28;
+  border: 0px;
+  border-radius: 0px;
+  margin-left: 5px;
+  padding: 15px 10px;
+}
+.btnBlue{
+  background: rgba(87, 163, 243, 0.8313725490196079);
+  border: 0px;  
+  border-radius: 0px;
+  margin-right: 5px;
+  padding: 15px 10px;
+}
+.colorOrange {
+  color: #f57e28;
 }
 
-.colorRed {
-  color: red;
+.mobileSale{
+  margin: 10px 0px 0px 0px;
 }
+.mobilePic{
+   display: none;
+   max-width: 150px;
+ }
 
-.activityFont {
-  color: #E55C6B;
-  font-size: bold;
-}
-
-.activityName {
+.activityNameNew{
+  display: inline;
+  font-weight: bold;
   margin: 5px 0px;
-  background-color: #f57e28;
+  /* background-color: #ffaacc33; */
   width: 50%;
-  color: white;
+  color: #f57e28;
   padding: 3px;
   padding-left: 10px;
   border-radius: 2px;
+  /* border: 1px solid #fac; */
+	/* -webkit-animation: backgroundflash linear 3s infinite; */
+	/* animation: backgroundflash linear 3s infinite; */
 }
 
+
+@keyframes backgroundflash {
+	0% { color: #f57e28; } 
+  50% {color: #f57e2878;}
+	100% { color: #f57e28; }
+}
 .StyleNote {
+  display: inline;  
   margin: 5px 0px;
-  background: #57a3f3;
+  background: white;
   width: 50%;
-  color: white;
+  color: #57a3f3;
   padding: 3px;
   padding-left: 10px;
   border-radius: 2px;
 }
 
-.btn {
-  margin: 5px 0px;
-}
-
-.margintop5 {
-  margin-top: 5px;
-}
-
-@media (max-width:768px) {
+/* 小版 */
+@media (max-width:767px) {
+  .titleProd{
+    margin-top: 20px;
+  }
   .btn-direct {
     width: 100%;
     margin: 10px 0px;
   }
-  .activityName {
-    width: 80%;
+  .activityNameNew{
+    width: 100%;
+    display: block;
+    padding: 0px;
+    margin: 0px;
   }
   .StyleNote {
     width: 80%;
+    display: block;
+    padding: 0px;
+    margin: 0px;
   }
+  .buybtn {
+  margin-top: 5px;
+  margin-left: 1px;
+  margin-right: 1px;
+ }
+ /* 小版商品資訊 */
+ .mobilePic{
+   display: inherit;
+   padding: 0px;
+ }
+ .mobileSale{
+    margin: 0px;
+    position: relative;
+    min-height: 1px;
+    padding-right: 5px;
+    padding-left: 5px;
+    float: left;
+    width: 50%
+ }
 }
 
 .activityBtn {
-  background: #fac;
-  width: 50px;
+  background: rgba(87, 163, 243, 0.8313725490196079);
+  width: 35px;
   height: 30px;
   position: absolute;
   z-index: 99;
-  font-size: 15px;
+  font-size: 12px;
   color: #FFFFFF;
   text-align: center;
-  left: -20px;
+  left: -15px;
   top: -13px;
   border-radius: 80%;
   transform: rotate(-20deg);
 }
 
 .selectedCarousel {
-  border: 4px solid #2d8cf0;
+  border: 3px solid #2d8cf0;
   cursor: pointer;
 }
 
@@ -669,5 +758,13 @@ export default {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+.noPadding{
+  padding: 0px;
+}
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+    color: #555;
+    background-color: rgba(255,255,255,.15);
+    border: 1px solid #ccc;
 }
 </style>
