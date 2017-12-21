@@ -6,7 +6,7 @@
       <span>現在開始改造你家!</span>
     </div>
     <div class="row buydiv">
-      <div :class="second">
+      <div :class="[second,'productCarsoul']">
         <template v-for="(prod,i) in item">
             <div v-show="i===isSelectedCarousel" class="prodImage">
               <img :src="prod.ImgUrl| UrlTransIP" class="img-responsive">
@@ -32,20 +32,26 @@
         <!-- <h1>{{$route.params.prodID }}</h1> -->
         <!-- <h1>{{$route.query }}</h1> -->
         <h3 class="titleProd">{{itemShow.InventoryVal <= 0 ?"[預購]":""}}{{itemShow.ProdName+'-'+itemShow.ItemName}}</h3>
-        <!-- <h3 class="descriptProd">{{itemShow.Description}}</h3> -->
+        <h3 class="descriptProd">{{itemShow.Description}}</h3>
         <div style="display:inline">
+          <!-- 活動標題 -->
         <template v-if="checkActivity">
           <div class="activityNameNew">
             <i class="fa fa-thumbs-up" aria-hidden="true"></i>
             {{itemShow.ActivityName}}
             </div>
         </template>
+          <!-- 活動標題 end-->
+        
+        <!-- 樣式註記 -->
         <template v-if="itemShow.StyleNoteForSale !== null">
           <div class="StyleNote">
             <i class="fa fa-truck" aria-hidden="true"></i>
             {{itemShow.StyleNoteForSale}}
           </div>
         </template>
+        <!-- 樣式註記 end -->
+        
         </div>
         <!-- 小版商品圖 -->
         <div class="col-xs-6 mobilePic">
@@ -726,6 +732,9 @@ export default {
     padding-left: 5px;
     float: left;
     width: 50%
+ }
+ .productCarsoul{
+   display: none;
  }
 }
 
