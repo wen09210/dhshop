@@ -154,23 +154,11 @@
           </tbody>
         </table>
         <!-- 量大優惠 end-->
-        <!-- 數量差xxx個 -->
-        <div>
-          <span>數量</span>
+        <!-- 折扣資訊-->
           {{CalLargeQCal}}
-          <button class="btn btn-primary btnCust" @click="itemSize--">
-            <i class="fa fa-minus" aria-hidden="true"></i>
-          </button>
-          <!-- 輸入數字框 -->
-          <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
-          <button class="btn btn-primary btnCust" @click="itemSize++">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-          </button>
-          <span style="font-size: 2.1rem;">{{itemShow.Unit}}</span>
-          <!-- 折扣資訊-->
+        
           <template v-if="Object.keys(LargeQCal).length > 0">
             <span style="font-size: 2.1rem;">
-              <br>
             <template v-if="LargeQCal.type!==''">
               <i class="fa fa-cart-plus" aria-hidden="true" style="color:#f57e28;font-size: 28px;"></i>
               <!-- <Icon type="ios-information" size="35" color="#f57e28"></Icon> -->
@@ -195,15 +183,36 @@
             </span>
           </template>
           <!-- 折扣資訊 end-->
+        <!-- 數量差xxx個 -->
+        <div style="margin-top: 5px">
+          <span>數量</span>
+          <button class="btn btn-primary btnCust" @click="itemSize--">
+            <i class="fa fa-minus" aria-hidden="true"></i>
+          </button>
+          <!-- 輸入數字框 -->
+          <input type="text" class="inputsize" :value="itemSize_check" @blur="keyNum">
+          <button class="btn btn-primary btnCust" @click="itemSize++">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+          <span style="font-size: 2.1rem;">{{itemShow.Unit}}</span>
+
           
         </div>
         <!-- 數量差xxx個 end -->
         <div class="buybtn row">        
-        <div class="col-md-5 col-xs-5 noPadding">
+        <!-- <div class="col-md-5 col-xs-5 noPadding">
           <button class="btnBlue btn btn-danger btn-lg btn-block" @click="addCart('')">加入購物車</button>
         </div>
         <div class="col-md-7 col-xs-7 noPadding">
           <button class="btnOrange btn btn-primary  btn-lg btn-block" @click="addCart('direct')">直接購買</button>
+        </div> -->
+        <div class="col-md-12 col-xs-12 noPadding">
+          <button class="btnOrange btn btn-primary  btn-lg btn-block" @click="addCart('direct')">
+            <h3>
+              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+              直接購買
+              </h3>
+            </button>
         </div>
         </div>
       </div>
@@ -618,14 +627,14 @@ export default {
   color: #555;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   margin: 0px -4px !important;
 }
 
 .btnCust {
   border-radius: 0px;
   background: #fff;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   color: #ccc;
   font-size: 20px
 }
@@ -775,5 +784,9 @@ export default {
     color: #555;
     background-color: rgba(255,255,255,.15);
     border: 1px solid #ccc;
+}
+.table {
+    margin-bottom: 10px 0px;
+    border: 2px dashed lightgray;
 }
 </style>

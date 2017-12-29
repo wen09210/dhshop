@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" style="margin-left:30px;">
     <div class="row">
       <div class="row">
         <h3 class="TT">
