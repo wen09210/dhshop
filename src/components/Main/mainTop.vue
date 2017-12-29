@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <img src="../../assets/temporyPic/Index/banner0803.jpg" class="img-responsive">
+    <img src="../../assets/temporyPic/Index/47Comebindbanner.gif" class="img-responsive">
     <div class="maginAuto">
       <div class="row">
         <router-link to="/Product/1">
