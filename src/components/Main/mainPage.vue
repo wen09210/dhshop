@@ -3,6 +3,7 @@
     <mainTop></mainTop>
     <mainIntro></mainIntro>
     <mainPromotion></mainPromotion>
+    <mainCardContent></mainCardContent>
     <!-- <mainArtical></mainArtical> -->
     <mainAllProduct></mainAllProduct>
     <mainIgFrame></mainIgFrame>
@@ -16,6 +17,7 @@
   // import mainArtical from './mainAtrical.vue'
   import mainAllProduct from './mainAllProduct'
   import mainIgFrame from './mainIgFrame.vue'
+  import mainCardContent from './mainCardContent'
   import Lockr from 'lockr'
   export default {
     created() {
@@ -27,7 +29,8 @@
       mainPromotion,
       // mainArtical,
       mainAllProduct,
-      mainIgFrame
+      mainIgFrame,
+      mainCardContent
     }
   }
 </script>

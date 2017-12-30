@@ -78,7 +78,7 @@ const router = new Router({
       component: QandA
     },
     {
-      path: '/Case',
+      path: '/Case/:caseID',
       component: Case
     }
   ]
