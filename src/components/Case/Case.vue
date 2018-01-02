@@ -220,7 +220,7 @@ p {
   min-height: 1px;
   padding-right: 10px;
   padding-left: 10px;
-  height:83vh;
+  height:100vh;
 }
 
 .case_name {

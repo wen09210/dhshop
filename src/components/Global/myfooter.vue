@@ -220,7 +220,7 @@ export default {
 
 .myfooter {
   z-index: 9999999;
-  margin-top: 100px;
+  margin-top: 30px;
 }
 
 .custTABLE {
