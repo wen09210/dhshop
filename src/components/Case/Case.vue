@@ -48,7 +48,7 @@
           <p v-html='caseDetail.description'></p>
           <br>
           <p>歡迎來【{{caseDetail.name}}】親身體驗dH歐巴地板的魅力，現場還有專屬優惠喔！</p>
-          <a href="https://m.me/684624661588532" target="_blank">
+          <a :href="caseDetail.caseUrl" target="_blank">
             <button class=" btn btn-primary btn_call btn-lg">私訊小編了解更多</button>
           </a>
         </div>
