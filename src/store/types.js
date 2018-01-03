@@ -31,5 +31,8 @@ export default {
   SetCartStepBar: 'SetCartStepBar',
   // 存入優惠碼
   SetCouponCode: 'SetCouponCode',
-  'PassNoticeFc': 'PassNoticeFc'
+  'PassNoticeFc': 'PassNoticeFc',
+  // 購物車彈跳視窗
+  'openCART': 'openCART',
+  'GetOpenCart': 'GetOpenCart'
 }
