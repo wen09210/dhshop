@@ -209,5 +209,8 @@ export default {
   // 購物車儲存使用者資料
   [types.SetBuyerDetail]({ commit }, BuyerDetail) {
     commit(types.SetBuyerDetail, BuyerDetail)
+  },
+  [types.openCART]({commit}) {
+    commit(types.openCART)
   }
 }

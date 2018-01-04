@@ -52,7 +52,6 @@
       <!-- 訂購人資訊end  -->
       <!--收件人資訊  -->
       <div class="detailBlock">
-        {{matchLoginInfo}}
         <div class="detailTitle">
           <span>收件人</span>
         </div>
@@ -221,6 +220,18 @@ export default {
       }
     }
   },
+  created() {
+    // 預設打勾
+    this.eqPurchaser = true
+    // 無痕登入，不代資料
+    if (this.GetLoginInfo.MemberJoinType !== '4') {
+      this.BuyerDetail.Purchaser = this.GetLoginInfo.MemberName
+      this.BuyerDetail.P_Phone = this.GetLoginInfo.MemberMobile
+      this.BuyerDetail.P_Address = this.GetLoginInfo.MemberAddress
+      this.BuyerDetail.P_Mail = this.GetLoginInfo.MemberEmail
+      this.eqPurchsase()
+    }
+  },
   computed: {
     ...mapGetters([
       'GetShoppingCartItem',
@@ -228,13 +239,12 @@ export default {
       'GetshowAmtData'
     ]),
     matchLoginInfo() {
-      // 無痕登入，不代資料
-      if (this.GetLoginInfo.MemberJoinType !== '4') {
-        this.BuyerDetail.Purchaser = this.GetLoginInfo.MemberName
-        this.BuyerDetail.P_Phone = this.GetLoginInfo.MemberMobile
-        this.BuyerDetail.P_Address = this.GetLoginInfo.MemberAddress
-        this.BuyerDetail.P_Mail = this.GetLoginInfo.MemberEmail
-      }
+      this.BuyerDetail.Recipient = this.BuyerDetail.Purchaser
+      this.BuyerDetail.R_Phone = this.BuyerDetail.P_Phone
+      this.BuyerDetail.R_City = this.BuyerDetail.P_City
+      this.BuyerDetail.R_Dist = this.BuyerDetail.P_Dist
+      this.BuyerDetail.R_Address = this.BuyerDetail.P_Address
+      this.BuyerDetail.R_Mail = this.BuyerDetail.P_Mail
     },
     alertDist() {
       if (this.BuyerDetail.R_City === '澎湖縣' || this.BuyerDetail.R_City === '金門縣' || this.BuyerDetail.R_City === '連江縣' ||

@@ -11,5 +11,7 @@ export default {
   // 步驟條進度
   CartStepBar: 0,
   LoginInfo: {},
-  openLoginModal: false
+  openLoginModal: false,
+  // 購物車彈跳視窗
+  cartModal: false
 }

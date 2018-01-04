@@ -4,7 +4,7 @@
     <!-- 付款資訊 -->
     <div class="detailBlock">
       <div class="detailTitle">
-        <span>付款方式</span>
+        <span>付款方式</span>        
       </div>
       {{AlertAtmOver}}
       <Modal v-model="openAtmAlert" title="dHSHOP 提醒" ok-text="了解" cancel-text="">
@@ -16,6 +16,7 @@
         <br>
         <img src="../../assets/temporyPic/atmAlert.jpg" class="img-responsive">
       </Modal>
+      <a style="position: absolute;margin-top: 5px;margin-left: 80px;" @click="openCART">(購物車商品)</a>
       <Form label-position="top">
         <FormItem label="付款方式:">
           <RadioGroup v-model="BuyerDetail.PayType" size="large" vertical v-if="PayType.length >0">
@@ -158,7 +159,8 @@ export default {
       // 送出訂單(綠界OR貨到付款)
       'GetMacValue',
       'SetCartStepBar',
-      'SetLoading'
+      'SetLoading',
+      'openCART'
     ]),
     goBuyerDetail() {
       this.SetCartStepBar(1)

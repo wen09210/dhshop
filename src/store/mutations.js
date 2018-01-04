@@ -229,5 +229,8 @@ export default {
   },
   [types.SetBuyerDetail](state, BuyerDetail) {
     state.BuyerDetail = BuyerDetail
+  },
+  [types.openCART](state) {
+    state.cartModal = !state.cartModal
   }
 }
