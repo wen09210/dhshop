@@ -11,6 +11,7 @@ import prodPomote from '../components/Article/prodPromote.vue'
 import AnonymousSearch from '../components/Order/AnonymousSearch.vue'
 import QandA from '../components/Other/QandA.vue'
 import Case from '../components/Case/Case.vue'
+import Blog from '../components/Blog/Blog.vue'
 // import axios from 'axios'
 import Cookies from 'js-cookie'
 Vue.use(Router)
@@ -80,6 +81,10 @@ const router = new Router({
     {
       path: '/Case/:caseID',
       component: Case
+    },
+    {
+      path: '/Blog/:BlogID',
+      component: Blog
     }
   ]
 })

@@ -41,7 +41,7 @@
         <div class="case_title">
           {{caseDetail.name}}
         </div>
-        <p>地址：{{caseDetail.address}}</p>
+        <p>{{caseDetail.address}}</p>
         <p>營業時間：{{caseDetail.opentime}}</p>
         <div class="discription ">
           <div class="subtitle needLine">簡介</div>
@@ -49,7 +49,7 @@
           <br>
           <p>歡迎來【{{caseDetail.name}}】親身體驗dH歐巴地板的魅力，現場還有專屬優惠喔！</p>
           <a :href="caseDetail.caseUrl" target="_blank">
-            <button class=" btn btn-primary btn_call btn-lg">私訊小編了解更多</button>
+            <button class=" btn btn-primary btn_call btn-lg">{{caseDetail.btnname}}</button>
           </a>
         </div>
         <div class="productPart needLine">
