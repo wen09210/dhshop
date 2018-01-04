@@ -2,6 +2,7 @@
   <div id="mainpage">
     <mainTop></mainTop>
     <mainIntro></mainIntro>
+    <!-- <mainBlogger></mainBlogger> -->
     <mainPromotion></mainPromotion>
     <mainCardContent></mainCardContent>
     <!-- <mainArtical></mainArtical> -->
@@ -18,6 +19,7 @@
   import mainAllProduct from './mainAllProduct'
   import mainIgFrame from './mainIgFrame.vue'
   import mainCardContent from './mainCardContent'
+  import mainBlogger from './mainBlogger'
   import Lockr from 'lockr'
   export default {
     created() {
@@ -26,6 +28,7 @@
     components: {
       mainTop,
       mainIntro,
+      mainBlogger,
       mainPromotion,
       // mainArtical,
       mainAllProduct,
