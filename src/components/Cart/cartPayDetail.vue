@@ -22,12 +22,14 @@
           <RadioGroup v-model="BuyerDetail.PayType" size="large" vertical v-if="PayType.length >0">
             <template v-for="item in PayType">
               <template v-if="item.No ==='5' && (BuyerDetail.R_City==='澎湖縣' ||BuyerDetail.R_City==='金門縣'||BuyerDetail.R_City==='連江縣')">
-                <Radio :label="item.No" disabled>
+                <Radio :label="item.No" class="RadioBtn" disabled>
                   {{item.PayTypeName}}
-                  <span class="amtDetail">
+                  <span class="amtDetail noteMobile">
                   NT${{GetshowAmtData.totalAmt}}元
-                <span class="col-sm-10 creditNote">(※離島地區因貨運限制，尚不能選擇貨到付款)</span>
+                  <br>
+                <span class="col-sm-12 creditNote">(※離島地區因貨運限制，無法<br>選擇貨到付款)</span><br>
                   </span>
+                  <br>
                 </Radio>
               </template>
               <!-- 非離島 -->
@@ -60,6 +62,7 @@
           </RadioGroup>
           <!-- <span class="col-sm-10 creditNote">(※除不盡餘數於第一期收取)</span> -->
         </FormItem>
+        <br>
         <template v-if="Object.keys(BuyerDetail).length >0">
           <FormItem label="發票:">
             <RadioGroup v-model="BuyerDetail.InoviceType" size="large">
@@ -97,12 +100,12 @@
     <!-- 付款資訊end -->
     <!-- 上一步回訂購資料 -->
     <div class=" col-xs-5 col-md-5">
-      <button type="button" class="btn btn-success btn-lg btn-block" @click="goBuyerDetail">修改資料</button>
+      <button type="button" class="btn btnGreen btn-lg btn-block" @click="goBuyerDetail">修改資料</button>
     </div>
     <!-- 上一步回購物車end -->
     <!-- 結帳 -->
     <div class=" col-xs-7 col-md-7">
-      <button type="button" @click="StartPay" class="btn btn-info btn-lg btn-block"><b>確認購買!</b></button>
+      <button type="button" @click="StartPay" class="btn btnOrange btn-lg btn-block"><b>確認購買!</b></button>
     </div>
     <!-- 結帳end -->
   </div>
@@ -202,6 +205,7 @@ export default {
   .noteMobile {
     display: block;
     padding-left: 20px;
+    padding-bottom: 3px;
     box-shadow: 0 4px 6px -6px #222;
   }
   .RadioBtn {
@@ -211,5 +215,8 @@ export default {
 .col-xs-7 {
     padding-right: 5px;
     padding-left: 5px;
+}
+.creditNote{
+  padding: 0px;
 }
 </style>
