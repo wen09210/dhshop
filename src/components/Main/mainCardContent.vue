@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-    <div class="style_intro">實體店面展示</div>  
+    <div class="style_intro">在哪裡可以找到我們</div>  
     
     <swiper :options="swiperOption">
       <swiper-slide>

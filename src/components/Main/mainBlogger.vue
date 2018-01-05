@@ -6,46 +6,46 @@
     <swiper :options="swiperOption">
       <swiper-slide>
         <router-link to="/Blog/1">
-            <img src="https://scontent.ftpe7-2.fna.fbcdn.net/v/t31.0-8/p720x720/26171776_1727242910660030_7915162799852122864_o.jpg?_nc_fx=ftpe7-1&oh=c2a913e33c94e71de8f05b79574b1ba2&oe=5AF50D13" class="img-responsive">
-            <div class="case_name">9月精選居家#楊恬恬</div>
-            <div class="case_description">總而言之，好清理是很大的優點，有木地板的質感，卻沒有木地板的缺點。</div>
+            <img src="https://www.dhshop.tw/Image/other/Blog/09blog1.png" class="img-responsive">
+            <div class="Blog_name">9月精選居家#楊恬恬</div>
+            <div class="Blog_description">總而言之，好清理是很大的優點，有木地板的質感，卻沒有木地板的缺點。</div>
         </router-link>    
       </swiper-slide>
       <swiper-slide>
-        <router-link to="/Case/2">
-            <img src="https://scontent.ftpe7-1.fna.fbcdn.net/v/t31.0-8/q84/p720x720/26170131_1728192897231698_3051082895783533847_o.jpg?_nc_fx=ftpe7-1&oh=59105f29a0af6431b990c1eb81dacc9b&oe=5AB8DEBC" class="img-responsive">
-            <div class="case_name">9月精選居家#盧俊光</div>
-            <div class="case_description">親手打造的感覺是怎麼可以這麼簡單啊，哈哈我也可以成為小設計師。</div>
+        <router-link to="/Blog/2">
+            <img src="https://www.dhshop.tw/Image/other/Blog/09blog2.png" class="img-responsive">
+            <div class="Blog_name">9月精選居家#柯繽淳</div>
+            <div class="Blog_description">重點是...我們租屋如果要換租屋處還可以帶走👍完全沒有拆除施工這問題～真的是太棒了😍</div>
         </router-link>
       </swiper-slide>
       <swiper-slide>
-        <router-link to="/Case/3">
-            <img src="../../assets/temporyPic/Case/case4.jpg" class="img-responsive">
-            <div class="case_name">9月精選居家#盧俊光</div>
-            <div class="case_description">重點是...我們租屋如果要換租屋處還可以帶走👍完全沒有拆除施工這問題～真的是太棒了😍</div>
+        <router-link to="/Blog/3">
+            <img src="https://www.dhshop.tw/Image/other/Blog/09blog3.png" class="img-responsive">
+            <div class="Blog_name">9月精選居家#盧俊光</div>
+            <div class="Blog_description">親手打造的感覺是怎麼可以這麼簡單啊，哈哈我也可以成為小設計師。</div>
         </router-link>    
       </swiper-slide>
       <swiper-slide>
-        <router-link to="/Case/4">
-            <img src="../../assets/temporyPic/Case/case5.jpg" class="img-responsive">
-            <div class="case_name">10月精選居家#侯雅吟</div>
-            <div class="case_description">滿滿的成就感，覺得自己辦得到，好像親手自己做，發現原來自己可以做到得更多！</div>
+        <router-link to="/Blog/4">
+            <img src="https://www.dhshop.tw/Image/other/Blog/10blog4.png" class="img-responsive">
+            <div class="Blog_name">10月精選居家#侯雅吟</div>
+            <div class="Blog_description">滿滿的成就感，覺得自己辦得到，好像親手自己做，發現原來自己可以做到得更多！</div>
+        </router-link>    
+      </swiper-slide>
+      <!-- <swiper-slide>
+        <router-link to="/Blog/5">
+            <img src="https://www.dhshop.tw/Image/other/Blog/11blog5.png" class="img-responsive">
+            <div class="Blog_name">11月精選居家#Yunhsin</div>
+            <div class="Blog_description">居家風格不一樣，連小朋友都稱讚新地板好看，冬天不怕冰地板、實現了想要木地板的臥室fu</div>
         </router-link>    
       </swiper-slide>
       <swiper-slide>
-        <router-link to="/Case/5">
-            <img src="../../assets/temporyPic/Case/case6.jpg" class="img-responsive">
-            <div class="case_name">11月精選居家#Yunhsin</div>
-            <div class="case_description">居家風格不一樣，連小朋友都稱讚新地板好看，冬天不怕冰地板、實現了想要木地板的臥室fu</div>
+        <router-link to="/Blog/6">
+            <img src="https://www.dhshop.tw/Image/other/Blog/11blog6.png" class="img-responsive">
+            <div class="Blog_name">11月精選居家#Yoko</div>
+            <div class="Blog_description">我家女娃現在4歲，本就是要讓孩子有個人空間，學習自我打理。舖設那天才發現，女兒是真的會思考如何擺設地板~~超開心的！</div>
         </router-link>    
-      </swiper-slide>
-      <swiper-slide>
-        <router-link to="/Case/6">
-            <img src="../../assets/temporyPic/Case/case6.jpg" class="img-responsive">
-            <div class="case_name">11月精選居家#Yoko</div>
-            <div class="case_description">我家女娃現在4歲，本就是要讓孩子有個人空間，學習自我打理。舖設那天才發現，女兒是真的會思考如何擺設地板~~超開心的！</div>
-        </router-link>    
-      </swiper-slide>
+      </swiper-slide> -->
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
@@ -105,7 +105,7 @@ export default {
   font-weight: bold;
   letter-spacing: 3px;
 }
-.case_name{
+.Blog_name{
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.4px;
@@ -114,7 +114,7 @@ export default {
     color: #484848; 
     font-weight: 700;
 }
-.case_description{
+.Blog_description{
     font-size: 17px;
     line-height: 22px;
     padding-top: 0px;
