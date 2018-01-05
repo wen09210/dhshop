@@ -52,7 +52,6 @@
       <!-- 訂購人資訊end  -->
       <!--收件人資訊  -->
       <div class="detailBlock">
-        {{matchLoginInfo}}
         <div class="detailTitle">
           <span>收件人</span>
         </div>
@@ -120,12 +119,12 @@
     </template>
     <!-- 上一步回購物車 -->
     <div class=" col-xs-5 col-md-5">
-      <button type="button" class="btn btn-success btn-lg btn-block" @click="backCart">回購物車!</button>
+      <button type="button" class="btn btnGreen btn-lg btn-block" @click="backCart">回購物車!</button>
     </div>
     <!-- 上一步回購物車end -->
     <!-- 下一步付款資訊 -->
     <div class=" col-xs-7 col-md-7">
-      <button type="button" class="btn btn-info btn-lg btn-block" @click="goPayDetail('BuyerDetail_P','BuyerDetail_R')">下一步 !</button>
+      <button type="button" class="btn btnOrange btn-lg btn-block" @click="goPayDetail('BuyerDetail_P','BuyerDetail_R')">下一步 !</button>
     </div>
     <!-- 下一步付款資訊end -->
   </div>
@@ -222,6 +221,18 @@ export default {
       }
     }
   },
+  created() {
+    // 預設打勾
+    this.eqPurchaser = true
+    // 無痕登入，不代資料
+    if (this.GetLoginInfo.MemberJoinType !== '4') {
+      this.BuyerDetail.Purchaser = this.GetLoginInfo.MemberName
+      this.BuyerDetail.P_Phone = this.GetLoginInfo.MemberMobile
+      this.BuyerDetail.P_Address = this.GetLoginInfo.MemberAddress
+      this.BuyerDetail.P_Mail = this.GetLoginInfo.MemberEmail
+      this.eqPurchsase()
+    }
+  },
   computed: {
     ...mapGetters([
       'GetShoppingCartItem',
@@ -229,13 +240,12 @@ export default {
       'GetshowAmtData'
     ]),
     matchLoginInfo() {
-      // 無痕登入，不代資料
-      if (this.GetLoginInfo.MemberJoinType !== '4') {
-        this.BuyerDetail.Purchaser = this.GetLoginInfo.MemberName
-        this.BuyerDetail.P_Phone = this.GetLoginInfo.MemberMobile
-        this.BuyerDetail.P_Address = this.GetLoginInfo.MemberAddress
-        this.BuyerDetail.P_Mail = this.GetLoginInfo.MemberEmail
-      }
+      this.BuyerDetail.Recipient = this.BuyerDetail.Purchaser
+      this.BuyerDetail.R_Phone = this.BuyerDetail.P_Phone
+      this.BuyerDetail.R_City = this.BuyerDetail.P_City
+      this.BuyerDetail.R_Dist = this.BuyerDetail.P_Dist
+      this.BuyerDetail.R_Address = this.BuyerDetail.P_Address
+      this.BuyerDetail.R_Mail = this.BuyerDetail.P_Mail
     },
     alertDist() {
       if (this.BuyerDetail.R_City === '澎湖縣' || this.BuyerDetail.R_City === '金門縣' || this.BuyerDetail.R_City === '連江縣' ||

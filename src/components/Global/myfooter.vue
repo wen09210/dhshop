@@ -49,11 +49,11 @@
     </transition>
     <!-- 購物車-->
     <div class="fixRightHistory">
-      <div class="circleHis" @click="openCART = !openCART">
+      <div class="circleHis" @click="openCART">
         <Icon type="ios-cart" size=40></Icon>
       </div>
     </div>
-    <Modal v-model="openCART">
+    <Modal v-model="checkCartModal">
       <p slot="header" style="color:#f60;text-align:center">
         <Icon type="ios-cart" size=20></Icon>
         <span style="font-size:2rem">購物車商品</span>
@@ -107,8 +107,10 @@
         <hr class="style3">
         <div class="col-md-7  col-xs-7">
           <p>客服電話:<span>0966-140567</span></p>
-          <p>客服信箱:<br><a href="mailto:cs.dhshop@gmail.com">cs.dhshop@gmail.com</a></p>
-          <p>服務時間:<br>周一至周五 am 9:00 - pm 21:00</p>
+          <p>客服信箱:
+            <br><a href="mailto:cs.dhshop@gmail.com">cs.dhshop@gmail.com</a></p>
+          <p>服務時間:
+            <br>周一至周五 am 9:00 - pm 21:00</p>
           <p>line@帳號:<a href="https://line.me/R/ti/p/%40eat5207g">@eat5207g</a></p>
         </div>
         <div class="col-md-5 col-xs-5 ">
@@ -148,13 +150,12 @@
 }(document, 'script', 'facebook-jssdk'))
 
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import Lockr from 'lockr'
 export default {
   data: function() {
     return {
       openHis: false,
-      openCART: false,
       oldHistory: [],
       swiperOption: {
         centeredSlides: true,
@@ -193,20 +194,32 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'GetShoppingCartItem'
+      'GetShoppingCartItem',
+      'GetOpenCart'
     ]),
     updateHis() {
       let oldHistory = Lockr.get('oldCartItem')
       // console.log(oldHistory)
       this.oldHistory = oldHistory
+    },
+    checkCartModal: {
+      get() {
+        return this.$store.state.cartModal
+      },
+      set() {
+        this.$store.commit('openCART')
+      }
     }
   },
   methods: {
+    ...mapActions([
+      'openCART'
+    ]),
     goCart() {
       this.$router.push({
         name: 'cart'
       })
-      this.openCART = !this.openCART
+      this.openCART()
     }
   }
 }
@@ -220,7 +233,7 @@ export default {
 
 .myfooter {
   z-index: 9999999;
-  margin-top: 100px;
+  margin-top: 30px;
 }
 
 .custTABLE {
@@ -316,18 +329,19 @@ div .copyright {
   padding: 5px;
 }
 
-.footer_title .style3 .col-md-7{
-   text-align: left;
- }
- .fb_chat img{
-   z-index: 2;
-   position: fixed;
-   bottom: 30px;
-   right: 20px;
-   cursor: pointer;
-   width:50px;
-   height:50px;
-   border-radius:100px;
-		  
- }
+.footer_title .style3 .col-md-7 {
+  text-align: left;
+}
+
+.fb_chat img {
+  z-index: 2;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+
 </style>

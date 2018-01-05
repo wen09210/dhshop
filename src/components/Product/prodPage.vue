@@ -45,7 +45,7 @@ export default {
   computed: {
     getProdInfo() {
       this.$on('passProdInf', (data) => {
-        console.log(data)
+        // console.log(data)
         this.ProdInfo = data
       })
     },

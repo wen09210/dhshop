@@ -170,7 +170,7 @@
         <!-- 付款總計end -->
         <!-- 下一步  -->
         <div class="btntoDetail col-xs-12  col-md-offset-3 col-md-6">
-          <button type="button" @click="goBuyerDetail" class="btn btn-info btn-lg btn-block">下一步 結帳去!</button>
+          <button type="button" @click="goBuyerDetail" class="btnOrange btn  btn-lg btn-block">下一步 結帳去!</button>
         </div>
         <!-- 下一步end -->
       </div>

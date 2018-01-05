@@ -22,5 +22,6 @@ export default {
   },
   [types.GetLoginModal]: (state) => state.openLoginModal,
   [types.GetBuyerDetail]: (state) => state.BuyerDetail,
-  [types.GetCouponCode]: (state) => state.CouponCode
+  [types.GetCouponCode]: (state) => state.CouponCode,
+  [types.GetOpenCart]: (state) => state.cartModal
 }
