@@ -131,6 +131,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 import { mapGetters, mapActions } from 'vuex'
 import TWZipcode from '../../../static/file/TaiwanZipCode.json'
 let BuyerDetail = {
@@ -325,6 +326,7 @@ export default {
       }
       // 存訂購人資料
       this.SetBuyerDetail(this.BuyerDetail)
+      this.SaveMemberInfo()
       // 步驟條
       this.SetCartStepBar(2)
       window.scroll(0, 70)
@@ -346,6 +348,20 @@ export default {
         this.BuyerDetail.R_Address = ''
         this.BuyerDetail.R_Mail = ''
       }
+    },
+    // 儲存訂購資料到會員資料
+    SaveMemberInfo() {
+      axios.post(`/api/MemberAccount/PostSaveMembInfo`, this.BuyerDetail, {
+        headers: {
+          'Authorization': this.GetLoginInfo.JWTAuthorization
+        }
+      })
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((r) => {
+        console.log(r)
+      })
     },
     test(name1, name2) {
       // 訂購人驗證
