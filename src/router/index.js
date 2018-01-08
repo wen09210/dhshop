@@ -84,6 +84,7 @@ const router = new Router({
     },
     {
       path: '/Blog/:BlogID',
+      name: 'Blog',
       component: Blog
     }
   ]

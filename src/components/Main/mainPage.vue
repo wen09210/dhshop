@@ -2,7 +2,7 @@
   <div id="mainpage">
     <mainTop></mainTop>
     <mainIntro></mainIntro>
-    <!-- <mainBlogger></mainBlogger> -->
+    <mainBlogger></mainBlogger>
     <mainPromotion></mainPromotion>
     <mainCardContent></mainCardContent>
     <!-- <mainArtical></mainArtical> -->
