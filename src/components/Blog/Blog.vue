@@ -3,7 +3,7 @@
       <div class="mainTitle">{{BlogDetail.title}}</div>
       <div class="blogtime"><Icon type="pricetag"></Icon>{{BlogDetail.prodtag}} <Icon type="android-calendar"></Icon> {{BlogDetail.time}}</div>
       <div class="main_img"> <img :src="BlogDetail.mainImg" alt=""></div> 
-      <div class="quote"><Icon type="chatbox-working"></Icon>{{BlogDetail.quote}}</div>
+      <div class="quote"><Icon type="chatbox-working"></Icon>『{{BlogDetail.quote}}』-d粉{{BlogDetail.name}}</div>
       <div class="content col-md-12" v-html="BlogDetail.content"></div>
     <div class="clearfix"></div>
     <div class="productPart needLine">
