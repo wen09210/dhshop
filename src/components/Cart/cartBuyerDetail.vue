@@ -228,8 +228,12 @@ export default {
     if (this.GetLoginInfo.MemberJoinType !== '4') {
       this.BuyerDetail.Purchaser = this.GetLoginInfo.MemberName
       this.BuyerDetail.P_Phone = this.GetLoginInfo.MemberMobile
-      this.BuyerDetail.P_Address = this.GetLoginInfo.MemberAddress
       this.BuyerDetail.P_Mail = this.GetLoginInfo.MemberEmail
+      // 分成符合前端需要
+      var addressSplit = this.GetLoginInfo.MemberAddress.split('_')
+      this.BuyerDetail.P_City = addressSplit.length !== 3 ? '' : addressSplit[0]
+      this.BuyerDetail.P_Dist = addressSplit.length !== 3 ? '' : addressSplit[1]
+      this.BuyerDetail.P_Address = addressSplit.length !== 3 ? '' : addressSplit[2]
       this.eqPurchsase()
     }
   },
