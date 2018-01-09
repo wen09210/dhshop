@@ -1,22 +1,23 @@
 <template>
   <div>
     <div class="container">
-    <div class="style_intro">消費者使用實例</div>  
-    <!-- <div v-for="item in BlogDetail">
+      <div class="style_intro">消費者使用實例</div>
+      <!-- <div v-for="item in BlogDetail">
       {{item.title}}
     </div>   -->
-    <swiper :options="swiperOption">
-      <swiper-slide v-for="BlogDetail in BlogDetail">
-        <router-link :to="{name: 'Blog', params: {BlogID: BlogDetail.BlogID}}">
-          <img :src="BlogDetail.coverPhoto" class="img-responsive">
-          <div class="Blog_name">{{BlogDetail.title}}</div>
-          <div class="Blog_description">{{BlogDetail.quote}}</div>
-          <div class="Blog_tag"><Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}</div>   
+      <swiper :options="swiperOption">
+        <swiper-slide v-for="BlogDetail in BlogDetail">
+          <router-link :to="{name: 'Blog', params: {BlogID: BlogDetail.BlogID}}">
+            <img :src="BlogDetail.coverPhoto" class="img-responsive">
+            <div class="Blog_name">{{BlogDetail.title}}</div>
+            <div class="Blog_description">{{BlogDetail.quote}}</div>
+            <div class="Blog_tag">
+              <Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}</div>
           </router-link>
-      </swiper-slide>  
-      <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-      <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-    </swiper>
+        </swiper-slide>
+        <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+        <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+      </swiper>
     </div>
   </div>
 </template>
@@ -67,9 +68,16 @@ export default {
 
 </script>
 <style scoped>
+<<<<<<< HEAD
 .img-responsive{
     border-radius:3px;
 }
+=======
+.img-responsive {
+  border-radius: 3px;
+}
+
+>>>>>>> b455bcf35551eb9844bf635f5ef98c0500b37810
 .title_intro {
   margin: 15px 0px;
   padding: 10px 0px;
@@ -80,6 +88,7 @@ export default {
   font-weight: bold;
   letter-spacing: 3px;
 }
+<<<<<<< HEAD
 .Blog_name{
     font-size: 12px;
     line-height: 16px;
@@ -99,6 +108,30 @@ export default {
 }
 .Blog_tag{
   color:#FF9800;
+=======
+
+.Blog_name {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  padding-top: 8px;
+  padding-bottom: 0px;
+  color: #484848;
+  font-weight: 700;
+}
+
+.Blog_description {
+  font-size: 17px;
+  line-height: 22px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #484848;
+  font-weight: 700;
+}
+
+.Blog_tag {
+  color: #FF9800;
+>>>>>>> b455bcf35551eb9844bf635f5ef98c0500b37810
 }
 
 </style>
