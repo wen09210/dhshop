@@ -30,7 +30,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="needLine">
-      <p class="subtitle">相關文章</p>
+      <p class="subtitle">相關文章 </p>
       <template v-for="(item,i) in BlogDetail.guesslike">
         <div class="col-md-4 col-xs-12">
           <div class="otherlike">
@@ -95,11 +95,8 @@ export default {
     }
   },
   created() {
-    console.log(this.Blog)
-    console.log(this.$route.params.BlogID)
     let CC = this.Blog.data.find(x => x.BlogID === this.$route.params.BlogID)
     this.BlogDetail = CC
-    console.log(this.BlogDetail)
   },
   methods: {
     // 選擇輪播圖
