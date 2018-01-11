@@ -1,10 +1,13 @@
 <template>
+  
   <div class="BlogAll">
-    <div class="mainTitle">{{BlogDetail.title}}</div>
+    <div class="main_img"> <img :src="BlogDetail.mainImg" alt="" ></div>
+    <div class="blog_inside">
     <div class="blogtime">
       <Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}
-      <Icon type="android-calendar"></Icon> {{BlogDetail.time}}</div>
-    <div class="main_img"> <img :src="BlogDetail.mainImg" alt=""></div>
+      <Icon type="android-calendar"></Icon> {{BlogDetail.time}}
+    </div>
+    <div class="mainTitle">{{BlogDetail.title}}</div>
     <div class="quote">
       <Icon type="chatbox-working"></Icon>『{{BlogDetail.quote}}』-d粉{{BlogDetail.name}}</div>
     <div class="content col-md-12" v-html="BlogDetail.content"></div>
@@ -46,6 +49,7 @@
       </template>
     </div>
     <div class="clearfix"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -123,10 +127,13 @@ img {
 .BlogAll {
   margin: 0 auto;
   text-align: center;
-  font-size: 18px;
-  max-width: 1000px;
 }
-
+.blog_inside{
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px; 
+  max-width: 800px;
+}
 .blogtime {
   text-align: right;
   color: #484848;
@@ -153,7 +160,7 @@ img {
 }
 
 .main_img>img {
-  max-width: 100%;
+  width: 100%;
 }
 
 .otherlike {
@@ -185,10 +192,6 @@ img {
   text-align: left;
 }
 
-.col-md-6 {
-  padding-left: 0px;
-  margin-left: 0px;
-}
 
 .centerword {
   display: -webkit-flex;
@@ -255,8 +258,14 @@ img {
 }
 
 @media (max-width:768px) {
-  .content {
+  .blog_inside{
     padding: 5px;
+  }
+  .mainTitle{
+    font-size: 28px;
+  }
+  .blogtime{
+    font-size:15px;
   }
 }
 

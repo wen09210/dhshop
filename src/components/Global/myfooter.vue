@@ -105,7 +105,7 @@
       <div class="col-md-5 col-xs-12">
         <div class="footer_title">聯絡我們</div>
         <hr class="style3">
-        <div class="col-md-7  col-xs-7">
+        <div class="col-md-7  col-xs-12">
           <p>客服電話:<span>0966-140567</span></p>
           <p>客服信箱:
             <br><a href="mailto:cs.dhshop@gmail.com">cs.dhshop@gmail.com</a></p>
@@ -113,7 +113,7 @@
             <br>周一至周五 am 9:00 - pm 21:00</p>
           <p>line@帳號:<a href="https://line.me/R/ti/p/%40eat5207g">@eat5207g</a></p>
         </div>
-        <div class="col-md-5 col-xs-5 ">
+        <div class="col-md-5 col-xs-12 ">
           <a href="https://line.me/R/ti/p/%40eat5207g"><img src="../../assets/icon/lineat.jpg" alt="" style="width:150px"></a>
         </div>
       </div>
