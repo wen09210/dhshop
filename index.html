@@ -136,12 +136,6 @@ html {
 .row{
   margin:0px;
 }
-@media (max-width: 768px) {
-  html {
-    padding-top: 20px;
-  }
-}
-
 .pageHeader {
   font-size: 25px;
   color: #fff;
@@ -152,5 +146,26 @@ html {
   border-bottom: 2px solid #dddddd;
   border-radius: 8px
 }
-
+.swiper-button-prev, .swiper-button-next {
+    width: 35px;
+    height: 35px;
+    background-size: 35px 35px;
+}
+.swiper-button-next.swiper-button-white{
+  background-image: url("https://www.dhshop.tw/Image/other/right.png")
+}
+.swiper-button-prev.swiper-button-white{
+  background-image: url("https://www.dhshop.tw/Image/other/left.png")
+}
+@media (max-width: 768px) {
+  html {
+    padding-top: 20px;
+  }
+  .swiper-button-prev, .swiper-button-next {
+    width: 25px;
+    height: 50px;
+    background-size: 25px 25px;
+}
+}
 </style>
+

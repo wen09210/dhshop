@@ -1,54 +1,53 @@
 <template>
-  
   <div class="BlogAll">
-    <div class="main_img"> <img :src="BlogDetail.mainImg" alt="" ></div>
+    <div class="main_img"> <img :src="BlogDetail.mainImg" alt=""></div>
     <div class="blog_inside">
-    <div class="blogtime">
-      <Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}
-      <Icon type="android-calendar"></Icon> {{BlogDetail.time}}
-    </div>
-    <div class="mainTitle">{{BlogDetail.title}}</div>
-    <div class="quote">
-      <Icon type="chatbox-working"></Icon>『{{BlogDetail.quote}}』-d粉{{BlogDetail.name}}</div>
-    <div class="content col-md-12" v-html="BlogDetail.content"></div>
-    <div class="clearfix"></div>
-    <div class="productPart needLine">
-      <p class="subtitle">使用產品</p>
-      <div>
-        <div class="productIn">
-          <router-link to="/product/1">
-            <button type="button" class="prodBtn">
-              <div>
-                <div class="productLeftImg">
-                  <img :src="BlogDetail.productImg1" alt="" class="img-responsive">
-                </div>
-                <span>
+      <div class="blogtime">
+        <Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}
+        <Icon type="android-calendar"></Icon> {{BlogDetail.time}}
+      </div>
+      <div class="mainTitle">{{BlogDetail.title}}</div>
+      <div class="quote">
+        <Icon type="chatbox-working"></Icon>『{{BlogDetail.quote}}』-d粉{{BlogDetail.name}}</div>
+      <div class="content col-md-12" v-html="BlogDetail.content"></div>
+      <div class="clearfix"></div>
+      <div class="productPart needLine">
+        <p class="subtitle">使用產品</p>
+        <div>
+          <div class="productIn">
+            <router-link to="/product/1">
+              <button type="button" class="prodBtn">
+                <div>
+                  <div class="productLeftImg">
+                    <img :src="BlogDetail.productImg1" alt="" class="img-responsive">
+                  </div>
+                  <span>
                         {{BlogDetail.productName}}
-                      </span>
-              </div>
-            </button>
-          </router-link>
+                  </span>
+                </div>
+              </button>
+            </router-link>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="needLine">
-      <p class="subtitle">相關文章 </p>
-      <template v-for="(item,i) in BlogDetail.guesslike">
-        <div class="col-md-4 col-xs-12">
-          <div class="otherlike">
-            <a :href="'/Blog/'+item.sid">     
+      <div class="clearfix"></div>
+      <div class="needLine">
+        <p class="subtitle">相關文章 </p>
+        <template v-for="(item,i) in BlogDetail.guesslike">
+          <div class="col-md-4 col-xs-12">
+            <div class="otherlike">
+              <a :href="'/Blog/'+item.sid">     
                   <img :src="item.simg" class="img-responsive">
                   <div class="centerword">
                     <div class="Blog_name">{{item.stitle}}</div>
                     <div class="Blogtag">{{item.stag}}</div>  
                   </div>
                 </a>
+            </div>
           </div>
-        </div>
-      </template>
-    </div>
-    <div class="clearfix"></div>
+        </template>
+      </div>
+      <div class="clearfix"></div>
     </div>
   </div>
 </template>
@@ -114,6 +113,7 @@ export default {
     }
   }
 }
+
 </script>
 <style scoped>
 p {
@@ -128,12 +128,14 @@ img {
   margin: 0 auto;
   text-align: center;
 }
-.blog_inside{
+
+.blog_inside {
   margin: 0 auto;
   text-align: center;
-  font-size: 18px; 
+  font-size: 18px;
   max-width: 800px;
 }
+
 .blogtime {
   text-align: right;
   color: #484848;
@@ -149,6 +151,7 @@ img {
   padding: 10px 0px;
   margin-top: 15px;
 }
+
 .subtitle {
   font-weight: 500;
   margin: 15px 0px 15px 10px;
@@ -258,15 +261,16 @@ img {
 }
 
 @media (max-width:768px) {
-  .blog_inside{
+  .blog_inside {
     padding: 5px;
   }
-  .mainTitle{
+  .mainTitle {
     font-size: 28px;
   }
-  .blogtime{
-    font-size:15px;
+  .blogtime {
+    font-size: 15px;
   }
 }
 
 </style>
+
