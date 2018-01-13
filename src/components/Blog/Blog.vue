@@ -30,7 +30,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="needLine">
-      <p class="subtitle">相關文章</p>
+      <p class="subtitle">相關文章 </p>
       <template v-for="(item,i) in BlogDetail.guesslike">
         <div class="col-md-4 col-xs-12">
           <div class="otherlike">
@@ -194,7 +194,11 @@ img {
   padding-left: 0px;
   margin-left: 0px;
 }
-
+.col-md-6,
+.col-md-4 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .centerword {
   display: -webkit-flex;
   display: -ms-flexbox;

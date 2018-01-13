@@ -133,7 +133,7 @@ export default {
 }
 
 </script>
-<style scoped>
+<style>
 .swiper-slide img.img-responsive.imgHover {
     width: 100%;
     max-width: 100%;

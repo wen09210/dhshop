@@ -6,7 +6,7 @@
       {{item.title}}
     </div>   -->
       <swiper :options="swiperOption">
-        <swiper-slide v-for="BlogDetail in BlogDetail">
+        <swiper-slide v-for="BlogDetail in reverseItems">
           <router-link :to="{name: 'Blog', params: {BlogID: BlogDetail.BlogID}}">
             <img :src="BlogDetail.coverPhoto" class="img-responsive">
             <div class="Blog_name">{{BlogDetail.title}}</div>
@@ -63,6 +63,11 @@ export default {
   created() {
     let CC = this.Blog.data
     this.BlogDetail = CC
+  },
+  computed: {
+    reverseItems() {
+      return this.BlogDetail.slice().reverse()
+    }
   }
 }
 

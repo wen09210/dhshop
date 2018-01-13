@@ -59,7 +59,7 @@ export default {
         for (var i = 0; i < this.addProdList.length; i++) {
           // 加入要顯示的第一個商品樣式
           let t = this.addProdList[i].AddProdList[0]
-          this.addItemShow.push(t)
+          this.addItemShow.push(JSON.parse(JSON.stringify(t)))
           // 加入下拉選單
           this.addItemShow[i].DP_ItemName = []
           this.addItemShow[i].DP_ItemNo = []
@@ -88,11 +88,15 @@ export default {
       'PostGetTotalAmt'
     ]),
     changeShow(currentItem) {
+      console.log('t-' + event.target.value)
       let allLens = this.addProdList.length
       for (var i = 0; i < allLens; i++) {
         for (var k = 0; k < this.addProdList[i].AddProdList.length; k++) {
+          console.log(this.addProdList[i].AddProdList)
+          console.log('g-' + this.addProdList[i].AddProdList[k].ItemNo)
           // 替換顯示所選擇的商品樣式
           if (this.addProdList[i].AddProdList[k].ItemNo === event.target.value) {
+            console.log('s-' + this.addProdList[i].AddProdList[k].ItemNo)
             currentItem.ItemNo = this.addProdList[i].AddProdList[k].ItemNo
             currentItem.ItemName = this.addProdList[i].AddProdList[k].ItemName
             currentItem.ItemSpec = this.addProdList[i].AddProdList[k].ItemSpec
@@ -101,6 +105,7 @@ export default {
             currentItem.AddPrice = this.addProdList[i].AddProdList[k].AddPrice
             currentItem.InventoryVal = this.addProdList[i].AddProdList[k].InventoryVal
             currentItem.ImgUrl = this.addProdList[i].AddProdList[k].ImgUrl
+            break
           }
         }
       }

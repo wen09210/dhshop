@@ -77,7 +77,7 @@
             <div class="col-md-2 col-xs-12  tableTd">
               <span class="leftTd">
                     <a class="btn btn-danger" @click="ReduceProd(item)">
-                    <i class="fa fa-trash-o fa-lg">忍痛放棄</i>
+                    <i class="fa fa-trash-o fa-lg"></i>
                     </a>
                 </span>
               <span class="rightTd">
