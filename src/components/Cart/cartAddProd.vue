@@ -88,15 +88,11 @@ export default {
       'PostGetTotalAmt'
     ]),
     changeShow(currentItem) {
-      console.log('t-' + event.target.value)
       let allLens = this.addProdList.length
       for (var i = 0; i < allLens; i++) {
         for (var k = 0; k < this.addProdList[i].AddProdList.length; k++) {
-          console.log(this.addProdList[i].AddProdList)
-          console.log('g-' + this.addProdList[i].AddProdList[k].ItemNo)
           // 替換顯示所選擇的商品樣式
           if (this.addProdList[i].AddProdList[k].ItemNo === event.target.value) {
-            console.log('s-' + this.addProdList[i].AddProdList[k].ItemNo)
             currentItem.ItemNo = this.addProdList[i].AddProdList[k].ItemNo
             currentItem.ItemName = this.addProdList[i].AddProdList[k].ItemName
             currentItem.ItemSpec = this.addProdList[i].AddProdList[k].ItemSpec
