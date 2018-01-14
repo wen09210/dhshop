@@ -1,51 +1,54 @@
 <template>
   <div class="BlogAll">
-    <div class="mainTitle">{{BlogDetail.title}}</div>
-    <div class="blogtime">
-      <Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}
-      <Icon type="android-calendar"></Icon> {{BlogDetail.time}}</div>
     <div class="main_img"> <img :src="BlogDetail.mainImg" alt=""></div>
-    <div class="quote">
-      <Icon type="chatbox-working"></Icon>『{{BlogDetail.quote}}』-d粉{{BlogDetail.name}}</div>
-    <div class="content col-md-12" v-html="BlogDetail.content"></div>
-    <div class="clearfix"></div>
-    <div class="productPart needLine">
-      <p class="subtitle">使用產品</p>
-      <div>
-        <div class="productIn">
-          <router-link to="/product/1">
-            <button type="button" class="prodBtn">
-              <div>
-                <div class="productLeftImg">
-                  <img :src="BlogDetail.productImg1" alt="" class="img-responsive">
-                </div>
-                <span>
+    <div class="blog_inside">
+      <div class="blogtime">
+        <Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}
+        <Icon type="android-calendar"></Icon> {{BlogDetail.time}}
+      </div>
+      <div class="mainTitle">{{BlogDetail.title}}</div>
+      <div class="quote">
+        <Icon type="chatbox-working"></Icon>『{{BlogDetail.quote}}』-d粉{{BlogDetail.name}}</div>
+      <div class="content col-md-12" v-html="BlogDetail.content"></div>
+      <div class="clearfix"></div>
+      <div class="productPart needLine">
+        <p class="subtitle">使用產品</p>
+        <div>
+          <div class="productIn">
+            <router-link to="/product/1">
+              <button type="button" class="prodBtn">
+                <div>
+                  <div class="productLeftImg">
+                    <img :src="BlogDetail.productImg1" alt="" class="img-responsive">
+                  </div>
+                  <span>
                         {{BlogDetail.productName}}
-                      </span>
-              </div>
-            </button>
-          </router-link>
+                  </span>
+                </div>
+              </button>
+            </router-link>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="needLine">
-      <p class="subtitle">相關文章 </p>
-      <template v-for="(item,i) in BlogDetail.guesslike">
-        <div class="col-md-4 col-xs-12">
-          <div class="otherlike">
-            <a :href="'/Blog/'+item.sid">     
+      <div class="clearfix"></div>
+      <div class="needLine">
+        <p class="subtitle">相關文章 </p>
+        <template v-for="(item,i) in BlogDetail.guesslike">
+          <div class="col-md-4 col-xs-12">
+            <div class="otherlike">
+              <a :href="'/Blog/'+item.sid">     
                   <img :src="item.simg" class="img-responsive">
                   <div class="centerword">
                     <div class="Blog_name">{{item.stitle}}</div>
                     <div class="Blogtag">{{item.stag}}</div>  
                   </div>
                 </a>
+            </div>
           </div>
-        </div>
-      </template>
+        </template>
+      </div>
+      <div class="clearfix"></div>
     </div>
-    <div class="clearfix"></div>
   </div>
 </template>
 <script>
@@ -95,11 +98,8 @@ export default {
     }
   },
   created() {
-    console.log(this.Blog)
-    console.log(this.$route.params.BlogID)
     let CC = this.Blog.data.find(x => x.BlogID === this.$route.params.BlogID)
     this.BlogDetail = CC
-    console.log(this.BlogDetail)
   },
   methods: {
     // 選擇輪播圖
@@ -127,8 +127,13 @@ img {
 .BlogAll {
   margin: 0 auto;
   text-align: center;
+}
+
+.blog_inside {
+  margin: 0 auto;
+  text-align: center;
   font-size: 18px;
-  max-width: 1000px;
+  max-width: 800px;
 }
 
 .blogtime {
@@ -158,7 +163,7 @@ img {
 }
 
 .main_img>img {
-  max-width: 100%;
+  width: 100%;
 }
 
 .otherlike {
@@ -190,15 +195,7 @@ img {
   text-align: left;
 }
 
-.col-md-6 {
-  padding-left: 0px;
-  margin-left: 0px;
-}
-.col-md-6,
-.col-md-4 {
-  padding-left: 15px;
-  padding-right: 15px;
-}
+
 .centerword {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -264,8 +261,14 @@ img {
 }
 
 @media (max-width:768px) {
-  .content {
+  .blog_inside {
     padding: 5px;
+  }
+  .mainTitle {
+    font-size: 28px;
+  }
+  .blogtime {
+    font-size: 15px;
   }
 }
 

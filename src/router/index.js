@@ -12,6 +12,7 @@ import AnonymousSearch from '../components/Order/AnonymousSearch.vue'
 import QandA from '../components/Other/QandA.vue'
 import Case from '../components/Case/Case.vue'
 import Blog from '../components/Blog/Blog.vue'
+import BlogCategory from '../components/Blog/BlogCategory.vue'
 // import axios from 'axios'
 import Cookies from 'js-cookie'
 Vue.use(Router)
@@ -86,7 +87,12 @@ const router = new Router({
       path: '/Blog/:BlogID',
       name: 'Blog',
       component: Blog
+    },
+    {
+      path: '/BlogCategory',
+      component: BlogCategory
     }
+
   ]
 })
 router.beforeEach((to, from, next) => {
