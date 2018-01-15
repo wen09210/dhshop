@@ -144,6 +144,7 @@ img {
 .blogtime {
   text-align: right;
   color: #484848;
+  margin:10px 0px;
 }
 
 .quote {
@@ -190,17 +191,13 @@ img {
   padding-bottom: 6px;
   color: #484848;
 }
-
 .img-responsive {
   border-radius: 3px;
 }
-
 .content {
   line-height: 3rem;
   text-align: left;
 }
-
-
 .centerword {
   display: -webkit-flex;
   display: -ms-flexbox;

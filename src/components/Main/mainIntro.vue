@@ -4,8 +4,7 @@
       <div class="category_title ">
         <div class="title_intro">我們致力於打造質感居家平台</div>
         <div class="about_dhshop">
-          <p>「dHSHOP・點一下」的宗旨是成為每個人完成夢想居家的捷徑，啟發群眾對生活品質的重視與審美觀。</p>
-          <p>專注於細節，連結值得關注的人事物，質感品味親手打造，共同創造分享價值。</p>
+          <p>「dHSHOP・點一下」希望成為每個人完成夢想居家的捷徑，啟發群眾對生活品質的重視，質感品味親手打造，共同創造分享價值。</p>
         </div>
         <!-- <div class="style_intro">消費者使用實例</div> -->
       </div>
@@ -55,6 +54,7 @@
 .about_dhshop {
   font-size: 18px;
   letter-spacing: 3px;
+  font-weight: 300;
 }
 
 </style>

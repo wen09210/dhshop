@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <div class="style_intro">消費者使用實例 <span class="seemore"><router-link to="/BlogCategory">查看更多</router-link></span></div>
+      <div class="style_intro">消費者使用實例 <span class="seemore"><router-link to="/BlogCategory">查看更多>></router-link></span></div>
       
       <!-- <div v-for="item in BlogDetail">
       {{item.title}}
@@ -83,6 +83,9 @@ export default {
   padding-top: 15px;
   color: #484848;
   font-weight: 300;
+}
+.seemore a{
+  color:#008489 ;
 }
 .title_intro {
   margin: 15px 0px;
