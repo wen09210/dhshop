@@ -6,7 +6,7 @@
     <swiper :options="swiperOption">
       <swiper-slide>
         <router-link to="/Case/1">
-            <img src="../../assets/temporyPic/Case/case1.jpg" class="img-responsive">
+            <img src="https://www.dhshop.tw/Image/other/Case/case1.jpg" class="img-responsive">
             <div class="case_name">中壢-實體旗艦店</div>
             <div class="case_description">中壢旗艦店，專業教學體驗</div>
         </router-link>    

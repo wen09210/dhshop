@@ -3,18 +3,6 @@
     <div class="col-md-8">
       <div class="leftPart">
         <div>
-          <!-- <div class="main-image">
-          <img src="../../assets/temporyPic/Case/case1.jpg" alt="" class="img-responsive">
-          </div> -->
-          <!-- <swiper :options="swiperOptionThumbs" ref="swiperThumbs">
-          <template v-for="(prod,i) in item">
-            <swiper-slide :class="{'selectedCarousel':i===isSelectedCarousel}">
-              <img :src="prod.ImgUrl| UrlTransIP" class="img-responsive" @click="selectCarousel(i,prod.ItemNo)">
-            </swiper-slide>
-          </template>
-          <div class="swiper-button-prev swiper-button-white" style="left:1px" slot="button-prev"></div>
-          <div class="swiper-button-next swiper-button-white" style="right:1px" slot="button-next"></div>
-        </swiper> -->
           <div class="main-image">
             <template v-for="(item,i) in caseDetail.img">
               <template v-if="i===isSelectedCarousel">

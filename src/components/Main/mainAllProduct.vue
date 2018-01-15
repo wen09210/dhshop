@@ -238,27 +238,6 @@ export default {
 
 </script>
 <style scoped>
-@media (max-width:768px) {
-  .nav.nav-yellow>li {
-    width: 80px;
-    margin: 10px 3px;
-    padding: 10px 3px;
-    background-color: #eee;
-    font-size: 18px;
-  }
-  .nav.nav-yellow>li>img {
-    margin: 0px 15px;
-    width: 45px;
-    height: 45px;
-  }
-  .topdownMargin10 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-}
-
-
-@media (min-width: 768px) {
   .nav.nav-yellow>li {
     width: 150px;
     margin: 10px 3px;
@@ -274,8 +253,6 @@ export default {
   .topdownMargin10 {
     padding: 5px;
   }
-}
-
 
 .tabHover {
   color: #2e2e2e;
@@ -311,5 +288,26 @@ export default {
   padding-top: 5px;
   padding-top: 5px;
 }
-
+@media (max-width:768px) {
+  .nav.nav-yellow>li{
+    width: 70px;
+    margin: 10px 3px;
+    padding: 10px 3px;
+    background-color: #eee;
+    font-size: 15px;
+    text-align: center;
+    padding: 0px;
+    margin: 1px;
+    border-radius:2px solid #000;
+  }
+  .nav.nav-yellow>li>img {
+    margin: 0px 15px;
+    width: 45px;
+    height: 45px;
+  }
+  .topdownMargin10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
 </style>
