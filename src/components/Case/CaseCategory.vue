@@ -1,16 +1,16 @@
 <template>
 <div class="container">
   <div class="main_section col-md-12">
-    <div class="category_title">消費者使用實例</div>
-    <div class="subtitle">d粉們精心鋪設的空間，讓您輕鬆探索美好居家</div>
+    <div class="category_title">實體展示空間</div>
+    <div class="subtitle">台灣在地好店家，讓您實際接觸最棒的產品</div>
   </div>  
-  <div class="col-md-3 col-xs-6 inblog"  v-for="BlogDetail in reverseItems  " :key="BlogDetail.BlogID">
-      <router-link :to="{name: 'Blog', params: {BlogID: BlogDetail.BlogID}}">
-        <img :src="BlogDetail.coverPhoto" class="img-responsive">
-        <div class="Blog_name" >{{BlogDetail.title}}</div>
-        <div class="Blog_description">{{BlogDetail.quote}}</div>
-        <div class="Blog_tag">
-          <Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}</div>
+  <div class="col-md-3 col-xs-6 inCase"  v-for="CaseDetail in reverseItems  " :key="CaseDetail.CaseID">
+      <router-link :to="{name: 'Case', params: {CaseID: CaseDetail.CaseID}}">
+        <img :src="CaseDetail.coverPhoto" class="img-responsive">
+        <div class="Case_name" >{{CaseDetail.name}}</div>
+        <div class="Case_description">{{CaseDetail.quote}}</div>
+        <div class="Case_tag">
+          <Icon type="pricetag"></Icon>{{CaseDetail.opentime}}</div>
       </router-link>
   </div>
 </div>
@@ -18,21 +18,21 @@
  
 </template>
 <script>
-import Blog from '../../../static/file/Blog.json'
+import Case from '../../../static/file/Case.json'
 export default {
   data() {
     return {
-      Blog: Blog,
-      BlogDetail: {}
+      Case: Case,
+      CaseDetail: {}
     }
   },
   created() {
-    let CC = this.Blog.data
-    this.BlogDetail = CC
+    let CC = this.Case.data
+    this.CaseDetail = CC
   },
   computed: {
     reverseItems() {
-      return this.BlogDetail.slice().reverse()
+      return this.CaseDetail.slice().reverse()
     }
   }
 }
@@ -68,10 +68,10 @@ padding-bottom: 0px ;
 color: #484848 ;
 font-weight: 300 ;
 }
-.inblog{
+.inCase{
   margin:20px 0px;
 }
-.Blog_name {
+.Case_name {
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.4px;
@@ -83,7 +83,7 @@ font-weight: 300 ;
   white-space: nowrap;
 }
 
-.Blog_description {
+.Case_description {
   font-size: 17px;
   line-height: 22px;
   padding-top: 0px;
@@ -93,12 +93,12 @@ font-weight: 300 ;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 85px;
+  height: 40px;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 
-.Blog_tag {
+.Case_tag {
   color: #FF9800;
   padding-top:3px;
 }

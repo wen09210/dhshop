@@ -13,6 +13,7 @@ import QandA from '../components/Other/QandA.vue'
 import Case from '../components/Case/Case.vue'
 import Blog from '../components/Blog/Blog.vue'
 import BlogCategory from '../components/Blog/BlogCategory.vue'
+import CaseCategory from '../components/Case/CaseCategory.vue'
 // import axios from 'axios'
 import Cookies from 'js-cookie'
 Vue.use(Router)
@@ -80,7 +81,8 @@ const router = new Router({
       component: QandA
     },
     {
-      path: '/Case/:caseID',
+      path: '/Case/:CaseID',
+      name: 'Case',
       component: Case
     },
     {
@@ -91,6 +93,10 @@ const router = new Router({
     {
       path: '/BlogCategory',
       component: BlogCategory
+    },
+    {
+      path: '/CaseCategory',
+      component: CaseCategory
     }
   ]
 })
