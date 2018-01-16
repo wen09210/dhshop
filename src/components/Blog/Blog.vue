@@ -2,7 +2,7 @@
   <div class="BlogAll">
     <div class="main_img"> <img :src="BlogDetail.mainImg" alt=""></div>
     <div class="blog_inside">
-      <div class="blogtime">
+      <div class="blogtime col-md-12">
         <Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}
         <Icon type="android-calendar"></Icon> {{BlogDetail.time}}
       </div>
@@ -11,7 +11,7 @@
         <Icon type="chatbox-working"></Icon>『{{BlogDetail.quote}}』-d粉{{BlogDetail.name}}</div>
       <div class="content col-md-12" v-html="BlogDetail.content"></div>
       <div class="clearfix"></div>
-      <div class="productPart needLine">
+      <div class="productPart needLine col-md-12">
         <p class="subtitle">使用產品</p>
         <div>
           <div class="productIn">
@@ -128,7 +128,12 @@ img {
   margin: 0 auto;
   text-align: center;
 }
-
+.content >>> .col-md-6{
+  padding:0px;
+}
+.content >>> .col-md-6 img{
+  padding:15px ;
+}
 .blog_inside {
   margin: 0 auto;
   text-align: center;
@@ -139,6 +144,7 @@ img {
 .blogtime {
   text-align: right;
   color: #484848;
+  margin:10px 0px;
 }
 
 .quote {
@@ -185,17 +191,13 @@ img {
   padding-bottom: 6px;
   color: #484848;
 }
-
 .img-responsive {
   border-radius: 3px;
 }
-
 .content {
   line-height: 3rem;
   text-align: left;
 }
-
-
 .centerword {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -273,3 +275,4 @@ img {
 }
 
 </style>
+

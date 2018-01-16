@@ -233,7 +233,7 @@ export default {
 
 .myfooter {
   z-index: 9999999;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .custTABLE {
@@ -336,7 +336,7 @@ div .copyright {
 .fb_chat img {
   z-index: 2;
   position: fixed;
-  bottom: 30px;
+  bottom: 150px;
   right: 20px;
   cursor: pointer;
   width: 50px;

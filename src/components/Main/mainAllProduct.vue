@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="style_intro">你想如何改善居家?</div>
-    <div class="row" style="padding-left:10px">
+    <div class="row" >
       <ul class="nav nav-pills nav-yellow">
         <li class="col-xs-3" :class="{tabHover: tavControl.house }" @click="changeTab('house')">
           <img src="../../assets/temporyPic/Index/01_house.png"> 空間改造
@@ -29,7 +29,6 @@
         </router-link>
         <div class="col-md-6">
           <!-- 右上圖 -->
-          <div class="Row">
             <div class="col-md-12 noPadding">
               <router-link to="/Product/24">
                 <div class="col-md-6 col-xs-6 padding5">
@@ -55,7 +54,6 @@
                 </div>
               </router-link>
             </div>
-          </div>
         </div>
         <!-- 下圖 -->
         <div class="col-md-12 topPadding noPadding " style="float:left">
@@ -238,64 +236,46 @@ export default {
 
 </script>
 <style scoped>
-@media (max-width:768px) {
-  .nav.nav-yellow>li {
-    width: 80px;
-    margin: 10px 3px;
-    padding: 10px 3px;
-    background-color: #eee;
-    font-size: 18px;
-  }
-  .nav.nav-yellow>li>img {
-    margin: 0px 15px;
-    width: 45px;
-    height: 45px;
-  }
-  .topdownMargin10 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+.nav.nav-yellow>li {
+  width: 150px;
+  margin: 10px 3px;
+  padding: 25px 20px;
+  background-color: #eee;
+  font-size: 18px;
 }
 
-
-@media (min-width: 768px) {
-  .nav.nav-yellow>li {
-    width: 150px;
-    margin: 10px 3px;
-    padding: 25px 20px;
-    background-color: #eee;
-    font-size: 18px;
-  }
-
-  .nav.nav-yellow>li>img {
-    width: 30px;
-    height: 30px;
-  }
-  .topdownMargin10 {
-    padding: 5px;
-  }
+.nav.nav-yellow>li>img {
+  width: 30px;
+  height: 30px;
 }
-
-
+.topdownMargin10 {
+  padding:0px;
+  padding-right: 5px;
+  
+}
+.nav.nav-yellow>.col-xs-3{
+  margin-left: 0px;
+}
+.col-md-6{
+  padding:0px;
+}
 .tabHover {
   color: #2e2e2e;
   background-color: #ffde97 !important;
   font-weight: 600;
 }
 
-
 .item_category {
   width: 100%;
   height: auto;
 }
-
 
 .noPadding {
   padding: 0px;
 }
 
 .padding5 {
-  padding: 5px 5px;
+  padding: 5px;
 }
 
 
@@ -307,9 +287,29 @@ export default {
 
 .topPadding {
   padding-bottom: 5px;
-  padding-bottom: 5px;
   padding-top: 5px;
-  padding-top: 5px;
+  padding-left:0px;
 }
-
+@media (max-width:768px) {
+  .nav.nav-yellow>li{
+    width: 70px;
+    margin: 10px 3px;
+    padding: 10px 3px;
+    background-color: #eee;
+    font-size: 15px;
+    text-align: center;
+    padding: 0px;
+    margin: 1px;
+    border-radius:2px solid #000;
+  }
+  .nav.nav-yellow>li>img {
+    margin: 0px 15px;
+    width: 45px;
+    height: 45px;
+  }
+  .topdownMargin10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
 </style>
