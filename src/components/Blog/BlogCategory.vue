@@ -133,6 +133,12 @@ export default {
   padding-bottom: 0px;
   color: #484848;
   font-weight: 700;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 85px;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .Blog_tag {
