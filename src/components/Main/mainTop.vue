@@ -1,28 +1,28 @@
 <template>
   <div class="">
-    <img src="../../assets/temporyPic/Index/banner0803.jpg" class="img-responsive">
+    <img src="../../assets/temporyPic/Index/newyear.png" class="img-responsive">
     <div class="maginAuto">
       <div class="row">
-        <router-link to="/Product/1">
+        <!-- <router-link to="/Product/1"> -->
         <div class="col-md-3 col-xs-6 padding5">
-          <img src="../../assets/temporyPic/Index/floor.jpg" class="img-responsive imgHover">
+          <img src="../../assets/temporyPic/Index/001.png" class="img-responsive imgHover">
         </div>
-        </router-link>
-        <router-link to="/Product/2">
+        <!-- </router-link>
+        <router-link to="/Product/3"> -->
         <div class="col-md-3 col-xs-6 padding5">
-          <img src="../../assets/temporyPic/Index/led_lighting.jpg" class="img-responsive imgHover">
+          <img src="../../assets/temporyPic/Index/002.png" class="img-responsive imgHover">
         </div>
-        </router-link>
-        <router-link to="/Product/8">
+        <!-- </router-link>
+        <router-link to="/Product/8"> -->
         <div class="col-md-3 col-xs-6 padding5">
-          <img src="../../assets/temporyPic/Index/wallpaper2.jpg" class="img-responsive imgHover">
+          <img src="../../assets/temporyPic/Index/003.png" class="img-responsive imgHover">
         </div>
-        </router-link>
-        <router-link to="/Product/3">
+        <!-- </router-link>
+        <router-link to="/Product/22"> -->
         <div class="col-md-3 col-xs-6 padding5">
-          <img src="../../assets/temporyPic/Index/samll7.jpg" class="img-responsive imgHover">
+          <img src="../../assets/temporyPic/Index/004.png" class="img-responsive imgHover">
         </div>
-        </router-link>
+        <!-- </router-link> -->
       </div>
     </div>
   </div>
@@ -35,14 +35,4 @@ export default {}
 .padding5 {
   padding: 10px 5px;
 }
-
-@media (max-width:768px) {
-  .maginAuto {
-    margin-left: auto;
-    margin-right: auto;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
-
 </style>
