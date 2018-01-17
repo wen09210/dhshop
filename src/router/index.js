@@ -98,6 +98,7 @@ const router = new Router({
       path: '/CaseCategory',
       component: CaseCategory
     }
+
   ]
 })
 router.beforeEach((to, from, next) => {

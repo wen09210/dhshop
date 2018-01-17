@@ -7,13 +7,13 @@
       {{item.title}}
     </div>   -->
       <swiper :options="swiperOption">
-        <swiper-slide  v-for="BlogDetail in reverseItems " :key="BlogDetail.BlogID">
-          <router-link :to="{name: 'Blog', params: {BlogID: BlogDetail.BlogID}}">
-            <img :src="BlogDetail.coverPhoto" class="img-responsive">
-            <div class="Blog_name">{{BlogDetail.title}}</div>
-            <div class="Blog_description">{{BlogDetail.quote}}</div>
+        <swiper-slide v-for="item in Blog">
+          <router-link :to="{name: 'Blog', params: {BlogID: item.BlogID}}">
+            <img :src="item.coverPhoto" class="img-responsive">
+            <div class="Blog_name">{{item.title}}</div>
+            <div class="Blog_description">{{item.quote}}</div>
             <div class="Blog_tag">
-              <Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}</div>
+              <Icon type="pricetag"></Icon>{{item.prodtag}}</div>
           </router-link>
         </swiper-slide>
         <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
@@ -24,7 +24,7 @@
 </template>
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import Blog from '../../../static/file/Blog.json'
+import blog from '../../../static/file/Blog.json'
 export default {
   components: {
     swiper,
@@ -32,8 +32,7 @@ export default {
   },
   data() {
     return {
-      Blog: Blog,
-      BlogDetail: {},
+      Blog: [],
       swiperOption: {
         slidesPerView: 3,
         spaceBetween: 20,
@@ -62,13 +61,7 @@ export default {
     }
   },
   created() {
-    let CC = this.Blog.data
-    this.BlogDetail = CC
-  },
-  computed: {
-    reverseItems() {
-      return this.BlogDetail.reverse().slice(0, 6)
-    }
+    this.Blog = blog.data.slice().reverse().slice(0, 6)
   }
 }
 

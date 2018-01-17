@@ -30,9 +30,9 @@
     </template>
     <!-- 購物車end -->
     <!-- 訂購人資料 -->
-    <template v-if="CartStepBar ===1">
+    <div v-show="CartStepBar ===1">
       <cartBuyerDetail></cartBuyerDetail>
-    </template>
+    </div>
     <!-- 訂購人資料end -->
     <!-- 付款資料 -->
     <template v-if="CartStepBar ===2">
