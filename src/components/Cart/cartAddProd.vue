@@ -107,6 +107,8 @@ export default {
       }
     },
     IncreaseAndCal(item) {
+      /* global ga */
+      ga('send', 'event', item.ProdName, '加購品加到購物車', this.itemShow.ItemName)
       this.IncreaseAddProduct(item)
       this.PostGetTotalAmt()
     }

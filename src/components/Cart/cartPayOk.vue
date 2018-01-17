@@ -108,7 +108,7 @@ import Lockr from 'lockr'
 import { mapGetters } from 'vuex'
 export default {
   created() {
-    if(Object.keys(this.GetshowAmtData).length > 0) {
+    if (Object.keys(this.GetshowAmtData).length > 0) {
       this.gaValue = this.GetshowAmtData.totalAmt
       // alert(this.gaValue)
     }
@@ -119,6 +119,13 @@ export default {
     var google_conversion_currency = 'TWD'
     var google_remarketing_only = false
     /* eslint-enable */
+    /* global fbq */
+    fbq('track', 'Purchase', { 'currency': 'TWD' })
+    /* global hj */
+    hj('trigger', 'purchase')
+    hj('tagRecording', ['purchase'])
+    /* global ga */
+    ga('send', 'event', '購買')
     if (this.$decodeCookies.getJSON('PayOk') !== undefined) {
       this.payInfo = this.$decodeCookies.getJSON('PayOk')
       if (this.payInfo.status === 'ok') {

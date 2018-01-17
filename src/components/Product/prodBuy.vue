@@ -155,8 +155,7 @@
         </table>
         <!-- 量大優惠 end-->
         <!-- 折扣資訊-->
-          {{CalLargeQCal}}
-        
+          {{CalLargeQCal}}        
           <template v-if="Object.keys(LargeQCal).length > 0">
             <span style="font-size: 2.1rem;">
             <template v-if="LargeQCal.type!==''">
@@ -418,7 +417,7 @@ export default {
       /* global fbq */
       fbq('track', 'AddToCart', { content_ids: [this.itemShow.ItemNo], content_type: this.itemShow.ProdID, value: this.itemShow.SalePrice, currency: 'TWD' })
       /* global ga */
-      ga('send', 'event', this.itemShow.ItemName, '加到購物車', this.itemShow.ItemName)
+      ga('send', 'event', this.itemShow.ProdName, '加到購物車', this.itemShow.ItemName)
       /* global hj */
       hj('trigger', 'addtocart_mainproduct')
       hj('tagRecording', ['addtocart_mainproduct'])
