@@ -1,51 +1,55 @@
 <template>
   <div class="BlogAll">
     <div class="main_img"> <img :src="BlogDetail.mainImg" alt=""></div>
-    <div class="blog_inside">
+    <div class="container">
       <div class="blogtime col-md-12">
         <Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}
         <Icon type="android-calendar"></Icon> {{BlogDetail.time}}
       </div>
-      <div class="mainTitle">{{BlogDetail.title}}</div>
-      <div class="quote">
-        <Icon type="chatbox-working"></Icon>『{{BlogDetail.quote}}』-d粉{{BlogDetail.name}}</div>
-      <div class="content col-md-12" v-html="BlogDetail.content"></div>
-      <div class="clearfix"></div>
-      <div class="productPart needLine col-md-12">
-        <p class="subtitle">使用產品</p>
-        <div>
-          <div class="productIn">
-            <router-link to="/product/1">
-              <button type="button" class="prodBtn">
-                <div>
-                  <div class="productLeftImg">
-                    <img :src="BlogDetail.productImg1" alt="" class="img-responsive">
-                  </div>
-                  <span>
-                        {{BlogDetail.productName}}
-                  </span>
-                </div>
-              </button>
-            </router-link>
-          </div>
-        </div>
-      </div>
-      <div class="clearfix"></div>
-      <div class="needLine">
-        <p class="subtitle">相關文章 </p>
-        <template v-for="(item,i) in BlogDetail.guesslike">
-          <div class="col-md-4 col-xs-12">
-            <div class="otherlike">
-              <a :href="'/Blog/'+item.sid">     
+      <div class="blog_inside col-md-9">
+        <div class="mainTitle">{{BlogDetail.title}}</div>
+        <div class="quote">
+          <Icon type="chatbox-working"></Icon>『{{BlogDetail.quote}}』-d粉{{BlogDetail.name}}</div>
+        <div class="content col-md-12" v-html="BlogDetail.content"></div>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <div class="needLine">
+          <p class="subtitle">相關文章 </p>
+          <template v-for="(item,i) in BlogDetail.guesslike">
+            <div class="col-md-4 col-xs-12">
+              <div class="otherlike">
+                <a :href="'/Blog/'+item.sid">     
                   <img :src="item.simg" class="img-responsive">
                   <div class="centerword">
                     <div class="Blog_name">{{item.stitle}}</div>
                     <div class="Blogtag">{{item.stag}}</div>  
                   </div>
                 </a>
+              </div>
+            </div>
+          </template>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="productPart  col-md-3">
+        <Affix :offset-top="60" @on-change="change">
+          <p class="subtitle">使用產品</p>
+          <div>
+            <div class="productIn">
+              <router-link to="/product/1#botBuy">
+                <div class="col-md-6"><img :src="BlogDetail.productImg1" alt="" class="img-responsive"></div>
+                <div class="col-md-6 blogProdName"> {{BlogDetail.productName}} {填入價格}
+                </div>
+                <div class="col-md-12 col-xs-12 noPadding">
+                  <button class="btnOrange btn btn-primary  btn-lg btn-block">
+                    <h3><i  aria-hidden="true" class="fa fa-shopping-bag"></i>
+                  前往購買
+                  </h3></button>
+                </div>
+              </router-link>
             </div>
           </div>
-        </template>
+        </Affix>
       </div>
       <div class="clearfix"></div>
     </div>
@@ -128,12 +132,15 @@ img {
   margin: 0 auto;
   text-align: center;
 }
-.content >>> .col-md-6{
-  padding:0px;
+
+.content>>>.col-md-6 {
+  padding: 0px;
 }
-.content >>> .col-md-6 img{
-  padding:15px ;
+
+.content>>>.col-md-6 img {
+  padding: 15px;
 }
+
 .blog_inside {
   margin: 0 auto;
   text-align: center;
@@ -144,7 +151,8 @@ img {
 .blogtime {
   text-align: right;
   color: #484848;
-  margin:10px 0px;
+  margin: 10px 0px;
+  font-size: 18px;
 }
 
 .quote {
@@ -191,13 +199,16 @@ img {
   padding-bottom: 6px;
   color: #484848;
 }
+
 .img-responsive {
   border-radius: 3px;
 }
+
 .content {
   line-height: 3rem;
   text-align: left;
 }
+
 .centerword {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -226,6 +237,20 @@ img {
   font-size: 16px;
 }
 
+.btnOrange {
+  margin: 20px 0px 0px 0px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.blogProdName {
+  font-size: 18px;
+  color: #5a210d;
+}
+
+
+
+/* 
 .productIn {
   float: left;
   display: table;
@@ -260,7 +285,7 @@ img {
   color: #484848;
   padding: 10px 25px;
   vertical-align: middle;
-}
+} */
 
 @media (max-width:768px) {
   .blog_inside {
@@ -272,7 +297,7 @@ img {
   .blogtime {
     font-size: 15px;
   }
+
 }
 
 </style>
-

@@ -16,44 +16,11 @@
   </div>
 </template>
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import blogInCatgory from '../../../static/file/Blog.json'
 export default {
   data() {
     return {
-      BlogInCatgory: [],
-      swiperOption: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-      // 已選擇的輪播圖
-      isSelectedCarousel: 0,
-      swiperOptionThumbs: {
-        slidesPerView: 4,
-        spaceBetween: 20,
-        slideToClickedSlide: true,
-        loop: false,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        breakpoints: {
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 20
-          },
-          640: {
-            slidesPerView: 3,
-            spaceBetween: 10
-          },
-          320: {
-            slidesPerView: 2,
-            spaceBetween: 5
-          }
-        }
-      }
+      BlogInCatgory: []
     }
   },
   created() {

@@ -38,7 +38,7 @@ export default {
 }
 
 </script>
-<style lang="scss">
+<style >
 .img-responsive {
   border-radius: 3px;
 }
