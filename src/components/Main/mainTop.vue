@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <img src="../../assets/temporyPic/Index/newyear.png" class="img-responsive">
+    <img src="../../assets/temporyPic/Index/newyear.jpg" class="img-responsive">
     <div class="maginAuto">
       <div class="row">
         <!-- <router-link to="/Product/1"> -->
@@ -35,4 +35,5 @@ export default {}
 .padding5 {
   padding: 10px 5px;
 }
+
 </style>

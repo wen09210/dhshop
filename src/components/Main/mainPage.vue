@@ -38,11 +38,13 @@
   }
 </script>
 <style>
-.imgHover:hover{
+
+@media (min-width:768px) {
+  .imgHover:hover{
     background-color: #FFC442;
     padding: 5px;
     display: inline-block;
-
+  }
 }
 .style_intro {
   font-weight: bold;
@@ -50,4 +52,5 @@
   margin-bottom: 15px;
   margin-top: 35px;
 }
+
 </style>

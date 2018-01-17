@@ -16,65 +16,17 @@
   </div>
 </template>
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import blogInCatgory from '../../../static/file/Blog.json'
 export default {
-  components: {
-    swiper,
-    swiperSlide
-  },
   data() {
     return {
-      BlogInCatgory: [],
-      swiperOption: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-      // 已選擇的輪播圖
-      isSelectedCarousel: 0,
-      swiperOptionThumbs: {
-        slidesPerView: 4,
-        spaceBetween: 20,
-        slideToClickedSlide: true,
-        loop: false,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        breakpoints: {
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 20
-          },
-          640: {
-            slidesPerView: 3,
-            spaceBetween: 10
-          },
-          320: {
-            slidesPerView: 2,
-            spaceBetween: 5
-          }
-        }
-      }
+      BlogInCatgory: []
     }
   },
   created() {
     console.log(this.BlogInCatgory.length)
     if (this.BlogInCatgory.length === 0) {
       this.BlogInCatgory = blogInCatgory.data.slice().reverse()
-    }
-  },
-  methods: {
-    // 選擇輪播圖
-    selectCarousel(index, itemNo) {
-      this.itemNo = itemNo
-      this.isSelectedCarousel = index
-      // 移至該位置
-      // console.log(index)
-      const swiperThumbs = this.$refs.swiperThumbs.swiper
-      swiperThumbs.slideTo(index, 1000, false) // 切换到第一个slide，速度为1秒
     }
   }
 }
@@ -124,6 +76,9 @@ export default {
   padding-top: 8px;
   padding-bottom: 0px;
   font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .Blog_description {

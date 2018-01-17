@@ -2,12 +2,11 @@
   <div>
     <div class="container">
       <div class="style_intro">消費者使用實例 <span class="seemore"><router-link to="/BlogCategory">查看更多>></router-link></span></div>
-      
       <!-- <div v-for="item in BlogDetail">
       {{item.title}}
     </div>   -->
       <swiper :options="swiperOption">
-        <swiper-slide v-for="item in Blog">
+        <swiper-slide v-for="item in Blog" :key="item.BlogID">
           <router-link :to="{name: 'Blog', params: {BlogID: item.BlogID}}">
             <img :src="item.coverPhoto" class="img-responsive">
             <div class="Blog_name">{{item.title}}</div>
@@ -62,6 +61,11 @@ export default {
   },
   created() {
     this.Blog = blog.data.slice().reverse().slice(0, 6)
+    // 隨機排列
+    // var random = function(array) {
+    //   return array.sort(function() { return Math.random() > 0.5 })
+    // }
+    // console.log(random(blog.data))
   }
 }
 
@@ -70,16 +74,19 @@ export default {
 .img-responsive {
   border-radius: 3px;
 }
-.seemore{
-  float:right;
+
+.seemore {
+  float: right;
   font-size: 15px;
   padding-top: 15px;
   color: #484848;
   font-weight: 300;
 }
-.seemore a{
-  color:#008489 ;
+
+.seemore a {
+  color: #008489;
 }
+
 .title_intro {
   margin: 15px 0px;
   padding: 10px 0px;

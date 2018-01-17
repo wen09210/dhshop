@@ -1,8 +1,7 @@
 <template>
   <div>
     <div class="container">
-    <div class="style_intro">在哪裡可以找到我們</div>  
-    
+    <div class="style_intro">在哪裡可以找到我們<span class="seemore"><router-link to="/CaseCategory">查看更多>></router-link></span></div>  
     <swiper :options="swiperOption">
       <swiper-slide>
         <router-link to="/Case/1">
@@ -97,6 +96,16 @@ export default {
   font-size: 22px;
   font-weight: bold;
   letter-spacing: 3px;
+}
+.seemore{
+  float:right;
+  font-size: 15px;
+  padding-top: 15px;
+  color: #484848;
+  font-weight: 300;
+}
+.seemore a{
+  color:#008489 ;
 }
 .case_name{
 
