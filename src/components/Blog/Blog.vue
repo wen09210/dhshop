@@ -15,16 +15,23 @@
         <div class="clearfix"></div>
         <div class="needLine">
           <p class="subtitle">相關文章 </p>
-          <template v-for="(item,i) in BlogDetail.guesslike">
+          <template v-for="(item,i) in guess">
             <div class="col-md-4 col-xs-12">
               <div class="otherlike">
-                <a :href="'/Blog/'+item.sid">     
+                  <a :href="'/Blog/'+item.BlogID">
+                      <img :src="item.coverPhoto" class="img-responsive">
+                      <div class="Blog_name">{{item.title}}</div>
+                      <!-- <div class="Blog_description">{{item.quote}}</div> -->
+                      <div class="Blog_tag">
+                        <Icon type="pricetag"></Icon>{{item.prodtag}}</div>
+                      </a>
+                <!-- <a :href="'/Blog/'+item.sid">     
                   <img :src="item.simg" class="img-responsive">
                   <div class="centerword">
                     <div class="Blog_name">{{item.stitle}}</div>
                     <div class="Blogtag">{{item.stag}}</div>  
                   </div>
-                </a>
+                </a> -->
               </div>
             </div>
           </template>
@@ -38,7 +45,7 @@
             <div class="productIn">
               <router-link to="/product/1#botBuy">
                 <div class="col-md-6"><img :src="BlogDetail.productImg1" alt="" class="img-responsive"></div>
-                <div class="col-md-6 blogProdName"> {{BlogDetail.productName}} {填入價格}
+                <div class="col-md-6 blogProdName"> {{BlogDetail.productName}}
                 </div>
                 <div class="col-md-12 col-xs-12 noPadding">
                   <button class="btnOrange btn btn-primary  btn-lg btn-block">
@@ -67,6 +74,7 @@ export default {
     return {
       Blog: Blog,
       BlogDetail: {},
+      guess: [],
       swiperOption: {
         slidesPerView: 1,
         spaceBetween: 20
@@ -102,8 +110,15 @@ export default {
     }
   },
   created() {
+    // 隨機排列
+    var random = function(array) {
+      return array.sort(function() { return Math.random() - 0.5 })
+    }
     let CC = this.Blog.data.find(x => x.BlogID === this.$route.params.BlogID)
     this.BlogDetail = CC
+    let guess = random(this.Blog.data.slice().reverse()).slice(0, 3)
+    this.guess = guess
+    console.log(guess)
   },
   methods: {
     // 選擇輪播圖
@@ -185,7 +200,13 @@ img {
   border-radius: 3px;
   margin-top: 10px;
 }
-
+.otherlike .Blog_name{
+  font-size:15px;
+}
+.otherlike .Blog_tag{
+  text-align: left;
+    font-size: 13px;
+}
 .mainTitle {
   margin: 0x auto;
   text-align: center;
