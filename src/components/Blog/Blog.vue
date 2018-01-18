@@ -39,7 +39,7 @@
         <div class="clearfix"></div>
       </div>
       <div class="productPart  col-md-3">
-        <Affix :offset-top="60" @on-change="change">
+        <!-- <Affix :offset-top="60" @on-change="change"> -->
           <p class="subtitle">使用產品</p>
           <div>
             <div class="productIn">
@@ -56,7 +56,7 @@
               </router-link>
             </div>
           </div>
-        </Affix>
+        <!-- </Affix> -->
       </div>
       <div class="clearfix"></div>
     </div>
