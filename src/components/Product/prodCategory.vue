@@ -18,7 +18,7 @@
  
 </template>
 <script>
-import Case from '../../../static/file/Case.json'
+import Case from '../../../static/file/caseList.json'
 export default {
   data() {
     return {
