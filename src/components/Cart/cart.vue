@@ -303,15 +303,12 @@ export default {
     },
     // 下一步 填寫資料
     goBuyerDetail() {
-      var val = this.GetshowAmtData.totalAmt
       /* global fbq */
-      fbq('track', 'Purchase', { 'currency': 'TWD', 'value': val })
       fbq('track', 'InitiateCheckout')
       /* global hj */
-      hj('trigger', 'purchase')
-      hj('tagRecording', ['purchase'])
+      hj('tagRecording', ['InitiateCheckout'])
       /* global ga */
-      ga('send', 'event', '購買')
+      ga('send', 'event', '填寫資料')
       // 商品檢核未通過
       // console.log(this.GetshowAmtData.status)
       if (Object.keys(this.GetshowAmtData).length === 0) {
