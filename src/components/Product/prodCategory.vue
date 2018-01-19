@@ -14,7 +14,11 @@
   </div>
 </template>
 <script>
+<<<<<<< HEAD
 import allProd from '../../../static/file/allProduct.json'
+=======
+import Case from '../../../static/file/caseList.json'
+>>>>>>> 717d0c3b5c9466e5ed3480fd487590a2dea65ecc
 export default {
   data() {
     return {

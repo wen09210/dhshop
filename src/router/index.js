@@ -7,15 +7,15 @@ import member from '../components/Member/mebPage.vue'
 import cart from '..//components/Cart/cartPage.vue'
 // import cartBuyerDetail from '..//components/Cart/cartBuyerDetail.vue'
 import cartPayOK from '../components/Cart/cartPayOk.vue'
-import prodPomote from '../components/Article/prodPromote.vue'
+// import prodPomote from '../components/Article/prodPromote.vue'
 import AnonymousSearch from '../components/Order/AnonymousSearch.vue'
 import QandA from '../components/Other/QandA.vue'
 import Case from '../components/Case/Case.vue'
 import Blog from '../components/Blog/Blog.vue'
 import BlogCategory from '../components/Blog/BlogCategory.vue'
 import CaseCategory from '../components/Case/CaseCategory.vue'
-import iframeCategory from '../components/iframe/iframeCategory.vue'
-import prodCategory from '../components/Product/prodCategory.vue'
+// import iframeCategory from '../components/iframe/iframeCategory.vue'
+// import prodCategory from '../components/Product/prodCategory.vue'
 // import axios from 'axios'
 import Cookies from 'js-cookie'
 Vue.use(Router)
@@ -73,11 +73,11 @@ const router = new Router({
       name: 'cartPayOK',
       component: cartPayOK
     },
-    {
-      path: '/prodPromte/:articalID/:prodID',
-      name: 'prodPromte',
-      component: prodPomote
-    },
+    // {
+    //   path: '/prodPromte/:articalID/:prodID',
+    //   name: 'prodPromte',
+    //   component: prodPomote
+    // },
     {
       path: '/QandA',
       component: QandA
@@ -99,15 +99,15 @@ const router = new Router({
     {
       path: '/CaseCategory',
       component: CaseCategory
-    },
-    {
-      path: '/iframeCategory',
-      component: iframeCategory
-    },
-    {
-      path: '/prodCategory',
-      component: prodCategory
     }
+    // {
+    //   path: '/iframeCategory',
+    //   component: iframeCategory
+    // },
+    // {
+    //   path: '/prodCategory',
+    //   component: prodCategory
+    // }
 
   ]
 })

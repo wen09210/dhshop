@@ -80,7 +80,7 @@
 </template>
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import Case from '../../../static/file/case.json'
+import Case from '../../../static/file/caseList.json'
 export default {
   components: {
     swiper,
