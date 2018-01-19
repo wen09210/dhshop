@@ -1,89 +1,82 @@
 <template>
-<div class="container">
-  <div class="main_section col-md-12">
-    <div class="category_title">dH.CHOICE</div>
-    <div class="subtitle">美好生活從家開始</div>
-  </div>  
-  <div class="col-md-3 col-xs-6 inCase"  v-for="CaseDetail in reverseItems  " :key="CaseDetail.CaseID">
-      <router-link :to="{name: 'Case', params: {CaseID: CaseDetail.CaseID}}">
-        <img :src="CaseDetail.coverPhoto" class="img-responsive">
-        <div class="Case_name" >{{CaseDetail.name}}</div>
-        <div class="Case_description">{{CaseDetail.quote}}</div>
-        <div class="Case_tag">
-          <Icon type="pricetag"></Icon>{{CaseDetail.opentime}}</div>
+  <div class="container">
+    <div class="main_section col-md-12">
+      <div class="category_title">dH.CHOICE</div>
+      <div class="subtitle">美好生活從家開始</div>
+    </div>
+    <div class="col-md-3 col-xs-6 inallProd" v-for="items in allProd">
+      <router-link :to="{name: 'allProd', params: {allProdID: allProdDetail.allProdID}}">
+        <img :src="items.coverPhoto" class="img-responsive">
+        <div>{{items.ProdName}}</div>
+        <div class="allProd_description">{{items.Description}}</div>
       </router-link>
+    </div>
   </div>
-</div>
-  
- 
 </template>
 <script>
-import Case from '../../../static/file/Case.json'
+import allProd from '../../../static/file/allProduct.json'
 export default {
   data() {
     return {
-      Case: Case,
-      CaseDetail: {}
+      allProd: allProd
     }
   },
   created() {
-    let CC = this.Case.data
-    this.CaseDetail = CC
+    let CC = this.allProd
+    this.allProdDetail = CC
   },
   computed: {
     reverseItems() {
-      return this.CaseDetail.slice().reverse()
+      return this.allProdDetail.slice().reverse()
+    },
+    filteredUsers: function () {
+      var self = this
+      return self.items.filter(function (item) {
+        return item.prodname.indexOf(self.searchQuery) !== -1
+      })
     }
   }
 }
 
 </script>
-<style >
+<style>
 .img-responsive {
   border-radius: 3px;
 }
-.main_section{
-  margin:20px 0px;
-  border-bottom:1px solid #dbdbdb;
-  padding-bottom:20px;
 
+.main_section {
+  margin: 20px 0px;
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 20px;
 }
-.category_title{
-font-weight: 700 ;
-margin-bottom: 0px ;
-font-size: 28px ;
-line-height: 32px ;
-letter-spacing: -0.6px ;
-padding-top: 2px ;
-padding-bottom: 2px ;
-color: #484848 ;
+
+.category_title {
+  font-weight: 700;
+  margin-bottom: 0px;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: #484848;
 }
-.subtitle{
-margin: 0px ;
-word-wrap: break-word ;
-font-size: 19px ;
-line-height: 24px ;
-padding-top: 10px ;
-padding-bottom: 0px ;
-color: #484848 ;
-font-weight: 300 ;
-}
-.inCase{
-  margin:20px 0px;
-}
-.Case_name {
-  font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 0.4px;
-  padding-top: 8px;
+
+.subtitle {
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 19px;
+  line-height: 24px;
+  padding-top: 10px;
   padding-bottom: 0px;
-  font-weight: 400;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  color: #484848;
+  font-weight: 300;
 }
 
-.Case_description {
+.inallProd {
+  margin: 20px 0px;
+}
+
+.allProd_description {
   font-size: 17px;
   line-height: 22px;
   padding-top: 0px;
@@ -98,8 +91,9 @@ font-weight: 300 ;
   -webkit-box-orient: vertical;
 }
 
-.Case_tag {
+.allProd_tag {
   color: #FF9800;
-  padding-top:3px;
+  padding-top: 3px;
 }
+
 </style>

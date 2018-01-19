@@ -1,103 +1,106 @@
  [{
      "ProdID": 1,
      "ProdName": "歐巴地板",
-     "Label": "地板",
-     "Description": "創造專屬你的居家氛圍"
+     "Label": "空間改造",
+     "Description": "創造專屬你的居家氛圍",
+     "coverPhoto": "https://www.dhshop.tw/static/img/floor.c6f4498.jpg"
    },
    {
      "ProdID": 2,
      "ProdName": "燈絲燈泡",
-     "Label": "LED",
-     "Description": "省電新生活"
+     "Label": "空間改造",
+     "Description": "省電新生活",
+     "coverPhoto": "https://www.dhshop.tw/static/img/led_lighting.9bc812a.jpg"
    },
    {
      "ProdID": 3,
      "ProdName": "第二代小7吸筒式油漆刷",
-     "Label": "油漆刷",
-     "Description": "小7刷一下，牆面全乾淨"
+     "Label": "空間改造",
+     "Description": "小7刷一下，牆面全乾淨",
+     "coverPhoto": "https://www.dhshop.tw/static/img/NEWsamll7.1b5bff1.1b5bff1.jpg"
    },
    {
      "ProdID": 4,
      "ProdName": "歐巴地板收邊條",
-     "Label": "地板",
-     "Description": "歐巴地板收邊條"
+     "Label": "加購品",
+     "Description": "歐巴地板收邊條",
+     "coverPhoto": "https://www.dhshop.tw/static/img/floortrima.f3b9221.jpg"
    },
    {
      "ProdID": 8,
      "ProdName": "歐ㄋ一ˋ壁紙",
-     "Label": "壁紙",
-     "Description": "輕鬆打造完美牆面"
+     "Label": "空間改造",
+     "Description": "輕鬆打造完美牆面",
+     "coverPhoto": "https://www.dhshop.tw/static/img/wallpaper2.d16bdae.jpg"
    },
    {
      "ProdID": 9,
      "ProdName": "時尚香氛機",
-     "Label": "香氛機",
-     "Description": "安全設計防止空燒(橘燈熄滅警示)"
+     "Label": "氛圍營造",
+     "Description": "安全設計防止空燒(橘燈熄滅警示)",
+     "coverPhoto": "https://www.dhshop.tw/static/img/diffuser.2b1bcf6.jpg"
    },
    {
      "ProdID": 10,
      "ProdName": "一毛打盡除毛刷",
-     "Label": "除毛刷",
-     "Description": "日本唯一授權販售"
+     "Label": "清潔保養",
+     "Description": "日本唯一授權販售",
+     "coverPhoto": "https://www.dhshop.tw/static/img/ichimodajin.59a1912.jpg"
    },
    {
      "ProdID": 11,
      "ProdName": "迪士尼口罩",
-     "Label": "口罩",
-     "Description": "長期暴露在污染中，你應該做最佳的防護"
+     "Label": "清潔保養",
+     "Description": "長期暴露在污染中，你應該做最佳的防護",
+     "coverPhoto": "https://www.dhshop.tw/static/img/mask1.88cfe7e.jpg"
    },
    {
      "ProdID": 13,
      "ProdName": "兒童音樂聲波LED防水電動牙刷",
-     "Label": "牙刷",
-     "Description": "內建兩種音樂旋律： 森林裡的熊先生、小星星"
+     "Label": "清潔保養",
+     "Description": "內建兩種音樂旋律： 森林裡的熊先生、小星星",
+     "coverPhoto": "https://www.dhshop.tw/static/img/toothbrush.150cfa5.jpg"
    },
    {
      "ProdID": 14,
      "ProdName": "塵蟎快除",
-     "Label": "塵蟎布",
-     "Description": "日本熱賣商品 － 家有小孩毛孩必備"
+     "Label": "清潔保養",
+     "Description": "日本熱賣商品 － 家有小孩毛孩必備",
+     "coverPhoto": "https://www.dhshop.tw/static/img/mite.07a2855.jpg"
    },
    {
      "ProdID": 19,
      "ProdName": "【Disney】保溫瓶",
-     "Label": "保溫瓶",
-     "Description": "迪士尼授權產品"
-   },
-   {
-     "ProdID": 20,
-     "ProdName": "homedecor8水平鑽牆定位器",
-     "Label": "小8",
-     "Description": "雷射水平定位功能，讓你輕易畫出直線"
+     "Label": "居家好物",
+     "Description": "迪士尼授權產品",
+     "coverPhoto": "https://www.dhshop.tw/static/img/disneybottle.013db51.jpg"
    },
    {
      "ProdID": 21,
      "ProdName": "立邦淨味全效平光內牆乳膠漆",
-     "Label": "油漆",
-     "Description": "淨味全效，分解甲醛"
+     "Label": "空間改造",
+     "Description": "淨味全效，分解甲醛",
+     "coverPhoto": "https://www.dhshop.tw/static/img/paint.a4fe458.jpg"
    },
    {
      "ProdID": 23,
      "ProdName": "實用款3件式",
-     "Label": "工具",
-     "Description": "斜口刷，不鏽鋼鏟刀，迷你修補刷"
+     "Label": "加購品",
+     "Description": "斜口刷，不鏽鋼鏟刀，迷你修補刷",
+     "coverPhoto": "https://www.dhshop.tw/static/img/NEWsamll7.1b5bff1.1b5bff1.jpg"
    },
    {
      "ProdID": 24,
      "ProdName": "壁癌戰士氟素奈米抗壁癌氣霧罐",
-     "Label": "壁癌戰士",
-     "Description": "高效氟素奈米配方，有效抑制壁癌"
-   },
-   {
-     "ProdID": 29,
-     "ProdName": "歐巴地板(單片)",
-     "Label": "地板",
-     "Description": "歐巴地板單片"
+     "Label": "空間改造",
+     "Description": "高效氟素奈米配方，有效抑制壁癌",
+     "coverPhoto": "https://www.dhshop.tw/static/img/cancerPic.60cdbfc.jpg"
    },
    {
      "ProdID": 30,
      "ProdName": "油漆刷滾筒",
-     "Label": "滾筒",
-     "Description": "輕鬆更換不費力"
+     "Label": "加購品",
+     "Description": "輕鬆更換不費力",
+     "coverPhoto": "https://www.dhshop.tw/static/img/NEWsamll7.1b5bff1.1b5bff1.jpg"
    }
  ]
