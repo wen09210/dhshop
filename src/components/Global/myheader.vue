@@ -31,9 +31,18 @@
             </li> -->
             <li class="headerIcon">
               <a class="headerIcon">
+                <router-link to="/prodCategory">
+                  <button type="button" class="btn  BtnToA headerIcon " @click="showNavbar=!showNavbar">
+                    <Icon type="ios-list-outline iconcolor"></Icon> 產品列表
+                  </button>
+                </router-link>
+              </a>
+            </li>
+            <li class="headerIcon">
+              <a class="headerIcon">
                 <router-link to="/QandA">
                   <button type="button" class="btn  BtnToA headerIcon" @click="showNavbar=!showNavbar">
-                    <i class="fa fa-question-circle"></i> 客服中心
+                    <Icon type="ios-help-outline iconcolor"></Icon> 客服中心
                   </button>
                 </router-link>
               </a>
@@ -47,7 +56,7 @@
                       <div class="cartCount">{{cartCount}}</div>
                     </template>
                     <button type="button" class="btn BtnToA headerIcon" data-role="trigger" @click="showNavbar=!showNavbar">
-                      <i class="fa fa-shopping-cart" aria-hidden="true"></i> 購物車
+                      <Icon type="bag iconcolor"></Icon> 購物車
                     </button>
                   </router-link>
                   <div slot="popover" class="popoverCart">
@@ -87,7 +96,7 @@
               <li class="headerIcon">
                 <a class="headerIcon">
                   <button type="button" class="btn BtnToA headerIcon" @click="SetLoginModal(true)">
-                    <i class="fa fa-sign-in" aria-hidden="true"></i> 登入
+                    <i class="fa fa-sign-in iconcolor" aria-hidden="true"></i> 登入
                   </button>
                 </a>
               </li>
@@ -207,7 +216,9 @@ export default {
   background-color: #f7f7f7
 }
 
-
+.iconcolor{
+  color:#ff9900;
+}
 
 .BtnToA {
   background: rgba(255, 255, 255, 0);
@@ -217,6 +228,7 @@ export default {
   font-size: 18px;
   padding-left: 5px !important;
   padding-right: 5px !important;
+  color:#475051;
 }
 
 .loginName {

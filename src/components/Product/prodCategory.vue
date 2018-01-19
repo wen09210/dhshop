@@ -1,43 +1,73 @@
 <template>
-  <div class="container">
+  <div class=" col-md-12">
+    <div class="container">
     <div class="main_section col-md-12">
       <div class="category_title">dH.CHOICE</div>
       <div class="subtitle">美好生活從家開始</div>
     </div>
-    <div class="col-md-3 col-xs-6 inallProd" v-for="items in allProd">
-      <router-link :to="{name: 'allProd', params: {allProdID: allProdDetail.allProdID}}">
+    <div class="catetitle col-md-12">空間改造</div>
+    <div class="col-md-3 col-xs-6 inallProd" v-for="items in space ">
+      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
         <img :src="items.coverPhoto" class="img-responsive">
-        <div>{{items.ProdName}}</div>
+        <div class="tagname">{{items.ProdName }}</div>
         <div class="allProd_description">{{items.Description}}</div>
       </router-link>
     </div>
+    <div class="clearfix"></div>
+    <div class="catetitle col-md-12">氛圍營造</div>
+    <div class="col-md-3 col-xs-6 inallProd" v-for="items in atomsphere ">
+      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+        <img :src="items.coverPhoto" class="img-responsive">
+        <div class="tagname">{{items.ProdName }}</div>
+        <div class="allProd_description">{{items.Description}}</div>
+      </router-link>
+    </div>
+    <div class="clearfix"></div>
+    <div class="catetitle col-md-12">清潔保養</div>
+    <div class="col-md-3 col-xs-6 inallProd" v-for="items in clearmaintain ">
+      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+        <img :src="items.coverPhoto" class="img-responsive">
+        <div class="tagname">{{items.ProdName }}</div>
+        <div class="allProd_description">{{items.Description}}</div>
+      </router-link>
+    </div>
+    <div class="clearfix"></div>
+    <div class="catetitle col-md-12">居家好物</div>
+    <div class="col-md-3 col-xs-6 inallProd" v-for="items in homegood ">
+      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+        <img :src="items.coverPhoto" class="img-responsive">
+        <div class="tagname">{{items.ProdName }}</div>
+        <div class="allProd_description">{{items.Description}}</div>
+      </router-link>
+    </div>
+    <div class="clearfix"></div>
+  </div>
   </div>
 </template>
 <script>
-<<<<<<< HEAD
 import allProd from '../../../static/file/allProduct.json'
-=======
-import Case from '../../../static/file/caseList.json'
->>>>>>> 717d0c3b5c9466e5ed3480fd487590a2dea65ecc
 export default {
   data() {
     return {
-      allProd: allProd
+      allProd: allProd,
+      allProdDetail: {}
     }
   },
   created() {
     let CC = this.allProd
     this.allProdDetail = CC
+    let space = this.allProd.filter(x => x.Label === '空間改造')
+    this.space = space
+    let atomsphere = this.allProd.filter(x => x.Label === '氛圍營造')
+    this.atomsphere = atomsphere
+    let clearmaintain = this.allProd.filter(x => x.Label === '清潔保養')
+    this.clearmaintain = clearmaintain
+    let homegood = this.allProd.filter(x => x.Label === '居家好物')
+    this.homegood = homegood
   },
   computed: {
     reverseItems() {
       return this.allProdDetail.slice().reverse()
-    },
-    filteredUsers: function () {
-      var self = this
-      return self.items.filter(function (item) {
-        return item.prodname.indexOf(self.searchQuery) !== -1
-      })
     }
   }
 }
@@ -53,7 +83,9 @@ export default {
   border-bottom: 1px solid #dbdbdb;
   padding-bottom: 20px;
 }
-
+.inallProd{
+  margin-top: 5px;
+}
 .category_title {
   font-weight: 700;
   margin-bottom: 0px;
@@ -75,18 +107,26 @@ export default {
   color: #484848;
   font-weight: 300;
 }
-
-.inallProd {
-  margin: 20px 0px;
+.tagname{
+  margin:5px 0px;
+  font-size:16px;
 }
-
+.catetitle{
+  margin:25px 0px;
+  word-wrap: break-word;
+  font-size: 28px;
+  line-height: 24px;
+  color: #484848;
+  font-weight: 600;
+  clear:top;
+}
 .allProd_description {
   font-size: 17px;
   line-height: 22px;
   padding-top: 0px;
   padding-bottom: 0px;
   color: #484848;
-  font-weight: 700;
+  font-weight: 400;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
