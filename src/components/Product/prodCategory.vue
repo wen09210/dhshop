@@ -1,95 +1,132 @@
 <template>
-<div class="container">
-  <div class="main_section col-md-12">
-    <div class="category_title">dH.CHOICE</div>
-    <div class="subtitle">美好生活從家開始</div>
-  </div>  
-  <div class="col-md-3 col-xs-6 inCase"  v-for="CaseDetail in reverseItems  " :key="CaseDetail.CaseID">
-      <router-link :to="{name: 'Case', params: {CaseID: CaseDetail.CaseID}}">
-        <img :src="CaseDetail.coverPhoto" class="img-responsive">
-        <div class="Case_name" >{{CaseDetail.name}}</div>
-        <div class="Case_description">{{CaseDetail.quote}}</div>
-        <div class="Case_tag">
-          <Icon type="pricetag"></Icon>{{CaseDetail.opentime}}</div>
+  <div class=" col-md-12">
+    <div class="container">
+    <div class="main_section col-md-12">
+      <div class="category_title">dH.CHOICE</div>
+      <div class="subtitle">美好生活從家開始</div>
+    </div>
+    <div class="catetitle col-md-12">空間改造</div>
+    <div class="col-md-3 col-xs-6 inallProd" v-for="items in space ">
+      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+        <img :src="items.coverPhoto" class="img-responsive">
+        <div class="tagname">{{items.ProdName }}</div>
+        <div class="allProd_description">{{items.Description}}</div>
       </router-link>
+    </div>
+    <div class="clearfix"></div>
+    <div class="catetitle col-md-12">氛圍營造</div>
+    <div class="col-md-3 col-xs-6 inallProd" v-for="items in atomsphere ">
+      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+        <img :src="items.coverPhoto" class="img-responsive">
+        <div class="tagname">{{items.ProdName }}</div>
+        <div class="allProd_description">{{items.Description}}</div>
+      </router-link>
+    </div>
+    <div class="clearfix"></div>
+    <div class="catetitle col-md-12">清潔保養</div>
+    <div class="col-md-3 col-xs-6 inallProd" v-for="items in clearmaintain ">
+      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+        <img :src="items.coverPhoto" class="img-responsive">
+        <div class="tagname">{{items.ProdName }}</div>
+        <div class="allProd_description">{{items.Description}}</div>
+      </router-link>
+    </div>
+    <div class="clearfix"></div>
+    <div class="catetitle col-md-12">居家好物</div>
+    <div class="col-md-3 col-xs-6 inallProd" v-for="items in homegood ">
+      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+        <img :src="items.coverPhoto" class="img-responsive">
+        <div class="tagname">{{items.ProdName }}</div>
+        <div class="allProd_description">{{items.Description}}</div>
+      </router-link>
+    </div>
+    <div class="clearfix"></div>
   </div>
-</div>
-  
- 
+  </div>
 </template>
 <script>
-import Case from '../../../static/file/caseList.json'
+import allProd from '../../../static/file/allProduct.json'
 export default {
   data() {
     return {
-      Case: Case,
-      CaseDetail: {}
+      allProd: allProd,
+      allProdDetail: {}
     }
   },
   created() {
-    let CC = this.Case.data
-    this.CaseDetail = CC
+    let CC = this.allProd
+    this.allProdDetail = CC
+    let space = this.allProd.filter(x => x.Label === '空間改造')
+    this.space = space
+    let atomsphere = this.allProd.filter(x => x.Label === '氛圍營造')
+    this.atomsphere = atomsphere
+    let clearmaintain = this.allProd.filter(x => x.Label === '清潔保養')
+    this.clearmaintain = clearmaintain
+    let homegood = this.allProd.filter(x => x.Label === '居家好物')
+    this.homegood = homegood
   },
   computed: {
     reverseItems() {
-      return this.CaseDetail.slice().reverse()
+      return this.allProdDetail.slice().reverse()
     }
   }
 }
 
 </script>
-<style >
+<style>
 .img-responsive {
   border-radius: 3px;
 }
-.main_section{
-  margin:20px 0px;
-  border-bottom:1px solid #dbdbdb;
-  padding-bottom:20px;
 
+.main_section {
+  margin: 20px 0px;
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 20px;
 }
-.category_title{
-font-weight: 700 ;
-margin-bottom: 0px ;
-font-size: 28px ;
-line-height: 32px ;
-letter-spacing: -0.6px ;
-padding-top: 2px ;
-padding-bottom: 2px ;
-color: #484848 ;
+.inallProd{
+  margin-top: 5px;
 }
-.subtitle{
-margin: 0px ;
-word-wrap: break-word ;
-font-size: 19px ;
-line-height: 24px ;
-padding-top: 10px ;
-padding-bottom: 0px ;
-color: #484848 ;
-font-weight: 300 ;
+.category_title {
+  font-weight: 700;
+  margin-bottom: 0px;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: #484848;
 }
-.inCase{
-  margin:20px 0px;
-}
-.Case_name {
-  font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 0.4px;
-  padding-top: 8px;
+
+.subtitle {
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 19px;
+  line-height: 24px;
+  padding-top: 10px;
   padding-bottom: 0px;
-  font-weight: 400;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  color: #484848;
+  font-weight: 300;
 }
-
-.Case_description {
+.tagname{
+  margin:5px 0px;
+  font-size:16px;
+}
+.catetitle{
+  margin:25px 0px;
+  word-wrap: break-word;
+  font-size: 28px;
+  line-height: 24px;
+  color: #484848;
+  font-weight: 600;
+  clear:top;
+}
+.allProd_description {
   font-size: 17px;
   line-height: 22px;
   padding-top: 0px;
   padding-bottom: 0px;
   color: #484848;
-  font-weight: 700;
+  font-weight: 400;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -98,8 +135,9 @@ font-weight: 300 ;
   -webkit-box-orient: vertical;
 }
 
-.Case_tag {
+.allProd_tag {
   color: #FF9800;
-  padding-top:3px;
+  padding-top: 3px;
 }
+
 </style>

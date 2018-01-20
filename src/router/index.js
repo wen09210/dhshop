@@ -15,7 +15,7 @@ import Blog from '../components/Blog/Blog.vue'
 import BlogCategory from '../components/Blog/BlogCategory.vue'
 import CaseCategory from '../components/Case/CaseCategory.vue'
 // import iframeCategory from '../components/iframe/iframeCategory.vue'
-// import prodCategory from '../components/Product/prodCategory.vue'
+import prodCategory from '../components/Product/prodCategory.vue'
 // import axios from 'axios'
 import Cookies from 'js-cookie'
 Vue.use(Router)
@@ -99,15 +99,15 @@ const router = new Router({
     {
       path: '/CaseCategory',
       component: CaseCategory
-    }
+    },
     // {
     //   path: '/iframeCategory',
     //   component: iframeCategory
     // },
-    // {
-    //   path: '/prodCategory',
-    //   component: prodCategory
-    // }
+    {
+      path: '/prodCategory',
+      component: prodCategory
+    }
 
   ]
 })
