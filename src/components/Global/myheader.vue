@@ -200,20 +200,22 @@ export default {
 .container-fluid {
   max-width: 1200px;
 }
-
+.navbar-default .navbar-toggle {
+    border-color: #90949c;
+}
 .navbar-brand {
   padding-top: 10px;
   margin-top: 5px;
 }
 
 .navbar-default {
-  background: rgba(255, 255, 255, 0.81) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
 }
 
 .navbar-static-top,
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-  background-color: #f7f7f7
+  background-color: #bdbaba
 }
 
 .iconcolor{

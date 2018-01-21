@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <div class="style_intro">你想如何改善居家?</div>
+    <div class="style_intro">你想如何改善居家?<span class="seemore"><router-link to="/prodCategory">所有商品>></router-link></span></div>
     <router-link to="/prodCategory">
-        <img src="../../assets/temporyPic/index/productbanner.jpg" alt="">
+        <img src="../../assets/temporyPic/index/productbanner.jpg" alt="" class="img-responsive">
     </router-link>
     
   </div>
@@ -13,6 +13,13 @@ export default {
 
 </script>
 <style scoped>
+.seemore{
+  float:right;
+  font-size: 15px;
+  padding-top: 15px;
+  color: #484848;
+  font-weight: 300;
+}
 .nav.nav-yellow>li {
   width: 150px;
   margin: 10px 3px;
