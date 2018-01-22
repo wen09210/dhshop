@@ -44,6 +44,7 @@
     background-color: #FFC442;
     padding: 5px;
     display: inline-block;
+    cursor: pointer;
   }
 }
 .style_intro {

@@ -3,11 +3,11 @@
     <img src="../../assets/temporyPic/Index/newyear.jpg" class="img-responsive">
     <div class="maginAuto">
       <div class="row">
-        <router-link to="/Product/22">
+        <!-- <router-link to="/Product/22">
         <div class="col-m12 padding5">
           <img src="../../assets/temporyPic/Index/banner_combine.jpg" class="img-responsive imgHover">
         </div>
-        </router-link>
+        </router-link> -->
       </div>
     </div>
   </div>

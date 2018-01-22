@@ -164,7 +164,6 @@ p {
 
 .CaseAll {
   text-align: center;
-  background-color: #f4f4f4;
 }
 
 .CaseAll .col-md-4 {

@@ -1,6 +1,6 @@
 <template>
-  <div class=" col-md-12">
-    <div class="container">
+  <div class="container ">
+    <div class="col-md-12">
     <div class="main_section col-md-12">
       <div class="category_title">dH.CHOICE</div>
       <div class="subtitle">美好生活從家開始</div>
@@ -18,7 +18,7 @@
     <div class="col-md-3 col-xs-6 inallProd" v-for="items in atomsphere ">
       <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
         <img :src="items.coverPhoto" class="img-responsive">
-        <div class="tagname">{{items.ProdName }}</div>
+        <div class="tagname">{{items.ProdName}}</div>
         <div class="allProd_description">{{items.Description}}</div>
       </router-link>
     </div>
@@ -39,10 +39,11 @@
         <div class="tagname">{{items.ProdName }}</div>
         <div class="allProd_description">{{items.Description}}</div>
       </router-link>
-    </div>
-    <div class="clearfix"></div>
+    </div>  
   </div>
+  <div class="clearfix"></div>
   </div>
+  
 </template>
 <script>
 import allProd from '../../../static/file/allProduct.json'
