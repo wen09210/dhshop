@@ -125,9 +125,9 @@ export default {
     }
   },
   created() {
-    console.log(this.Case)
-    console.log(this.$route.params.caseID)
-    let CC = this.Case.data.find(x => x.caseID === this.$route.params.caseID)
+    console.log(this.Case.data)
+    console.log(this.$route.params.CaseID)
+    let CC = this.Case.data.find(x => x.CaseID === this.$route.params.CaseID)
     this.caseDetail = CC
     console.log(this.caseDetail)
   },
