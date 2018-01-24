@@ -231,7 +231,10 @@ img {
   padding-bottom: 6px;
   color: #484848;
 }
-
+.col-md-4,.col-md-6{
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .img-responsive {
   border-radius: 3px;
 }

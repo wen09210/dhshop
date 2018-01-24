@@ -50,7 +50,7 @@
             <!-- 購物車 -->
             <li class="headerIcon">
               <a class="headerIcon">
-                <popover title="購物車商品" :trigger="hover" placement="bottom" auto-placement>
+                <popover title="購物車商品" :trigger="hover" placement="bottom" auto-placement :enable="false">
                   <router-link to="/cart">
                     <template v-if="cartCount!== 0">
                       <div class="cartCount">{{cartCount}}</div>

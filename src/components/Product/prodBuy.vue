@@ -443,10 +443,12 @@ export default {
           if (response.data.data.InventoryVal < this.itemSize) {
             //  檢查是否完售
             let PreVal = response.data.data.F_PreVal + response.data.data.S_PreVal
+            console.log(this.itemSize)
+            console.log(PreVal)
             if (PreVal < this.itemSize) {
               this.$Notice.warning({
                 title: 'dHSHOP 提醒',
-                desc: '很抱歉，同時間商品已被搶購一空，請選擇其他商品購買'
+                desc: '很抱歉，目前預購數量剩餘數量不足，請重新選擇數量'
               })
               return false
             }
