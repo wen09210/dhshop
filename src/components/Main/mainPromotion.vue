@@ -2,62 +2,50 @@
   <div class="container">
     <div class="style_intro">歐巴影片精選</div>
     <swiper :options="swiperFB">
-      <swiper-slide>
-        <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1627499783967677/ " data-allowfullscreen="true"></div> -->
-        <!-- <div class="col-xs-12"> -->
-        <div class="embed-responsive embed-responsive-16by9 ">
-          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1636798166371172%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-        </div>
-        <!-- </div> -->
-      </swiper-slide>
-      <swiper-slide>
-        <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1629616513756004/ " data-allowfullscreen="true"></div> -->
-        <!-- <div class="col-xs-12"> -->
-        <div class="embed-responsive embed-responsive-16by9 ">
-          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1679406182110370%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-        </div>
-        <!-- </div> -->
-      </swiper-slide>
-      <swiper-slide>
-        <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1630318883685767/ " data-allowfullscreen="true"></div> -->
-        <!-- <div class="col-xs-12"> -->
-        <div class="embed-responsive embed-responsive-16by9 ">
-          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1638301842887471%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-        </div>
-        <!-- </div> -->
-      </swiper-slide>
-      <swiper-slide>
-        <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1631494156901573/ " data-allowfullscreen="true"></div> -->
-        <!-- <div class="col-xs-12"> -->
-        <div class="embed-responsive embed-responsive-16by9 ">
-          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1698022533582068%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-        </div>
-        <!-- </div> -->
-      </swiper-slide>
-      <swiper-slide>
-        <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1633163543401301/ " data-allowfullscreen="true"></div> -->
-        <!-- <div class="col-xs-12"> -->
-        <div class="embed-responsive embed-responsive-16by9 ">
-          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1693463047371350%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-        </div>
-        <!-- </div > -->
-      </swiper-slide>
-      <!-- <swiper-slide>
-          <div class="embed-responsive embed-responsive-16by9 ">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1679406182110370%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+      <template v-for="item in FBiframeDetail">
+        <swiper-slide>
+          <div @click="item.modal = true">
+            <img :src="item.coverPhoto" class="img-responsive imgHover">
           </div>
-        </swiper-slide> -->
+        </swiper-slide>
+      </template>
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-    </swiper>
+    </swiper> 
+    <template v-for="item in FBiframeDetail">
+      <modal v-model="item.modal" :title="item.title"  :mask-closable="false" width="768" class="videoiframe vertical-center-modal">
+        <div class="embed-responsive embed-responsive-16by9 ">
+          <iframe :src="item.iframeUrl" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+        </div>
+      </modal>
+    </template>
+    <!-- <div @click="modal1 = true">Display dialog box</div>
+    <div @click="modal2 = true">Display dialog box</div>
+    <div  @click="modal3 = true">Display dialog box</div>
+    <template v-for="item in FBiframeDetail">
+        <div @click="item.modal = true"><img :src="item.coverPhoto" class="img-responsive imgHover"></div>
+    </template>
+    <modal v-model="modal1" title="sd" class="videoiframe vertical-center-modal">
+      <div class="embed-responsive embed-responsive-16by9 ">
+        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1679406182110370%2F" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+      </div>
+    </modal>
+    <modal v-model="modal2" title="sd" class="videoiframe vertical-center-modal">
+        <div class="embed-responsive embed-responsive-16by9 ">
+          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1679406182110370%2F" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+        </div>
+      </modal>
+      <modal v-model="modal3" title="sd" class="videoiframe vertical-center-modal">
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1679406182110370%2F" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+          </div>
+        </modal> -->
   </div>
-  </div>
-  <!-- <router-link to="/prodPromte/1/1">
-    </router-link> -->
 </template>
 <script>
 // import '../extension/FBSDK'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import FBiframe from '../../../static/file/FBiframe.json'
 export default {
   mounted() {
     // alert(process.env.testVar)
@@ -84,19 +72,24 @@ export default {
   },
   data() {
     return {
+      FBiframe: FBiframe,
+      FBiframeDetail: {},
+      modal1: false,
+      modal2: false,
+      modal3: false,
       swiperFB: {
-        slidesPerView: 2,
+        slidesPerView: 3,
         spaceBetween: 20,
         loop: true,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         breakpoints: {
           1024: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 20
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 10
           },
           640: {
@@ -110,11 +103,34 @@ export default {
         }
       }
     }
+  },
+  created() {
+    let CC = this.FBiframe
+    this.FBiframeDetail = CC
+    console.log(this.FBiframeDetail)
   }
+  // computed: {
+  //   removeModal() {
+  //     this.$Modal.remove()
+  //   }
+  // }
+
 }
 
 </script>
 <style scoped>
+.videoiframe>>>div.ivu-modal-footer {
+  display: none;
+}
 
+.vertical-center-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical-center-modal .ivu-modal {
+  top: 0;
+}
 
 </style>

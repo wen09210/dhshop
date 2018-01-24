@@ -1,0 +1,25 @@
+[{
+    "iframeID": 1,
+    "title": "中壢實體店大改造",
+    "Label": "歐巴地板",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/Blog/%E5%AE%B6%E5%BA%AD%E4%B8%BB%E5%A9%A6.jpg",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1636798166371172%2F&show_text=0&width=560",
+    "modal": "modal1"
+  },
+  {
+    "iframeID": 2,
+    "title": "t2",
+    "Label": "歐巴地板",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/Blog/mslulu.jpg",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1580952368622419%2F&show_text=0&width=560",
+    "modal": "modal2"
+  },
+  {
+    "iframeID": 3,
+    "title": "t3",
+    "Label": "歐巴地板",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/Blog/mslulu.jpg",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1679406182110370%2F&show_text=0&width=560",
+    "modal": "modal3"
+  }
+]
