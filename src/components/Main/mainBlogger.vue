@@ -106,6 +106,11 @@ export default {
   padding-bottom: 0px;
   color: #484848;
   font-weight: 700;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .Blog_description {
@@ -115,6 +120,11 @@ export default {
   padding-bottom: 0px;
   color: #484848;
   font-weight: 700;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .Blog_tag {
