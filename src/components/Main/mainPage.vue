@@ -44,6 +44,8 @@
     background-color: #FFC442;
     padding: 5px;
     display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
   }
 }
 .style_intro {
@@ -51,6 +53,14 @@
   font-size: 25px;
   margin-bottom: 15px;
   margin-top: 35px;
+}
+@media (max-width:480px) {
+  .style_intro {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 25px;
+}
 }
 
 </style>

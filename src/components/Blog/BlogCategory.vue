@@ -91,8 +91,7 @@ export default {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 85px;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
