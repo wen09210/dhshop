@@ -88,5 +88,61 @@
      "Label": "空間改造",
      "Description": "高效氟素奈米配方，有效抑制壁癌",
      "coverPhoto": "https://www.dhshop.tw/static/img/cancerPic.60cdbfc.jpg"
+   },
+   {
+     "prodID": 14,
+     "ProdName": "塵螨快除",
+     "Label": "清潔保養",
+     "Description": "日本熱賣商品 － 家有小孩毛孩必備",
+     "coverPhoto": "https://www.dhshop.tw/image/other/prod/04.jpg"
+   },
+   {
+     "prodID": 15,
+     "ProdName": "杜爾德茶",
+     "Label": "居家好物",
+     "Description": "粉嫩馬卡龍配色禮袋",
+     "coverPhoto": "https://www.dhshop.tw/image/other/prod/tea.jpg"
+   },
+   {
+     "prodID": 16,
+     "ProdName": "迪士尼馬克杯",
+     "Label": "居家好物",
+     "Description": "迪士尼特色圖案",
+     "coverPhoto": "https://www.dhshop.tw/image/other/prod/teacup.jpg"
+   },
+   {
+     "prodID": 17,
+     "ProdName": "Gluedots",
+     "Label": "居家好物",
+     "Description": "粘貼強勁持久",
+     "coverPhoto": "https://www.dhshop.tw/image/other/prod/gluedot.jpg"
+   },
+   {
+     "prodID": 18,
+     "ProdName": "鑰匙守護者",
+     "Label": "居家好物",
+     "Description": "可愛小動物守護你的鑰匙圈",
+     "coverPhoto": "https://www.dhshop.tw/image/other/prod/keyholder.jpg"
+   },
+   {
+     "prodID": 23,
+     "ProdName": "三件式補強組",
+     "Label": "居家好物",
+     "Description": "可愛小動物守護你的鑰匙圈",
+     "coverPhoto": "https://www.dhshop.tw/image/other/prod/three.jpg"
+   },
+   {
+     "prodID": 27,
+     "ProdName": "雙面布膠帶",
+     "Label": "居家好物",
+     "Description": "輕鬆貼 輕鬆撕 黏性強 撕下不殘膠",
+     "coverPhoto": "https://www.dhshop.tw/image/other/prod/type.jpg"
+   },
+   {
+     "prodID": 30,
+     "ProdName": "油漆刷滾筒",
+     "Label": "居家好物",
+     "Description": "輕鬆更換不費力",
+     "coverPhoto": "https://www.dhshop.tw/image/other/prod/indexroller.jpg"
    }
  ]
