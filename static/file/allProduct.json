@@ -1,92 +1,148 @@
- [{
-     "prodID": 1,
-     "ProdName": "歐巴地板",
-     "Label": "空間改造",
-     "Description": "創造專屬你的居家氛圍",
-     "coverPhoto": "https://www.dhshop.tw/static/img/floor.c6f4498.jpg"
-   },
-   {
-     "prodID": 2,
-     "ProdName": "燈絲燈泡",
-     "Label": "氛圍營造",
-     "Description": "省電新生活",
-     "coverPhoto": "https://www.dhshop.tw/static/img/led_lighting.9bc812a.jpg"
-   },
-   {
-     "prodID": 3,
-     "ProdName": "第二代小7吸筒式油漆刷",
-     "Label": "空間改造",
-     "Description": "小7刷一下，牆面全乾淨",
-     "coverPhoto": "https://www.dhshop.tw/static/img/NEWsamll7.1b5bff1.1b5bff1.jpg"
-   },
-   {
-     "prodID": 4,
-     "ProdName": "歐巴地板收邊條",
-     "Label": "居家好物",
-     "Description": "歐巴地板收邊條",
-     "coverPhoto": "https://www.dhshop.tw/static/img/floortrima.f3b9221.jpg"
-   },
-   {
-     "prodID": 8,
-     "ProdName": "歐ㄋ一ˋ壁紙",
-     "Label": "空間改造",
-     "Description": "輕鬆打造完美牆面",
-     "coverPhoto": "https://www.dhshop.tw/static/img/wallpaper2.d16bdae.jpg"
-   },
-   {
-     "prodID": 9,
-     "ProdName": "時尚香氛機",
-     "Label": "氛圍營造",
-     "Description": "安全設計防止空燒",
-     "coverPhoto": "https://www.dhshop.tw/static/img/diffuser.2b1bcf6.jpg"
-   },
-   {
-     "prodID": 10,
-     "ProdName": "一毛打盡除毛刷",
-     "Label": "清潔保養",
-     "Description": "日本唯一授權販售",
-     "coverPhoto": "https://www.dhshop.tw/static/img/ichimodajin.59a1912.jpg"
-   },
-   {
-     "prodID": 11,
-     "ProdName": "迪士尼口罩",
-     "Label": "清潔保養",
-     "Description": "長期暴露在污染中，你應該做最佳的防護",
-     "coverPhoto": "https://www.dhshop.tw/static/img/mask1.88cfe7e.jpg"
-   },
-   {
-     "prodID": 13,
-     "ProdName": "兒童音樂聲波LED防水電動牙刷",
-     "Label": "清潔保養",
-     "Description": "內建兩種音樂旋律： 森林裡的熊先生、小星星",
-     "coverPhoto": "https://www.dhshop.tw/static/img/toothbrush.150cfa5.jpg"
-   },
-   {
-     "prodID": 19,
-     "ProdName": "【Disney】保溫瓶",
-     "Label": "居家好物",
-     "Description": "迪士尼授權產品",
-     "coverPhoto": "https://www.dhshop.tw/static/img/disneybottle.013db51.jpg"
-   },
-   {
-     "prodID": 21,
-     "ProdName": "立邦淨味全效平光內牆乳膠漆",
-     "Label": "空間改造",
-     "Description": "淨味全效，分解甲醛",
-     "coverPhoto": "https://www.dhshop.tw/static/img/paint.a4fe458.jpg"
-   },
-   {
-    "prodID": 22,
-    "ProdName": "空間改造組合包",
-    "Label": "空間改造",
-    "Description": "改造居家，只要一個下午就能完成",
-    "coverPhoto": "https://www.dhshop.tw/static/img/F&W_combine%20sale.e247daf.jpg"
-   },
-   {
-     "prodID": 24,
-     "ProdName": "壁癌戰士氟素奈米抗壁癌氣霧罐",
-     "Label": "空間改造",
-     "Description": "高效氟素奈米配方，有效抑制壁癌",
-     "coverPhoto": "https://www.dhshop.tw/static/img/cancerPic.60cdbfc.jpg"
-   }
- ]
+[{
+  "prodID": 1,
+  "ProdName": "歐巴地板",
+  "Label": "空間改造",
+  "Description": "創造專屬你的居家氛圍",
+  "coverPhoto": "https://www.dhshop.tw/static/img/floor.c6f4498.jpg"
+},
+{
+  "prodID": 2,
+  "ProdName": "燈絲燈泡",
+  "Label": "氛圍營造",
+  "Description": "省電新生活",
+  "coverPhoto": "https://www.dhshop.tw/static/img/led_lighting.9bc812a.jpg"
+},
+{
+  "prodID": 3,
+  "ProdName": "第二代小7吸筒式油漆刷",
+  "Label": "空間改造",
+  "Description": "小7刷一下，牆面全乾淨",
+  "coverPhoto": "https://www.dhshop.tw/static/img/NEWsamll7.1b5bff1.1b5bff1.jpg"
+},
+{
+  "prodID": 4,
+  "ProdName": "歐巴地板收邊條",
+  "Label": "居家好物",
+  "Description": "歐巴地板收邊條",
+  "coverPhoto": "https://www.dhshop.tw/static/img/floortrima.f3b9221.jpg"
+},
+{
+  "prodID": 8,
+  "ProdName": "歐ㄋ一ˋ壁紙",
+  "Label": "空間改造",
+  "Description": "輕鬆打造完美牆面",
+  "coverPhoto": "https://www.dhshop.tw/static/img/wallpaper2.d16bdae.jpg"
+},
+{
+  "prodID": 9,
+  "ProdName": "時尚香氛機",
+  "Label": "氛圍營造",
+  "Description": "安全設計防止空燒",
+  "coverPhoto": "https://www.dhshop.tw/static/img/diffuser.2b1bcf6.jpg"
+},
+{
+  "prodID": 10,
+  "ProdName": "一毛打盡除毛刷",
+  "Label": "清潔保養",
+  "Description": "日本唯一授權販售",
+  "coverPhoto": "https://www.dhshop.tw/static/img/ichimodajin.59a1912.jpg"
+},
+{
+  "prodID": 11,
+  "ProdName": "迪士尼口罩",
+  "Label": "清潔保養",
+  "Description": "長期暴露在污染中，你應該做最佳的防護",
+  "coverPhoto": "https://www.dhshop.tw/static/img/mask1.88cfe7e.jpg"
+},
+{
+  "prodID": 13,
+  "ProdName": "兒童音樂聲波LED防水電動牙刷",
+  "Label": "清潔保養",
+  "Description": "內建兩種音樂旋律： 森林裡的熊先生、小星星",
+  "coverPhoto": "https://www.dhshop.tw/static/img/toothbrush.150cfa5.jpg"
+},
+{
+  "prodID": 19,
+  "ProdName": "【Disney】保溫瓶",
+  "Label": "居家好物",
+  "Description": "迪士尼授權產品",
+  "coverPhoto": "https://www.dhshop.tw/static/img/disneybottle.013db51.jpg"
+},
+{
+  "prodID": 21,
+  "ProdName": "立邦淨味全效平光內牆乳膠漆",
+  "Label": "空間改造",
+  "Description": "淨味全效，分解甲醛",
+  "coverPhoto": "https://www.dhshop.tw/static/img/paint.a4fe458.jpg"
+},
+{
+ "prodID": 22,
+ "ProdName": "空間改造組合包",
+ "Label": "空間改造",
+ "Description": "改造居家，只要一個下午就能完成",
+ "coverPhoto": "https://www.dhshop.tw/static/img/F&W_combine%20sale.e247daf.jpg"
+},
+{
+  "prodID": 24,
+  "ProdName": "壁癌戰士氟素奈米抗壁癌氣霧罐",
+  "Label": "空間改造",
+  "Description": "高效氟素奈米配方，有效抑制壁癌",
+  "coverPhoto": "https://www.dhshop.tw/static/img/cancerPic.60cdbfc.jpg"
+},
+{
+  "prodID": 14,
+  "ProdName": "塵螨快除",
+  "Label": "清潔保養",
+  "Description": "日本熱賣商品 － 家有小孩毛孩必備",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/04.jpg"
+},
+{
+  "prodID": 15,
+  "ProdName": "杜爾德茶",
+  "Label": "居家好物",
+  "Description": "粉嫩馬卡龍配色禮袋",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/tea.jpg"
+},
+{
+  "prodID": 16,
+  "ProdName": "迪士尼馬克杯",
+  "Label": "居家好物",
+  "Description": "迪士尼特色圖案",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/teacup.jpg"
+},
+{
+  "prodID": 17,
+  "ProdName": "Gluedots",
+  "Label": "居家好物",
+  "Description": "粘貼強勁持久",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/gluedot.jpg"
+},
+{
+  "prodID": 18,
+  "ProdName": "鑰匙守護者",
+  "Label": "居家好物",
+  "Description": "可愛小動物守護你的鑰匙圈",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/keyholder.jpg"
+},
+{
+  "prodID": 23,
+  "ProdName": "三件式補強組",
+  "Label": "居家好物",
+  "Description": "可愛小動物守護你的鑰匙圈",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/three.jpg"
+},
+{
+  "prodID": 27,
+  "ProdName": "雙面布膠帶",
+  "Label": "居家好物",
+  "Description": "輕鬆貼 輕鬆撕 黏性強 撕下不殘膠",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/type.jpg"
+},
+{
+  "prodID": 30,
+  "ProdName": "油漆刷滾筒",
+  "Label": "居家好物",
+  "Description": "輕鬆更換不費力",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/indexroller.jpg"
+}
+]

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="style_intro">歐巴影片精選</div>
+    <div class="style_intro">影片精選<span class="seemore"><router-link to="/iframeCategory">查看更多>></router-link></span></div>
     <swiper :options="swiperFB">
       <swiper-slide>
         <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1627499783967677/ " data-allowfullscreen="true"></div> -->
@@ -43,17 +43,17 @@
         <!-- </div > -->
       </swiper-slide>
       <!-- <swiper-slide>
-          <div class="embed-responsive embed-responsive-16by9 ">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1679406182110370%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-          </div>
-        </swiper-slide> -->
+            <div class="embed-responsive embed-responsive-16by9 ">
+              <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1679406182110370%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+            </div>
+          </swiper-slide> -->
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
   </div>
   </div>
   <!-- <router-link to="/prodPromte/1/1">
-    </router-link> -->
+      </router-link> -->
 </template>
 <script>
 // import '../extension/FBSDK'
@@ -115,6 +115,16 @@ export default {
 
 </script>
 <style scoped>
+.seemore {
+  float: right;
+  font-size: 15px;
+  padding-top: 15px;
+  color: #484848;
+  font-weight: 300;
+}
 
+.seemore a {
+  color: #008489;
+}
 
 </style>

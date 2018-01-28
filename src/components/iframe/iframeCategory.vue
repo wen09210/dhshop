@@ -1,92 +1,137 @@
 <template>
-<div class="container">
-  <div class="main_section col-md-12">
-    <div class="category_title">影片教學體驗</div>
-    <div class="subtitle">dHSHOP提供您最完整的教學</div>
-  </div>  
-  <div class="col-md-3 col-xs-6 inCase"  v-for="CaseDetail in reverseItems  " :key="CaseDetail.CaseID">
-      <router-link :to="{name: 'Case', params: {CaseID: CaseDetail.CaseID}}">
-        <img :src="CaseDetail.coverPhoto" class="img-responsive">
-        <div class="Case_name" >{{CaseDetail.name}}</div>
-        <div class="Case_description">{{CaseDetail.quote}}</div>
-        <div class="Case_tag">
-          <Icon type="pricetag"></Icon>{{CaseDetail.opentime}}</div>
-      </router-link>
+  <div class="container">
+    <div class="main_section col-md-12">
+      <div class="category_title">dH百科全書</div>
+      <div class="subtitle">有任何問題，都來這裡找答案吧!</div>
+    </div>
+    <div class="catetitle col-md-12">◆ dH小教室 ◆</div>
+    <template v-for="item in classroom" v-cloak>
+      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
+        <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
+        <div class="FBiframe_description">{{item.title}}</div>
+      </div>
+    </template>
+    <div class="clearfix"></div>
+    <div class="catetitle col-md-12">◆ 鋪設拼法教學 ◆</div>
+    <template v-for="item in lay" v-cloak>
+      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
+        <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
+        <div class="FBiframe_description">{{item.title}}</div>
+      </div>
+    </template>
+    <div class="clearfix"></div>
+    <div class="catetitle col-md-12">◆ 清潔保養小訣竅 ◆</div>
+    <template v-for="item in clear" v-cloak>
+      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
+        <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
+        <div class="FBiframe_description">{{item.title}}</div>
+      </div>
+    </template>
+    <div class="clearfix"></div>
+    <div class="catetitle col-md-12">◆ 歐巴到你家 ◆</div>
+    <template v-for="item in oba" v-cloak>
+      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
+        <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
+        <div class="FBiframe_description">{{item.title}}</div>
+      </div>
+    </template>
   </div>
-</div>
-  
- 
 </template>
 <script>
-import Case from '../../../static/file/caseList.json'
+import FBiframe from '../../../static/file/FBiframe.json'
 export default {
   data() {
     return {
-      Case: Case,
-      CaseDetail: {}
+      FBiframe: FBiframe,
+      FBiframeDetail: {}
     }
   },
   created() {
-    let CC = this.Case.data
-    this.CaseDetail = CC
+    let CC = this.FBiframe
+    this.FBiframeDetail = CC
+    // dh小教室
+    let classroom = this.FBiframe.filter(x => x.Label === 'dH小教室')
+    this.classroom = classroom
+    // 拼法舖設教學
+    let lay = this.FBiframe.filter(x => x.Label === '舖設拼法')
+    this.lay = lay
+    // 清潔保養
+    let clear = this.FBiframe.filter(x => x.Label === '保養清潔')
+    this.clear = clear
+    // 歐巴到你家
+    let oba = this.FBiframe.filter(x => x.Label === '歐巴到你家')
+    this.oba = oba
   },
-  computed: {
-    reverseItems() {
-      return this.CaseDetail.slice().reverse()
+  methods: {
+    instance(n) {
+      n = n - 1
+      this.$Modal.info({
+        title: FBiframe[n].title,
+        content: "<div class='embed-responsive embed-responsive-16by9 '><iframe src='" + FBiframe[n].iframeUrl + "'width='560' height='315' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allowFullScreen='true'></iframe></div>",
+        width: 768,
+        okText: '關閉'
+      })
     }
   }
 }
 
 </script>
-<style >
+<style>
 .img-responsive {
   border-radius: 3px;
 }
-.main_section{
-  margin:20px 0px;
-  border-bottom:1px solid #dbdbdb;
-  padding-bottom:20px;
 
-}
-.category_title{
-font-weight: 700 ;
-margin-bottom: 0px ;
-font-size: 28px ;
-line-height: 32px ;
-letter-spacing: -0.6px ;
-padding-top: 2px ;
-padding-bottom: 2px ;
-color: #484848 ;
-}
-.subtitle{
-margin: 0px ;
-word-wrap: break-word ;
-font-size: 19px ;
-line-height: 24px ;
-padding-top: 10px ;
-padding-bottom: 0px ;
-color: #484848 ;
-font-weight: 300 ;
-}
-.inCase{
-  margin:20px 0px;
-}
-.Case_name {
-  font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 0.4px;
-  padding-top: 8px;
-  padding-bottom: 0px;
-  font-weight: 400;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.main_section {
+  margin: 20px 0px;
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 20px;
 }
 
-.Case_description {
+.category_title {
+  font-weight: 700;
+  margin-bottom: 0px;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: #484848;
+}
+
+.FBiframe_description {
   font-size: 17px;
   line-height: 22px;
-  padding-top: 0px;
+  padding-top: 15px;
+  padding-bottom: 0px;
+  color: #484848;
+  font-weight: 700;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.subtitle {
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 19px;
+  line-height: 24px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  color: #484848;
+  font-weight: 300;
+}
+
+.inFBiframe {
+  margin: 20px 0px;
+}
+
+
+.FBiframe_description {
+  font-size: 17px;
+  line-height: 22px;
+  padding-top: 15px;
   padding-bottom: 0px;
   color: #484848;
   font-weight: 700;
@@ -98,8 +143,37 @@ font-weight: 300 ;
   -webkit-box-orient: vertical;
 }
 
-.Case_tag {
+.FBiframe_tag {
   color: #FF9800;
-  padding-top:3px;
+  padding-top: 3px;
 }
+
+.vertical-center-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical-center-modal .ivu-modal {
+  top: 0;
+}
+
+.catetitle {
+  margin: 25px 0px;
+  word-wrap: break-word;
+  font-size: 28px;
+  line-height: 24px;
+  color: #484848;
+  font-weight: 600;
+  clear: top;
+}
+
+.ivu-modal-confirm-body {
+  padding-left: 0px;
+}
+
+.ivu-modal-confirm-body .ivu-modal-confirm-body-icon.ivu-modal-confirm-body-icon-info {
+  display: none;
+}
+
 </style>

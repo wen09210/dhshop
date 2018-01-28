@@ -1,47 +1,50 @@
 <template>
-  <div class=" col-md-12">
-    <div class="container">
-    <div class="main_section col-md-12">
-      <div class="category_title">dH.CHOICE</div>
-      <div class="subtitle">美好生活從家開始</div>
-    </div>
-    <div class="catetitle col-md-12">空間改造</div>
-    <div class="col-md-3 col-xs-6 inallProd" v-for="items in space ">
-      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
-        <img :src="items.coverPhoto" class="img-responsive">
-        <div class="tagname">{{items.ProdName }}</div>
-        <div class="allProd_description">{{items.Description}}</div>
-      </router-link>
+  <div>
+    <div class="col-md-12">
+      <div class="container">
+        <div class="main_section col-md-12">
+          <div class="category_title">dH.CHOICE</div>
+          <div class="subtitle">美好生活從家開始</div>
+        </div>
+        <div class="catetitle col-md-12">空間改造</div>
+        <div class="col-md-3 col-xs-6 inallProd" v-for="items in space ">
+          <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+            <img :src="items.coverPhoto" class="img-responsive">
+            <div class="tagname">{{items.ProdName }}</div>
+            <div class="allProd_description">{{items.Description}}</div>
+          </router-link>
+        </div>
+        <div class="clearfix"></div>
+        <div class="catetitle col-md-12">氛圍營造</div>
+        <div class="col-md-3 col-xs-6 inallProd" v-for="items in atomsphere ">
+          <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+            <img :src="items.coverPhoto" class="img-responsive">
+            <div class="tagname">{{items.ProdName }}</div>
+            <div class="allProd_description">{{items.Description}}</div>
+          </router-link>
+        </div>
+        <div class="clearfix"></div>
+        <div class="catetitle col-md-12">清潔保養</div>
+        <div class="col-md-3 col-xs-6 inallProd" v-for="items in clearmaintain ">
+          <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+            <img :src="items.coverPhoto" class="img-responsive">
+            <div class="tagname">{{items.ProdName }}</div>
+            <div class="allProd_description">{{items.Description}}</div>
+          </router-link>
+        </div>
+        <div class="clearfix"></div>
+        <div class="catetitle col-md-12">居家好物</div>
+        <div class="col-md-3 col-xs-6 inallProd" v-for="items in homegood ">
+          <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+            <img :src="items.coverPhoto" class="img-responsive">
+            <div class="tagname">{{items.ProdName }}</div>
+            <div class="allProd_description">{{items.Description}}</div>
+          </router-link>
+        </div>
+        <div class="clearfix"></div>
+      </div>
     </div>
     <div class="clearfix"></div>
-    <div class="catetitle col-md-12">氛圍營造</div>
-    <div class="col-md-3 col-xs-6 inallProd" v-for="items in atomsphere ">
-      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
-        <img :src="items.coverPhoto" class="img-responsive">
-        <div class="tagname">{{items.ProdName }}</div>
-        <div class="allProd_description">{{items.Description}}</div>
-      </router-link>
-    </div>
-    <div class="clearfix"></div>
-    <div class="catetitle col-md-12">清潔保養</div>
-    <div class="col-md-3 col-xs-6 inallProd" v-for="items in clearmaintain ">
-      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
-        <img :src="items.coverPhoto" class="img-responsive">
-        <div class="tagname">{{items.ProdName }}</div>
-        <div class="allProd_description">{{items.Description}}</div>
-      </router-link>
-    </div>
-    <div class="clearfix"></div>
-    <div class="catetitle col-md-12">居家好物</div>
-    <div class="col-md-3 col-xs-6 inallProd" v-for="items in homegood ">
-      <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
-        <img :src="items.coverPhoto" class="img-responsive">
-        <div class="tagname">{{items.ProdName }}</div>
-        <div class="allProd_description">{{items.Description}}</div>
-      </router-link>
-    </div>
-    <div class="clearfix"></div>
-  </div>
   </div>
 </template>
 <script>
@@ -83,9 +86,11 @@ export default {
   border-bottom: 1px solid #dbdbdb;
   padding-bottom: 20px;
 }
-.inallProd{
+
+.inallProd {
   margin-top: 5px;
 }
+
 .category_title {
   font-weight: 700;
   margin-bottom: 0px;
@@ -107,19 +112,22 @@ export default {
   color: #484848;
   font-weight: 300;
 }
-.tagname{
-  margin:5px 0px;
-  font-size:16px;
+
+.tagname {
+  margin: 5px 0px;
+  font-size: 16px;
 }
-.catetitle{
-  margin:25px 0px;
+
+.catetitle {
+  margin: 25px 0px;
   word-wrap: break-word;
   font-size: 28px;
   line-height: 24px;
   color: #484848;
   font-weight: 600;
-  clear:top;
+  clear: top;
 }
+
 .allProd_description {
   font-size: 17px;
   line-height: 22px;
