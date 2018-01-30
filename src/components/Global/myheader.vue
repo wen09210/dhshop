@@ -114,7 +114,7 @@
                   </a>
                   <template slot="dropdown">
                     <!--非匿名登入-->
-                    <template v-if="GetLoginInfo.MemberJoinType !== '4'">
+                    <!-- <template v-if="GetLoginInfo.MemberJoinType !== '4'">
                       <li>
                         <a class="headerIcon">
                           <router-link to="/member">
@@ -126,7 +126,7 @@
                       </li>
                       <li role="separator" class="divider">
                       </li>
-                    </template>
+                    </template> -->
                     <li>
                       <a class="headerIcon">
                         <button type="button" class="btn  BtnToA headerIcon" @click="LoginOut">
