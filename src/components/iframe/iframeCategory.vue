@@ -43,24 +43,34 @@ export default {
   data() {
     return {
       FBiframe: FBiframe,
-      FBiframeDetail: {}
+      modal1: false,
+      classroom: [],
+      lay: [],
+      oba: [],
+      clear: []
     }
   },
   created() {
-    let CC = this.FBiframe
-    this.FBiframeDetail = CC
     // dh小教室
-    let classroom = this.FBiframe.filter(x => x.Label === 'dH小教室')
-    this.classroom = classroom
+    this.classroom = this.FBiframe.filter(
+      (x) => {
+        return x.Label === 'dH小教室'
+      })
     // 拼法舖設教學
-    let lay = this.FBiframe.filter(x => x.Label === '舖設拼法')
-    this.lay = lay
+    this.lay = this.FBiframe.filter(
+      (x) => {
+        return x.Label === '舖設拼法'
+      })
     // 清潔保養
-    let clear = this.FBiframe.filter(x => x.Label === '保養清潔')
-    this.clear = clear
+    this.clear = this.FBiframe.filter(
+      (x) => {
+        return x.Label === '保養清潔'
+      })
     // 歐巴到你家
-    let oba = this.FBiframe.filter(x => x.Label === '歐巴到你家')
-    this.oba = oba
+    this.oba = this.FBiframe.filter(
+      (x) => {
+        return x.Label === '歐巴到你家'
+      })
   },
   methods: {
     instance(n) {
