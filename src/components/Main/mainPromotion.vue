@@ -115,15 +115,16 @@ export default {
 
 </script>
 <style scoped>
-.seemore{
-  float:right;
+.seemore {
+  float: right;
   font-size: 15px;
   padding-top: 15px;
   color: #484848;
   font-weight: 300;
 }
-.seemore a{
-  color:#008489 ;
+
+.seemore a {
+  color: #008489;
 }
 
 </style>

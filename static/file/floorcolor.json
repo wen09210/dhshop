@@ -1,0 +1,22 @@
+[
+  {
+    "floorID": 1,
+    "name": "沉穩深橡",
+    "description": "淺暖色系木質感，創造清新舒適的氛圍，適合北歐風或者無印風的居家",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/深橡.jpg",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/深橡.jpg",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/深橡.jpg",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/深橡.jpg",
+    "case": ["https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/1.jpg","https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/2.jpg"]
+   },
+   {
+    "floorID": 2,
+    "name": "典雅古橡",
+    "description": "🌝 #在黃光 下有較明顯的色彩，搭配不同的家飾，可以打造出溫馨有童話氛圍 的木屋房，或營造出有個性的復古空間，❄ #白光下 顏色則較為樸質低調，替空間增加木紋的質感 帶有自然樸實的氣息",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/古橡.jpg",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/古橡.jpg",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/古橡.jpg",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/古橡.jpg",
+    "case": ""
+   }
+]
