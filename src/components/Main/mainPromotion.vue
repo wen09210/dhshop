@@ -2,18 +2,19 @@
   <div class="container">
     <div class="style_intro">影片精選<span class="seemore"><router-link to="/iframeCategory">查看更多>></router-link></span></div>
     <swiper :options="swiperFB">
-      <swiper-slide v-for="item in FBiframe" v-cloak>
-        <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1627499783967677/ " data-allowfullscreen="true"></div> -->
-        <!-- <div class="col-xs-12"> -->
-        <div class="embed-responsive embed-responsive-16by9 ">
-          <iframe :src="item.iframeUrl"></iframe>
-        </div>
-        <!-- </div> -->
-      </swiper-slide>
+      <template v-for="item in FBiframe" v-cloak>
+        <swiper-slide :key="item.iframeID">
+          <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1627499783967677/ " data-allowfullscreen="true"></div> -->
+          <!-- <div class="col-xs-12"> -->
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <iframe :src="item.iframeUrl"></iframe>
+          </div>
+          <!-- </div> -->
+        </swiper-slide>
+      </template>
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
-  </div>
   </div>
   <!-- <router-link to="/prodPromte/1/1">
       </router-link> -->

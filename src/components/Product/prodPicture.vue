@@ -2,7 +2,7 @@
   <div class="">
     <div v-html="ContentUp"></div>
     <!-- Carousel 上半-->
-    <div class="container">
+    <div class="container" id="CarouselDown">
       <div class="row">
         <div class="col-xs-12 col-md-4">
           <!-- 左半邊 -->
@@ -35,7 +35,7 @@
     <!-- html -->
     <div v-html="ContentDown"></div>
     <!-- Carousel 下半-->
-    <div class="container" style="display:none">
+    <div class="container" id="CarouselDown">
       <div class="col-xs-12 col-md-12">
         <swiper :options="swiperOption_Down">
           <template v-for="item in CarouselDown">
