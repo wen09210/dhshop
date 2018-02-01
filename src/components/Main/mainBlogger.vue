@@ -60,7 +60,11 @@ export default {
     }
   },
   created() {
-    this.Blog = blog.data.slice().reverse().slice(0, 6)
+    // 隨機排列
+    var random = function(array) {
+      return array.sort(function() { return Math.random() - 0.5 })
+    }
+    this.Blog = random(blog.data.slice().reverse()).slice(0, 6)
     // 隨機排列
     // var random = function(array) {
     //   return array.sort(function() { return Math.random() > 0.5 })

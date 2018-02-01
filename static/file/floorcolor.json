@@ -3,20 +3,108 @@
     "floorID": 1,
     "name": "沉穩深橡",
     "description": "淺暖色系木質感，創造清新舒適的氛圍，適合北歐風或者無印風的居家",
-    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/深橡.jpg",
-    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/深橡.jpg",
-    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/深橡.jpg",
-    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/深橡.jpg",
-    "case": ["https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/1.jpg","https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/2.jpg"]
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/深橡.png",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/深橡.png",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/深橡.png",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/深橡.png",
+    "case": [{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/1.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/2.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/3.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/4.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/5.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/6.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/7.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/深橡/8.png"}]
    },
    {
     "floorID": 2,
     "name": "典雅古橡",
-    "description": "🌝 #在黃光 下有較明顯的色彩，搭配不同的家飾，可以打造出溫馨有童話氛圍 的木屋房，或營造出有個性的復古空間，❄ #白光下 顏色則較為樸質低調，替空間增加木紋的質感 帶有自然樸實的氣息",
-    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/古橡.jpg",
-    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/古橡.jpg",
-    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/古橡.jpg",
-    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/古橡.jpg",
-    "case": ""
+    "description": "在深棕色澤交錯出現的深色裂痕和樹結，整體鋪設後，空間不僅沉穩，更具有獨特的老屋新生感<br><br>適合使用在：書房 工作室 臥室 營造沉穩舒適的空間",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/古橡.png",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/古橡.png",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/古橡.png",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/古橡.png",
+    "case": [{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/古橡/1.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/古橡/2.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/古橡/3.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/古橡/4.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/古橡/5.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/古橡/6.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/古橡/7.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/古橡/8.png"}]
+   },
+   {
+    "floorID": 3,
+    "name": "經典胡桃木",
+    "description": "帶有咖啡原色的棕紅調，與黑褐裂痕和樹節設計，實際鋪設後，能讓居家展現古典式的優雅風貌<br><br>適合使用在：客廳 臥房 書房 具有優雅擺設的空間",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/胡桃木.png",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/胡桃木.png",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/胡桃木.png",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/胡桃木.png",
+    "case": [{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/胡桃木/1.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/胡桃木/2.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/胡桃木/3.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/胡桃木/4.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/胡桃木/5.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/胡桃木/6.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/胡桃木/7.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/胡桃木/8.png"}]
+   },
+   {
+    "floorID": 4,
+    "name": "質感柚木",
+    "description": "帶有橘黃色澤的暖棕調，也有深淺色的年輪設計，整體鋪設後，暖調溫馨感瞬間提升，呈現有活力朝氣的空間<br><br>適合使用在：臥房 廚房 飯廳 需要營造溫暖氛圍的空間",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/柚木.png",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/柚木.png",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/柚木.png",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/柚木.png",
+    "case": [{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/柚木/1.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/柚木/2.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/柚木/3.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/柚木/4.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/柚木/5.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/柚木/6.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/柚木/7.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/柚木/8.png"}]
+   },
+   {
+    "floorID": 5,
+    "name": "時尚淺橡",
+    "description": "淺黃木質調並特別設計雙色塊的木紋拼接，整體鋪設後，層層疊疊的活潑感，地面儼然成為空間的亮點之一<br><br>適合使用在：客廳 飯廳 臥房 空間較大的公開區域",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/淺橡.png",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/淺橡.png",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/淺橡.png",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/淺橡.png",
+    "case": [{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/1.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/2.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/3.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/4.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/5.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/6.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/7.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/8.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/9.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/10.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/11.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/12.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/13.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/14.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/淺橡/15.png"}]
+   },
+   {
+    "floorID": 6,
+    "name": "尊爵原橡",
+    "description": "",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/原橡.png",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/原橡.png",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/原橡.png",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/原橡.png",
+    "case": [{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/原橡/1.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/原橡/2.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/原橡/3.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/原橡/4.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/原橡/5.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/原橡/6.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/原橡/7.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/原橡/8.png"}]
+   },
+   {
+    "floorID": 7,
+    "name": "雅緻白橡",
+    "description": "溫潤的色澤與重點式的樹節設計，整體鋪設後，呈現舒適氛圍並能襯托出家中擺設，完美提升整體質感<br><br>適合使用在：兒童房 遊戲室 臥房 家具擺設較為多元的空間",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/白橡.png",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/白橡.png",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/白橡.png",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/白橡.png",
+    "case": [{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/白橡/1.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/白橡/2.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/白橡/3.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/白橡/4.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/白橡/5.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/白橡/6.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/白橡/7.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/白橡/8.png"}]
+   },
+   {
+    "floorID": 8,
+    "name": "極簡灰橡",
+    "description": "淺灰色的木質調，年輪設計較為明顯，整體鋪設後，會因應白黃燈光而有冷暖色不同的視覺呈現<br><br>適合使用在：客廳 書房 臥房 區域較大的空間",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/灰橡.png",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/灰橡.png",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/灰橡.png",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/灰橡.png",
+    "case": [{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/灰橡/1.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/灰橡/2.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/灰橡/3.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/灰橡/4.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/灰橡/5.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/灰橡/6.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/灰橡/7.png"},{"url": "https://www.dhshop.tw/Image/other/contrast/案例圖/灰橡/8.png"}]
+   },
+   {
+    "floorID": 9,
+    "name": "北歐淺橡",
+    "description": "與溫暖的原木色最為接近的木紋款式之一，整體鋪設後，木質調的舒適環境讓人想席地而坐，放空也是一種享受<br><br>適合使用在：客廳 書房 臥室 區域較大的空間",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/灰橡.png",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/灰橡.png",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/灰橡.png",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/灰橡.png"  
+  },
+   {
+    "floorID": 10,
+    "name": "英倫灰橡",
+    "description": "冷灰色調中設計深淺漸層的木紋，灰中又帶有一點粉，整體鋪設後，冷灰色帶粉的空間既流行又舒適<br><br>適合使用在：工作室 衣帽間 具有風格的個人空間",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/灰橡.png",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/灰橡.png",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/灰橡.png",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/灰橡.png"
+   },
+   {
+    "floorID": 11,
+    "name": "雅典白橡",
+    "description": "ｄＨ全系列最淺的暖黃木質調花色，整體鋪設後，淺色的木質調讓空間更具延伸放大，居住質感相對提升<br><br>適合使用在：客廳 小套房 臥房居住地的主要空間",
+    "mainPhoto": "https://www.dhshop.tw/Image/other/contrast/原圖/灰橡.png",
+    "whiteColor": "https://www.dhshop.tw/Image/other/contrast/白光/灰橡.png",
+    "yellowColor": "https://www.dhshop.tw/Image/other/contrast/黃光/灰橡.png",
+    "contrastColor": "https://www.dhshop.tw/Image/other/contrast/對比/灰橡.png"
    }
+   
 ]

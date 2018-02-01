@@ -6,34 +6,34 @@
     </div>
     <div class="col-md-12">
       <tabs value="沉穩深橡">
-        <tab-pane value="item.name" :label="item.name" :name="item.name" v-for="item in ContrastDetail">
-          <div class="col-md-6">
-            <img :src="item.contrastColor" alt="" class="img-responsive">
-          </div>
-          <div class="col-md-6">
-            <div class="Contrast_name">{{item.name}}</div>
-            <div class="description">{{item.description}}</div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="col-md-4">
-            <div class="Contrast_name">白光</div>
-            <img :src="item.whiteColor" class="img-responsive">
-          </div>
-          <div class="col-md-4">
-            <div class="Contrast_name">黃光</div>
-            <img :src="item.yellowColor" class="img-responsive">
-          </div>
-          <div class="col-md-4">
-            <div class="Contrast_name">對比</div>
-            <img :src="item.contrastColor" class="img-responsive">
-          </div>
-          <div class="clearfix"></div>
-          <div class="col-md-4">
-            <div class="Contrast_name">實鋪參考</div>
-            <div v-for="item in ContrastDetail">
-              <img :src="item.case" class="img-responsive">
+        <tab-pane value="item.name" :label="item.name" :name="item.name" v-for="(item,i) in ContrastDetail" :key="ContrastDetail.floorID">
+          <div class="row">
+            <div class="col-md-6">
+              <img :src="item.contrastColor" alt="" class="img-responsive">
+            </div>
+            <div class="col-md-6">
+              <div class="Contrast_name">{{item.name}}</div>
+              <div class="description" v-html="item.description"></div>
+             <div class="clearfix"></div>
+                <button class="btnOrange btn btn-primary btn-lg btn-block" >
+                  <h3>
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    前往選購
+                    </h3>
+                </button>
+              
             </div>
           </div>
+          <div class="clearfix"></div>
+          <div class="lay_name Contrast_name">實鋪參考</div>
+          <div class="col-md-4 col-xs-6" v-for="(item,i) in ContrastDetail[i].case">
+            <div class="sqare_photo">
+              <img :src="item.url" alt="" class="img-responsive">
+            </div>
+          </div>
+          <!-- <div class="col-md-4" v-for="item in findSomething.case" >
+            <img :src="item.url" alt="" class="img-responsive">
+          </div> -->
         </tab-pane>
       </tabs>
     </div>
@@ -52,6 +52,16 @@ export default {
     let CC = this.Contrast
     this.ContrastDetail = CC
   }
+  // methods: {
+  //   getIndex () {
+  //     if (!this.index) {
+  //       this.index = 1
+  //     } else {
+  //       this.index++
+  //     }
+  //     return this.index
+  //   }
+  // }
   // created() {
   //   console.log(this.ContrastInCatgory.length)
   //   if (this.ContrastInCatgory.length === 0) {
@@ -70,6 +80,12 @@ export default {
 .col-md-4 {
   padding-left: 0px;
 } */
+
+.btnOrange {
+  border-radius: 3px;
+  font-weight: bold;
+  margin-top: 15px;
+}
 
 .main_section {
   margin: 20px 0px;
@@ -114,6 +130,11 @@ export default {
   -webkit-box-orient: vertical;
 }
 
+.lay_name {
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
 .description {
   font-size: 17px;
   line-height: 25px;
@@ -121,11 +142,23 @@ export default {
   padding-bottom: 0;
   color: #484848;
   font-weight: 300;
+  min-height: 200px;
 }
 
 .Contrast_tag {
   color: #FF9800;
   padding-top: 3px;
+}
+
+.sqare_photo {
+  margin: 10px 0px;
+}
+
+@media (max-width:768px) {
+  .description {
+ 
+    min-height: auto;
+  }
 }
 
 </style>

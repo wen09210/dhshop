@@ -100,14 +100,14 @@
   {
     "iframeID": 15,
     "title": "可使用清潔工具",
-    "Label": "保養清潔",
+    "Label": "dH小百科",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/15.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1558094977574825%2F&show_text=0&width=560"
   },
   {
     "iframeID": 16,
     "title": "可使用的清潔劑",
-    "Label": "保養清潔",
+    "Label": "dH小百科",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/16.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1567494009968255%2F&show_text=0&width=560"
   },
@@ -243,6 +243,34 @@
     "Label": "歐巴到你家",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/35.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1633163543401301%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 36,
+    "title": "一箱可舖幾坪|dH小百科EP1",
+    "Label": "dH小百科",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/36.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1784831218234532%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 37,
+    "title": "歐巴地板一箱有多重｜dH小百科EP2",
+    "Label": "dH小百科",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/37.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1762481750469479%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 38,
+    "title": "歐巴地板是黏膠式的嗎｜dH小百科EP3",
+    "Label": "dH小百科",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/38.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1770845912966396%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 39,
+    "title": "舖在磁磚上會滑動嗎｜dH小百科EP4",
+    "Label": "dH小百科",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/39.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1774788945905426%2F&show_text=0&width=560"
   }
   
 

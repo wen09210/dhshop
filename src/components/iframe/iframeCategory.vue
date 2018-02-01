@@ -61,10 +61,10 @@ export default {
       (x) => {
         return x.Label === '舖設拼法'
       })
-    // 清潔保養
+    // dH小百科
     this.clear = this.FBiframe.filter(
       (x) => {
-        return x.Label === '保養清潔'
+        return x.Label === 'dH小百科'
       })
     // 歐巴到你家
     this.oba = this.FBiframe.filter(
