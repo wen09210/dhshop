@@ -61,10 +61,10 @@ export default {
       (x) => {
         return x.Label === '舖設拼法'
       })
-    // 清潔保養
+    // dH小百科
     this.clear = this.FBiframe.filter(
       (x) => {
-        return x.Label === '保養清潔'
+        return x.Label === 'dH小百科'
       })
     // 歐巴到你家
     this.oba = this.FBiframe.filter(
@@ -79,7 +79,7 @@ export default {
         title: FBiframe[n].title,
         content: "<div class='embed-responsive embed-responsive-16by9 '><iframe src='" + FBiframe[n].iframeUrl + "'width='560' height='315' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allowFullScreen='true'></iframe></div>",
         width: 768,
-        okText: '關閉'
+        okText: 'OK'
       })
     }
   }

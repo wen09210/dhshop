@@ -1,8 +1,30 @@
 <template>
   <div>
     <div class="container">
-    <div class="style_intro">在哪裡可以找到我們<span class="seemore"><router-link to="/CaseCategory">查看更多>></router-link></span></div>  
-    <swiper :options="swiperOption">
+    <div class="style_intro">在哪裡可以找到我們<span class="seemore"><router-link to="/CaseCategory">查看更多>></router-link></span></div>
+    <div class="col-md-6">
+      <router-link to="/CaseCategory">
+        <img src="../../assets/temporyPic/index/MAP.png" alt="" class="img-responsive">
+      </router-link>
+      </div>
+    <div class="col-md-6">
+      <router-link to="/Case/1">
+        <img src="../../assets/temporyPic/index/map_bt.png" alt="" class="img-responsive imgHover">
+      </router-link>  
+      <router-link to="/Case/2">
+        <img src="../../assets/temporyPic/index/map_bt01.png" alt="" class="img-responsive imgHover">
+      </router-link>
+      <router-link to="/Case/3">
+      <img src="../../assets/temporyPic/index/map_bt02.png" alt="" class="img-responsive imgHover">
+      </router-link>
+      <router-link to="/Case/4">
+      <img src="../../assets/temporyPic/index/map_bt03.png" alt="" class="img-responsive imgHover">
+      </router-link>
+      <router-link to="/Case/5">
+      <img src="../../assets/temporyPic/index/map_bt04.png" alt="" class="img-responsive imgHover">
+      </router-link>
+    </div>  
+    <!-- <swiper :options="swiperOption">
       <swiper-slide>
         <router-link to="/Case/1">
             <img src="https://www.dhshop.tw/Image/other/Case/case1.jpg" class="img-responsive">
@@ -40,7 +62,8 @@
       </swiper-slide>
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-    </swiper>
+    </swiper> -->
+
     </div>
   </div>
 </template>
@@ -86,6 +109,9 @@ export default {
 <style scoped>
 .img-responsive{
     border-radius:3px;
+}
+.col-md-6{
+  padding-left:0px;
 }
 .title_intro {
   margin: 15px 0px;

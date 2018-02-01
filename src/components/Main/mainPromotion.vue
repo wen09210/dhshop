@@ -2,51 +2,14 @@
   <div class="container">
     <div class="style_intro">影片精選<span class="seemore"><router-link to="/iframeCategory">查看更多>></router-link></span></div>
     <swiper :options="swiperFB">
-      <swiper-slide>
+      <swiper-slide v-for="item in FBiframe" v-cloak>
         <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1627499783967677/ " data-allowfullscreen="true"></div> -->
         <!-- <div class="col-xs-12"> -->
         <div class="embed-responsive embed-responsive-16by9 ">
-          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1636798166371172%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+          <iframe :src="item.iframeUrl"></iframe>
         </div>
         <!-- </div> -->
       </swiper-slide>
-      <swiper-slide>
-        <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1629616513756004/ " data-allowfullscreen="true"></div> -->
-        <!-- <div class="col-xs-12"> -->
-        <div class="embed-responsive embed-responsive-16by9 ">
-          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1679406182110370%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-        </div>
-        <!-- </div> -->
-      </swiper-slide>
-      <swiper-slide>
-        <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1630318883685767/ " data-allowfullscreen="true"></div> -->
-        <!-- <div class="col-xs-12"> -->
-        <div class="embed-responsive embed-responsive-16by9 ">
-          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1638301842887471%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-        </div>
-        <!-- </div> -->
-      </swiper-slide>
-      <swiper-slide>
-        <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1631494156901573/ " data-allowfullscreen="true"></div> -->
-        <!-- <div class="col-xs-12"> -->
-        <div class="embed-responsive embed-responsive-16by9 ">
-          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1698022533582068%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-        </div>
-        <!-- </div> -->
-      </swiper-slide>
-      <swiper-slide>
-        <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1633163543401301/ " data-allowfullscreen="true"></div> -->
-        <!-- <div class="col-xs-12"> -->
-        <div class="embed-responsive embed-responsive-16by9 ">
-          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1693463047371350%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-        </div>
-        <!-- </div > -->
-      </swiper-slide>
-      <!-- <swiper-slide>
-            <div class="embed-responsive embed-responsive-16by9 ">
-              <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1679406182110370%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-            </div>
-          </swiper-slide> -->
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
@@ -58,6 +21,7 @@
 <script>
 // import '../extension/FBSDK'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import FBiframe from '../../../static/file/FBiframe.json'
 export default {
   mounted() {
     // alert(process.env.testVar)
@@ -84,6 +48,7 @@ export default {
   },
   data() {
     return {
+      FBiframe: FBiframe,
       swiperFB: {
         slidesPerView: 2,
         spaceBetween: 20,
@@ -110,6 +75,13 @@ export default {
         }
       }
     }
+  },
+  created() {
+    // 隨機排列
+    var random = function(array) {
+      return array.sort(function() { return Math.random() - 0.5 })
+    }
+    this.FBiframe = random(FBiframe).slice(0, 6)
   }
 }
 

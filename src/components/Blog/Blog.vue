@@ -1,5 +1,6 @@
 <template>
   <div class="BlogAll">
+    {{refresh}}
     <div class="main_img"> <img :src="BlogDetail.mainImg" alt=""></div>
     <div class="container">
       <div class="blogtime col-md-12">
@@ -18,13 +19,14 @@
           <template v-for="(item,i) in guess">
             <div class="col-md-4 col-xs-12">
               <div class="otherlike">
-                  <a :href="'/Blog/'+item.BlogID">
-                      <img :src="item.coverPhoto" class="img-responsive">
-                      <div class="Blog_name">{{item.title}}</div>
-                      <!-- <div class="Blog_description">{{item.quote}}</div> -->
-                      <div class="Blog_tag">
-                        <Icon type="pricetag"></Icon>{{item.prodtag}}</div>
-                      </a>
+                <router-link :to="{name: 'Blog', params: {BlogID: item.BlogID}}">
+                  <!-- :href="'/Blog/'+item.BlogID"> -->
+                  <img :src="item.coverPhoto" class="img-responsive">
+                  <div class="Blog_name">{{item.title}}</div>
+                  <!-- <div class="Blog_description">{{item.quote}}</div> -->
+                  <div class="Blog_tag">
+                    <Icon type="pricetag"></Icon>{{item.prodtag}}</div>
+                </router-link>
                 <!-- <a :href="'/Blog/'+item.sid">     
                   <img :src="item.simg" class="img-responsive">
                   <div class="centerword">
@@ -40,22 +42,22 @@
       </div>
       <div class="productPart  col-md-3">
         <!-- <Affix :offset-top="60" @on-change="change"> -->
-          <p class="subtitle">使用產品</p>
-          <div>
-            <div class="productIn">
-              <router-link to="/product/1#botBuy">
-                <div class="col-md-6"><img :src="BlogDetail.productImg1" alt="" class="img-responsive"></div>
-                <div class="col-md-6 blogProdName"> {{BlogDetail.productName}}
-                </div>
-                <div class="col-md-12 col-xs-12 noPadding">
-                  <button class="btnOrange btn btn-primary  btn-lg btn-block">
-                    <h3><i  aria-hidden="true" class="fa fa-shopping-bag"></i>
+        <p class="subtitle">使用產品</p>
+        <div>
+          <div class="productIn">
+            <router-link to="/product/1#botBuy">
+              <div class="col-md-6"><img :src="BlogDetail.productImg1" alt="" class="img-responsive"></div>
+              <div class="col-md-6 blogProdName"> {{BlogDetail.productName}}
+              </div>
+              <div class="col-md-12 col-xs-12 noPadding">
+                <button class="btnOrange btn btn-primary  btn-lg btn-block">
+                  <h3><i  aria-hidden="true" class="fa fa-shopping-bag"></i>
                   前往購買
                   </h3></button>
-                </div>
-              </router-link>
-            </div>
+              </div>
+            </router-link>
           </div>
+        </div>
         <!-- </Affix> -->
       </div>
       <div class="clearfix"></div>
@@ -130,6 +132,12 @@ export default {
       const swiperThumbs = this.$refs.swiperThumbs.swiper
       swiperThumbs.slideTo(index, 1000, false) // 切换到第一个slide，速度为1秒
     }
+  },
+  computed: {
+    refresh() {
+      let CC = this.Blog.data.find(x => x.BlogID === this.$route.params.BlogID)
+      this.BlogDetail = CC
+    }
   }
 }
 
@@ -200,13 +208,16 @@ img {
   border-radius: 3px;
   margin-top: 10px;
 }
-.otherlike .Blog_name{
-  font-size:15px;
+
+.otherlike .Blog_name {
+  font-size: 15px;
 }
-.otherlike .Blog_tag{
+
+.otherlike .Blog_tag {
   text-align: left;
-    font-size: 13px;
+  font-size: 13px;
 }
+
 .mainTitle {
   margin: 0x auto;
   text-align: center;
@@ -272,45 +283,6 @@ img {
   color: #5a210d;
 }
 
-
-
-/* 
-.productIn {
-  float: left;
-  display: table;
-  position: relative;
-  margin: 10px 10px 0px 0px;
-}
-
-.productIn .prodBtn {
-  background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
-  margin-bottom: 4px;
-  padding: 0px;
-  overflow: hidden;
-  text-align: left;
-  width: 100%;
-  margin-left: 10px;
-}
-
-.productIn>div {
-  display: table-row;
-}
-
-.productLeftImg {
-  max-width: 120px;
-  display: table-cell;
-}
-
-.productIn span {
-  display: table-cell;
-  color: #484848;
-  padding: 10px 25px;
-  vertical-align: middle;
-} */
-
 @media (max-width:768px) {
   .blog_inside {
     padding: 5px;
@@ -321,7 +293,6 @@ img {
   .blogtime {
     font-size: 15px;
   }
-
 }
 
 </style>

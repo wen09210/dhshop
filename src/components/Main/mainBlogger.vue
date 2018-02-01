@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="container">
-      <div class="style_intro">消費者使用實例 <span class="seemore"><router-link to="/BlogCategory">查看更多>></router-link></span></div>
+      <div class="style_intro">粉絲熱情推薦 <span class="seemore"><router-link to="/BlogCategory">查看更多>></router-link></span></div>
       <!-- <div v-for="item in BlogDetail">
       {{item.title}}
     </div>   -->
       <swiper :options="swiperOption">
         <swiper-slide v-for="item in Blog" :key="item.BlogID">
           <router-link :to="{name: 'Blog', params: {BlogID: item.BlogID}}">
-            <img :src="item.coverPhoto" class="img-responsive">
+            <img :src="item.coverPhoto" class="img-responsive ">
             <div class="Blog_name">{{item.title}}</div>
             <div class="Blog_description">{{item.quote}}</div>
             <div class="Blog_tag">
@@ -60,7 +60,11 @@ export default {
     }
   },
   created() {
-    this.Blog = blog.data.slice().reverse().slice(0, 6)
+    // 隨機排列
+    var random = function(array) {
+      return array.sort(function() { return Math.random() - 0.5 })
+    }
+    this.Blog = random(blog.data.slice().reverse()).slice(0, 6)
     // 隨機排列
     // var random = function(array) {
     //   return array.sort(function() { return Math.random() > 0.5 })

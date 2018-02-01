@@ -65,17 +65,15 @@
                         <thead>
                           <tr>
                             <th>商品名稱</th>
-                            <th>樣式</th>
-                            <th>單價</th>
+                            <!-- <th>單價</th> -->
                             <th>數量</th>
                             <th>小計</th>
                             <th></th>
                           </tr>
                         </thead>
                         <tr v-for="item in GetShoppingCartItem">
-                          <td>{{item.name}}</td>
-                          <td>{{item.style}}</td>
-                          <td>{{item.unitPrice}}</td>
+                          <td>{{item.name + item.style}}</td>
+                          <!-- <td>{{item.unitPrice}}</td> -->
                           <td>{{item.count}}</td>
                           <td>{{item.totalAmt}}</td>
                         </tr>
@@ -200,9 +198,11 @@ export default {
 .container-fluid {
   max-width: 1200px;
 }
+
 .navbar-default .navbar-toggle {
-    border-color: #90949c;
+  border-color: #90949c;
 }
+
 .navbar-brand {
   padding-top: 10px;
   margin-top: 5px;
@@ -218,8 +218,8 @@ export default {
   background-color: #bdbaba
 }
 
-.iconcolor{
-  color:#ff9900;
+.iconcolor {
+  color: #ff9900;
 }
 
 .BtnToA {
@@ -230,7 +230,7 @@ export default {
   font-size: 18px;
   padding-left: 5px !important;
   padding-right: 5px !important;
-  color:#475051;
+  color: #475051;
 }
 
 .loginName {
@@ -251,7 +251,8 @@ export default {
 }
 
 .popoverCart {
-  width: 500px;
+  width: 300px;
+  
 }
 
 .btnInPop {
@@ -275,6 +276,12 @@ export default {
   text-align: center;
   left: 85px;
   border-radius: 50%;
+}
+
+@media(max-width:768px) {
+  .popover {
+    display: none;
+  }
 }
 
 </style>
