@@ -17,6 +17,7 @@ import CaseCategory from '../components/Case/CaseCategory.vue'
 import iframeCategory from '../components/iframe/iframeCategory.vue'
 import prodCategory from '../components/Product/prodCategory.vue'
 import Contrast from '../components/Other/Contrast.vue'
+import changeAndReturn from '../components/Other/changeAndReturn.vue'
 // import axios from 'axios'
 import Cookies from 'js-cookie'
 Vue.use(Router)
@@ -112,6 +113,10 @@ const router = new Router({
     {
       path: '/Contrast',
       component: Contrast
+    },
+    {
+      path: '/changeAndReturn',
+      component: changeAndReturn
     }
 
   ]
