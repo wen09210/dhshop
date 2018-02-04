@@ -76,10 +76,13 @@ export default {
   border-radius: 3px;
 }
 
-/* 
-.col-md-4 {
-  padding-left: 0px;
-} */
+.ivu-tabs-tabpane{
+  height:100%;
+}
+.col-md-4,.col-md-6 {
+  padding-left: 15px;
+  padding-right:15px;
+}
 
 .btnOrange {
   border-radius: 3px;

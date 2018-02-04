@@ -12,10 +12,10 @@
         <img src="../../assets/temporyPic/index/map_bt.png" alt="" class="img-responsive imgHover">
       </router-link>  
       <router-link to="/Case/2">
-        <img src="../../assets/temporyPic/index/map_bt01.png" alt="" class="img-responsive imgHover">
+        <img src="../../assets/temporyPic/index/map_bt02.png" alt="" class="img-responsive imgHover">
       </router-link>
       <router-link to="/Case/3">
-      <img src="../../assets/temporyPic/index/map_bt02.png" alt="" class="img-responsive imgHover">
+      <img src="../../assets/temporyPic/index/map_bt01.png" alt="" class="img-responsive imgHover">
       </router-link>
       <router-link to="/Case/4">
       <img src="../../assets/temporyPic/index/map_bt03.png" alt="" class="img-responsive imgHover">

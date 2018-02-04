@@ -30,12 +30,12 @@
           {{caseDetail.name}}
         </div>
         <p>{{caseDetail.address}}</p>
-        <p>營業時間：{{caseDetail.opentime}}</p>
+        <p>開放參觀時間：{{caseDetail.opentime}}</p>
         <div class="discription ">
           <div class="subtitle needLine">簡介</div>
           <p v-html='caseDetail.description'></p>
           <br>
-          <p>歡迎來【{{caseDetail.name}}】親身體驗dH歐巴地板的魅力，現場還有專屬優惠喔！</p>
+          <p>歡迎來【<span style='color:orange'>{{caseDetail.name}}</span>】親身體驗dH歐巴地板的魅力，現場還有專屬優惠喔！</p>
           <a :href="caseDetail.caseUrl" target="_blank">
             <button class=" btn btn-primary btn_call btn-lg">{{caseDetail.btnname}}</button>
           </a>

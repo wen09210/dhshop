@@ -4,8 +4,8 @@
     "name": "中壢實體旗艦店",
     "address": "",
     "opentime": "週二-週五 14:00 15:00 16:00 17:00",
-    "coverPhoto":"https://www.dhshop.tw/Image/other/Case/case1.jpg",
-    "quote":"中壢體驗店，專業教學體驗",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case1.jpg",
+    "quote": "中壢體驗店，專業教學體驗",
     "description": "在實體店面『現場體驗歐巴』還可以：<br>1.現場裁切教學互動<br>2.產品實際拼裝鋪設<br>3.全館花色實際觀看<br>4.滿額將送超值好禮",
     "productImg1": "https://www.dhshop.tw/static/img/floor.c6f4498.jpg",
     "productName": "歐巴地板",
@@ -18,57 +18,70 @@
     "name": "犬宇宙美容中心",
     "address": "地址：桃園市楊梅區梅獅路二段94號",
     "opentime": "9AM-6PM (週三休息)",
-    "coverPhoto":"https://www.dhshop.tw/Image/other/Case/case2.jpg",
-    "quote":"給毛小孩最舒適的體驗",
-    "description": "神人級的黃先生用人字型法將地板鋪的美美的!「耐磨抗抓」以及「零甲醛」的特性是開寵物spa館的黃先生選擇歐巴地板的主要原因，若是家中有養毛小孩的朋友，仍在考慮是否要購入歐巴地板可以帶著你們的毛小孩前往犬宇宙寵物美容spa館，幫毛小孩做spa順便體驗一下歐巴地板的驚人魅力！",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case2.jpg",
+    "quote": "給毛小孩最舒適的體驗",
+    "description": "神人級的黃先生用人字型法將地板鋪的美美的!<br>「耐磨抗抓」以及「零甲醛」的特性是開寵物spa館的黃先生選擇歐巴地板的主要原因，若是家中有養毛小孩的朋友，仍在考慮是否要購入歐巴地板<br>可以帶著你們的毛小孩前往犬宇宙寵物美容spa館，幫毛小孩做spa順便體驗一下歐巴地板的驚人魅力！",
     "productImg1": "https://www.dhshop.tw/static/img/floor.c6f4498.jpg",
     "productName": "歐巴地板",
     "guesslike": [{ "stitle": "基督教門諾會松江教會", "simg": "https://www.dhshop.tw/Image/other/Case/教會/case2.png", "sid": "3" }, { "stitle": "初樂-TureLove", "simg": "https://www.dhshop.tw/Image/other/Case/初樂/case1.png", "sid": "5" }, { "stitle": "小人衣櫃", "simg": "https://www.dhshop.tw/Image/other/Case/小人衣櫃/case1.png", "sid": "4" }],
     "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/犬宇宙/case1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/犬宇宙/case2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/犬宇宙/case3.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/犬宇宙/case4.png" }],
-    "btnname": "私訊小編了解更多",
-    "caseUrl": "https://goo.gl/CgdHfE"
+    "btnname": "立刻預約享優惠",
+    "caseUrl": "https://goo.gl/iCwr68"
   }, {
     "CaseID": "3",
     "name": "基督教門諾會松江教會",
     "address": "地址：台北市中山區建國北路二段99號3樓",
     "opentime": "週六、日 9AM-3PM",
-    "coverPhoto":"https://www.dhshop.tw/Image/other/Case/case3.jpg",
-    "quote":"互相交流享受溫暖時光",
-    "description": "由於教會裡面的空間常會舉辦活動，「零甲醛」以及「耐磨抗抓」的特性，成為了李先生選擇歐巴地板的主要原因。想在假日時段親身體驗歐巴地板的朋友，千萬別錯過囉!",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case3.jpg",
+    "quote": "互相交流享受溫暖時光",
+    "description": "由於教會裡面的空間常會舉辦活動，「零甲醛」以及「耐磨」的特性，成為了李先生選擇歐巴地板的主要原因。想在假日時段親身體驗歐巴地板的朋友，千萬別錯過囉!",
     "productImg1": "https://www.dhshop.tw/static/img/floor.c6f4498.jpg",
     "productName": "歐巴地板",
     "guesslike": [{ "stitle": "中壢實體旗艦店", "simg": "https://www.dhshop.tw/Image/other/Case/中壢/case1.png", "sid": "1" }, { "stitle": "犬宇宙美容中心", "simg": "https://www.dhshop.tw/Image/other/Case/犬宇宙/case1.png", "sid": "2" }, { "stitle": "小人衣櫃", "simg": "https://www.dhshop.tw/Image/other/Case/小人衣櫃/case1.png", "sid": "4" }],
     "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/教會/case1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/教會/case2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/教會/case3.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/教會/case4.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/教會/case5.png" }],
-    "btnname": "私訊小編了解更多",
-    "caseUrl": "https://goo.gl/oEk4UW"
+    "btnname": "立刻預約享優惠",
+    "caseUrl": "https://goo.gl/ZUcdN9"
   }, {
     "CaseID": "4",
     "name": "小人衣櫃",
     "address": "地址：新竹市建中路120號",
     "opentime": "週一至週六 10AM至8PM",
-    "coverPhoto":"https://www.dhshop.tw/Image/other/Case/case4.jpg",
-    "quote":"每個小朋友都變成最時尚的modal",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case4.jpg",
+    "quote": "每個小朋友都變成最時尚的modal",
     "description": "店內牆面經各路小人(小朋友)'創作'及'撫摸'之下，早已失去它原本潔白的容貌，在網上查到dHSHOP，心中大喊:「我終於找到了，這就是我要的啊！」有了美美壁紙當然地板也要一起改造。「花少少的錢就可以讓店面有不同的感覺及質感，而且短短一天就能完成，真是省時、省錢」歐巴地板加上歐ㄋㄧˋ壁紙的空間，讓小model 隨便拍都好時尚",
     "productImg1": "https://www.dhshop.tw/static/img/floor.c6f4498.jpg",
     "productName": "歐巴地板",
     "guesslike": [{ "stitle": "基督教門諾會松江教會", "simg": "https://www.dhshop.tw/Image/other/Case/教會/case2.png", "sid": "3" }, { "stitle": "中壢實體旗艦店", "simg": "https://www.dhshop.tw/Image/other/Case/中壢/case1.png", "sid": "1" }, { "stitle": "犬宇宙美容中心", "simg": "https://www.dhshop.tw/Image/other/Case/犬宇宙/case1.png", "sid": "2" }],
     "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/小人衣櫃/case1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/小人衣櫃/case2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/小人衣櫃/case3.png" }],
-    "btnname": "私訊小編了解更多",
-    "caseUrl": "https://goo.gl/ZZQwYR"
+    "btnname": "立刻預約享優惠",
+    "caseUrl": "https://goo.gl/bp36p2"
   }, {
     "CaseID": "5",
     "name": "初樂 Ture Love",
     "address": "地址：高雄市左營區孟子路174巷6號",
     "opentime": "10：30 - 20：30 (週四公休)",
-    "coverPhoto":"https://www.dhshop.tw/Image/other/Case/case5.jpg",
-    "quote":"人和毛孩子都能舒適享用美食",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case5.jpg",
+    "quote": "人和毛孩子都能舒適享用美食",
     "description": "初樂是位於高雄市左營區的寵物餐廳，主要提供義式料理以及寵物鮮食，希望提供人和毛孩子都能舒適享用餐點的環境。「初樂很用心的為了讓毛孩在餐廳可以玩耍，在不怕地板被抓壞的前提，特別使用歐巴地板」",
     "productImg1": "https://www.dhshop.tw/static/img/floor.c6f4498.jpg",
     "productName": "歐巴地板",
     "guesslike": [{ "stitle": "基督教門諾會松江教會", "simg": "https://www.dhshop.tw/Image/other/Case/教會/case2.png", "sid": "3" }, { "stitle": "中壢實體旗艦店", "simg": "https://www.dhshop.tw/Image/other/Case/中壢/case1.png", "sid": "1" }, { "stitle": "犬宇宙美容中心", "simg": "https://www.dhshop.tw/Image/other/Case/犬宇宙/case1.png", "sid": "2" }],
     "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/初樂/case1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/初樂/case2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/初樂/case3.png" }],
-    "btnname": "私訊小編了解更多",
-    "caseUrl": "https://goo.gl/n9pMZW"
-    }]
-    }
-
+    "btnname": "立刻預約享優惠",
+    "caseUrl": "https://goo.gl/mF8RGd"
+  }, {
+    "CaseID": "6",
+    "name": "窩在嘉WoW Chiayi",
+    "address": "",
+    "opentime": "周一到周日13:00~16:00",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case7.png",
+    "quote": "想親身體驗歐巴地板的南部鄉親，千萬別錯過囉!",
+    "description": "美麗老闆娘說<br>『原本磁磚地板讓人踩起來冷冷的，我們希望提供給住戶更溫暖更像家的感覺 ：）』<br>『謝謝你們的地板讓房間不一樣❤️』<br>『對待住戶就像對待家人一樣的用心，這是窩在嘉的始終不變初衷，就像我們會在乎家人的健康那樣，因此我們選擇零甲醛的dH地板』<br><br>「零甲醛」以及「免膠免釘」的特性，讓美麗老闆娘選擇歐巴地板。想親身體驗歐巴地板的南部鄉親，千萬別錯過囉!",
+    "productImg1": "https://www.dhshop.tw/static/img/floor.c6f4498.jpg",
+    "productName": "歐巴地板",
+    "guesslike": [{ "stitle": "基督教門諾會松江教會", "simg": "https://www.dhshop.tw/Image/other/Case/教會/case2.png", "sid": "3" }, { "stitle": "中壢實體旗艦店", "simg": "https://www.dhshop.tw/Image/other/Case/中壢/case1.png", "sid": "1" }, { "stitle": "犬宇宙美容中心", "simg": "https://www.dhshop.tw/Image/other/Case/犬宇宙/case1.png", "sid": "2" }],
+    "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/2.png" }],
+    "btnname": "立刻預約享優惠",
+    "caseUrl": "https://goo.gl/1dLxjP"
+  }]
+}
