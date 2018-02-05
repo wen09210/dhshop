@@ -38,11 +38,11 @@
   </div>
 </template>
 <script>
-import FBiframe from '../../../static/file/FBiframe.json'
+import FBiframeincatgory from '../../../static/file/FBiframe.json'
 export default {
   data() {
     return {
-      FBiframe: FBiframe,
+      FBiframeincatgory: FBiframeincatgory,
       modal1: false,
       classroom: [],
       lay: [],
@@ -51,33 +51,42 @@ export default {
     }
   },
   created() {
+    // var sortArray = function(array) {
+    //   return array.sort(function(a, b) {
+    //     if (a.iframeID > b.iframeID) {
+    //       return a - b
+    //     }
+    //   })
+    // }
+    this.FBiframeincatgory = FBiframeincatgory.sort(function(a, b) { if (a.iframeID > b.iframeID) { return a.iframeID - b.iframeID } })
     // dh小教室
-    this.classroom = this.FBiframe.filter(
+    this.classroom = this.FBiframeincatgory.filter(
       (x) => {
         return x.Label === 'dH小教室'
       })
     // 拼法舖設教學
-    this.lay = this.FBiframe.filter(
+    this.lay = this.FBiframeincatgory.filter(
       (x) => {
         return x.Label === '舖設拼法'
       })
     // dH小百科
-    this.clear = this.FBiframe.filter(
+    this.clear = this.FBiframeincatgory.filter(
       (x) => {
         return x.Label === 'dH小百科'
       })
     // 歐巴到你家
-    this.oba = this.FBiframe.filter(
+    this.oba = this.FBiframeincatgory.filter(
       (x) => {
         return x.Label === '歐巴到你家'
       })
+    console.log(FBiframeincatgory)
   },
   methods: {
     instance(n) {
       n = n - 1
       this.$Modal.info({
-        title: FBiframe[n].title,
-        content: "<div class='embed-responsive embed-responsive-16by9 '><iframe src='" + FBiframe[n].iframeUrl + "'width='560' height='315' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allowFullScreen='true'></iframe></div>",
+        title: FBiframeincatgory[n].title,
+        content: "<div class='embed-responsive embed-responsive-16by9 '><iframe src='" + FBiframeincatgory[n].iframeUrl + "'width='560' height='315' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allowFullScreen='true'></iframe></div>",
         width: 768,
         okText: 'OK'
       })
