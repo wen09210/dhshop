@@ -80,11 +80,11 @@
           </div>
         </template>
         <div class="note row">
-          <div class=" col-xs-offset-3 col-sm-offset-3 col-sm-4">
+          <div class="col-sm-offset-3 col-sm-4">
             <p>如有疑問，歡迎請與客服聯繫</p>
-            <p>客服電話:0966-140567</p>
-            <p>客服信箱:cs.dhshop@gmail.com</p>
-            <p>line@帳號:@eat5207g</p>
+            <p><b>客服電話</b>:<br>0966-140567</p>
+            <p><b>客服信箱</b>:<br>cs.dhshop@gmail.com</p>
+            <p><b>line@帳號</b>:<br>@eat5207g</p>
           </div>
           <div class="col-sm-3">
             <div class="hidden-xs LineDiv">
@@ -202,7 +202,7 @@ export default {
 .thank {
   padding: 1% 0%;
   width: 100%;
-  font-size: 2.5em;
+  font-size: 2.0em;
   text-align: center;
   font-family: "微軟正黑體";
   font-weight: bolder;

@@ -11,10 +11,10 @@
       <router-link to="/Case/1">
         <img src="../../assets/temporyPic/index/map_bt.png" alt="" class="img-responsive imgHover">
       </router-link>  
-      <router-link to="/Case/2">
+      <router-link to="/Case/3">
         <img src="../../assets/temporyPic/index/map_bt02.png" alt="" class="img-responsive imgHover">
       </router-link>
-      <router-link to="/Case/3">
+      <router-link to="/Case/2">
       <img src="../../assets/temporyPic/index/map_bt01.png" alt="" class="img-responsive imgHover">
       </router-link>
       <router-link to="/Case/4">
@@ -79,7 +79,7 @@ export default {
       swiperOption: {
         slidesPerView: 3,
         spaceBetween: 20,
-        loop: false,
+        loop: true,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         breakpoints: {

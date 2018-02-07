@@ -49,7 +49,7 @@ export default {
   },
   data() {
     return {
-      FBiframe: FBiframe,
+      FBiframe: [],
       swiperFB: {
         slidesPerView: 2,
         spaceBetween: 20,
@@ -82,7 +82,7 @@ export default {
     var random = function(array) {
       return array.sort(function() { return Math.random() - 0.5 })
     }
-    this.FBiframe = random(FBiframe).slice(0, 6)
+    this.FBiframe = random(FBiframe.slice()).slice(0, 6)
   }
 }
 

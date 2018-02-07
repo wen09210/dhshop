@@ -16,6 +16,14 @@
         <br>
         <img src="../../assets/temporyPic/atmAlert.jpg" class="img-responsive">
       </Modal>
+      <!-- 分期銀行 -->
+      <Modal v-model="openCreditAlert" title="dHSHOP 提醒" ok-text="了解" cancel-text="">
+        <p slot="header" style="color:#f60;text-align:center;font-size:20px;">
+            <Icon type="information-circled"></Icon>
+            <span>dHSHOP 提醒</span>
+        </p>
+        <img src="../../assets/temporyPic/creditenote.png" class="img-responsive">
+      </Modal>
       <a style="position: absolute;margin-top: 5px;margin-left: 80px;" @click="openCART">(購物車商品)</a>
       <Form label-position="top">
         <FormItem label="付款方式:">
@@ -43,10 +51,12 @@
                   </span>
                   </span>
                   <span v-else-if="item.No ==='3'" class="amtDetail noteMobile">
-                NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/3)}}元 X3期                
+                NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/3)}}元 X3期 
+                <a  @click="openCreditAlert = !openCreditAlert">(分期銀行)</a>          
               </span>
                   <span v-else-if="item.No ==='4'" class="amtDetail noteMobile">
-                NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/6)}}元 X6期                
+                NT${{Math.ceil(GetshowAmtData.totalAmt*(1+item.CreditRate/1000)/6)}}元 X6期 
+                 <a  @click="openCreditAlert = !openCreditAlert">(分期銀行)</a>                      
               </span>
                   <span v-else-if="item.No ==='5'" class="amtDetail noteMobile">
                 NT${{GetshowAmtData.totalAmt}}元
@@ -120,7 +130,8 @@ export default {
       PayType: [],
       BuyerDetail: {},
       InvoiceCode: InvoiceCode,
-      openAtmAlert: true
+      openAtmAlert: true,
+      openCreditAlert: false
     }
   },
   created() {

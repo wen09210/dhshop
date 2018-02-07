@@ -42,6 +42,15 @@
           </router-link>
         </div>
         <div class="clearfix"></div>
+        <div class="catetitle col-md-12">配件</div>
+        <div class="col-md-3 col-xs-6 inallProd" v-for="items in Accessories ">
+          <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+            <img :src="items.coverPhoto" class="img-responsive">
+            <div class="tagname">{{items.ProdName }}</div>
+            <div class="allProd_description">{{items.Description}}</div>
+          </router-link>
+        </div>
+        <div class="clearfix"></div>
       </div>
     </div>
     <div class="clearfix"></div>
@@ -67,6 +76,8 @@ export default {
     this.clearmaintain = clearmaintain
     let homegood = this.allProd.filter(x => x.Label === '居家好物')
     this.homegood = homegood
+    let Accessories = this.allProd.filter(x => x.Label === '配件')
+    this.Accessories = Accessories
   },
   computed: {
     reverseItems() {

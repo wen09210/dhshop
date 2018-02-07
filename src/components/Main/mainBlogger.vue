@@ -35,7 +35,7 @@ export default {
       swiperOption: {
         slidesPerView: 3,
         spaceBetween: 20,
-        loop: false,
+        loop: true,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         breakpoints: {
