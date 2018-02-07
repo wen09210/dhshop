@@ -1,6 +1,8 @@
 <template>
   <div class="container">
+    
     <div class="main_section col-md-12">
+        <div class="fb-video" data-href="1627499783967677 " data-allowfullscreen="true"></div>
       <div class="category_title">dH百科全書</div>
       <div class="subtitle">有任何問題，都來這裡找答案吧!</div>
     </div>
@@ -50,7 +52,28 @@ export default {
       clear: []
     }
   },
+  // mounted() {
+  //   alert(process.env.testVar)
+  //   window.fbAsyncInit = function() {
+  //     /* global FB */
+  //     FB.init({
+  //       appId: '{1238259759578123}',
+  //       xfbml: true,
+  //       version: 'v2.5'
+  //     })
+  //     // Get Embedded Video Player API Instance
+  //     var myvideoplayer
+  //     FB.Event.subscribe('xfbml.ready', function(msg) {
+  //       if (msg.type === 'video') {
+  //         myvideoplayer = msg.instance
+  //         myvideoplayer.unmute()
+  //       }
+  //     })
+  //   }
+  // },
   created() {
+    console.log('FBiframeincatgory')
+    console.log(FBiframeincatgory)
     // var sortArray = function(array) {
     //   return array.sort(function(a, b) {
     //     if (a.iframeID > b.iframeID) {
@@ -58,7 +81,6 @@ export default {
     //     }
     //   })
     // }
-    this.FBiframeincatgory = FBiframeincatgory.sort(function(a, b) { if (a.iframeID > b.iframeID) { return a.iframeID - b.iframeID } })
     // dh小教室
     this.classroom = this.FBiframeincatgory.filter(
       (x) => {
@@ -91,6 +113,11 @@ export default {
         okText: 'OK'
       })
     }
+  },
+  computed: {
+    // refresh() {
+    //   this.FBiframeincatgory = FBiframeincatgory.sort(function(a, b) { if (a.iframeID > b.iframeID) { return a.iframeID - b.iframeID } })
+    // }
   }
 }
 

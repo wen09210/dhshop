@@ -6,6 +6,15 @@
           <div class="category_title">dH.CHOICE</div>
           <div class="subtitle">美好生活從家開始</div>
         </div>
+        <div class="catetitle col-md-12">佈置靈感</div>
+        <div class="col-md-3 col-xs-6 inallProd" v-for="items in inspire">
+          <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+            <img :src="items.coverPhoto" class="img-responsive">
+            <div class="tagname">{{items.ProdName }}</div>
+            <div class="allProd_description">{{items.Description}}</div>
+          </router-link>
+        </div>
+        <div class="clearfix"></div>
         <div class="catetitle col-md-12">空間改造</div>
         <div class="col-md-3 col-xs-6 inallProd" v-for="items in space ">
           <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
@@ -68,6 +77,8 @@ export default {
   created() {
     let CC = this.allProd
     this.allProdDetail = CC
+    let inspire = this.allProd.filter(x => x.Label === '佈置靈感')
+    this.inspire = inspire
     let space = this.allProd.filter(x => x.Label === '空間改造')
     this.space = space
     let atomsphere = this.allProd.filter(x => x.Label === '氛圍營造')
