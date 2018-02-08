@@ -15,13 +15,14 @@
               <div class="Contrast_name">{{item.name}}</div>
               <div class="description" v-html="item.description"></div>
              <div class="clearfix"></div>
+             <router-link to="/product/1">
                 <button class="btnOrange btn btn-primary btn-lg btn-block" >
                   <h3>
                     <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                     前往選購
                     </h3>
                 </button>
-              
+               </router-link>
             </div>
           </div>
           <div class="clearfix"></div>

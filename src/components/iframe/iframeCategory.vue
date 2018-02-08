@@ -2,6 +2,7 @@
   <div class="container">
     <div class="main_section col-md-12">
       <div class="category_title">dH百科全書</div>
+      <div class="fb-video" data-href="1627499783967677 " data-allowfullscreen="true"></div>
       <div class="subtitle">有任何問題，都來這裡找答案吧!</div>
     </div>
     <div class="catetitle col-md-12">◆ dH小教室 ◆</div>
@@ -20,7 +21,7 @@
       </div>
     </template>
     <div class="clearfix"></div>
-    <div class="catetitle col-md-12">◆ 清潔保養小訣竅 ◆</div>
+    <div class="catetitle col-md-12">◆ dH小百科 ◆</div>
     <template v-for="item in clear" v-cloak>
       <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
@@ -90,6 +91,7 @@ export default {
 <style>
 .img-responsive {
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .main_section {
@@ -149,7 +151,7 @@ export default {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 40px;
+  height: 35px;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }

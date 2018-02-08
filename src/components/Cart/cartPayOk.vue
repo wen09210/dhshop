@@ -19,11 +19,23 @@
         <!-- 步驟條end -->
         <!-- 內容 -->
         <div class="col-md-12 col-xs-12">
-          <div class="thank">感謝您的購買，還差一步!!</div>
+          <div class="thank">感謝您的購買</div>
           <div class="note col-sm-offset-3 col-xs-offset-1 ">
             <p>訂購明細已寄至所填信箱，我們會盡快處理您的訂單，</p>
             <p>出貨前會以電話聯繫您，請再留意手機來電。</p>
           </div>
+          <div class="thank">購買此商品的人也買了</div>
+          <swiper :options="swiperOption" class="recommend">
+            <swiper-slide v-for="items in space ">
+              <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+                <img :src="items.coverPhoto" class="img-responsive">
+                <div class="tagname">{{items.ProdName }}</div>
+              </router-link>
+            </swiper-slide>
+            <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+            <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+          </swiper>
+          <div class="thank">還差一步!!</div>
           <template v-if="payInfo.type === 'ATM'">
             <div class="col-md-12 col-xs-12">
               <p class="t_w1">匯款帳號</p>
@@ -82,9 +94,12 @@
         <div class="note row">
           <div class="col-sm-offset-3 col-sm-4">
             <p>如有疑問，歡迎請與客服聯繫</p>
-            <p><b>客服電話</b>:<br>0966-140567</p>
-            <p><b>客服信箱</b>:<br>cs.dhshop@gmail.com</p>
-            <p><b>line@帳號</b>:<br>@eat5207g</p>
+            <p><b>客服電話</b>:
+              <br>0966-140567</p>
+            <p><b>客服信箱</b>:
+              <br>cs.dhshop@gmail.com</p>
+            <p><b>line@帳號</b>:
+              <br>@eat5207g</p>
           </div>
           <div class="col-sm-3">
             <div class="hidden-xs LineDiv">
@@ -106,8 +121,51 @@
 <script>
 import Lockr from 'lockr'
 import { mapGetters } from 'vuex'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import allProd from '../../../static/file/allProduct.json'
+
 export default {
+  components: {
+    swiper,
+    swiperSlide
+  },
+  data() {
+    return {
+      payInfo: {},
+      CartStepBar: 3,
+      gaValue: 0,
+      allProd: allProd,
+      allProdDetail: {},
+      swiperOption: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        breakpoints: {
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 10
+          },
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 5
+          }
+        }
+      }
+    }
+  },
   created() {
+    let space = this.allProd.filter(x => x.Label === '空間改造')
+    this.space = space
     if (Object.keys(this.GetshowAmtData).length > 0) {
       this.gaValue = this.GetshowAmtData.totalAmt
       // alert(this.gaValue)
@@ -160,18 +218,15 @@ export default {
     ...mapGetters([
       'GetshowAmtData'
     ])
-  },
-  data() {
-    return {
-      payInfo: {},
-      CartStepBar: 3,
-      gaValue: 0
-    }
   }
 }
 
 </script>
 <style scoped>
+.recommend {
+  max-width: 600px;
+}
+
 .LineDiv {
   vertical-align: middle;
 }
@@ -185,7 +240,7 @@ export default {
 
   font-size: 20px;
   margin-bottom: 20px;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .creditQuestion {
@@ -206,7 +261,7 @@ export default {
   text-align: center;
   font-family: "微軟正黑體";
   font-weight: bolder;
-  text-shadow: 4px 4px 4px #c5bfbf;
+  text-shadow: 2px 2px 2px #c5bfbf;
 }
 
 .thank_word {

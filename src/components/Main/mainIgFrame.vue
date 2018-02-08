@@ -38,6 +38,7 @@ ul.juicer-feed.j-initialized.j-modern.j-desktop.polaroid.loaded>h1.referral {
     display: inline-block;
     display: none !important;
 }
+
 /* li.feed-item.juicer.image-post,ul.juicer-feed.j-initialized.j-modern.polaroid.loaded>h1.referral {
    display: none;
 }
