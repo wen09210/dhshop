@@ -22,7 +22,7 @@
       </div>
     </template>
     <div class="clearfix"></div>
-    <div class="catetitle col-md-12">◆ 清潔保養小訣竅 ◆</div>
+    <div class="catetitle col-md-12">◆ dH小百科 ◆</div>
     <template v-for="item in clear" v-cloak>
       <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
@@ -72,7 +72,6 @@ export default {
   //   }
   // },
   created() {
-    console.log('FBiframeincatgory')
     console.log(FBiframeincatgory)
     // var sortArray = function(array) {
     //   return array.sort(function(a, b) {
@@ -125,6 +124,7 @@ export default {
 <style>
 .img-responsive {
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .main_section {
@@ -184,7 +184,7 @@ export default {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 40px;
+  height: 35px;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }

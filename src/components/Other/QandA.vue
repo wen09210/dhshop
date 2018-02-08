@@ -115,25 +115,41 @@
             </div>
           </collapse>
           <div class="UserQuestion" @click="openAccordion(11)">
-            <i :class=chevron[11] aria-hidden="true"></i> 如何辦理退訂 / 退貨？
+            <i :class=chevron[11] aria-hidden="true"></i>dH精選地板確認完花色後還能再換貨嗎？
           </div>
           <collapse v-model="showAccordion[11]">
             <div class="UserAnswer">
-              商品辦理退訂/退貨，請您聯繫<a href="https://m.me/684624661588532" target="_blank">FB粉絲團</a>或<a href="https://line.me/R/ti/p/%40eat5207g" target="_blank">官方LINE@</a>，以完成退換貨申請，審核通過後，我們將安排宅配公司與您聯繫，並於5個工作天內前往取貨。 依《消費者保護法》的規定，消費者享有商品貨到日起七天猶豫期的權益。 但猶豫期並非試用期，所以，您所退回的商品必須是全新的狀態、而且完整包裝(含商品本體、配件、贈品、保證書、原廠包裝及所有附隨文件或資料的完整性)， 切勿缺漏任何配件、請勿自行拆解檢查商品或損毀原廠外盒。原廠外盒及原廠包裝都屬於商品的一部分，或有遺失、毀損或缺件，可能影響您退貨的權益，也可能依照損毀程度扣除為回復原狀所必要的費用。            </div>
+              花色確認完決定花色後就無法再更換花色囉～若確認完花色後要再更改花色則會有運費的產生，由於運費會是按箱數做計算dHSHOP會建議你務必在確認花色的當下決定好想要的花色唷～
+            </div>
           </collapse>
           <div class="UserQuestion" @click="openAccordion(12)">
-            <i :class=chevron[12] aria-hidden="true"></i> 退款如何辦理？
+            <i :class=chevron[12] aria-hidden="true"></i> dH精選地板外箱拆封後還能退貨嗎？
           </div>
           <collapse v-model="showAccordion[12]">
+            <div class="UserAnswer">
+              商品外包裝上有提供開口可確認花色，故收到貨後請先透過開口確認花色，包裝一經拆封即視為花色確認無誤已使用，由於衛生關係後續恕不接受退貨，諸多不便還請見諒
+            </div>
+          </collapse>
+          <div class="UserQuestion" @click="openAccordion(13)">
+            <i :class=chevron[13] aria-hidden="true"></i> 如何辦理退訂 / 退貨？
+          </div>
+          <collapse v-model="showAccordion[13]">
+            <div class="UserAnswer">
+              商品辦理退訂/退貨，請您聯繫<a href="https://m.me/684624661588532" target="_blank">FB粉絲團</a>或<a href="https://line.me/R/ti/p/%40eat5207g" target="_blank">官方LINE@</a>，以完成退換貨申請，審核通過後，我們將安排宅配公司與您聯繫，並於5個工作天內前往取貨。 依《消費者保護法》的規定，消費者享有商品貨到日起七天猶豫期的權益。 但猶豫期並非試用期，所以，您所退回的商品必須是全新的狀態、而且完整包裝(含商品本體、配件、贈品、保證書、原廠包裝及所有附隨文件或資料的完整性)， 切勿缺漏任何配件、請勿自行拆解檢查商品或損毀原廠外盒。原廠外盒及原廠包裝都屬於商品的一部分，或有遺失、毀損或缺件，可能影響您退貨的權益，也可能依照損毀程度扣除為回復原狀所必要的費用。 </div>
+          </collapse>
+          <div class="UserQuestion" @click="openAccordion(14)">
+            <i :class=chevron[14] aria-hidden="true"></i> 退款如何辦理？
+          </div>
+          <collapse v-model="showAccordion[14]">
             <div class="UserAnswer">
               如有退貨需求，請於鑑賞期內點擊<a href="dHSHOP退換貨申請單.docx">《退購申請》</a>下載退換貨申請單填寫每個欄位，填寫完畢後以email寄回<a href="mailto:cs.dhshop@gmail.com">客服信箱cs.dhshop@gmail.com</a>完成申請，審核通過後；我們將安排物流業者與您聯繫，並於七至十個工作日內完成商品回收作業。
               <br>退款金額計算公式如下： (原訂單金額)-(運費)-(退款手續費$30)=退款總額 退款將於退貨檢驗完成後的次月15日前匯至您的指定戶頭
             </div>
           </collapse>
-          <div class="UserQuestion" @click="openAccordion(13)">
-            <i :class=chevron[13] aria-hidden="true"></i> 哪些商品，不適用「7日內退貨」？
+          <div class="UserQuestion" @click="openAccordion(15)">
+            <i :class=chevron[15] aria-hidden="true"></i> 哪些商品，不適用「7日內退貨」？
           </div>
-          <collapse v-model="showAccordion[13]">
+          <collapse v-model="showAccordion[15]">
             <div class="UserAnswer">
               1、容易腐敗、保存期限較短或解約時快到期的商品。（商品時限）
               <br> 2、依消費者要求所做的客製化給付。
@@ -145,10 +161,10 @@
               <br>
             </div>
           </collapse>
-          <div class="UserQuestion" @click="openAccordion(14)">
-            <i :class=chevron[14] aria-hidden="true"></i> 七日內換貨說明
+          <div class="UserQuestion" @click="openAccordion(16)">
+            <i :class=chevron[16] aria-hidden="true"></i> 七日內換貨說明
           </div>
-          <collapse v-model="showAccordion[14]">
+          <collapse v-model="showAccordion[16]">
             <div class="UserAnswer">
               ●若商品因消費者個人不當拆卸使用而造成故障、損毀、擦傷、刮傷、髒污或包裝破損不完整，以致無法再銷售者，請恕無法接受換貨。
               <br> ● 因每台電腦螢幕解析度不同，網站照片有時會與實際商品發生色差問題，更換標準仍需依廠商判定後為主。
@@ -159,10 +175,10 @@
         </div>
         <div class="col-md-6">
           <div class="usercentertitle">保固/維護</div>
-          <div class="UserQuestion" @click="openAccordion(15)">
-            <i :class=chevron[15] aria-hidden="true"></i> 商品保固期多久？又如何保固、維修？
+          <div class="UserQuestion" @click="openAccordion(17)">
+            <i :class=chevron[17] aria-hidden="true"></i> 商品保固期多久？又如何保固、維修？
           </div>
-          <collapse v-model="showAccordion[15]">
+          <collapse v-model="showAccordion[17]">
             <div class="UserAnswer">
               在dHSHOP訂購之商品，商品主體、配件及贈品之維修保固以原廠規定為主，(不過有關著作權法CD、VCD、DVD和耗材品等為無保固)。若所訂購的商品，日後有任何問題，請寄信至客服信箱，我們將有專人為你服務。
             </div>
@@ -170,10 +186,10 @@
         </div>
         <div class="col-md-6">
           <div class="usercentertitle">聯絡我們</div>
-          <div class="UserQuestion" @click="openAccordion(16)">
-            <i :class=chevron[16] aria-hidden="true"></i> 線上客服
+          <div class="UserQuestion" @click="openAccordion(18)">
+            <i :class=chevron[18] aria-hidden="true"></i> 線上客服
           </div>
-          <collapse v-model="showAccordion[16]">
+          <collapse v-model="showAccordion[18]">
             <div class="UserAnswer">
               dHSHOP 客服中心
               <br> 客服電話:0978-606871
@@ -183,10 +199,10 @@
               <br>
             </div>
           </collapse>
-          <div class="UserQuestion" @click="openAccordion(17)">
-            <i :class=chevron[17] aria-hidden="true"></i> 業務合作洽談
+          <div class="UserQuestion" @click="openAccordion(19)">
+            <i :class=chevron[19] aria-hidden="true"></i> 業務合作洽談
           </div>
-          <collapse v-model="showAccordion[17]">
+          <collapse v-model="showAccordion[19]">
             <div class="UserAnswer">
               感謝您對dHSHOP好品點一下的支持與讚賞，也歡迎您加入我們合作廠商的行列。 請先準備商品資訊介紹、圖片與貴公司簡介和聯繫方式，寄到我們的
               <a href="mailto:cs.dhshop@gmail.com">客服信箱cs.dhshop@gmail.com</a>，信件主旨：業務合作，收到相關資訊後會轉交業務單位。
@@ -195,10 +211,10 @@
         </div>
         <div class="col-md-6">
           <div class="usercentertitle">dHSHOP政策</div>
-          <div class="UserQuestion" @click="openAccordion(18)">
-            <i :class=chevron[18] aria-hidden="true"></i> 個資權益宣告
+          <div class="UserQuestion" @click="openAccordion(20)">
+            <i :class=chevron[20] aria-hidden="true"></i> 個資權益宣告
           </div>
-          <collapse v-model="showAccordion[18]">
+          <collapse v-model="showAccordion[20]">
             <div class="UserAnswer">
               為了落實法令遵循，本公司依據個人資料保護法（以下稱個資法）第八條規定，向您告知本公司依法蒐集您的個人資料時，必須告知的各款事項，請您務必詳閱：
               <br> 1. 您的個人資料是提供給運嘉國際有限公司（下稱本公司）。
@@ -209,8 +225,8 @@
               <br>6. 依據個資法第三條規定，您可以向本公司行使以下權利： 　(1)查詢或請求閱覽。 　(2)請求製給複製本。 　(3)請求補充或更正。 　(4)請求停止蒐集、處理或利用。 　(5)請求刪除。 　 　 但查詢或請求閱覽個人資料或製給複製本者，本公司得酌收必要成本費用每件NT60元。
             </div>
           </collapse>
-          <div class="UserQuestion" @click="openAccordion(19)">防詐騙宣導</div>
-          <collapse v-model="showAccordion[19]">
+          <div class="UserQuestion" @click="openAccordion(21)">防詐騙宣導</div>
+          <collapse v-model="showAccordion[21]">
             <div class="UserAnswer">提醒您：dHSHOP絕不會以任何理由，要求您操作ATM！
               <br> 預防詐騙，請您留意以下相關事項：
               <br> 勿聽信可疑電話操作ATM
@@ -226,12 +242,12 @@
 </template>
 <script>
 import { Collapse } from 'uiv'
-let Qarr = new Array(20)
+let Qarr = new Array(22)
 // Qarr.fill(false)
 Qarr.forEach(function(e) {
   e = false
 }, this)
-let cssarr = new Array(20)
+let cssarr = new Array(22)
 cssarr.forEach(function(el) {
   el = 'fa fa-chevron-right chColor'
 }, this)

@@ -50,12 +50,12 @@
     <!-- 購物車-->
     <div class="fixRightHistory">
       <div class="circleHis" @click="openCART">
-        <Icon type="ios-cart" size=40></Icon>
+        <Icon type="bag iconcolor" size=32></Icon>
       </div>
     </div>
     <Modal v-model="checkCartModal">
-      <p slot="header" style="color:#f60;text-align:center">
-        <Icon type="ios-cart" size=20></Icon>
+      <p slot="header" style="color:#ff9900;text-align:center">
+        <Icon type="bag iconcolor" size=20></Icon>
         <span style="font-size:2rem">購物車商品</span>
       </p>
       <div style="text-align:center">
@@ -127,8 +127,8 @@
       </div>
     </div>
     <!-- fb messager -->
-    <div class="fb_chat">
-      <a href="https://m.me/684624661588532" target="_blank"><img src="../../assets/icon/fbmessenger.png" alt=""></a>
+    <div class="fb_chat circleHis">
+      <a href="https://m.me/684624661588532" target="_blank"><Icon type="chatbubbles" size=32></Icon></a>
     </div>
     <div class="copyright col-md-12  col-xs-12">
       <p>Copyright © 2016 dPlus Co. Ltd.
@@ -280,12 +280,13 @@ div .copyright {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
   margin-right: 20px;
   padding-top: 1px;
-  background: #f57e28;
+  background: #ffffff;
   width: 50px;
   height: 50px;
   font-size: 15px;
   color: #FFFFFF;
   border-radius: 50%;
+  border:2px solid #ff9900;
 }
 
 .HistorrBox {
@@ -333,15 +334,17 @@ div .copyright {
   text-align: left;
 }
 
-.fb_chat img {
+.fb_chat {
   z-index: 2;
   position: fixed;
   bottom: 150px;
-  right: 20px;
+  right: 0px;
   cursor: pointer;
   width: 50px;
   height: 50px;
   border-radius: 100px;
 }
-
+.fb_chat.circleHis{
+  border:2px solid #2d8cf0;
+}
 </style>

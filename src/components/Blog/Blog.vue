@@ -46,8 +46,8 @@
         <div>
           <div class="productIn">
             <router-link to="/product/1#botBuy">
-              <div class="col-md-6"><img :src="BlogDetail.productImg1" alt="" class="img-responsive"></div>
-              <div class="col-md-6 blogProdName"> {{BlogDetail.productName}}
+              <div class="col-md-12"><img :src="BlogDetail.productImg1" alt="" class="img-responsive"></div>
+              <div class="col-md-12 blogProdName"> {{BlogDetail.productName}}
               </div>
               <div class="col-md-12 col-xs-12 noPadding">
                 <button class="btnOrange btn btn-primary  btn-lg btn-block">
@@ -235,8 +235,9 @@ img {
   padding-left: 15px;
   padding-right: 15px;
 }
-.img-responsive {
+.content >>> img.img-responsive {
   border-radius: 3px;
+  margin: 15px 0px;
 }
 
 .content {

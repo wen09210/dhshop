@@ -245,30 +245,44 @@
   },
   {
     "iframeID": 36,
-    "title": "一箱可舖幾坪|dH小百科EP1",
+    "title": "EP1.一箱可舖幾坪",
     "Label": "dH小百科",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/36.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1784831218234532%2F&show_text=0&width=560"
   },
   {
     "iframeID": 37,
-    "title": "歐巴地板一箱有多重｜dH小百科EP2",
+    "title": "EP2.歐巴地板一箱有多重",
     "Label": "dH小百科",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/37.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1762481750469479%2F&show_text=0&width=560"
   },
   {
     "iframeID": 38,
-    "title": "歐巴地板是黏膠式的嗎｜dH小百科EP3",
+    "title": "EP3.歐巴地板是黏膠式的嗎",
     "Label": "dH小百科",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/38.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1770845912966396%2F&show_text=0&width=560"
   },
   {
     "iframeID": 39,
-    "title": "舖在磁磚上會滑動嗎｜dH小百科EP4",
+    "title": "EP4.舖在磁磚上會滑動嗎",
     "Label": "dH小百科",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/39.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1774788945905426%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 40,
+    "title": "EP5.dH地板踩起來是軟的嗎?",
+    "Label": "dH小百科",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/40.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1792109490840038%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 41,
+    "title": "EP6.dH地板可承受毛孩抓地板嗎?",
+    "Label": "dH小百科",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/41.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1804156586301995%2F&show_text=0&width=560"
   }
 ]
