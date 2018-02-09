@@ -50,7 +50,7 @@
     <!-- 購物車-->
     <div class="fixRightHistory">
       <div class="circleHis" @click="openCART">
-        <Icon type="bag iconcolor" size=32></Icon>
+        <Icon type="bag iconcolor" size=35></Icon>
       </div>
     </div>
     <Modal v-model="checkCartModal">
@@ -128,7 +128,7 @@
     </div>
     <!-- fb messager -->
     <div class="fb_chat circleHis">
-      <a href="https://m.me/684624661588532" target="_blank"><Icon type="chatbubbles" size=32></Icon></a>
+      <a href="https://m.me/684624661588532" target="_blank"><Icon type="chatbubbles" size=35></Icon></a>
     </div>
     <div class="copyright col-md-12  col-xs-12">
       <p>Copyright © 2016 dPlus Co. Ltd.

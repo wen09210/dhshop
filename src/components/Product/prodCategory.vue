@@ -15,17 +15,8 @@
           </router-link>
         </div>
         <div class="clearfix"></div>
-        <div class="catetitle col-md-12">空間改造</div>
+        <div class="catetitle col-md-12">空間氛圍改造</div>
         <div class="col-md-3 col-xs-6 inallProd" v-for="items in space ">
-          <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
-            <img :src="items.coverPhoto" class="img-responsive">
-            <div class="tagname">{{items.ProdName }}</div>
-            <div class="allProd_description">{{items.Description}}</div>
-          </router-link>
-        </div>
-        <div class="clearfix"></div>
-        <div class="catetitle col-md-12">氛圍營造</div>
-        <div class="col-md-3 col-xs-6 inallProd" v-for="items in atomsphere ">
           <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
             <img :src="items.coverPhoto" class="img-responsive">
             <div class="tagname">{{items.ProdName }}</div>
@@ -81,8 +72,6 @@ export default {
     this.inspire = inspire
     let space = this.allProd.filter(x => x.Label === '空間改造')
     this.space = space
-    let atomsphere = this.allProd.filter(x => x.Label === '氛圍營造')
-    this.atomsphere = atomsphere
     let clearmaintain = this.allProd.filter(x => x.Label === '清潔保養')
     this.clearmaintain = clearmaintain
     let homegood = this.allProd.filter(x => x.Label === '居家好物')

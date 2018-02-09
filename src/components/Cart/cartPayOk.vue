@@ -27,8 +27,8 @@
           </div>
           <div class="thank">購買此商品的人也買了</div>
           <swiper :options="swiperOption" class="recommend">
-            <swiper-slide v-for="items in space ">
-              <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+            <swiper-slide v-for="items in space " :key='items.prodID'>
+              <router-link :to="{name: 'product', params: {prodID: items.prodID}} " >
                 <img :src="items.coverPhoto" class="img-responsive">
                 <div class="tagname">{{items.ProdName }}</div>
               </router-link>
@@ -257,7 +257,6 @@ export default {
   width: 100%;
   font-size: 2.5em;
   text-align: center;
-  font-family: "微軟正黑體";
   font-weight: bolder;
   text-shadow: 2px 2px 2px #c5bfbf;
 }
