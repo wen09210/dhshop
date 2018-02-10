@@ -87,7 +87,7 @@
         <template v-if="checkPreProd && !checkActivity">
           <div class="">
             <span class="activityLabel">預購價:</span>
-            <span class="activityFont">&nbsp{{itemShow.AddPrice}} 元</span>
+            <span class="activityFont">&nbsp{{itemShow.PreOrderPrice}} 元</span>
           </div>
         </template>
         <template v-if="checkActivity">

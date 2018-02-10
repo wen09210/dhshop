@@ -346,7 +346,7 @@ div .copyright {
   height: 50px;
   border-radius: 100px;
 }
-fb_chat.circleHis{
+.fb_chat.circleHis{
   border:2px solid #2d8cf0;
 }
 

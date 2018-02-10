@@ -38,6 +38,19 @@ ul.juicer-feed.j-initialized.j-modern.j-desktop.polaroid.loaded>h1.referral {
     display: inline-block;
     display: none !important;
 }
+.j-post-overlay.juicer-feed ul.j-share{
+  display: none;
+}
+@media (max-width: 1190px){
+  .j-post-overlay.juicer-feed ul.j-share {
+   display: none !important;
+}
+}
+@media (max-width: 800px){
+  .j-post-overlay.juicer-feed ul.j-share {
+   display: none !important;
+}
+}
 
 /* li.feed-item.juicer.image-post,ul.juicer-feed.j-initialized.j-modern.polaroid.loaded>h1.referral {
    display: none;
