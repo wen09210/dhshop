@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-12">
       <tabs value="沉穩深橡">
-        <tab-pane icon="stop" value="item.name" :label="item.name" :name="item.name" v-for="(item,i) in ContrastDetail" :key="ContrastDetail.floorID">
+        <tab-pane icon="stop" value="item.name" :label="item.name" :name="item.name" v-for="(item,i) in ContrastDetail " :key="ContrastDetail.floorID">
           <div class="row">
             <div class="col-md-6">
               <img :src="item.contrastColor" alt="" class="img-responsive">
@@ -75,8 +75,8 @@ export default {
 
 </script>
 <style scoped>
-
 /* 地板icon顏色 */
+
 >>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(2) i.ivu-icon.ivu-icon-stop {
   color: #655d54;
 }
@@ -190,10 +190,11 @@ export default {
   margin-top: 20px;
 }
 
-.reference{
+.reference {
   overflow-y: scroll;
-  height:100vh;
+  height: 100vh;
 }
+
 .description {
   font-size: 17px;
   line-height: 25px;
