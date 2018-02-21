@@ -50,7 +50,9 @@
     <!-- 購物車-->
     <div class="fixRightHistory">
       <div class="circleHis" @click="openCART">
+          <tooltip content="購物車" placement="left-start">
         <Icon type="bag iconcolor" size=35></Icon>
+          </tooltip>
       </div>
     </div>
     <Modal v-model="checkCartModal">
@@ -128,7 +130,11 @@
     </div>
     <!-- fb messager -->
     <div class="fb_chat circleHis">
-      <a href="https://m.me/684624661588532" target="_blank"><Icon type="chatbubbles" size=35></Icon></a>
+      <tooltip content="聯絡客服小編" placement="left-start">
+        <a href="https://m.me/684624661588532" target="_blank">
+          <Icon type="chatbubbles" size=35></Icon>
+        </a>
+      </tooltip>
     </div>
     <div class="copyright col-md-12  col-xs-12">
       <p>Copyright © 2016 dPlus Co. Ltd.
@@ -286,7 +292,11 @@ div .copyright {
   font-size: 15px;
   color: #FFFFFF;
   border-radius: 50%;
-  border:2px solid #ff9900;
+  border: 2px solid #ff9900;
+}
+
+[tooltip] {
+  float: left;
 }
 
 .HistorrBox {
@@ -344,7 +354,9 @@ div .copyright {
   height: 50px;
   border-radius: 100px;
 }
-.fb_chat.circleHis{
-  border:2px solid #2d8cf0;
+
+.fb_chat.circleHis {
+  border: 2px solid #2d8cf0;
 }
+
 </style>

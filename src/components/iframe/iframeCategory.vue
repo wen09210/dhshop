@@ -1,8 +1,7 @@
 <template>
   <div class="container">
-    
-    <div class="main_section col-md-12">
-        <div class="fb-video" data-href="1627499783967677 " data-allowfullscreen="true"></div>
+     <div class="main_section col-md-12">
+      <div class="fb-video" data-href="1627499783967677 " data-allowfullscreen="true"></div>
       <div class="category_title">dH百科全書</div>
       <div class="fb-video" data-href="1627499783967677 " data-allowfullscreen="true"></div>
       <div class="subtitle">有任何問題，都來這裡找答案吧!</div>
@@ -10,8 +9,8 @@
     <div class="catetitle col-md-12">◆ dH小教室 ◆</div>
     <template v-for="item in classroom" v-cloak>
       <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
-        <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
-        <div class="FBiframe_description">{{item.title}}</div>
+          <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
+          <div class="FBiframe_description">{{item.title}}</div>
       </div>
     </template>
     <div class="clearfix"></div>
@@ -123,6 +122,7 @@ export default {
 
 </script>
 <style>
+  
 .img-responsive {
   border-radius: 3px;
   cursor: pointer;
