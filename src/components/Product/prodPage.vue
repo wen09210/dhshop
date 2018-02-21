@@ -32,7 +32,8 @@
     <div id="botBuy">
       <prodBuy></prodBuy>
     </div>
-  </div>
+</div>
+
 </template>
 <script>
 import prodBuy from './prodBuy'

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container" id="blogger">
       <div class="style_intro">粉絲熱情推薦 <span class="seemore"><router-link to="/BlogCategory">查看更多>></router-link></span></div>
       <!-- <div v-for="item in BlogDetail">
       {{item.title}}
