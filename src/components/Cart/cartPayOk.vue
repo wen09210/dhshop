@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <!-- 成功 -->
+    
     <template v-if="payInfo.status ==='ok' ">
       <div class="Row">
         <!-- 步驟條 -->
@@ -26,8 +27,8 @@
           </div>
           <div class="thank">購買此商品的人也買了</div>
           <swiper :options="swiperOption" class="recommend">
-            <swiper-slide v-for="items in space ">
-              <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
+            <swiper-slide v-for="items in space " :key='items.prodID'>
+              <router-link :to="{name: 'product', params: {prodID: items.prodID}} " >
                 <img :src="items.coverPhoto" class="img-responsive">
                 <div class="tagname">{{items.ProdName }}</div>
               </router-link>
@@ -123,7 +124,6 @@ import Lockr from 'lockr'
 import { mapGetters } from 'vuex'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import allProd from '../../../static/file/allProduct.json'
-
 export default {
   components: {
     swiper,
@@ -223,21 +223,22 @@ export default {
 
 </script>
 <style scoped>
-.recommend {
-  max-width: 600px;
-}
-
+  .recommend{
+    max-width:600px;
+  }
 .LineDiv {
   vertical-align: middle;
 }
-
+.tagname{
+  font-size: 1.5rem;
+}
 .lineImg {
   display: block;
   margin: 0 auto;
 }
 
 .note {
-
+  text-align: center;
   font-size: 20px;
   margin-bottom: 20px;
   margin-top: 10px;
@@ -259,7 +260,6 @@ export default {
   width: 100%;
   font-size: 2.0em;
   text-align: center;
-  font-family: "微軟正黑體";
   font-weight: bolder;
   text-shadow: 2px 2px 2px #c5bfbf;
 }

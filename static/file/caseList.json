@@ -83,5 +83,19 @@
     "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/3.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/4.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/5.png" }],
     "btnname": "立刻預約享優惠",
     "caseUrl": "https://goo.gl/1dLxjP"
+  }, {
+    "CaseID": "7",
+    "name": "KiKi home hair",
+    "address": "新北市新莊區",
+    "opentime": "採預約制",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case8.png",
+    "quote": "時尚髮型設計工作室，極簡工業風，快來參觀喔!",
+    "description": "KiKi home hair 為時尚髮型設計工作室<br>使用古橡木紋地板，以及經典白磚壁紙營造出超時尚的現代工業風<br>可以預約前往預約髮型設計‼️<br>直接預約，現場體驗dH精選地板的魅力!",
+    "productImg1": "https://www.dhshop.tw/static/img/floor.c6f4498.jpg",
+    "productName": "歐巴地板",
+    "guesslike": [{ "stitle": "基督教門諾會松江教會", "simg": "https://www.dhshop.tw/Image/other/Case/教會/case2.png", "sid": "3" }, { "stitle": "中壢實體旗艦店", "simg": "https://www.dhshop.tw/Image/other/Case/中壢/case1.png", "sid": "1" }, { "stitle": "犬宇宙美容中心", "simg": "https://www.dhshop.tw/Image/other/Case/犬宇宙/case1.png", "sid": "2" }],
+    "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/kikihome/1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/kikihome/2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/kikihome/3.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/kikihome/4.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/kikihome/5.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/kikihome/6.png" }],
+    "btnname": "立刻預約享優惠",
+    "caseUrl": "https://goo.gl/dq5ct4"
   }]
 }

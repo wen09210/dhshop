@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-12">
       <tabs value="沉穩深橡">
-        <tab-pane value="item.name" :label="item.name" :name="item.name" v-for="(item,i) in ContrastDetail" :key="ContrastDetail.floorID">
+        <tab-pane icon="stop" value="item.name" :label="item.name" :name="item.name" v-for="(item,i) in ContrastDetail " :key="ContrastDetail.floorID">
           <div class="row">
             <div class="col-md-6">
               <img :src="item.contrastColor" alt="" class="img-responsive">
@@ -14,22 +14,24 @@
             <div class="col-md-6">
               <div class="Contrast_name">{{item.name}}</div>
               <div class="description" v-html="item.description"></div>
-             <div class="clearfix"></div>
-             <router-link to="/product/1">
-                <button class="btnOrange btn btn-primary btn-lg btn-block" >
+              <div class="clearfix"></div>
+              <router-link to="/product/1">
+                <button class="btnOrange btn btn-primary btn-lg btn-block">
                   <h3>
                     <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                     前往選購
                     </h3>
                 </button>
-               </router-link>
+              </router-link>
             </div>
           </div>
           <div class="clearfix"></div>
           <div class="lay_name Contrast_name">實鋪參考</div>
-          <div class="col-md-4 col-xs-6" v-for="(item,i) in ContrastDetail[i].case">
-            <div class="sqare_photo">
-              <img :src="item.url" alt="" class="img-responsive">
+          <div class='reference'>
+            <div class="col-md-4 col-xs-6" v-for="(item,i) in ContrastDetail[i].case ">
+              <div class="sqare_photo">
+                <img :src="item.url" alt="" class="img-responsive">
+              </div>
             </div>
           </div>
           <!-- <div class="col-md-4" v-for="item in findSomething.case" >
@@ -73,16 +75,65 @@ export default {
 
 </script>
 <style scoped>
+/* 地板icon顏色 */
+
+>>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(2) i.ivu-icon.ivu-icon-stop {
+  color: #655d54;
+}
+
+>>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(3) i.ivu-icon.ivu-icon-stop {
+  color: #6e5b41;
+}
+
+>>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(4) i.ivu-icon.ivu-icon-stop {
+  color: #663f2d;
+}
+
+>>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(5) i.ivu-icon.ivu-icon-stop {
+  color: #9b6445;
+}
+
+>>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(6) i.ivu-icon.ivu-icon-stop {
+  color: #c5975a;
+}
+
+>>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(7) i.ivu-icon.ivu-icon-stop {
+  color: #daaf6e;
+}
+
+>>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(8) i.ivu-icon.ivu-icon-stop {
+  color: #897f66;
+}
+
+>>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(9) i.ivu-icon.ivu-icon-stop {
+  color: #c9b8c2;
+}
+
+>>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(10) i.ivu-icon.ivu-icon-stop {
+  color: #ceb890;
+}
+
+>>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(11) i.ivu-icon.ivu-icon-stop {
+  color: #bbac98;
+}
+
+>>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(12) i.ivu-icon.ivu-icon-stop {
+  color: #d2c09f;
+}
+
+
 .img-responsive {
   border-radius: 3px;
 }
 
-.ivu-tabs-tabpane{
-  height:100%;
+.ivu-tabs-tabpane {
+  height: 100%;
 }
-.col-md-4,.col-md-6 {
+
+.col-md-4,
+.col-md-6 {
   padding-left: 15px;
-  padding-right:15px;
+  padding-right: 15px;
 }
 
 .btnOrange {
@@ -139,6 +190,11 @@ export default {
   margin-top: 20px;
 }
 
+.reference {
+  overflow-y: scroll;
+  height: 100vh;
+}
+
 .description {
   font-size: 17px;
   line-height: 25px;
@@ -160,7 +216,7 @@ export default {
 
 @media (max-width:768px) {
   .description {
- 
+
     min-height: auto;
   }
 }

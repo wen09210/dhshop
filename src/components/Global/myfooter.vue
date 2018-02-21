@@ -50,13 +50,12 @@
     <!-- 購物車-->
     <div class="fixRightHistory">
       <div class="circleHis" @click="openCART">
-        <Icon type="bag iconcolor" size=32></Icon>
+        <Icon type="bag iconcolor" size=35></Icon>
       </div>
     </div>
     <Modal v-model="checkCartModal">
       <p slot="header" style="color:#ff9900;text-align:center">
         <Icon type="bag iconcolor" size=20></Icon>
-
         <span style="font-size:2rem">購物車商品</span>
       </p>
       <div style="text-align:center">
@@ -129,8 +128,7 @@
     </div>
     <!-- fb messager -->
     <div class="fb_chat circleHis">
-      <a href="https://m.me/684624661588532" target="_blank"><Icon type="chatbubbles" size=32></Icon></a>
-
+      <a href="https://m.me/684624661588532" target="_blank"><Icon type="chatbubbles" size=35></Icon></a>
     </div>
     <div class="copyright col-md-12  col-xs-12">
       <p>Copyright © 2016 dPlus Co. Ltd.
@@ -336,7 +334,7 @@ div .copyright {
   text-align: left;
 }
 
-.fb_chat  {
+.fb_chat {
   z-index: 2;
   position: fixed;
   bottom: 150px;
@@ -349,5 +347,4 @@ div .copyright {
 .fb_chat.circleHis{
   border:2px solid #2d8cf0;
 }
-
 </style>

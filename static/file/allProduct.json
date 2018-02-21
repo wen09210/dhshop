@@ -6,11 +6,11 @@
   "coverPhoto": "https://www.dhshop.tw/static/img/floor.c6f4498.jpg"
 },
 {
-  "prodID": 2,
-  "ProdName": "燈絲燈泡",
-  "Label": "氛圍營造",
-  "Description": "省電新生活",
-  "coverPhoto": "https://www.dhshop.tw/static/img/led_lighting.9bc812a.jpg"
+  "prodID": 8,
+  "ProdName": "歐ㄋ一ˋ水貼壁紙",
+  "Label": "空間改造",
+  "Description": "輕鬆打造完美牆面",
+  "coverPhoto": "https://www.dhshop.tw/static/img/wallpaper2.d16bdae.jpg"
 },
 {
   "prodID": 3,
@@ -26,19 +26,13 @@
   "Description": "歐巴地板收邊條",
   "coverPhoto": "https://www.dhshop.tw/static/img/floortrima.f3b9221.jpg"
 },
+
 {
-  "prodID": 8,
-  "ProdName": "歐ㄋ一ˋ水貼壁紙",
+  "prodID": 2,
+  "ProdName": "燈絲燈泡",
   "Label": "空間改造",
-  "Description": "輕鬆打造完美牆面",
-  "coverPhoto": "https://www.dhshop.tw/static/img/wallpaper2.d16bdae.jpg"
-},
-{
-  "prodID": 9,
-  "ProdName": "時尚香氛機",
-  "Label": "氛圍營造",
-  "Description": "安全設計防止空燒",
-  "coverPhoto": "https://www.dhshop.tw/static/img/diffuser.2b1bcf6.jpg"
+  "Description": "三年保固，省電新生活",
+  "coverPhoto": "https://www.dhshop.tw/static/img/led_lighting.9bc812a.jpg"
 },
 {
   "prodID": 10,
@@ -46,6 +40,13 @@
   "Label": "清潔保養",
   "Description": "日本唯一授權販售",
   "coverPhoto": "https://www.dhshop.tw/static/img/ichimodajin.59a1912.jpg"
+},
+{
+  "prodID": 14,
+  "ProdName": "塵螨快除",
+  "Label": "清潔保養",
+  "Description": "日本熱賣商品-家有小孩毛孩必備",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/04.jpg"
 },
 {
   "prodID": 11,
@@ -60,6 +61,13 @@
   "Label": "清潔保養",
   "Description": "內建兩種音樂旋律： 森林裡的熊先生、小星星",
   "coverPhoto": "https://www.dhshop.tw/static/img/toothbrush.150cfa5.jpg"
+},
+{
+  "prodID": 18,
+  "ProdName": "鑰匙守護者",
+  "Label": "居家好物",
+  "Description": "可愛小動物守護你的鑰匙圈",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/keyholder.jpg"
 },
 {
   "prodID": 19,
@@ -90,20 +98,6 @@
   "coverPhoto": "https://www.dhshop.tw/static/img/cancerPic.60cdbfc.jpg"
 },
 {
-  "prodID": 14,
-  "ProdName": "塵螨快除",
-  "Label": "清潔保養",
-  "Description": "日本熱賣商品 － 家有小孩毛孩必備",
-  "coverPhoto": "https://www.dhshop.tw/image/other/prod/04.jpg"
-},
-{
-  "prodID": 15,
-  "ProdName": "杜爾德茶",
-  "Label": "居家好物",
-  "Description": "粉嫩馬卡龍配色禮袋",
-  "coverPhoto": "https://www.dhshop.tw/image/other/prod/tea.jpg"
-},
-{
   "prodID": 16,
   "ProdName": "迪士尼馬克杯",
   "Label": "居家好物",
@@ -118,18 +112,11 @@
   "coverPhoto": "https://www.dhshop.tw/image/other/prod/gluedot.jpg"
 },
 {
-  "prodID": 18,
-  "ProdName": "鑰匙守護者",
+  "prodID": 15,
+  "ProdName": "杜爾德茶",
   "Label": "居家好物",
-  "Description": "可愛小動物守護你的鑰匙圈",
-  "coverPhoto": "https://www.dhshop.tw/image/other/prod/keyholder.jpg"
-},
-{
-  "prodID": 23,
-  "ProdName": "三件式補強組",
-  "Label": "配件",
-  "Description": "可愛小動物守護你的鑰匙圈",
-  "coverPhoto": "https://www.dhshop.tw/image/other/prod/three.jpg"
+  "Description": "粉嫩馬卡龍配色禮袋",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/tea.jpg"
 },
 {
   "prodID": 27,
@@ -139,10 +126,25 @@
   "coverPhoto": "https://www.dhshop.tw/image/other/prod/type.jpg"
 },
 {
+  "prodID": 23,
+  "ProdName": "三件式補強組",
+  "Label": "配件",
+  "Description": "三件式補強組合",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/three.jpg"
+},
+
+{
   "prodID": 30,
   "ProdName": "油漆刷滾筒",
-  "Label": "居家好物",
+  "Label": "配件",
   "Description": "輕鬆更換不費力",
   "coverPhoto": "https://www.dhshop.tw/image/other/prod/indexroller.jpg"
+},
+{
+  "prodID": 9,
+  "ProdName": "時尚香氛機",
+  "Label": "空間改造",
+  "Description": "安全設計防止空燒",
+  "coverPhoto": "https://www.dhshop.tw/static/img/diffuser.2b1bcf6.jpg"
 }
 ]

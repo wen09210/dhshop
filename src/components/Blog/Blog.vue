@@ -235,7 +235,7 @@ img {
   padding-left: 15px;
   padding-right: 15px;
 }
-.content >>>.img-responsive {
+.content >>> img.img-responsive {
   border-radius: 3px;
   margin: 15px 0px;
 }

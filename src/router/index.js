@@ -122,7 +122,6 @@ const router = new Router({
       path: '/FBiframe/:iframeID',
       component: iframeCategory
     }
-
   ]
 })
 router.beforeEach((to, from, next) => {
