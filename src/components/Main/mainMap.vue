@@ -1,27 +1,21 @@
 <template>
   <div>
     <div class="container">
-    <div class="style_intro">在哪裡可以找到我們<span class="seemore"><router-link to="/CaseCategory">查看更多>></router-link></span></div>
+    <div class="style_intro">還等什麼，來實際體驗吧!<span class="seemore"><router-link to="/CaseCategory">全台展示空間>></router-link></span></div>
     <div class="col-md-6">
       <router-link to="/CaseCategory">
         <img src="../../assets/temporyPic/index/MAP.png" alt="" class="img-responsive">
       </router-link>
       </div>
-    <div class="col-md-6">
-      <router-link to="/Case/1">
-        <img src="../../assets/temporyPic/index/map_bt.png" alt="" class="img-responsive imgHover">
+    <div class="col-md-6 hidden-xs">
+      <router-link to="CaseCategory">
+        <img src="../../assets/temporyPic/index/map_north.png" alt="" class="img-responsive imgHover s_line">
       </router-link>  
-      <router-link to="/Case/3">
-        <img src="../../assets/temporyPic/index/map_bt02.png" alt="" class="img-responsive imgHover">
+      <router-link to="CaseCategory">
+        <img src="../../assets/temporyPic/index/map_middle.png" alt="" class="img-responsive imgHover s_line">
       </router-link>
-      <router-link to="/Case/2">
-      <img src="../../assets/temporyPic/index/map_bt01.png" alt="" class="img-responsive imgHover">
-      </router-link>
-      <router-link to="/Case/4">
-      <img src="../../assets/temporyPic/index/map_bt03.png" alt="" class="img-responsive imgHover">
-      </router-link>
-      <router-link to="/Case/5">
-      <img src="../../assets/temporyPic/index/map_bt04.png" alt="" class="img-responsive imgHover">
+      <router-link to="CaseCategory#south">
+      <img src="../../assets/temporyPic/index/map_south.png" alt="" class="img-responsive imgHover s_line">
       </router-link>
     </div>  
     <!-- <swiper :options="swiperOption">
@@ -132,6 +126,10 @@ export default {
 }
 .seemore a{
   color:#008489 ;
+}
+.s_line{
+  border:1px dashed #ccc;
+  padding:2px;
 }
 .case_name{
 

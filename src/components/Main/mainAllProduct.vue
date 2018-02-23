@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="style_intro">你想如何改善居家?<span class="seemore"><router-link to="/prodCategory">所有商品>></router-link></span></div>
+    <div class="style_intro">改造，從現在開始<span class="seemore"><router-link to="/prodCategory">找好物>></router-link></span></div>
     <router-link to="/prodCategory">
         <img src="../../assets/temporyPic/index/productbanner.jpg" alt="" class="img-responsive">
     </router-link>

@@ -1,20 +1,12 @@
 <template>
   <div class="container">
-     <div class="main_section col-md-12">
+    <div class="main_section col-md-12">
       <div class="fb-video" data-href="1627499783967677 " data-allowfullscreen="true"></div>
-      <div class="category_title">dH百科全書</div>
+      <div class="category_title">跟著影片一起做</div>
       <div class="fb-video" data-href="1627499783967677 " data-allowfullscreen="true"></div>
-      <div class="subtitle">有任何問題，都來這裡找答案吧!</div>
+      <div class="subtitle">是的，親手打造就是這麼簡單!</div>
     </div>
-    <div class="catetitle col-md-12">◆ dH小教室 ◆</div>
-    <template v-for="item in classroom" v-cloak>
-      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
-          <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
-          <div class="FBiframe_description">{{item.title}}</div>
-      </div>
-    </template>
-    <div class="clearfix"></div>
-    <div class="catetitle col-md-12">◆ 鋪設拼法教學 ◆</div>
+    <div class="catetitle col-md-12">◆ 鋪設就是這麼簡單 ◆</div>
     <template v-for="item in lay" v-cloak>
       <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
@@ -22,7 +14,7 @@
       </div>
     </template>
     <div class="clearfix"></div>
-    <div class="catetitle col-md-12">◆ dH小百科 ◆</div>
+    <div class="catetitle col-md-12">◆ 小編~我有問題 ◆</div>
     <template v-for="item in clear" v-cloak>
       <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
@@ -30,7 +22,15 @@
       </div>
     </template>
     <div class="clearfix"></div>
-    <div class="catetitle col-md-12">◆ 歐巴到你家 ◆</div>
+    <div class="catetitle col-md-12">◆ 邊邊角角怎麼辦? ◆</div>
+    <template v-for="item in classroom" v-cloak>
+      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
+        <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
+        <div class="FBiframe_description">{{item.title}}</div>
+      </div>
+    </template>
+    <div class="clearfix"></div>
+    <div class="catetitle col-md-12">◆ 走進，夢想的空間 ◆</div>
     <template v-for="item in oba" v-cloak>
       <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
@@ -122,7 +122,6 @@ export default {
 
 </script>
 <style>
-  
 .img-responsive {
   border-radius: 3px;
   cursor: pointer;

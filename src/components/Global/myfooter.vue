@@ -50,9 +50,9 @@
     <!-- 購物車-->
     <div class="fixRightHistory">
       <div class="circleHis" @click="openCART">
-          <tooltip content="購物車" placement="left-start">
-        <Icon type="bag iconcolor" size=35></Icon>
-          </tooltip>
+        <tooltip content="購物車" placement="left-start">
+          <Icon type="bag iconcolor" size=35></Icon>
+        </tooltip>
       </div>
     </div>
     <Modal v-model="checkCartModal">
@@ -92,31 +92,32 @@
     </Modal>
     <!-- 購物車END-->
     <div class="myrow row">
-      <div class="col-md-3 col-xs-12">
-        <div class="footer_title">客服中心</div>
-        <hr class="style3">
-        <div class="col-md-12 col-xs-12 ">
-          <p>
-            <router-link to="/QandA">常見問題</router-link>
-          </p>
-        </div>
-        <div class="col-md-12 col-xs-4">
-          <!-- <p><a href="http://www.dhshop.tw/salepage/corporation.html">廠商合作專區</a></p> -->
-        </div>
-      </div>
-      <div class="col-md-5 col-xs-12">
+      <div class="col-md-4 col-xs-12">
         <div class="footer_title">聯絡我們</div>
         <hr class="style3">
-        <div class="col-md-7  col-xs-12">
-          <p>客服電話:<span>0966-140567</span></p>
-          <p>客服信箱:
-            <br><a href="mailto:cs.dhshop@gmail.com">cs.dhshop@gmail.com</a></p>
-          <p>服務時間:
-            <br>周一至周五 am 9:30 - pm 18:30</p>
-          <p>line@帳號:<a href="https://line.me/R/ti/p/%40eat5207g">@eat5207g</a></p>
-        </div>
-        <div class="col-md-5 col-xs-12 ">
+        <p><Icon type="ios-telephone"></Icon> 服務專線:<span>0966-140567</span></p>
+        <p><Icon type="email"></Icon> 客服信箱:
+          <a href="mailto:cs.dhshop@gmail.com">cs.dhshop@gmail.com</a></p>
+        
+        <p><Icon type="social-facebook"></Icon> 私訊FB小編:<a href="https://m.me/684624661588532" target="_blank">dHSHOP</a></p>
+        <p><Icon type="iphone"></Icon> line@帳號:<a href="https://line.me/R/ti/p/%40eat5207g">@eat5207g</a></p>
+        <p><Icon type="social-instagram-outline"></Icon> Instagram:<a href="https://www.instagram.com/dhshop_tw/">dhshop_tw</a></p>
+        <!-- <div class="col-md-5 col-xs-12 ">
           <a href="https://line.me/R/ti/p/%40eat5207g"><img src="../../assets/icon/lineat.jpg" alt="" style="width:150px"></a>
+        </div> -->
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="footer_title">消費者服務</div>
+        <hr class="style3">
+        <div class="col-md-12 col-xs-12 ">
+            <p>服務時間:周一至周五 am 9:30 - pm 18:30</p>
+            <p>
+          <p>
+            <router-link to="/QandA"><Icon type="help-circled"></Icon> 常見問題集</router-link>
+          </p>
+          
+              <router-link to="/CaseCategory"><Icon type="ios-location"></Icon> 展示店點</router-link>
+            </p>
         </div>
       </div>
       <div class="col-md-4 col-xs-12">
@@ -240,6 +241,7 @@ export default {
 .myfooter {
   z-index: 9999999;
   margin-top: 10px;
+
 }
 
 .custTABLE {
@@ -248,9 +250,9 @@ export default {
 
 div .myrow {
   float: none;
-  background: #f7f7f7;
-  width: 100%;
-  padding-top: 0px;
+  background:#f3ede7;
+    width: 100%;
+    padding: 15px 30px;
   margin: 0 auto;
   font-size: 16px;
 }

@@ -15,7 +15,7 @@
         <div class="clearfix"></div>
         <div class="clearfix"></div>
         <div class="needLine">
-          <p class="subtitle">相關文章 </p>
+          <p class="subtitle">看過此文章的人也看過</p>
           <template v-for="(item,i) in guess">
             <div class="col-md-4 col-xs-12">
               <div class="otherlike">
