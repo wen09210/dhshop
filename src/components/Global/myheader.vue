@@ -232,7 +232,7 @@ export default {
 
 .navbar-brand {
   padding-top: 5px;
-  max-width: 140px;
+  /* max-width: 140px; */
   
 }
 
