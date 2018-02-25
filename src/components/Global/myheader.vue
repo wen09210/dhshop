@@ -310,7 +310,6 @@ export default {
   font-size: 15px;
   color: #FFFFFF;
   text-align: center;
-  left: 85px;
   border-radius: 50%;
 }
 

@@ -121,7 +121,7 @@ export default {
 }
 
 </script>
-<style>
+<style scoped>
 .img-responsive {
   border-radius: 3px;
   cursor: pointer;
