@@ -4,7 +4,7 @@
     <mainIntro></mainIntro>
     <mainBlogger></mainBlogger>
     <mainPromotion></mainPromotion>
-    <mainCardContent></mainCardContent>
+    <mainMap></mainMap>
     <!-- <mainArtical></mainArtical> -->
     <mainAllProduct></mainAllProduct>
     <mainIgFrame></mainIgFrame>
@@ -18,7 +18,7 @@
   // import mainArtical from './mainAtrical.vue'
   import mainAllProduct from './mainAllProduct'
   import mainIgFrame from './mainIgFrame.vue'
-  import mainCardContent from './mainCardContent'
+  import mainMap from './mainMap'
   import mainBlogger from './mainBlogger'
   import Lockr from 'lockr'
   export default {
@@ -33,7 +33,7 @@
       // mainArtical,
       mainAllProduct,
       mainIgFrame,
-      mainCardContent
+      mainMap
     }
   }
 </script>

@@ -3,8 +3,8 @@
     <div class="col-md-12">
       <div class="container">
         <div class="main_section col-md-12">
-          <div class="category_title">dH.CHOICE</div>
-          <div class="subtitle">美好生活從家開始</div>
+          <div class="category_title">改造，從現在開始</div>
+          <div class="subtitle">嚴選好物，專屬於您的空間設計師</div>
         </div>
         <div class="catetitle col-md-12">佈置靈感</div>
         <div class="col-md-3 col-xs-6 inallProd" v-for="items in inspire">

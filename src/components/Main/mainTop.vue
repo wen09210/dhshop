@@ -22,7 +22,7 @@ export default {}
 </script>
 <style>
 .padding5 {
-  padding: 10px 5px;
+  padding: 5px 0px ;
 }
 
 </style>

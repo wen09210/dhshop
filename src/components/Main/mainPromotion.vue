@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="style_intro">影片精選<span class="seemore"><router-link to="/iframeCategory">查看更多>></router-link></span></div>
+    <div class="style_intro">跟著影片一起做<span class="seemore"><router-link to="/iframeCategory">更多教學>></router-link></span></div>
     <swiper :options="swiperFB">
       <template v-for="item in FBiframe" v-cloak>
         <swiper-slide :key="item.iframeID">
@@ -83,7 +83,7 @@ export default {
     var random = function(array) {
       return array.sort(function() { return Math.random() - 0.5 })
     }
-    this.FBiframe = random(FBiframe.slice()).slice(0, 6)
+    this.FBiframe = random(FBiframe.slice()).slice(0, 4)
   }
 }
 
