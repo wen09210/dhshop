@@ -2,7 +2,7 @@
   <div class="container">
     <div class="style_intro">跟著影片一起做<span class="seemore"><router-link to="/iframeCategory">更多教學>></router-link></span></div>
     <swiper :options="swiperFB">
-      <template v-for="item in FBiframe" v-cloak>
+      <template v-for="item in lay" v-cloak>
         <swiper-slide :key="item.iframeID">
           <!-- <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1627499783967677/ " data-allowfullscreen="true"></div> -->
           <!-- <div class="col-xs-12"> -->
@@ -49,7 +49,8 @@ export default {
   },
   data() {
     return {
-      FBiframe: [],
+      FBiframe: FBiframe,
+      lay: [],
       swiperFB: {
         slidesPerView: 2,
         spaceBetween: 20,
@@ -80,10 +81,15 @@ export default {
   created() {
     console.log(FBiframe)
     // 隨機排列
-    var random = function(array) {
-      return array.sort(function() { return Math.random() - 0.5 })
-    }
-    this.FBiframe = random(FBiframe.slice()).slice(0, 4)
+    // var random = function(array) {
+    //   return array.sort(function() { return Math.random() - 0.5 })
+    // }
+    // this.FBiframe = random(FBiframe.slice()).slice(0, 4)
+    // 拼法舖設教學
+    this.lay = this.FBiframe.filter(
+      (x) => {
+        return x.Label === '舖設拼法'
+      })
   }
 }
 

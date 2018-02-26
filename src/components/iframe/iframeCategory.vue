@@ -121,6 +121,14 @@ export default {
 }
 
 </script>
+<style>
+  .ivu-modal-confirm-body .ivu-modal-confirm-body-icon.ivu-modal-confirm-body-icon-info {
+    display: none;
+  }
+  .ivu-modal-confirm-body {
+  padding-left: 0px;
+}
+  </style>
 <style scoped>
 .img-responsive {
   border-radius: 3px;
@@ -214,12 +222,7 @@ export default {
   clear: top;
 }
 
-.ivu-modal-confirm-body {
-  padding-left: 0px;
-}
 
-.ivu-modal-confirm-body .ivu-modal-confirm-body-icon.ivu-modal-confirm-body-icon-info {
-  display: none;
-}
 
 </style>
+
