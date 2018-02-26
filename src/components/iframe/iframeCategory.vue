@@ -8,7 +8,7 @@
     </div>
     <div class="catetitle col-md-12">◆ 鋪設就是這麼簡單 ◆</div>
     <template v-for="item in lay" v-cloak>
-      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
+      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe" :key="item.iframeID">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
         <div class="FBiframe_description">{{item.title}}</div>
       </div>
@@ -16,7 +16,7 @@
     <div class="clearfix"></div>
     <div class="catetitle col-md-12">◆ 小編~我有問題 ◆</div>
     <template v-for="item in clear" v-cloak>
-      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
+      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe" :key="item.iframeID">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
         <div class="FBiframe_description">{{item.title}}</div>
       </div>
@@ -24,7 +24,7 @@
     <div class="clearfix"></div>
     <div class="catetitle col-md-12">◆ 邊邊角角怎麼辦? ◆</div>
     <template v-for="item in classroom" v-cloak>
-      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
+      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe" :key="item.iframeID">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
         <div class="FBiframe_description">{{item.title}}</div>
       </div>
@@ -32,7 +32,7 @@
     <div class="clearfix"></div>
     <div class="catetitle col-md-12">◆ 走進，夢想的空間 ◆</div>
     <template v-for="item in oba" v-cloak>
-      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe">
+      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe" :key="item.iframeID">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
         <div class="FBiframe_description">{{item.title}}</div>
       </div>
@@ -122,13 +122,15 @@ export default {
 
 </script>
 <style>
-  .ivu-modal-confirm-body .ivu-modal-confirm-body-icon.ivu-modal-confirm-body-icon-info {
-    display: none;
-  }
-  .ivu-modal-confirm-body {
+.ivu-modal-confirm-body .ivu-modal-confirm-body-icon.ivu-modal-confirm-body-icon-info {
+  display: none;
+}
+
+.ivu-modal-confirm-body {
   padding-left: 0px;
 }
-  </style>
+
+</style>
 <style scoped>
 .img-responsive {
   border-radius: 3px;
@@ -222,7 +224,4 @@ export default {
   clear: top;
 }
 
-
-
 </style>
-

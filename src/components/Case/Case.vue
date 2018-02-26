@@ -6,7 +6,7 @@
           <div class="main-image">
             <template v-for="(item,i) in caseDetail.img">
               <template v-if="i===isSelectedCarousel">
-                <div class="">
+                <div class="" :key="i">
                   <img :src="item.url" class="img-responsive">
                 </div>
               </template>
@@ -14,7 +14,7 @@
           </div>
           <swiper :options="swiperOptionThumbs" ref="swiperThumbs">
             <template v-for="(item,i) in caseDetail.img">
-              <swiper-slide :class="{'selectedCarousel':i===isSelectedCarousel}">
+              <swiper-slide :class="{'selectedCarousel':i===isSelectedCarousel}" :key="i">
                 <img :src="item.url" class="img-responsive" @click="selectCarousel(i,item.itemNo)">
               </swiper-slide>
             </template>
@@ -63,7 +63,7 @@
         <div class="needLine">
           <p class="subtitle">猜你也喜歡</p>
           <template v-for="(item,i) in caseDetail.guesslike">
-          <div class="col-md-4 col-xs-4">
+          <div class="col-md-4 col-xs-4" :key="i">
             <div class="otherlike">   
                 <a :href="'/Case/'+item.sid">     
                   <img :src="item.simg" class="img-responsive">

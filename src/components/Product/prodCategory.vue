@@ -7,7 +7,7 @@
           <div class="subtitle">嚴選好物，專屬於您的空間設計師</div>
         </div>
         <div class="catetitle col-md-12">佈置靈感</div>
-        <div class="col-md-3 col-xs-6 inallProd" v-for="items in inspire">
+        <div class="col-md-3 col-xs-6 inallProd" v-for="(items,index) in inspire" :key="index">
           <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
             <img :src="items.coverPhoto" class="img-responsive">
             <div class="tagname">{{items.ProdName }}</div>
@@ -16,7 +16,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="catetitle col-md-12">空間氛圍改造</div>
-        <div class="col-md-3 col-xs-6 inallProd" v-for="items in space ">
+        <div class="col-md-3 col-xs-6 inallProd" v-for="(items,index) in space " :key="index">
           <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
             <img :src="items.coverPhoto" class="img-responsive">
             <div class="tagname">{{items.ProdName }}</div>
@@ -25,7 +25,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="catetitle col-md-12">清潔保養</div>
-        <div class="col-md-3 col-xs-6 inallProd" v-for="items in clearmaintain ">
+        <div class="col-md-3 col-xs-6 inallProd" v-for="(items,index) in clearmaintain " :key="index">
           <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
             <img :src="items.coverPhoto" class="img-responsive">
             <div class="tagname">{{items.ProdName }}</div>
@@ -34,7 +34,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="catetitle col-md-12">居家好物</div>
-        <div class="col-md-3 col-xs-6 inallProd" v-for="items in homegood ">
+        <div class="col-md-3 col-xs-6 inallProd" v-for="(items,index) in homegood " :key="index">
           <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
             <img :src="items.coverPhoto" class="img-responsive">
             <div class="tagname">{{items.ProdName }}</div>
@@ -43,7 +43,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="catetitle col-md-12">配件</div>
-        <div class="col-md-3 col-xs-6 inallProd" v-for="items in Accessories ">
+        <div class="col-md-3 col-xs-6 inallProd" v-for="(items,index) in Accessories " :key="index">
           <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
             <img :src="items.coverPhoto" class="img-responsive">
             <div class="tagname">{{items.ProdName }}</div>

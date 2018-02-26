@@ -4,7 +4,7 @@
       <div class="category_title">看看大家的成果</div>
       <div class="subtitle">d粉們精心裝潢的空間，給你最真實的鋪設心得</div>
     </div>
-    <div class="col-md-3 col-xs-6 inblog" v-for="item in  BlogInCatgory">
+    <div class="col-md-3 col-xs-6 inblog" v-for="(item,index) in  BlogInCatgory" :key="index">
       <router-link :to="{name: 'Blog', params: {BlogID: item.BlogID}}">
         <img :src="item.coverPhoto" class="img-responsive">
         <div class="Blog_name">{{item.title}}</div>

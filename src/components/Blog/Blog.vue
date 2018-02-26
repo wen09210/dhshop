@@ -17,7 +17,7 @@
         <div class="needLine">
           <p class="subtitle">看過此文章的人也看過</p>
           <template v-for="(item,i) in guess">
-            <div class="col-md-4 col-xs-12">
+            <div class="col-md-4 col-xs-12" :key="i">
               <div class="otherlike">
                 <router-link :to="{name: 'Blog', params: {BlogID: item.BlogID}}">
                   <!-- :href="'/Blog/'+item.BlogID"> -->

@@ -18,7 +18,7 @@
             <div class="col-md-2">小計</div>
             <div class="col-md-1">功能</div>
           </div>
-          <div v-for="item in GetShoppingCartItem" class=" tableTR row">
+          <div v-for="(item,index) in GetShoppingCartItem" class=" tableTR row" :key="index">
             <div class="col-md-2 col-xs-6"><img :src="item.ImgUrl |UrlTransIP" class="payimg"></div>
             <div class="col-md-1 col-xs-6 prodType">
               {{item.prodType |prodTypeToCH}}
@@ -93,25 +93,25 @@
         <div class="CouponDiv">
           <Row :gutter="16">
             <Col :xs="{ span: 24}" :md="{span: 12,offset:12}">
-            <Col :xs="{ span: 6}" :md="{span: 6}">
-            <div>
-              <label class="coupTitle">折扣代碼:</label>
-            </div>
-            </Col>
-            <Col :xs="{ span: 12}" :md="{ span: 12}">
-            <Input v-model="CouponCode" placeholder="優惠(折扣)代碼" style="boreder-color:red;"></Input>
-            </Col>
-            <Col :xs="{ span: 2}" :md="{ span: 2}">
-            <template v-if="valCodeIcon==='1'">
-              <Icon type="checkmark-circled" size="22" color="green"></Icon>
-            </template>
-            <template v-if="valCodeIcon==='2'">
-              <Icon type="close-circled" size="22" color="red"></Icon>
-            </template>
-            </Col>
-            <Col :xs="{ span: 4}" :md="{ span: 4}">
-            <Button type="primary" size="large" @click="ValidateCoupon">驗證</Button>
-            </Col>
+                    <Col :xs="{ span: 6}" :md="{span: 6}">
+                    <div>
+                      <label class="coupTitle">折扣代碼:</label>
+                    </div>
+                    </Col>
+                  <Col :xs="{ span: 12}" :md="{ span: 12}">
+                      <Input v-model="CouponCode" placeholder="優惠(折扣)代碼" style="boreder-color:red;"></Input>
+                  </Col>
+                  <Col :xs="{ span: 2}" :md="{ span: 2}">
+                      <template v-if="valCodeIcon==='1'">
+                        <Icon type="checkmark-circled" size="22" color="green"></Icon>
+                      </template>
+                      <template v-if="valCodeIcon==='2'">
+                        <Icon type="close-circled" size="22" color="red"></Icon>
+                      </template>
+                  </Col>
+                  <Col :xs="{ span: 4}" :md="{ span: 4}">
+                  <Button type="primary" size="large" @click="ValidateCoupon">驗證</Button>
+                  </Col>
             </Col>
           </Row>
         </div>

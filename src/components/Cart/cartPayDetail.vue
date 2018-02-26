@@ -22,7 +22,7 @@
             <Icon type="information-circled"></Icon>
             <span>dHSHOP 提醒</span>
         </p>
-        <img src="../../assets/temporyPic/creditenote.png" class="img-responsive">
+        <img src="../../assets/temporyPic/creditbank.jpg" class="img-responsive">
       </Modal>
       <a style="position: absolute;margin-top: 5px;margin-left: 80px;" @click="openCART">(購物車商品)</a>
       <Form label-position="top">

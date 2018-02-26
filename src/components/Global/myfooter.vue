@@ -21,8 +21,8 @@
             {{this.oldHistory}}
             <template v-if="typeof (this.oldHistory) !== undefined">
               <swiper :options="swiperOption">
-                <template v-for="item in oldHistory">
-                  <swiper-slide>
+                <template v-for="(item,index) in oldHistory">
+                  <swiper-slide :key="index">
                     <router-link :to="{name: 'product', params: {prodID: item.prodID}}">
                       <div class="">
                         <p class="HisItemTitle">{{item.name}}</p>
@@ -73,7 +73,7 @@
                 <th></th>
               </tr>
             </thead>
-            <tr v-for="item in GetShoppingCartItem">
+            <tr v-for="(item,index) in GetShoppingCartItem" :key="index">
               <td>{{item.name}}</td>
               <td>{{item.style}}</td>
               <td>{{item.unitPrice}}</td>
@@ -111,11 +111,11 @@
         <hr class="style3">
         <div class="col-md-12 col-xs-12 ">
             <p>服務時間:周一至周五 am 9:30 - pm 18:30</p>
-            <p>
+            
           <p>
             <router-link to="/QandA"><Icon type="help-circled"></Icon> 常見問題集</router-link>
           </p>
-          
+          <p>
               <router-link to="/CaseCategory"><Icon type="ios-location"></Icon> 展示店點</router-link>
             </p>
         </div>

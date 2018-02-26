@@ -3,8 +3,8 @@
     <!-- {{Articial}} -->
     <div class="style_intro">達人推薦</div>
     <swiper :options="swiper_Atical">
-      <template v-for="item in Articial">
-        <swiper-slide>
+      <template v-for="(item,index) in Articial">
+        <swiper-slide :key="index">
           <router-link :to="{name: 'prodPromte', params: {articalID: item.ArticalNo,prodID:item.ProdID}}">
             <div class="artDiv ">
               <img :src="item.ArticalIntroPic | UrlTransIP" class="img-responsive imgHover ">

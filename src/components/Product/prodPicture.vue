@@ -9,7 +9,7 @@
           <template v-for="(item,index) in CarouselUp">
             <template v-for="(itemChild,secIndex) in CarouselUp[index]">
               <!-- Order 0 為索引 -->
-              <div class="col-xs-3 col-md-6 padding5" v-if="secIndex===0">
+              <div class="col-xs-3 col-md-6 padding5" v-if="secIndex===0" :key="secIndex">
                 <img v-if="secIndex===0" :src="itemChild.ImgUrl|UrlTransIP" class="carousel_Index" @click="changeCarousel(index)">
               </div>
             </template>
@@ -17,10 +17,10 @@
         </div>
         <!-- 右半邊 -->
         <template v-for="(item,index) in CarouselUp">
-          <div v-show="CtrlPanel[index]" class="col-xs-12 col-md-8">
+          <div v-show="CtrlPanel[index]" class="col-xs-12 col-md-8" :key="index">
             <swiper :options="swiperOption_Up">
               <template v-for="(itemChild,secIndex) in CarouselUp[index]">
-                <swiper-slide v-if="secIndex!==0">
+                <swiper-slide v-if="secIndex!==0" :key="secIndex">
                   <img :src="itemChild.ImgUrl|UrlTransIP" class="imgHover carousel_Img">
                 </swiper-slide>
               </template>
@@ -38,8 +38,8 @@
     <div class="container" id="CarouselDown">
       <div class="col-xs-12 col-md-12">
         <swiper :options="swiperOption_Down">
-          <template v-for="item in CarouselDown">
-            <swiper-slide>
+          <template v-for="(item,index) in CarouselDown">
+            <swiper-slide :key="index">
               <img :src="item.ImgUrl|UrlTransIP" class="img-responsive imgHover">
             </swiper-slide>
           </template>

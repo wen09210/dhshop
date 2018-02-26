@@ -8,14 +8,14 @@
     <div class="row buydiv">
       <div :class="[second,'productCarsoul']">
         <template v-for="(prod,i) in item">
-            <div v-show="i===isSelectedCarousel" class="prodImage">
+            <div v-show="i===isSelectedCarousel" class="prodImage" :key="i">
               <img :src="prod.ImgUrl| UrlTransIP" class="img-responsive">
             </div>
         </template>
         <!-- 輪播圖 -->
         <swiper :options="swiperOptionThumbs" ref="swiperThumbs">
           <template v-for="(prod,i) in item">
-            <swiper-slide :class="{'selectedCarousel':i===isSelectedCarousel}">
+            <swiper-slide :class="{'selectedCarousel':i===isSelectedCarousel}" :key="i">
               <img :src="prod.ImgUrl| UrlTransIP" class="img-responsive" @click="selectCarousel(i,prod.ItemNo)">
             </swiper-slide>
           </template>
@@ -57,7 +57,7 @@
         <div class="col-xs-6 mobilePic">
           <template v-for="(prod,i) in item">
           <template >
-            <div v-show="i===isSelectedCarousel" class="prodImage">
+            <div v-show="i===isSelectedCarousel" class="prodImage" :key="i">
               <img :src="prod.ImgUrl| UrlTransIP" class="img-responsive">
             </div>
           </template>
@@ -70,7 +70,7 @@
         <div >
           <span class="textblack">原價:</span>
           <span class="linethrough">
-          <span class="">&nbsp{{itemShow.OrignPrice}} 元
+          <span class="">&nbsp;{{itemShow.OrignPrice}} 元
            </span>
           </span>
         </div>
@@ -79,7 +79,7 @@
             <span :class="['activityLabel',{'textblack':checkPreProd || checkActivity}]">售價:</span>
             <span :class="{'linethrough':checkPreProd || checkActivity}">
             <span :class="['activityFont',{'textblack':checkPreProd || checkActivity}]">
-              &nbsp{{itemShow.SalePrice}} 元
+              &nbsp;{{itemShow.SalePrice}} 元
            </span>
             </span>
           </div>
@@ -87,13 +87,13 @@
         <template v-if="checkPreProd && !checkActivity">
           <div class="">
             <span class="activityLabel">預購價:</span>
-            <span class="activityFont">&nbsp{{itemShow.PreOrderPrice}} 元</span>
+            <span class="activityFont">&nbsp;{{itemShow.PreOrderPrice}} 元</span>
           </div>
         </template>
         <template v-if="checkActivity">
           <div class="">
             <span class="activityLabel">活動價:</span>
-            <span class="activityFont">&nbsp{{itemShow.ActivityPrice}} 元</span>
+            <span class="activityFont">&nbsp;{{itemShow.ActivityPrice}} 元</span>
           </div>
         </template>
         </div>
@@ -114,7 +114,7 @@
           {{getItem}}
           <RadioGroup v-model="itemSelect" type="button" size="large" class="margin5px">
             <template v-for="(option,i) in item">
-              <Radio :label="option.ItemNo">
+              <Radio :label="option.ItemNo" :key="i">
                 <!-- 47折標籤 暫時人工改-->
                 <template v-if="optionCheckActivity(option)">
                   <div class="activityBtn">47折</div>
@@ -126,7 +126,7 @@
           </div>
           <div class="col-xs-12 noPadding">
             <span>規格:</span>
-            <span style="font-weight:300;">&nbsp{{itemShow.ItemSpec}}</span>
+            <span style="font-weight:300;">&nbsp;{{itemShow.ItemSpec}}</span>
           </div>
         <!-- 量大優惠 -->
         <table class="table" style="margin-bottom: 10px;">
@@ -139,7 +139,7 @@
                   </td>
               </tr>
               <template v-for="(itemBtn, i) in BtnSpecialNumber">
-                <tr >
+                <tr :key="i" >
                   <td>
                     <span>方案 {{i+1}}.</span>
                   </td>

@@ -3,7 +3,7 @@
   <div class="container" v-show = "Object.keys(addProdList).length > 0">
     <h3>精選加購--走過路過千萬別錯過</h3>
     <div class="row detailBlockADD equal">
-      <div class="col-xs-6 col-sm-4 col-md-3 addItem" v-for="item in addItemShow">
+      <div class="col-xs-6 col-sm-4 col-md-3 addItem" v-for="(item,index) in addItemShow" :key="index">
         <div style="height:81px;">{{item.ProdName}}</div>
         <div>
           <img :src="item.ImgUrl|UrlTransIP" class="payimg">
@@ -11,13 +11,13 @@
         <div>加購價: {{item.AddPrice}}元</div>
         <div>
           <select class="selectpicker" @change="changeShow(item)">
-            <template v-for="(s,i) in item.DP_ItemName.length">
-              <option :value="item.DP_ItemNo[i]">{{item.DP_ItemName[i]}}</option>
+            <template v-for="(s,i) in item.DP_ItemName.length" >
+              <option :value="item.DP_ItemNo[i]" :key="i">{{item.DP_ItemName[i]}}</option>
             </template>
           </select>
           <!-- 加購數量 -->
           <select v-model="item.quentity">
-            <option v-for="option in item.InventoryVal" :value="option">{{option}}{{item.Unit}}</option>
+            <option v-for="option in item.InventoryVal" :value="option" :key="option">{{option}}{{item.Unit}}</option>
           </select>
           <!-- 加購數量 end-->          
         </div>
@@ -28,8 +28,8 @@
         </div>
         <div class="Addnotice">
           <i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i> 加購限定:
-          <template v-for="data in item.MainProdName.split('|')">
-            <div style="width:160px;">{{data}}</div>
+          <template v-for="(data,index) in item.MainProdName.split('|')">
+            <div style="width:160px;" :key="index">{{data}}</div>
           </template>
         </div>
       </div>

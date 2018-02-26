@@ -76,8 +76,9 @@
         <template v-if="payInfo.type === 'Credit'">
           <div class="row">
             <div class="col-sm-offset-2 col-sm-10 creditQuestion">
-              <span style="font-size:20px;"><b>可能的原因有：</b></span></br>
-              </br>
+              <span style="font-size:20px;"><b>可能的原因有：</b></span>
+              <br>
+              <br>
               <p>1. 信用卡第一次使用尚未開卡。</p>
               <p>2. 信用卡卡號或到期日輸入錯誤。</p>
               <p>3. 信用卡已超過到期日使用期限。</p>
@@ -85,7 +86,7 @@
               <p>5. 信用卡發卡銀行內部系統問題…等。</p>
               <p>6. 此筆卡號同時有人刷卡授權中，因此視窗會跳出。</p>
               <p>7. 信用卡授權時，網路斷線。</p>
-              </br>
+              <br>
               <li>若您的信用卡並未超出使用額度，請回到商店重新購買。</li>
               <li style="color:red">提醒您！請留意輸入的信用卡卡號、姓名、到期日以及卡片背後末3碼是否正確。
                 <br>如果依然收到授權失敗的通知，可能原因為發卡銀行內部系統作業問題，請與您的信用卡發卡銀行聯絡。</li>

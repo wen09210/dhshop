@@ -4,47 +4,47 @@
     <nav class="navbar navbar-default  navbar-fixed-top">
       <div class="container-fluid">
         <!-- 購物車 -->
-        <div class="indexCart" >
-            <a class="headerIcon">
-              <popover title="購物車商品" :trigger="hover" placement="bottom" auto-placement :enable="false">
-                <router-link to="/cart">
-                  <template v-if="cartCount!== 0">
-                    <div class="cartCount">{{cartCount}}</div>
-                  </template>
-                  <button type="button" class="btn BtnToA headerIcon" data-role="trigger" @click="showNavbar=!showNavbar">
-                    <Icon type="bag iconcolor"></Icon> <span class="hidden-xs">購物車</span>
-                  </button>
-                </router-link>
-                <div slot="popover" class="popoverCart">
-                  <template v-if="cartCount!== 0">
-                    <table class="table table-border poptable">
-                      <thead>
-                        <tr>
-                          <th>商品名稱</th>
-                          <!-- <th>單價</th> -->
-                          <th>數量</th>
-                          <th>小計</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tr v-for="item in GetShoppingCartItem">
-                        <td>{{item.name + item.style}}</td>
-                        <!-- <td>{{item.unitPrice}}</td> -->
-                        <td>{{item.count}}</td>
-                        <td>{{item.totalAmt}}</td>
+        <div class="indexCart">
+          <a class="headerIcon">
+            <popover title="購物車商品" :trigger="hover" placement="bottom" auto-placement :enable="false">
+              <router-link to="/cart">
+                <template v-if="cartCount!== 0">
+                  <div class="cartCount">{{cartCount}}</div>
+                </template>
+                <button type="button" class="btn BtnToA headerIcon" data-role="trigger" @click="showNavbar=!showNavbar">
+                  <Icon type="bag iconcolor"></Icon> <span class="hidden-xs">購物車</span>
+                </button>
+              </router-link>
+              <div slot="popover" class="popoverCart">
+                <template v-if="cartCount!== 0">
+                  <table class="table table-border poptable">
+                    <thead>
+                      <tr>
+                        <th>商品名稱</th>
+                        <!-- <th>單價</th> -->
+                        <th>數量</th>
+                        <th>小計</th>
+                        <th></th>
                       </tr>
-                    </table>
-                    <div class="col-sm-offset-4">
-                      <button class="btn btn-info btnInPop" @click="go">結賬</button>
-                    </div>
-                  </template>
-                  <template v-else>
-                    <label>尚未加入商品至購物車</label>
-                  </template>
-                </div>
-              </popover>
-            </a>
-          </div>
+                    </thead>
+                    <tr v-for="(item,index) in GetShoppingCartItem" :key="index">
+                      <td>{{item.name + item.style}}</td>
+                      <!-- <td>{{item.unitPrice}}</td> -->
+                      <td>{{item.count}}</td>
+                      <td>{{item.totalAmt}}</td>
+                    </tr>
+                  </table>
+                  <div class="col-sm-offset-4">
+                    <button class="btn btn-info btnInPop" @click="go">結賬</button>
+                  </div>
+                </template>
+                <template v-else>
+                  <label>尚未加入商品至購物車</label>
+                </template>
+              </div>
+            </popover>
+          </a>
+        </div>
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" @click="showNavbar=!showNavbar">
             <span class="sr-only">Toggle navigation</span>
@@ -60,8 +60,6 @@
             </div>
           </router-link>
         </div>
-        
-         
         <collapse class="navbar-collapse navbar-right" v-model="showNavbar">
           <ul class="nav navbar-nav">
             <!-- <li class="headerIcon">
@@ -109,7 +107,6 @@
                 </router-link>
               </a>
             </li> -->
-            
             <!-- 未登入 -->
             <template v-if="Object.keys(GetLoginInfo).length === 0">
               <li class="headerIcon">
@@ -157,7 +154,6 @@
                 </dropdown>
               </template>
             </template>
-            
           </ul>
         </collapse>
       </div>
@@ -165,7 +161,6 @@
     <!-- mebLogin 彈跳視窗 -->
     <mebLogin></mebLogin>
   </div>
-
 </template>
 <script>
 import { Popover, Collapse, Dropdown } from 'uiv'
@@ -224,7 +219,7 @@ export default {
 
 .navbar-default .navbar-toggle {
   border-color: #90949c;
-  float:left;
+  float: left;
   margin-left: 15px;
   margin-right: 0px;
   margin-top: 15px;
@@ -233,7 +228,6 @@ export default {
 .navbar-brand {
   padding-top: 5px;
   /* max-width: 140px; */
-  
 }
 
 .navbar-default {
@@ -245,14 +239,16 @@ export default {
 .navbar-fixed-bottom {
   background-color: #bdbaba
 }
-.indexCart{
- float:right;
-    padding: 15px 5px;
+
+.indexCart {
+  float: right;
+  padding: 15px 5px;
 }
+
 .iconcolor {
   color: #ff9900;
-  font-size:25px;
-  font-weight:500;
+  font-size: 25px;
+  font-weight: 500;
   vertical-align: text-bottom;
 }
 
@@ -288,7 +284,7 @@ export default {
 
 .popoverCart {
   width: 300px;
-  
+
 }
 
 .btnInPop {
@@ -318,12 +314,12 @@ export default {
     display: none;
   }
   .navbar-brand {
-  padding: 5px 0px 0px 15px ;
-  
-}
-.indexCart{
-  padding:10px 0px;
-}
+    padding: 5px 0px 0px 15px;
+
+  }
+  .indexCart {
+    padding: 10px 0px;
+  }
 }
 
 </style>
