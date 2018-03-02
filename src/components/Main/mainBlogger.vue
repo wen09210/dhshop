@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container" id="blogger">
-      <div class="style_intro">看看大家的成果 <span class="seemore"><router-link to="/BlogCategory">更多精選>></router-link></span></div>
+      <div class="style_intro">看看大家的成果 <span class="seemore"><router-link to="/BlogCategory">更多成果>></router-link></span></div>
       <!-- <div v-for="item in BlogDetail">
       {{item.title}}
     </div>   -->

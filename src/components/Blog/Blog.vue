@@ -9,9 +9,10 @@
       </div>
       <div class="blog_inside col-md-9">
         <div class="mainTitle">{{BlogDetail.title}}</div>
-        <div class="quote">
-          <Icon type="chatbox-working"></Icon>『{{BlogDetail.quote}}』-d粉{{BlogDetail.name}}</div>
-        <div class="content col-md-12" v-html="BlogDetail.content"></div>
+        <div class="col-md-12"><div class="quote">
+            <Icon type="chatbox-working"></Icon>『{{BlogDetail.quote}}』-d粉{{BlogDetail.name}}</div>
+          <div class="content " v-html="BlogDetail.content"></div></div>
+        
         <div class="clearfix"></div>
         <div class="clearfix"></div>
         <div class="needLine">
@@ -180,7 +181,8 @@ img {
 
 .quote {
   margin: 20px 0px;
-  color: #00a6ff
+  color: #00a6ff;
+  text-align: left;
 }
 
 .needLine {

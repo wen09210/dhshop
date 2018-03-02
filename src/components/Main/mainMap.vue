@@ -11,9 +11,6 @@
       <router-link to="CaseCategory">
         <img src="../../assets/temporyPic/index/map_north.png" alt="" class="img-responsive imgHover s_line">
       </router-link>  
-      <router-link to="CaseCategory">
-        <img src="../../assets/temporyPic/index/map_middle.png" alt="" class="img-responsive imgHover s_line">
-      </router-link>
       <router-link to="CaseCategory#south">
       <img src="../../assets/temporyPic/index/map_south.png" alt="" class="img-responsive imgHover s_line">
       </router-link>
