@@ -42,8 +42,7 @@
         </div>
         <div class="productPart needLine">
           <p class="subtitle">使用產品</p>
-          <div>
-            
+          <div> 
             <div class="productIn">
               <router-link to="/product/1">
                 <button type="button" class="prodBtn">

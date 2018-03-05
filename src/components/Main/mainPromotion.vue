@@ -89,7 +89,7 @@ export default {
     this.lay = this.FBiframe.filter(
       (x) => {
         return x.Label === '舖設拼法'
-      })
+      }).slice(5, 10)
   }
 }
 

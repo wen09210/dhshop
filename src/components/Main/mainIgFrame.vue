@@ -5,6 +5,7 @@
   <div class="container">
     <div class="col-xs-12 col-md-12" style="padding:20px 0px 0px;">
       <div class="style_intro">一起加入改造行列</div>
+      <div style="margin:-10px 0px 10px 0px;font-size:16px;">在IG <span style='color:#ff9900'>#歐巴地板</span>   就可以分享美美的照片喔!!</div>
       <link href="//assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
       <ul class="juicer-feed" data-feed-id="dhshop_tw"></ul>
     </div>

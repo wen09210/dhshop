@@ -72,6 +72,15 @@
               </a>
             </li> -->
             <li class="headerIcon">
+                <a class="headerIcon">
+                  <router-link to="/CaseCategory">
+                    <button type="button" class="btn  BtnToA headerIcon" @click="showNavbar=!showNavbar">
+                        <Icon type="ios-location-outline iconcolor"></Icon>  實體店
+                    </button>
+                  </router-link>
+                </a>
+              </li>
+            <li class="headerIcon">
               <a class="headerIcon">
                 <router-link to="/BlogCategory">
                   <button type="button" class="btn  BtnToA headerIcon" @click="showNavbar=!showNavbar">
@@ -229,7 +238,9 @@ export default {
   padding-top: 5px;
   /* max-width: 140px; */
 }
-
+.nav>li>a{
+  padding:15px 7px;
+}
 .navbar-default {
   background: rgba(255, 255, 255, 1.0) !important;
 }
@@ -242,7 +253,7 @@ export default {
 
 .indexCart {
   float: right;
-  padding: 15px 5px;
+  padding: 15px 0px;
 }
 
 .iconcolor {
@@ -254,15 +265,14 @@ export default {
 
 .BtnToA {
   background: rgba(255, 255, 255, 0);
+  padding:3px;
 }
 
 .headerIcon {
   font-size: 18px;
-  padding-left: 5px !important;
-  padding-right: 5px !important;
   color: #6a7172;
   font-weight: 600;
-  vertical-align: baseline
+  vertical-align: baseline;
 }
 
 .loginName {

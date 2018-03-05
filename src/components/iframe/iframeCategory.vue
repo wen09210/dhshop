@@ -95,6 +95,7 @@ export default {
       (x) => {
         return x.Label === 'dH小百科'
       })
+    console.log(this.clear)
     // 歐巴到你家
     this.oba = this.FBiframeincatgory.filter(
       (x) => {
@@ -104,10 +105,10 @@ export default {
   },
   methods: {
     instance(n) {
-      n = n - 1
+      n = this.FBiframeincatgory[n - 1]
       this.$Modal.info({
-        title: FBiframeincatgory[n].title,
-        content: "<div class='embed-responsive embed-responsive-16by9 '><iframe src='" + FBiframeincatgory[n].iframeUrl + "'width='560' height='315' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allowFullScreen='true'></iframe></div>",
+        title: n.title,
+        content: "<div class='embed-responsive embed-responsive-16by9 '><iframe src='" + n.iframeUrl + "'width='560' height='315' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allowFullScreen='true'></iframe></div>",
         width: 768,
         okText: '關閉'
       })

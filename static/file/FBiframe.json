@@ -98,17 +98,17 @@
   },
   {
     "iframeID": 15,
-    "title": "可使用清潔工具",
+    "title": "EP1.一箱可舖幾坪",
     "Label": "dH小百科",
-    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/15.png",
-    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1558094977574825%2F&show_text=0&width=560"
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/36.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1784831218234532%2F&show_text=0&width=560"
   },
   {
     "iframeID": 16,
-    "title": "可使用的清潔劑",
+    "title": "EP2.歐巴地板一箱有多重",
     "Label": "dH小百科",
-    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/16.png",
-    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1567494009968255%2F&show_text=0&width=560"
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/37.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1762481750469479%2F&show_text=0&width=560"
   },
   {
     "iframeID": 17,
@@ -245,44 +245,93 @@
   },
   {
     "iframeID": 36,
-    "title": "EP1.一箱可舖幾坪",
-    "Label": "dH小百科",
-    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/36.png",
-    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1784831218234532%2F&show_text=0&width=560"
-  },
-  {
-    "iframeID": 37,
-    "title": "EP2.歐巴地板一箱有多重",
-    "Label": "dH小百科",
-    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/37.png",
-    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1762481750469479%2F&show_text=0&width=560"
-  },
-  {
-    "iframeID": 38,
     "title": "EP3.歐巴地板是黏膠式的嗎",
     "Label": "dH小百科",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/38.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1770845912966396%2F&show_text=0&width=560"
   },
   {
-    "iframeID": 39,
+    "iframeID": 37,
     "title": "EP4.舖在磁磚上會滑動嗎",
     "Label": "dH小百科",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/39.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1774788945905426%2F&show_text=0&width=560"
   },
   {
-    "iframeID": 40,
+    "iframeID": 38,
     "title": "EP5.dH地板踩起來是軟的嗎?",
     "Label": "dH小百科",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/40.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1792109490840038%2F&show_text=0&width=560"
   },
   {
-    "iframeID": 41,
+    "iframeID": 39,
     "title": "EP6.dH地板可承受毛孩抓地板嗎?",
     "Label": "dH小百科",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/41.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1804156586301995%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 40,
+    "title": "EP7.dH地板可使用哪些清潔工具?",
+    "Label": "dH小百科",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/42.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1806296366088017%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 41,
+    "title": "EP8.地板如何使用清潔劑?",
+    "Label": "dH小百科",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/43.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1815937915123862%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 42,
+    "title": "房間局部鋪設",
+    "Label": "舖設拼法",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/44.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1858112700906383%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 43,
+    "title": "床邊局部鋪設",
+    "Label": "舖設拼法",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/45.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1858123847571935%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 44,
+    "title": "床邊角落鋪設",
+    "Label": "舖設拼法",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/46.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1858148474236139%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 45,
+    "title": "20年老宅大改造",
+    "Label": "舖設拼法",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/47.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1812352165482437%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 46,
+    "title": "甜蜜小窩縮時鋪設",
+    "Label": "舖設拼法",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/48.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1770574396326881%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 47,
+    "title": "書房翻新實錄",
+    "Label": "舖設拼法",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/49.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1760434467340874%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 48,
+    "title": "租屋處翻新實錄",
+    "Label": "舖設拼法",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/50.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1760431720674482%2F&show_text=0&width=560"
   }
 ]
