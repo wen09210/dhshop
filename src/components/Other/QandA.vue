@@ -278,6 +278,7 @@ export default {
 
 </script>
 <style scopped>
+
 .usercentertitle {
   color: #FF8000;
   font-size: 2.5rem;
