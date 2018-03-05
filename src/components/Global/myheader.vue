@@ -254,6 +254,7 @@ export default {
 .indexCart {
   float: right;
   padding: 15px 0px;
+  position: relative;
 }
 
 .iconcolor {
@@ -313,6 +314,7 @@ export default {
   height: 24px;
   position: absolute;
   z-index: 99;
+  right: -15px;
   font-size: 15px;
   color: #FFFFFF;
   text-align: center;

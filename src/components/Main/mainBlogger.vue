@@ -35,6 +35,7 @@ export default {
       swiperOption: {
         slidesPerView: 3,
         spaceBetween: 20,
+        grabCursor: true,
         loop: true,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
@@ -118,12 +119,9 @@ export default {
 }
 
 .Blog_description {
-  font-size: 17px;
-  line-height: 22px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  font-size: 15px;
   color: #484848;
-  font-weight: 700;
+  font-weight: 400;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;

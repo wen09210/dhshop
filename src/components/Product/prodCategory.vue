@@ -15,7 +15,7 @@
           </router-link>
         </div>
         <div class="clearfix"></div>
-        <div class="catetitle col-md-12">空間氛圍改造</div>
+        <div class="catetitle col-md-12">空間氛圍</div>
         <div class="col-md-3 col-xs-6 inallProd" v-for="(items,index) in space " :key="index">
           <router-link :to="{name: 'product', params: {prodID: items.prodID}}">
             <img :src="items.coverPhoto" class="img-responsive">

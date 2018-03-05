@@ -1,37 +1,57 @@
 <template>
   <div class="">
-    <span v-scroll-to="'#fbpostger'" style="cursor:pointer">
-    <img src="../../assets/temporyPic/Index/newyear.jpg" class="img-responsive">
-  </span>
+    <!-- <span v-scroll-to="'#blogger'" style="cursor:pointer">
+    <img src="../../assets/temporyPic/Index/banner_1.png" class="img-responsive">
+  </span> -->
+    <swiper :options="swiperOption">
+      <swiper-slide>
+        <div>
+            <router-link to="/BlogCategory">
+        <img src="../../assets/temporyPic/Index/banner_1.png" class="img-responsive">  
+        </router-link>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div>
+          <router-link to="/Product/22">
+          <img src="../../assets/temporyPic/Index/banner_2.png" class="img-responsive">
+          </router-link>
+        </div>
+      </swiper-slide>
+      <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+      <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+    </swiper>
     <div class="row">
-      <router-link to="/Product/22">
+      <!-- <router-link to="/Product/22">
         <div class="col-md-4 padding5 " style="padding-right:0px">
           <div class="fb_connect" style="padding:10px">
             <img src="https://www.dhshop.tw/static/img/F&W_combine%20sale.e247daf.jpg" class="img-responsive ">
           </div>
         </div>
-      </router-link>
-      <div class="col-md-8 padding5 ">
-         
-        <swiper :options="swiperOption">
-          <swiper-slide v-for="item in fbpost">
-            <div class="fb_connect">
-              <div class="col-md-6 fb_inside ">
-                <div class="s_editor">小編編精選 <span> {{item.date}}</span> </div>
-                <div class="s_intro">{{item.mainTitle}}</div>
-                <div class="facebook_content ">{{item.content}}</div>
-                <span class="seemore"><router-link to="/fbpost">更多精選>></router-link></span>
+      </router-link> -->
+      <div class="container" id="fbpost">
+        <div class=" padding5 ">
+            <div class="style_intro">每周精選</div>
+          <swiper :options="swiperOption">
+            <swiper-slide v-for="item in fbpost">
+              <div class="fb_connect">
+                <div class="col-md-4 ">
+                  <img :src="item.photo" alt="" class="img-responsive" style="margin:10px 0px">
+                </div>
+                <div class="col-md-8 fb_inside ">
+                  <div class="s_editor"><span> {{item.date}}</span></div>
+                  <div class="s_intro">{{item.mainTitle}}</div>
+                  <div class="facebook_content ">{{item.content}}</div>
+                  <span class="seemore"><router-link to="/fbpost">更多精選>></router-link></span>
+                </div>
               </div>
-              <div class="col-md-6 ">
-                 
-                
-                <img :src="item.photo" alt="" class="img-responsive" style="margin:10px 0px">
-              </div>
-            </div>
-          </swiper-slide>
-          <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-          <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-        </swiper>
+            </swiper-slide>
+            
+            <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+            <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+           
+          </swiper>
+        </div>
       </div>
     </div>
   </div>
@@ -51,6 +71,7 @@ export default {
         slidesPerView: 1,
         spaceBetween: 20,
         loop: true,
+        grabCursor: true,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         breakpoints: {
@@ -99,21 +120,22 @@ export default {
   background-color: white;
   display: inline-block;
   border-radius: 3px;
-  padding-bottom: 10px;
+  padding: 15px;
 }
 
 .facebook_content {
   margin: 0px;
   word-wrap: break-word;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 30px;
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 0px;
   color: #484848;
   font-weight: 300;
 
 
 }
+
 .seemore {
   float: right;
   font-size: 15px;
@@ -125,6 +147,7 @@ export default {
 .seemore a {
   color: #008489;
 }
+
 .s_intro {
   font-weight: bold;
   color: #53546a;
@@ -139,6 +162,26 @@ export default {
   color: #808080;
   font-size: 16px;
   font-style: italic;
+}
+
+@media(max-width:768px) {
+  .fb_connect {
+    padding: 0px;
+  }
+  .s_intro {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .facebook_content {
+    font-size: 16px;
+    line-height: 22px;
+    padding-top: 10px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
 }
 
 </style>

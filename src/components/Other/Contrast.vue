@@ -28,7 +28,7 @@
           <div class="clearfix"></div>
           <div class="lay_name Contrast_name">實鋪參考</div>
           <div class='reference'>
-            <div class="col-md-4 col-xs-6" v-for="(item,i) in Contrast[i].case ">
+            <div class="col-md-4 col-xs-12" v-for="(item,i) in Contrast[i].case ">
               <div class="sqare_photo">
                 <img :src="item.url" alt="" class="img-responsive">
               </div>

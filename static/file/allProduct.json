@@ -63,6 +63,20 @@
   "coverPhoto": "https://www.dhshop.tw/static/img/toothbrush.150cfa5.jpg"
 },
 {
+  "prodID": 41,
+  "ProdName": "dH無框掛畫",
+  "Label": "居家好物",
+  "Description": "dHSHOP裝飾你的家",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/draw.jpg"
+},
+{
+  "prodID": 40,
+  "ProdName": "dH馬克杯杯",
+  "Label": "居家好物",
+  "Description": "dHSHOP陪伴你每一天",
+  "coverPhoto": "https://www.dhshop.tw/image/other/prod/mug.jpg"
+},
+{
   "prodID": 18,
   "ProdName": "鑰匙守護者",
   "Label": "居家好物",
