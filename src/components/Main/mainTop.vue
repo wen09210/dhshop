@@ -3,7 +3,7 @@
     <!-- <span v-scroll-to="'#blogger'" style="cursor:pointer">
     <img src="../../assets/temporyPic/Index/banner_1.png" class="img-responsive">
   </span> -->
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" class="hidden-xs">
       <swiper-slide>
         <div>
             <router-link to="/BlogCategory">
@@ -21,6 +21,24 @@
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
+    <swiper :options="swiperOption" class="hidden-lg hidden-md hidden-sm">
+        <swiper-slide>
+          <div>
+              <router-link to="/BlogCategory">
+          <img src="../../assets/temporyPic/Index/banner_1_m.png" class="img-responsive">  
+          </router-link>
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div>
+            <router-link to="/Product/22">
+            <img src="../../assets/temporyPic/Index/banner_2_m.png" class="img-responsive">
+            </router-link>
+          </div>
+        </swiper-slide>
+        <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+        <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+      </swiper>
     <div class="row">
       <!-- <router-link to="/Product/22">
         <div class="col-md-4 padding5 " style="padding-right:0px">
