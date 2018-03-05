@@ -6,15 +6,15 @@
     <swiper :options="swiperOption" class="hidden-xs">
       <swiper-slide>
         <div>
-            <router-link to="/BlogCategory">
-        <img src="../../assets/temporyPic/Index/banner_1.png" class="img-responsive">  
-        </router-link>
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <div>
+          <router-link to="/BlogCategory">
+            <img src="../../assets/temporyPic/Index/banner_1.png" class="img-responsive">
+          </router-link>
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div>
           <router-link to="/Product/22">
-          <img src="../../assets/temporyPic/Index/banner_2.png" class="img-responsive">
+            <img src="../../assets/temporyPic/Index/banner_2.png" class="img-responsive">
           </router-link>
         </div>
       </swiper-slide>
@@ -22,23 +22,23 @@
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
     <swiper :options="swiperOption" class="hidden-lg hidden-md hidden-sm">
-        <swiper-slide>
-          <div>
-              <router-link to="/BlogCategory">
-          <img src="../../assets/temporyPic/Index/banner_1_m.png" class="img-responsive">  
+      <swiper-slide>
+        <div>
+          <router-link to="/BlogCategory">
+            <img src="../../assets/temporyPic/Index/banner_1_m.png" class="img-responsive">
           </router-link>
         </div>
       </swiper-slide>
       <swiper-slide>
         <div>
-            <router-link to="/Product/22">
+          <router-link to="/Product/22">
             <img src="../../assets/temporyPic/Index/banner_2_m.png" class="img-responsive">
-            </router-link>
-          </div>
-        </swiper-slide>
-        <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-        <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-      </swiper>
+          </router-link>
+        </div>
+      </swiper-slide>
+      <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+      <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+    </swiper>
     <div class="row">
       <!-- <router-link to="/Product/22">
         <div class="col-md-4 padding5 " style="padding-right:0px">
@@ -49,25 +49,25 @@
       </router-link> -->
       <div class="container" id="fbpost">
         <div class=" padding5 ">
-            <div class="style_intro">每周精選</div>
+          <div class="style_intro">每周精選</div>
           <swiper :options="swiperOption">
-            <swiper-slide v-for="item in fbpost">
-              <div class="fb_connect">
-                <div class="col-md-4 ">
-                  <img :src="item.photo" alt="" class="img-responsive" style="margin:10px 0px">
+            <template v-for="(item,index) in fbpost">
+              <swiper-slide :key="index">
+                <div class="fb_connect">
+                  <div class="col-md-4 ">
+                    <img :src="item.photo" alt="" class="img-responsive" style="margin:10px 0px">
+                  </div>
+                  <div class="col-md-8 fb_inside ">
+                    <div class="s_editor"><span> {{item.date}}</span></div>
+                    <div class="s_intro">{{item.mainTitle}}</div>
+                    <div class="facebook_content ">{{item.content}}</div>
+                    <span class="seemore"><router-link to="/fbpost">更多精選>></router-link></span>
+                  </div>
                 </div>
-                <div class="col-md-8 fb_inside ">
-                  <div class="s_editor"><span> {{item.date}}</span></div>
-                  <div class="s_intro">{{item.mainTitle}}</div>
-                  <div class="facebook_content ">{{item.content}}</div>
-                  <span class="seemore"><router-link to="/fbpost">更多精選>></router-link></span>
-                </div>
-              </div>
-            </swiper-slide>
-            
+              </swiper-slide>
+            </template>
             <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
             <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-           
           </swiper>
         </div>
       </div>
