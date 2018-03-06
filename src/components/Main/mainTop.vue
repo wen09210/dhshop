@@ -18,6 +18,7 @@
           </router-link>
         </div>
       </swiper-slide>
+      <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
@@ -50,7 +51,7 @@
       <div class="container" id="fbpost">
         <div class=" padding5 ">
           <div class="style_intro">每周精選</div>
-          <swiper :options="swiperOption">
+          <swiper :options="swiperOption2">
             <template v-for="(item,index) in fbpost">
               <swiper-slide :key="index">
                 <div class="fb_connect">
@@ -66,6 +67,7 @@
                 </div>
               </swiper-slide>
             </template>
+            <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
             <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
             <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
           </swiper>
@@ -92,6 +94,40 @@ export default {
         grabCursor: true,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        breakpoints: {
+          1024: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 10
+          },
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 5
+          }
+        }
+      },
+      swiperOption2: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        grabCursor: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
         breakpoints: {
           1024: {
             slidesPerView: 1,
