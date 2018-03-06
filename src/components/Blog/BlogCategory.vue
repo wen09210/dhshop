@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="main_section col-md-12">
-      <div class="category_title">看看大家的成果</div>
-      <div class="subtitle">d粉們精心裝潢的空間，給你最真實的鋪設心得</div>
+      <div class="category_title">為您精心挑選的居家故事</div>
+      <div class="subtitle">粉絲們精心裝潢的空間，給你最真實的鋪設心得</div>
     </div>
     <div class="col-md-3 col-xs-6 inblog" v-for="(item,index) in  BlogInCatgory" :key="index">
       <router-link :to="{name: 'Blog', params: {BlogID: item.BlogID}}">

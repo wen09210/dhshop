@@ -32,7 +32,7 @@
       <swiper-slide>
         <div>
           <router-link to="/Product/22">
-            <img src="../../assets/temporyPic/Index/banner_2_m.png" class="img-responsive">
+            <img src="../../assets/temporyPic/Index/banner_2_m.png" class="img-responsive ">
           </router-link>
         </div>
       </swiper-slide>
@@ -50,12 +50,13 @@
       <div class="container" id="fbpost">
         <div class=" padding5 ">
           <div class="style_intro">每周精選</div>
+          <div class="style_sub_intro">提供您最新最快的資訊</div>
           <swiper :options="swiperOption">
             <template v-for="(item,index) in fbpost">
               <swiper-slide :key="index">
                 <div class="fb_connect">
                   <div class="col-md-4 ">
-                    <img :src="item.photo" alt="" class="img-responsive" style="margin:10px 0px">
+                    <img :src="item.photo" alt="" class="img-responsive">
                   </div>
                   <div class="col-md-8 fb_inside ">
                     <div class="s_editor"><span> {{item.date}}</span></div>
@@ -66,6 +67,7 @@
                 </div>
               </swiper-slide>
             </template>
+            <div class="swiper-pagination" slot="pagination"></div>
             <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
             <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
           </swiper>
@@ -90,6 +92,9 @@ export default {
         spaceBetween: 20,
         loop: true,
         grabCursor: true,
+        pagination: {
+          el: '.swiper-pagination'
+        },
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         breakpoints: {
@@ -200,6 +205,10 @@ export default {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
+  .fb_inside {
+    padding: 0px 15px;
+  }
+
 }
 
 </style>

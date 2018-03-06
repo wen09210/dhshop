@@ -54,6 +54,10 @@
   margin-bottom: 15px;
   margin-top: 35px;
 }
+.style_sub_intro{
+  margin:-15px 0px 10px 0px;
+  font-size:18px;
+}
 @media (max-width:480px) {
   .style_intro {
   font-weight: bold;

@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <div class="style_intro">改造，從現在開始<span class="seemore"><router-link to="/prodCategory">找好物>></router-link></span></div>
+    <div class="style_intro">為您嚴選的居家好物</div>
+    <div class="style_sub_intro">用這些超棒的產品讓你家更完美</div><span class="seemore"><router-link to="/prodCategory">找好物>></router-link></span>
     <router-link to="/prodCategory">
         <img src="../../assets/temporyPic/index/productbanner.jpg" alt="" class="img-responsive">
     </router-link>
@@ -27,7 +28,9 @@ export default {
   background-color: #eee;
   font-size: 18px;
 }
-
+.seemore a{
+  color:#008489 ;
+}
 .nav.nav-yellow>li>img {
   width: 30px;
   height: 30px;

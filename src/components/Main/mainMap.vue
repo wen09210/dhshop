@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="container">
-    <div class="style_intro">還等什麼，來實際體驗吧!<span class="seemore"><router-link to="/CaseCategory">全台展示空間>></router-link></span></div>
+    <div class="style_intro">全台服務據點<span class="seemore"><router-link to="/CaseCategory">全台展示空間>></router-link></span></div>
+    <div class="style_sub_intro">有任何商品問題，都可以來這裡看看</div>
     <div class="col-md-6">
       <router-link to="/CaseCategory">
         <img src="../../assets/temporyPic/index/MAP.png" alt="" class="img-responsive">

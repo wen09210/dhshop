@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <div class="style_intro">跟著影片一起做<span class="seemore"><router-link to="/iframeCategory">更多教學>></router-link></span></div>
+    <div class="style_intro">更多創意小技巧<span class="seemore"><router-link to="/iframeCategory">更多教學>></router-link></span></div>
+    <div class="style_sub_intro">用創意，幫自己打造獨一無二的居家</div>
     <swiper :options="swiperFB">
       <template v-for="item in lay" v-cloak>
         <swiper-slide :key="item.iframeID">
@@ -89,7 +90,7 @@ export default {
     this.lay = this.FBiframe.filter(
       (x) => {
         return x.Label === '舖設拼法'
-      }).slice(5, 10)
+      }).slice(0, 5)
   }
 }
 
