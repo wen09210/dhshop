@@ -18,6 +18,7 @@
           </router-link>
         </div>
       </swiper-slide>
+      <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
@@ -36,6 +37,7 @@
           </router-link>
         </div>
       </swiper-slide>
+       <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
@@ -50,7 +52,6 @@
       <div class="container" id="fbpost">
         <div class=" padding5 ">
           <div class="style_intro">每周精選</div>
-          <div class="style_sub_intro">提供您最新最快的資訊</div>
           <swiper :options="swiperOption">
             <template v-for="(item,index) in fbpost">
               <swiper-slide :key="index">
@@ -67,7 +68,6 @@
                 </div>
               </swiper-slide>
             </template>
-            <div class="swiper-pagination" slot="pagination"></div>
             <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
             <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
           </swiper>
@@ -92,11 +92,12 @@ export default {
         spaceBetween: 20,
         loop: true,
         grabCursor: true,
-        pagination: {
-          el: '.swiper-pagination'
-        },
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
         breakpoints: {
           1024: {
             slidesPerView: 1,
