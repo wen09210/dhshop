@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="main_section col-md-12">
-      <div class="category_title">小編編精選</div>
-      <div class="subtitle">錯過了哪些精采訊息，別怕，都在這裡!</div>
+      <div class="category_title">每周風格提案</div>
+      <div class="subtitle">營造居家風格</div>
     </div>
     <ul>
       <div class='masonry'>
@@ -52,8 +52,10 @@ export default {
         slidesPerView: 2,
         spaceBetween: 20,
         loop: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
         breakpoints: {
           1024: {
             slidesPerView: 1,

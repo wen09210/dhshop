@@ -169,8 +169,10 @@ export default {
         slidesPerView: 4,
         spaceBetween: 20,
         loop: false,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
         breakpoints: {
           1024: {
             slidesPerView: 4,

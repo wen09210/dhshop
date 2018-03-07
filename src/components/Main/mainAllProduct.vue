@@ -1,26 +1,18 @@
 <template>
   <div class="container">
     <div class="style_intro">為您嚴選的居家好物</div>
-    <div class="style_sub_intro">用這些超棒的產品讓你家更完美</div><span class="seemore"><router-link to="/prodCategory">找好物>></router-link></span>
+    <div class="style_sub_intro">用這些超棒的產品讓你家更完美</div>
     <router-link to="/prodCategory">
-        <img src="../../assets/temporyPic/index/productbanner.jpg" alt="" class="img-responsive">
+      <img src="../../assets/temporyPic/index/productbanner.jpg" alt="" class="img-responsive">
     </router-link>
-    
+    <span class="seemore"><router-link to="/prodCategory">找好物>></router-link></span>
   </div>
 </template>
 <script>
-export default {
-}
+export default {}
 
 </script>
 <style scoped>
-.seemore{
-  float:right;
-  font-size: 15px;
-  padding-top: 15px;
-  color: #484848;
-  font-weight: 300;
-}
 .nav.nav-yellow>li {
   width: 150px;
   margin: 10px 3px;
@@ -28,24 +20,26 @@ export default {
   background-color: #eee;
   font-size: 18px;
 }
-.seemore a{
-  color:#008489 ;
-}
+
 .nav.nav-yellow>li>img {
   width: 30px;
   height: 30px;
 }
+
 .topdownMargin10 {
-  padding:0px;
+  padding: 0px;
   padding-right: 5px;
-  
+
 }
-.nav.nav-yellow>.col-xs-3{
+
+.nav.nav-yellow>.col-xs-3 {
   margin-left: 0px;
 }
-.col-md-6{
-  padding:0px;
+
+.col-md-6 {
+  padding: 0px;
 }
+
 .tabHover {
   color: #2e2e2e;
   background-color: #ffde97 !important;
@@ -75,10 +69,11 @@ export default {
 .topPadding {
   padding-bottom: 5px;
   padding-top: 5px;
-  padding-left:0px;
+  padding-left: 0px;
 }
+
 @media (max-width:768px) {
-  .nav.nav-yellow>li{
+  .nav.nav-yellow>li {
     width: 70px;
     margin: 10px 3px;
     padding: 10px 3px;
@@ -87,7 +82,7 @@ export default {
     text-align: center;
     padding: 0px;
     margin: 1px;
-    border-radius:2px solid #000;
+    border-radius: 2px solid #000;
   }
   .nav.nav-yellow>li>img {
     margin: 0px 15px;
@@ -99,4 +94,5 @@ export default {
     margin-bottom: 10px;
   }
 }
+
 </style>

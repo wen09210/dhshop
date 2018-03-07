@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="main_section col-md-12">
-      <div class="category_title">還等什麼，來實際體驗吧!</div>
+      <div class="category_title">全台服務據點</div>
       <div class="subtitle">台灣在地好店家，和您分享最真實的感受</div>
     </div>
     <div class="catetitle col-md-12">北部嚴選好鄰居</div>
