@@ -11,7 +11,7 @@
     </div>
   </div>
 </template>
-<script src="//assets.juicer.io/embed.js" type="text/javascript"></script>
+
 <script>
 export default {}
 
