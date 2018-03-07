@@ -270,8 +270,10 @@ export default {
       swiperOptionThumbs: {
         spaceBetween: 10,
         slidesPerView: 4,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
         breakpoints: {
           1024: {
             slidesPerView: 4,

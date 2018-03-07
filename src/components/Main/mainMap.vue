@@ -1,151 +1,125 @@
 <template>
   <div>
     <div class="container">
-    <div class="style_intro">全台服務據點<span class="seemore"><router-link to="/CaseCategory">全台展示空間>></router-link></span></div>
-    <div class="style_sub_intro">有任何商品問題，都可以來這裡看看</div>
-    <div class="col-md-6">
-      <router-link to="/CaseCategory">
-        <img src="../../assets/temporyPic/index/MAP.png" alt="" class="img-responsive">
-      </router-link>
-      </div>
-    <div class="col-md-6 hidden-xs">
-      <router-link to="CaseCategory">
-        <img src="../../assets/temporyPic/index/map_north.png" alt="" class="img-responsive imgHover s_line">
-      </router-link>  
-      <router-link to="CaseCategory#south">
-      <img src="../../assets/temporyPic/index/map_south.png" alt="" class="img-responsive imgHover s_line">
-      </router-link>
-    </div>  
-    <!-- <swiper :options="swiperOption">
-      <swiper-slide>
-        <router-link to="/Case/1">
-            <img src="https://www.dhshop.tw/Image/other/Case/case1.jpg" class="img-responsive">
-            <div class="case_name">中壢-實體旗艦店</div>
-            <div class="case_description">中壢旗艦店，專業教學體驗</div>
-        </router-link>    
-      </swiper-slide>
-      <swiper-slide>
-        <router-link to="/Case/2">
-            <img src="../../assets/temporyPic/Case/case2.jpg" class="img-responsive">
-            <div class="case_name">楊梅-犬宇宙美容spa會館</div>
-            <div class="case_description">給毛小孩最舒適的體驗</div>
+      <div class="style_intro">全台服務據點</div>
+      <div class="style_sub_intro">有任何商品問題，都可以來這裡看看</div>
+      <div class="col-md-6">
+        <router-link to="/CaseCategory">
+          <img src="../../assets/temporyPic/index/MAP.png" alt="" class="img-responsive">
         </router-link>
-      </swiper-slide>
-      <swiper-slide>
-        <router-link to="/Case/3">
-            <img src="../../assets/temporyPic/Case/case4.jpg" class="img-responsive">
-            <div class="case_name">台北-松江教會</div>
-            <div class="case_description">互相交流享受溫暖的時光</div>
-        </router-link>    
-      </swiper-slide>
-      <swiper-slide>
-        <router-link to="/Case/4">
-            <img src="../../assets/temporyPic/Case/case5.jpg" class="img-responsive">
-            <div class="case_name">新竹-小人的衣櫃</div>
-            <div class="case_description">每個小朋友都變成最時尚的model</div>
-        </router-link>    
-      </swiper-slide>
-      <swiper-slide>
-        <router-link to="/Case/5">
-            <img src="../../assets/temporyPic/Case/case6.jpg" class="img-responsive">
-            <div class="case_name">高雄-初樂Ture Love</div>
-            <div class="case_description">人和毛孩子都能舒適享用美食</div>
-        </router-link>    
-      </swiper-slide>
-      <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-      <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-    </swiper> -->
-
+      </div>
+      <div class="col-md-6 hidden-xs mapright">
+        <!-- <router-link to="CaseCategory">
+          <img src="../../assets/temporyPic/index/map_north.png" alt="" class="img-responsive imgHover s_line">
+        </router-link>
+        <router-link to="CaseCategory#south">
+          <img src="../../assets/temporyPic/index/map_south.png" alt="" class="img-responsive imgHover s_line">
+        </router-link> -->
+        <div v-for="(item,index) in map" class="s_line">
+          <router-link :to="{name: 'Case', params: {CaseID: item.CaseID}}">
+            <div class="col-md-4 map_img"><img :src="item.coverPhoto" alt="" class="img-responsive "></div>
+            <div class="col-md-8">
+              <div class="map_name ">{{item.name}}</div>
+              <div class="map_city">
+                <Icon type="ios-location"></Icon>{{item.city}} </div>
+              <div class="map_time">
+                <Icon type="clock"></Icon>{{item.opentime}}</div>
+            </div>
+            <div class="clearfix"></div>
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import map from '../../../static/file/caseList.json'
 export default {
-  components: {
-    swiper,
-    swiperSlide
-  },
   data() {
     return {
-      swiperOption: {
-        slidesPerView: 3,
-        spaceBetween: 20,
-        loop: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        breakpoints: {
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 20
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 20
-          },
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 10
-          },
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 5
-          }
-        }
-      }
+      map: map.data
     }
   }
 }
 
 </script>
 <style scoped>
-.img-responsive{
-    border-radius:3px;
+.img-responsive {
+  border-radius: 3px;
 }
-.col-md-6{
-  padding-left:0px;
-}
-.title_intro {
-  margin: 15px 0px;
-  padding: 10px 0px;
-  position: relative;
-  margin-top: 30px;
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-  letter-spacing: 3px;
-}
-.seemore{
-  float:right;
-  font-size: 15px;
-  padding-top: 15px;
-  color: #484848;
-  font-weight: 300;
-}
-.seemore a{
-  color:#008489 ;
-}
-.s_line{
-  border:1px dashed #ccc;
-  padding:2px;
-}
-.case_name{
 
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.4px;
-    padding-top: 8px;
-    padding-bottom: 0px; 
-    color: #484848; 
-    font-weight: 700;
+.mapright {
+  overflow-y: scroll;
+  height: 670px;
 }
-.case_description{
-    font-size: 19px;
-    line-height: 22px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    color: #484848;
-    font-weight: 700;
+
+.col-md-6 {
+  padding-left: 0px;
+}
+
+.s_line {
+  border: 1px dashed #ccc;
+  padding: 2px;
+  margin: 3px 0px;
+}
+
+.map_img {
+  padding-left: 0px;
+}
+
+.map_name {
+  font-size: 19px;
+  line-height: 22px;
+  padding-top: 5px;
+  margin-top: 10px;
+  - padding-bottom: 0px;
+  color: #484848;
+  font-weight: 700;
+}
+
+.map_city {
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  padding-top: 8px;
+  padding-bottom: 0px;
+  color: rgb(113, 192, 77);
+  font-weight: 700;
+}
+
+.map_time {
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  padding-top: 8px;
+  padding-bottom: 0px;
+  color: #FFc442;
+  font-weight: 700;
+}
+
+/* *scroll bar */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 </style>

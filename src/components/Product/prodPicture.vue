@@ -72,15 +72,19 @@ export default {
       swiperOption_Up: {
         slidesPerView: 1,
         loop: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev'
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
       },
       // 輪播下設定
       swiperOption_Down: {
         slidesPerView: 1,
         loop: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev'
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
       }
     }
   },

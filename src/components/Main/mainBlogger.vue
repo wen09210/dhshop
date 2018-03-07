@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container" id="blogger">
-      <div class="style_intro">為您精心挑選的案例 <span class="seemore"><router-link to="/BlogCategory">更多案例>></router-link></span></div>
+      <div class="style_intro">為您精心挑選的案例</div>
       <div class="style_sub_intro">來參考大家都怎麼搭配</div>
       <!-- <div v-for="item in BlogDetail">
       {{item.title}}
@@ -19,6 +19,7 @@
         <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
         <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
       </swiper>
+      <span class="seemore"><router-link to="/BlogCategory">更多案例>></router-link></span>
     </div>
   </div>
 </template>
@@ -38,8 +39,10 @@ export default {
         spaceBetween: 20,
         grabCursor: true,
         loop: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
         breakpoints: {
           1024: {
             slidesPerView: 3,
@@ -79,18 +82,6 @@ export default {
 <style scoped>
 .img-responsive {
   border-radius: 3px;
-}
-
-.seemore {
-  float: right;
-  font-size: 15px;
-  padding-top: 15px;
-  color: #484848;
-  font-weight: 300;
-}
-
-.seemore a {
-  color: #008489;
 }
 
 .title_intro {
@@ -133,5 +124,7 @@ export default {
 .Blog_tag {
   color: #FF9800;
 }
+
+@media (max-width:768px) {}
 
 </style>

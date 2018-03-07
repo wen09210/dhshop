@@ -89,8 +89,10 @@ export default {
         spaceBetween: 20,
         slideToClickedSlide: true,
         loop: false,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
         breakpoints: {
           1024: {
             slidesPerView: 4,
