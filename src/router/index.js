@@ -18,7 +18,7 @@ import iframeCategory from '../components/iframe/iframeCategory.vue'
 import prodCategory from '../components/Product/prodCategory.vue'
 import Contrast from '../components/Other/Contrast.vue'
 import changeAndReturn from '../components/Other/changeAndReturn.vue'
-import fbpost from '../components/Other/fbpost.vue'
+import proposal from '../components/Other/proposal.vue'
 // import axios from 'axios'
 import Cookies from 'js-cookie'
 Vue.use(Router)
@@ -130,8 +130,8 @@ const router = new Router({
       component: iframeCategory
     },
     {
-      path: '/fbpost',
-      component: fbpost
+      path: '/proposal',
+      component: proposal
     }
   ]
 })

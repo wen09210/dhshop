@@ -45,7 +45,6 @@
 </template>
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import fbpost from '../../../static/file/fbpost.json'
 export default {
   components: {
     swiper,
@@ -53,7 +52,6 @@ export default {
   },
   data() {
     return {
-      fbpost: [],
       swiperOption: {
         slidesPerView: 1,
         spaceBetween: 20,
@@ -89,12 +87,6 @@ export default {
     }
   },
   created() {
-    this.fbpost = fbpost.slice(0, 6)
-    // 隨機排列
-    // var random = function(array) {
-    //   return array.sort(function() { return Math.random() > 0.5 })
-    // }
-    // console.log(random(fbpost.data))
   }
 }
 

@@ -272,7 +272,6 @@ export default {
 .headerIcon {
   font-size: 18px;
   color: #6a7172;
-  font-weight: 600;
   vertical-align: baseline;
 }
 

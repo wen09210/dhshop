@@ -16,7 +16,7 @@
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
-    <span class="seemore"><router-link to="/iframeCategory">更多教學>></router-link></span>
+    <span class="seemore"><router-link to="/iframeCategory">更多小技巧>></router-link></span>
   </div>
   <!-- <router-link to="/prodPromte/1/1">
       </router-link> -->

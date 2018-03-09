@@ -2,25 +2,34 @@
   <div class="container">
     <div class="main_section col-md-12">
       <div class="category_title">每周風格提案</div>
-      <div class="subtitle">營造居家風格</div>
+      <div class="subtitle">各種風格應有盡有，快來打造獨一無二的居家</div>
     </div>
     <ul>
+      <div class="outtab">
+        <span @click="all" class="spacetab">所有空間</span>
+        <span @click="livingRoom" class="spacetab">客廳</span>
+        <span @click="balcony" class="spacetab">陽台</span>
+        <span @click="bedRoom" class="spacetab">臥室</span>
+        <!-- <input type="checkbox" id="livingRoom" value="客廳" v-model="choiceSpace">
+        <label for="livingRoom">客廳</label>
+        <input type="checkbox" id="balcony" value="balcony" v-model="choiceSpace">
+        <label for="balcony">陽台</label> -->
+      </div>
       <div class='masonry'>
-        <div class="masonry-item" v-for="(item,index) in  fbpost" :key="index">
-          <li class="infbpost">
+        <div class="masonry-item" v-for="(item,index) in changeSpace " :key="index">
+          <li class="inproposal">
             <!-- {{item.postID}} -->
             <img :src="item.photo" class="img-responsive">
-            <div class="fbpost_title">{{item.mainTitle}}</div>
-            <div class="fbpost_description">{{item.content}}</div>
-            <div class="fbpost_date">{{item.date}}</div>
+            <div class="proposal_title">{{item.mainTitle}}</div>
+            <div class="proposal_description">{{item.content}}</div>
+            <div class="proposal_date">{{item.date}}</div>
             <!-- 使用產品 -->
             <div class="use_tag">
               <Icon type="pricetag"></Icon>使用的產品
             </div>
             <router-link :to="item.prodlink">
-              <div v-for="(item,i) in fbpost[index].useProd" class="productIn">
-              <div class="prodBtn">
-                
+              <div v-for="(item,i) in changeSpace[index].useProd" class="productIn">
+                <div class="prodBtn">
                   <div class="outbox">
                     <div class="prod_simg">
                       <img :src="item.simg" alt="" class="img-responsive">
@@ -37,7 +46,7 @@
   </div>
 </template>
 <script>
-import fbpost from '../../../static/file/fbpost.json'
+import proposal from '../../../static/file/proposal.json'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   components: {
@@ -46,8 +55,8 @@ export default {
   },
   data() {
     return {
-      fbpost: fbpost,
-      fbpostIn: {},
+      changeSpace: [],
+      proposal: proposal,
       swiperOption: {
         slidesPerView: 2,
         spaceBetween: 20,
@@ -78,14 +87,53 @@ export default {
     }
   },
   created() {
-    // let dec = this.fbpost.find(x => x.postID === this.fbpost.index)
-    // this.fbpostIn = dec
-    // console.log(this.fbpostIn)
+    this.changeSpace = proposal.slice().reverse()
+  },
+  methods: {
+    all: function() {
+      this.changeSpace = this.proposal
+    },
+    livingRoom: function() {
+      this.changeSpace = this.proposal.filter(
+        (x) => {
+          return x.area === '客廳'
+        })
+    },
+    bedRoom: function() {
+      this.changeSpace = this.proposal.filter(
+        (x) => {
+          return x.area === '臥室'
+        })
+    },
+    balcony: function() {
+      this.changeSpace = this.proposal.filter(
+        (x) => {
+          return x.area === '陽台'
+        })
+    }
+
   }
 }
 
 </script>
 <style>
+.outtab {
+  margin: 5px 10px;
+  cursor: pointer;
+  
+}
+.outtab :hover{
+ background:#eee;
+}
+.spacetab {
+  padding: 8px;
+  border: 1px solid #d7d7d7;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 25px;
+
+}
+
 .masonry {
   column-count: 3;
   column-gap: 0;
@@ -126,7 +174,7 @@ export default {
   font-weight: 300;
 }
 
-.infbpost {
+.inproposal {
   margin: 5px 0px;
   border: 1px solid #d7d7d7;
   border-radius: 3px;
@@ -134,12 +182,12 @@ export default {
 
 }
 
-.fbpost_date {
+.proposal_date {
   text-align: right;
   color: #575454
 }
 
-.fbpost_title {
+.proposal_title {
   font-size: 17px;
   line-height: 25px;
   letter-spacing: 0.4px;
@@ -154,7 +202,7 @@ export default {
   font-weight: 700;
 }
 
-.fbpost_description {
+.proposal_description {
   font-size: 16px;
   line-height: 25px;
   padding-top: 0px;
@@ -168,7 +216,7 @@ export default {
   -webkit-box-orient: vertical; */
 }
 
-.fbpost_tag {
+.proposal_tag {
   color: #FF9800;
   padding-top: 3px;
 }
@@ -181,7 +229,7 @@ export default {
   margin: 10px 10px 0px 0px;
 }
 
- .prodBtn {
+.prodBtn {
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
@@ -207,9 +255,11 @@ export default {
   padding: 10px;
   font-size: 15px;
 }
-.use_tag{
-  color:#ff9800;
+
+.use_tag {
+  color: #ff9800;
 }
+
 @media (max-width:768px) {
   .masonry {
     column-count: 1;

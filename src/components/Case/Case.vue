@@ -100,7 +100,7 @@ export default {
         spaceBetween: 20,
         slideToClickedSlide: true,
         loop: false,
-        nnavigation: {
+        navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         },
@@ -126,11 +126,8 @@ export default {
     }
   },
   created() {
-    console.log(this.Case.data)
-    console.log(this.$route.params.CaseID)
     let CC = this.Case.data.find(x => x.CaseID === this.$route.params.CaseID)
     this.caseDetail = CC
-    console.log(this.caseDetail)
   },
   methods: {
     // 選擇輪播圖

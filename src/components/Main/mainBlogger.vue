@@ -12,8 +12,10 @@
             <img :src="item.coverPhoto" class="img-responsive ">
             <div class="Blog_name">{{item.title}}</div>
             <div class="Blog_description">{{item.quote}}</div>
+             <div class="blog_space">空間:{{item.spacetag}}  <!--<span class="blog_space2">坪數:{{item.squarFt}}坪</span> --></div>
             <div class="Blog_tag">
               <Icon type="pricetag"></Icon>{{item.prodtag}}</div>
+              
           </router-link>
         </swiper-slide>
         <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
@@ -96,31 +98,35 @@ export default {
 }
 
 .Blog_name {
-  font-size: 12px;
-  line-height: 16px;
+  color: #4CAF50;
+  font-size: 18px;
+  line-height: 18px;
   letter-spacing: 0.4px;
-  padding-top: 8px;
-  padding-bottom: 0px;
+  padding-top: 12px;
+  padding-bottom: 6px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Blog_description {
+  font-size: 16px;
   color: #484848;
-  font-weight: 700;
+  font-weight: 600;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
-
-.Blog_description {
-  font-size: 15px;
-  color: #484848;
+.blog_space{
+  font-size:14px;
+  color:#484848;
   font-weight: 400;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  padding-top: 0px;
+  line-height: 20px;
 }
-
 .Blog_tag {
   color: #FF9800;
 }

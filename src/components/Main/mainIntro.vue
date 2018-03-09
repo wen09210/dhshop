@@ -1,11 +1,11 @@
 <template>
   <div class="row">
-    <div class="container" id="fbpost">
+    <div class="container" id="proposal">
       <div class=" padding5 ">
         <div class="style_intro">每周風格提案</div>
         <div class="style_sub_intro">想擺脫一成不變的生活？快來找尋靈感</div>
         <swiper :options="swiperOption">
-          <template v-for="(item,index) in fbpost">
+          <template v-for="(item,index) in proposalIn">
             <swiper-slide :key="index">
               <div class="fb_connect">
                 <div class="col-md-4 ">
@@ -22,14 +22,14 @@
           <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
           <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
         </swiper>
-        <span class="seemore"><router-link to="/fbpost">更多精選>></router-link></span>
+        <span class="seemore"><router-link to="/proposal">更多提案>></router-link></span>
       </div>
     </div>
   </div>
 </template>
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import fbpost from '../../../static/file/fbpost.json'
+import proposal from '../../../static/file/proposal.json'
 export default {
   components: {
     swiper,
@@ -37,7 +37,8 @@ export default {
   },
   data() {
     return {
-      fbpost: [],
+      proposal: proposal,
+      proposalIn: {},
       swiperOption: {
         slidesPerView: 1,
         spaceBetween: 20,
@@ -68,12 +69,12 @@ export default {
     }
   },
   created() {
-    this.fbpost = fbpost.slice(0, 6)
+    this.proposalIn = proposal.reverse().slice(0, 6)
     // 隨機排列
     // var random = function(array) {
     //   return array.sort(function() { return Math.random() > 0.5 })
     // }
-    // console.log(random(fbpost.data))
+    // console.log(random(proposal.data))
   }
 }
 

@@ -138,8 +138,8 @@ export default {
   },
   computed: {
     refresh() {
-      let CC = this.Blog.data.find(x => x.BlogID === this.$route.params.BlogID)
-      this.BlogDetail = CC
+      let BlogDetail = this.Blog.data.find(x => x.BlogID === this.$route.params.BlogID)
+      this.BlogDetail = BlogDetail
     }
   }
 }

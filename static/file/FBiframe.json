@@ -333,5 +333,12 @@
     "Label": "舖設拼法",
     "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/50.png",
     "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1760431720674482%2F&show_text=0&width=560"
+  },
+  {
+    "iframeID": 49,
+    "title": "EP9.有哪些售前售後服務",
+    "Label": "dH小百科",
+    "coverPhoto": "https://www.dhshop.tw/Image/other/fbvideofirst/51.png",
+    "iframeUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdhshoptw%2Fvideos%2F1881283938589259%2F&show_text=0&width=560"
   }
 ]

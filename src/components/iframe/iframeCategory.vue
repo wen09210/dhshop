@@ -2,11 +2,11 @@
   <div class="container">
     <div class="main_section col-md-12">
       <div class="fb-video" data-href="1627499783967677 " data-allowfullscreen="true"></div>
-      <div class="category_title">跟著影片一起做</div>
+      <div class="category_title">更多創意小技巧</div>
       <div class="fb-video" data-href="1627499783967677 " data-allowfullscreen="true"></div>
-      <div class="subtitle">是的，親手打造就是這麼簡單!</div>
+      <div class="subtitle">跟著影片一起做，親手打造就是這麼簡單!</div>
     </div>
-    <div class="catetitle col-md-12">◆ 鋪設就是這麼簡單 ◆</div>
+    <div class="catetitle col-md-12"> 完美居家打造建議 </div>
     <template v-for="item in lay" v-cloak>
       <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe" :key="item.iframeID">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
@@ -14,15 +14,8 @@
       </div>
     </template>
     <div class="clearfix"></div>
-    <div class="catetitle col-md-12">◆ 小編~我有問題 ◆</div>
-    <template v-for="item in clear" v-cloak>
-      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe" :key="item.iframeID">
-        <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
-        <div class="FBiframe_description">{{item.title}}</div>
-      </div>
-    </template>
-    <div class="clearfix"></div>
-    <div class="catetitle col-md-12">◆ 邊邊角角怎麼辦? ◆</div>
+    
+    <div class="catetitle col-md-12"> 邊邊角角怎麼辦? </div>
     <template v-for="item in classroom" v-cloak>
       <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe" :key="item.iframeID">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
@@ -30,7 +23,16 @@
       </div>
     </template>
     <div class="clearfix"></div>
-    <div class="catetitle col-md-12">◆ 走進，夢想的空間 ◆</div>
+    <div class="catetitle col-md-12">有任何問題，我們會隨時協助 </div>
+    <template v-for="item in clear" v-cloak>
+      <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe" :key="item.iframeID">
+        <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
+        <div class="FBiframe_description">{{item.title}}</div>
+      </div>
+    </template>
+    
+    <div class="clearfix"></div>
+    <div class="catetitle col-md-12"> 走進，夢想的空間 </div>
     <template v-for="item in oba" v-cloak>
       <div @click="instance(item.iframeID)" class="col-md-3 col-xs-6 inFBiframe" :key="item.iframeID">
         <img :src="item.coverPhoto" class="img-responsive fbiframephoto">
@@ -52,27 +54,7 @@ export default {
       clear: []
     }
   },
-  // mounted() {
-  //   alert(process.env.testVar)
-  //   window.fbAsyncInit = function() {
-  //     /* global FB */
-  //     FB.init({
-  //       appId: '{1238259759578123}',
-  //       xfbml: true,
-  //       version: 'v2.5'
-  //     })
-  //     // Get Embedded Video Player API Instance
-  //     var myvideoplayer
-  //     FB.Event.subscribe('xfbml.ready', function(msg) {
-  //       if (msg.type === 'video') {
-  //         myvideoplayer = msg.instance
-  //         myvideoplayer.unmute()
-  //       }
-  //     })
-  //   }
-  // },
   created() {
-    console.log(FBiframeincatgory)
     // var sortArray = function(array) {
     //   return array.sort(function(a, b) {
     //     if (a.iframeID > b.iframeID) {
@@ -95,13 +77,11 @@ export default {
       (x) => {
         return x.Label === 'dH小百科'
       })
-    console.log(this.clear)
     // 歐巴到你家
     this.oba = this.FBiframeincatgory.filter(
       (x) => {
         return x.Label === '歐巴到你家'
       })
-    console.log(FBiframeincatgory)
   },
   methods: {
     instance(n) {
@@ -174,7 +154,7 @@ export default {
   word-wrap: break-word;
   font-size: 19px;
   line-height: 24px;
-  padding-top: 10px;
+  padding-top: 5px;
   padding-bottom: 0px;
   color: #484848;
   font-weight: 300;
