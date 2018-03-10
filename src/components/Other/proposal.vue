@@ -6,14 +6,19 @@
     </div>
     <ul>
       <div class="outtab">
-        <span @click="all" class="spacetab">所有空間</span>
-        <span @click="livingRoom" class="spacetab">客廳</span>
-        <span @click="balcony" class="spacetab">陽台</span>
-        <span @click="bedRoom" class="spacetab">臥室</span>
-        <!-- <input type="checkbox" id="livingRoom" value="客廳" v-model="choiceSpace">
-        <label for="livingRoom">客廳</label>
-        <input type="checkbox" id="balcony" value="balcony" v-model="choiceSpace">
-        <label for="balcony">陽台</label> -->
+        <span @click="all" class="spacetab" >所有空間</span>
+        <span @click="livingRoom" class="spacetab" >客廳</span>
+        <span @click="balcony" class="spacetab" >陽台</span>
+        <span @click="bedRoom" class="spacetab" >臥室</span>
+        <!-- {{picked}}
+        <input type="radio" id="all" value="all" @click="all"  class="spacetab" v-model="picked">
+        <label for="all" >所有空間</label> 
+        <input type="radio" id="livingRoom" value="livingRoom" @click="livingRoom"  class="spacetab" v-model="picked">
+        <label for="livingRoom" class="spacetab">客廳</label> 
+        <input type="radio" id="balcony" value="balcony"  @click="balcony" class="spacetab" v-model="picked">
+        <label for="balcony" class="spacetab">陽台</label>
+        <input type="radio" id="bedRoom" value="bedRoom" @click="bedRoom"  class="spacetab" v-model="picked">
+        <label for="bedRoom" class="spacetab">臥室</label>  -->
       </div>
       <div class='masonry'>
         <div class="masonry-item" v-for="(item,index) in changeSpace " :key="index">
@@ -92,6 +97,8 @@ export default {
   methods: {
     all: function() {
       this.changeSpace = this.proposal
+      const menu = document.querySelectorAll('.spacetab')
+      menu.classList.toggle('addcolor')
     },
     livingRoom: function() {
       this.changeSpace = this.proposal.filter(
@@ -120,11 +127,17 @@ export default {
 .outtab {
   margin: 5px 10px;
   cursor: pointer;
-  
+
 }
-.outtab :hover{
- background:#eee;
+
+.addcolor{
+  color:#ffc442;
 }
+
+.outtab :hover {
+  background: #eee;
+}
+
 .spacetab {
   padding: 8px;
   border: 1px solid #d7d7d7;

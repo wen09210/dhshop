@@ -12,7 +12,7 @@
             <img :src="item.coverPhoto" class="img-responsive ">
             <div class="Blog_name">{{item.title}}</div>
             <div class="Blog_description">{{item.quote}}</div>
-             <div class="blog_space">空間:{{item.spacetag}}  <!--<span class="blog_space2">坪數:{{item.squarFt}}坪</span> --></div>
+            <!-- <div class="blog_space">空間:{{item.spacetag}}  <span class="blog_space2">坪數:{{item.squarFt}}坪</span> </div>-->
             <div class="Blog_tag">
               <Icon type="pricetag"></Icon>{{item.prodtag}}</div>
               
