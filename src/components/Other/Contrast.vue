@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="main_section col-md-12">
-      <div class="Contrast_title">產品比對圖</div>
+      <div class="Contrast_title">產品實際鋪設照</div>
       <div class="subtitle">還在猶豫家中的佈置嗎?讓我來幫你一把</div>
     </div>
     <div class="col-md-12">
