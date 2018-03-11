@@ -5,21 +5,35 @@
       <div class="subtitle">各種風格應有盡有，快來打造獨一無二的居家</div>
     </div>
     <ul>
-      <div class="outtab">
-        <span @click="all" class="spacetab" >所有空間</span>
-        <span @click="livingRoom" class="spacetab" >客廳</span>
-        <span @click="balcony" class="spacetab" >陽台</span>
-        <span @click="bedRoom" class="spacetab" >臥室</span>
-        <!-- {{picked}}
-        <input type="radio" id="all" value="all" @click="all"  class="spacetab" v-model="picked">
-        <label for="all" >所有空間</label> 
-        <input type="radio" id="livingRoom" value="livingRoom" @click="livingRoom"  class="spacetab" v-model="picked">
-        <label for="livingRoom" class="spacetab">客廳</label> 
-        <input type="radio" id="balcony" value="balcony"  @click="balcony" class="spacetab" v-model="picked">
-        <label for="balcony" class="spacetab">陽台</label>
-        <input type="radio" id="bedRoom" value="bedRoom" @click="bedRoom"  class="spacetab" v-model="picked">
-        <label for="bedRoom" class="spacetab">臥室</label>  -->
+      <!-- <div class="outtab">
+        <span @click="all" class="spacetab" :class="[isActive ? activeClass : '']">所有空間</span>
+        <span @click="livingRoom" class="spacetab" :class="[isActive ? activeClass : '']">客廳</span>
+        <span @click="balcony" class="spacetab" :class="[isActive ? activeClass : '']">陽台</span>
+        <span @click="bedRoom" class="spacetab" :class="[isActive ? activeClass : '']">臥室</span>
+      </div> -->
+      <div class="col-md-12">
+        <div class="subtitle2">你想從哪開始呢?</div>
+        <template>
+          <Select v-model="modelSpace" class="modelSpace" placeholder="你想改變哪裡">
+            <Option value="所有空間" label="所有空間">
+              <span>所有空間</span>
+            </Option>
+            <Option value="客廳" label="客廳">
+              <span>客廳</span>
+            </Option>
+            <Option value="臥室" label="臥室">
+              <span>臥室</span>
+            </Option>
+            <Option value="陽台" label="陽台">
+              <span>陽台</span>
+            </Option>
+            <Option value="辦公室" label="辦公室">
+              <span>辦公室</span>
+            </Option>
+          </Select>
+        </template>
       </div>
+      {{chosen}}
       <div class='masonry'>
         <div class="masonry-item" v-for="(item,index) in changeSpace " :key="index">
           <li class="inproposal">
@@ -61,6 +75,7 @@ export default {
   data() {
     return {
       changeSpace: [],
+      modelSpace: '',
       proposal: proposal,
       swiperOption: {
         slidesPerView: 2,
@@ -94,57 +109,24 @@ export default {
   created() {
     this.changeSpace = proposal.slice().reverse()
   },
-  methods: {
-    all: function() {
-      this.changeSpace = this.proposal
-      const menu = document.querySelectorAll('.spacetab')
-      menu.classList.toggle('addcolor')
-    },
-    livingRoom: function() {
-      this.changeSpace = this.proposal.filter(
-        (x) => {
-          return x.area === '客廳'
-        })
-    },
-    bedRoom: function() {
-      this.changeSpace = this.proposal.filter(
-        (x) => {
-          return x.area === '臥室'
-        })
-    },
-    balcony: function() {
-      this.changeSpace = this.proposal.filter(
-        (x) => {
-          return x.area === '陽台'
-        })
+  computed: {
+    chosen() {
+      if (this.modelSpace === '' || this.modelSpace === '所有空間') {
+        this.changeSpace = this.proposal
+      } else {
+        this.changeSpace = this.proposal.filter(
+          (x) => {
+            return x.area === this.modelSpace
+          })
+      }
     }
-
   }
 }
 
 </script>
 <style>
-.outtab {
-  margin: 5px 10px;
-  cursor: pointer;
-
-}
-
-.addcolor{
-  color:#ffc442;
-}
-
-.outtab :hover {
-  background: #eee;
-}
-
-.spacetab {
-  padding: 8px;
-  border: 1px solid #d7d7d7;
-  border-radius: 3px;
-  font-size: 16px;
-  line-height: 25px;
-
+.modelSpace {
+  width: 200px;
 }
 
 .masonry {
@@ -176,7 +158,8 @@ export default {
   color: #484848;
 }
 
-.subtitle {
+.subtitle,
+.subtitle2 {
   margin: 0px;
   word-wrap: break-word;
   font-size: 19px;
@@ -185,6 +168,11 @@ export default {
   padding-bottom: 0px;
   color: #484848;
   font-weight: 300;
+}
+
+.subtitle2 {
+  margin-top: -15px;
+  margin-bottom: 10px;
 }
 
 .inproposal {
