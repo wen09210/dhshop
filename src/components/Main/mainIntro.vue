@@ -15,6 +15,8 @@
                   <div class="s_editor"><span> {{item.date}}</span></div>
                   <div class="s_intro">{{item.mainTitle}}</div>
                   <div class="facebook_content ">{{item.content}}</div>
+                  {{item.area}}
+                  {{item.style}}
                 </div>
               </div>
             </swiper-slide>
@@ -38,7 +40,8 @@ export default {
   data() {
     return {
       proposal: proposal,
-      proposalIn: {},
+      reproposal: proposal.reverse(),
+      proposalIn: [],
       swiperOption: {
         slidesPerView: 1,
         spaceBetween: 20,
@@ -69,7 +72,8 @@ export default {
     }
   },
   created() {
-    this.proposalIn = proposal.reverse().slice(0, 6)
+    this.proposalIn = this.reproposal.slice(0, 6)
+    console.log(this.reproposal)
     // 隨機排列
     // var random = function(array) {
     //   return array.sort(function() { return Math.random() > 0.5 })
@@ -131,6 +135,11 @@ export default {
   .s_intro {
     font-size: 18px;
     margin-bottom: 5px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
   .facebook_content {
     font-size: 16px;
@@ -139,7 +148,7 @@ export default {
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
   .fb_inside {

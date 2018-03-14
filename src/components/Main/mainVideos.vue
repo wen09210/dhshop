@@ -83,7 +83,6 @@ export default {
     }
   },
   created() {
-    console.log(FBiframe)
     // 隨機排列
     // var random = function(array) {
     //   return array.sort(function() { return Math.random() - 0.5 })

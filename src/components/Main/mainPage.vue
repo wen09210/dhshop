@@ -6,7 +6,7 @@
     <mainVideos></mainVideos>
     <mainMap></mainMap>
     <!-- <mainArtical></mainArtical> -->
-    <mainAllProduct></mainAllProduct>
+    <!-- <mainAllProduct></mainAllProduct> -->
     <mainIgFrame></mainIgFrame>
   </div>
 </template>

@@ -3,8 +3,8 @@
     <div class="col-md-12">
       <div class="container">
         <div class="main_section col-md-12">
-          <div class="category_title">改造，從現在開始</div>
-          <div class="subtitle">嚴選好物，專屬於您的空間設計師</div>
+          <div class="category_title">為您嚴選的居家好物</div>
+          <div class="subtitle">用這些超棒的產品讓你家更完美</div>
         </div>
         <div class="catetitle col-md-12">佈置靈感</div>
         <div class="col-md-3 col-xs-6 inallProd" v-for="(items,index) in inspire" :key="index">

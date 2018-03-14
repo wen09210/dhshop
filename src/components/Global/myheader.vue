@@ -11,7 +11,7 @@
                 <template v-if="cartCount!== 0">
                   <div class="cartCount">{{cartCount}}</div>
                 </template>
-                <button type="button" class="btn BtnToA headerIcon" data-role="trigger" @click="showNavbar=!showNavbar">
+                <button type="button" class="btn BtnToA headerIcon" data-role="trigger" >
                   <Icon type="bag iconcolor"></Icon> <span class="hidden-xs">購物車</span>
                 </button>
               </router-link>
@@ -74,7 +74,7 @@
             <li class="headerIcon">
                 <a class="headerIcon">
                   <router-link to="/CaseCategory">
-                    <button type="button" class="btn  BtnToA headerIcon" @click="showNavbar=!showNavbar">
+                    <button type="button" class="btn  BtnToA headerIcon" >
                         <Icon type="ios-location-outline iconcolor"></Icon>  實體店
                     </button>
                   </router-link>
@@ -83,7 +83,7 @@
             <li class="headerIcon">
               <a class="headerIcon">
                 <router-link to="/BlogCategory">
-                  <button type="button" class="btn  BtnToA headerIcon" @click="showNavbar=!showNavbar">
+                  <button type="button" class="btn  BtnToA headerIcon" >
                     <Icon type="ios-home-outline iconcolor"></Icon> 改造精選
                   </button>
                 </router-link>
@@ -92,7 +92,7 @@
             <li class="headerIcon">
               <a class="headerIcon">
                 <router-link to="/iframeCategory">
-                  <button type="button" class="btn  BtnToA headerIcon" @click="showNavbar=!showNavbar">
+                  <button type="button" class="btn  BtnToA headerIcon" >
                     <Icon type="social-youtube-outline iconcolor"></Icon> 主題教學
                   </button>
                 </router-link>
@@ -101,8 +101,8 @@
             <li class="headerIcon">
               <a class="headerIcon">
                 <router-link to="/prodCategory">
-                  <button type="button" class="btn  BtnToA headerIcon " @click="showNavbar=!showNavbar">
-                    <Icon type="ios-list-outline iconcolor"></Icon> 產品列表
+                  <button type="button" class="btn  BtnToA headerIcon ">
+                    <Icon type="ios-list-outline iconcolor"></Icon> dH商城
                   </button>
                 </router-link>
               </a>

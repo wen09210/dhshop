@@ -21,7 +21,7 @@
         <!-- 內容 -->
         <div class="col-md-12 col-xs-12">
           <div class="thank">感謝您的購買</div>
-          <div class="note col-sm-offset-3 col-xs-offset-1 ">
+          <div class="note">
             <p>訂購明細已寄至所填信箱，我們會盡快處理您的訂單，</p>
             <p>出貨前會以電話聯繫您，請再留意手機來電。</p>
           </div>
