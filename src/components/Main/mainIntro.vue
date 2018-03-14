@@ -15,8 +15,6 @@
                   <div class="s_editor"><span> {{item.date}}</span></div>
                   <div class="s_intro">{{item.mainTitle}}</div>
                   <div class="facebook_content ">{{item.content}}</div>
-                  {{item.area}}
-                  {{item.style}}
                 </div>
               </div>
             </swiper-slide>
