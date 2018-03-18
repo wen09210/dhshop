@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="container" id="blogger">
-        <div class="style_intro">看看不凡的故事，完整你的居家拼圖</div>
-        <div class="style_sub_intro">自己動手付出努力，讓居家生活大不同</div>
+      <div class="style_intro">看看不凡的故事，完整你的居家拼圖</div>
+      <div class="style_sub_intro">自己動手付出努力，讓居家生活大不同</div>
       <!-- <div v-for="item in BlogDetail">
       {{item.title}}
     </div>   -->
@@ -10,17 +10,16 @@
         <swiper-slide v-for="item in Blog" :key="item.BlogID">
           <router-link :to="{name: 'Blog', params: {BlogID: item.BlogID}}">
             <img :src="item.coverPhoto" class="img-responsive ">
-            <div class="views"><Icon type="eye"></Icon> {{item.views}}次瀏覽</div>
+            <div class="views">
+              <Icon type="eye"></Icon> {{item.views}}次瀏覽</div>
             <div class="Blog_name">【{{item.title}}】</div>
             <div class="Blog_description">{{item.quote}}</div>
             <!-- <div class="blog_space">空間:{{item.spacetag}}  <span class="blog_space2">坪數:{{item.squarFt}}坪</span> </div>-->
-            
-              <div class="Blog_tag">
-                  <Icon type="person" color="#ccc"></Icon>{{item.name}}
-                  <Icon type="ios-location" color="#ccc"></Icon> {{item.spacetag}}
-                  <Icon type="crop" color="#ccc"></Icon>{{item.squarFt}}坪
-                </div>  
-              
+            <div class="Blog_tag">
+              <Icon type="ios-location" color="#ccc"></Icon> {{item.spacetag}}
+              <Icon type="crop" color="#ccc"></Icon>{{item.squarFt}}坪
+              <Icon type="person" color="#ccc"></Icon>{{item.name}}
+            </div>
           </router-link>
         </swiper-slide>
         <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
@@ -125,30 +124,33 @@ export default {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
-.blog_space{
-  font-size:14px;
-  color:#484848;
+
+.blog_space {
+  font-size: 14px;
+  color: #484848;
   font-weight: 400;
   padding-top: 0px;
   line-height: 20px;
 }
+
 .Blog_tag {
   margin-top: 10px;
   color: #484848;
-  font-size:14px;
+  font-size: 14px;
   font-weight: 600;
 }
 
-.views{
-  float:right;
-  padding:3px;
-  margin-top:-25px;
-  right:0px;
+.views {
+  float: right;
+  padding: 3px;
+  margin-top: -25px;
+  right: 0px;
   position: absolute;
-  color:white;
+  color: white;
   background-color: rgba(0, 0, 0, 0.267);
-  z-index:2;
+  z-index: 2;
 }
+
 @media (max-width:768px) {}
 
 </style>

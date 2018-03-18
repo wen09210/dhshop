@@ -10,10 +10,11 @@
         <div class="Blog_name">【{{item.title}}】</div>
         <div class="Blog_description ">{{item.quote}}</div>
         <!-- <div class="blog_space">空間:{{item.spacetag}} -->
-          <!--<span class="blog_space2">坪數:{{item.squarFt}}坪</span></div>-->
+        <!--<span class="blog_space2">坪數:{{item.squarFt}}坪</span></div>-->
         <div class="Blog_tag">
-          <Icon type="pricetag" color="#ccc"></Icon>{{item.prodtag}}
+          <Icon type="ios-location" color="#ccc"></Icon> {{item.spacetag}}
           <Icon type="crop" color="#ccc"></Icon>{{item.squarFt}}坪
+          <Icon type="person" color="#ccc"></Icon>{{item.name}}
         </div>
       </router-link>
     </div>

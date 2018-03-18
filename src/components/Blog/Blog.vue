@@ -4,8 +4,10 @@
     <div class="main_img"> <img :src="BlogDetail.mainImg" alt=""></div>
     <div class="container">
       <div class="blogtime col-md-12">
-        <Icon type="pricetag"></Icon>{{BlogDetail.prodtag}}
-        <Icon type="android-calendar"></Icon> {{BlogDetail.time}}
+          <Icon type="ios-location" color="#ccc"></Icon> {{BlogDetail.spacetag}}
+          <Icon type="crop" color="#ccc"></Icon>{{BlogDetail.squarFt}}坪
+        <Icon type="pricetag" color="#ccc"></Icon>{{BlogDetail.prodtag}}
+        <Icon type="android-calendar" color="#ccc"></Icon> {{BlogDetail.time}}
       </div>
       <div class="blog_inside col-md-9">
         <div class="mainTitle">{{BlogDetail.title}}</div>

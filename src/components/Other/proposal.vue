@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="main_section col-md-12">
-      <div class="category_title">每個空間都有專屬故事</div>
-      <div class="subtitle">快來擁有你獨一無二的空間</div>
+      <div class="category_title">一點小改變，你家也能變這樣</div>
+      <div class="subtitle">快來打造你獨一無二的專屬空間</div>
     </div>
     <ul>
       <!-- <div class="outtab">

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="container" id="blogger">
+    <div class="container" >
       <div class="style_intro">一點小改變，你家也能變這樣</div>
       <div class="style_sub_intro">原來我家還可以這樣改造!!</div>
-      <!-- <div v-for="item in BlogDetail">
+      <!-- <div v-for="item in changeSpaceDetail">
       {{item.title}}
     </div>   -->
       <swiper :options="swiperOption">
@@ -13,10 +13,10 @@
               <img :src="item.photo" class="img-responsive ">
               <div class="views">
                 <Icon type="eye"></Icon> {{item.views}}次瀏覽</div>
-              <div class="Blog_name">【{{item.mainTitle}}】</div>
-              <!-- <div class="Blog_description">{{item.content}}</div>
-              <div class="blog_space">空間:{{item.spacetag}} <span class="blog_space2">坪數:{{item.squarFt}}坪</span> </div> -->
-              <div class="Blog_tag">
+              <div class="changeSpace_name">【{{item.mainTitle}}】</div>
+              <!-- <div class="changeSpace_description">{{item.content}}</div>
+              <div class="changeSpace_space">空間:{{item.spacetag}} <span class="changeSpace_space2">坪數:{{item.squarFt}}坪</span> </div> -->
+              <div class="changeSpace_tag">
                 <Icon type="ios-location" color="#ccc"></Icon> {{item.area}}
                 <Icon type="leaf" color="#ccc"></Icon>{{item.style}}
               </div>
@@ -77,7 +77,7 @@ export default {
       n = this.proposal[n - 1]
       this.$Modal.info({
         title: n.mainTitle,
-        content: "<img src='" + n.photo + "' class='img-responsive'><br><div class='Blog_description'>" + n.content + "'</div>",
+        content: "<img src='" + n.photo + "' class='img-responsive'><br><div class='changeSpace_description'>" + n.content + "'</div>",
         width: 400,
         okText: '關閉'
       })
@@ -131,7 +131,7 @@ export default {
   letter-spacing: 3px;
 }
 
-.Blog_name {
+.changeSpace_name {
   color: #4CAF50;
   font-size: 13px;
   line-height: 18px;
@@ -144,7 +144,7 @@ export default {
   white-space: nowrap;
 }
 
-.Blog_description {
+.changeSpace_description {
   font-size: 16px;
   color: #484848;
   font-weight: 400;
@@ -155,7 +155,7 @@ export default {
   -webkit-box-orient: vertical;
 }
 
-.blog_space {
+.changeSpace_space {
   font-size: 14px;
   color: #484848;
   font-weight: 400;
@@ -163,7 +163,7 @@ export default {
   line-height: 20px;
 }
 
-.Blog_tag {
+.changeSpace_tag {
   color: #484848;
   font-size: 14px;
   font-weight: 600;

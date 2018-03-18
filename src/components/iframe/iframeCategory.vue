@@ -2,9 +2,9 @@
   <div class="container">
     <div class="main_section col-md-12">
       <div class="fb-video" data-href="1627499783967677 " data-allowfullscreen="true"></div>
-      <div class="category_title">更多創意小技巧</div>
+      <div class="category_title">換個做法，你家能更不一樣</div>
       <div class="fb-video" data-href="1627499783967677 " data-allowfullscreen="true"></div>
-      <div class="subtitle">跟著影片一起做，親手打造就是這麼簡單!</div>
+      <div class="subtitle">跟著影片一起做，空間任由你掌握!</div>
     </div>
     <div class="catetitle col-md-12"> 完美居家打造建議 </div>
     <template v-for="item in lay" v-cloak>
@@ -135,19 +135,6 @@ export default {
   color: #484848;
 }
 
-.FBiframe_description {
-  font-size: 17px;
-  line-height: 22px;
-  padding-top: 15px;
-  padding-bottom: 0px;
-  color: #484848;
-  font-weight: 700;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
 
 .subtitle {
   margin: 0px;
@@ -176,7 +163,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   height: 35px;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
