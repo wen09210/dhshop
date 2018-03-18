@@ -2,8 +2,8 @@
   <div class="row">
     <div class="container" id="proposal">
       <div class=" padding5 ">
-        <div class="style_intro">每周風格提案</div>
-        <div class="style_sub_intro">想擺脫一成不變的生活？快來找尋靈感</div>
+        <div class="style_intro">百位使用者的見證</div>
+        <div class="style_sub_intro">感謝你攜手陪伴dHSHOP，一起成就更多美好</div>
         <swiper :options="swiperOption">
           <template v-for="(item,index) in proposalIn">
             <swiper-slide :key="index">

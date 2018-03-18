@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="main_section col-md-12">
-      <div class="category_title">每周風格提案</div>
-      <div class="subtitle">各種風格應有盡有，快來打造獨一無二的居家</div>
+      <div class="category_title">每個空間都有專屬故事</div>
+      <div class="subtitle">快來擁有你獨一無二的空間</div>
     </div>
     <ul>
       <!-- <div class="outtab">
@@ -41,6 +41,9 @@
             <img :src="item.photo" class="img-responsive">
             <div class="proposal_title">{{item.mainTitle}}</div>
             <div class="proposal_description">{{item.content}}</div>
+            <div class="Blog_tag">
+              <Icon type="ios-location" color="#ccc"></Icon> {{item.area}}
+              <Icon type="leaf" color="#ccc"></Icon>{{item.style}}</div>
             <div class="proposal_date">{{item.date}}</div>
             <!-- 使用產品 -->
             <div class="use_tag">
@@ -107,7 +110,7 @@ export default {
     }
   },
   created() {
-    this.changeSpace = proposal.slice().reverse()
+    this.changeSpace = proposal.slice()
   },
   computed: {
     chosen() {
@@ -193,7 +196,6 @@ export default {
   line-height: 25px;
   letter-spacing: 0.4px;
   padding-top: 12px;
-  text-align: center;
   padding-bottom: 8px;
   font-weight: 400;
   /* overflow: hidden;
@@ -260,7 +262,11 @@ export default {
 .use_tag {
   color: #ff9800;
 }
-
+.Blog_tag {
+  color: #484848;
+  font-size:14px;
+  font-weight: 600;
+}
 @media (max-width:768px) {
   .masonry {
     column-count: 1;

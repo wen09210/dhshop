@@ -1,13 +1,14 @@
 <template>
   <div id="mainpage">
     <mainTop></mainTop>
-    <mainIntro></mainIntro>
-    <mainBlogger></mainBlogger>
+    <!-- <mainIntro></mainIntro> -->
+    <mainChangeSpace></mainChangeSpace>
     <mainVideos></mainVideos>
-    <mainMap></mainMap>
+    <mainBlogger></mainBlogger>
+    <mainIgFrame></mainIgFrame>
+    <!-- <mainMap></mainMap> -->
     <!-- <mainArtical></mainArtical> -->
     <!-- <mainAllProduct></mainAllProduct> -->
-    <mainIgFrame></mainIgFrame>
   </div>
 </template>
 <script>
@@ -19,6 +20,7 @@ import mainAllProduct from './mainAllProduct'
 import mainIgFrame from './mainIgFrame.vue'
 import mainMap from './mainMap'
 import mainBlogger from './mainBlogger'
+import mainChangeSpace from './mainChangeSpace'
 import Lockr from 'lockr'
 export default {
   created() {
@@ -32,12 +34,16 @@ export default {
     // mainArtical,
     mainAllProduct,
     mainIgFrame,
-    mainMap
+    mainMap,
+    mainChangeSpace
   }
 }
 
 </script>
 <style>
+.navbar-fixed-bottom, .navbar-fixed-top{
+z-index:999;
+}
 .seemore {
   display: block;
   clear: both;
@@ -73,17 +79,17 @@ export default {
 
 @media (max-width:480px) {
   .seemore {
-    margin:15px 0px;
-    background: transparent ;
-    border: 1px solid rgb(166, 29, 85) ;
-    border-radius: 4px ;
-    cursor: pointer ;
-    display: inline-block ;
-    padding: 5px ;
-    text-align: center ;
-    text-decoration: none ;
-    white-space: nowrap ;
-    width: 100% ;
+    margin: 15px 0px;
+    background: transparent;
+    border: 1px solid rgb(166, 29, 85);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 100%;
   }
   .style_intro {
     font-weight: bold;

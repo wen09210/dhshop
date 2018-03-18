@@ -7,15 +7,16 @@
     <div class="col-md-4 col-xs-6 inblog" v-for="(item,index) in  BlogInCatgory" :key="index">
       <router-link :to="{name: 'Blog', params: {BlogID: item.BlogID}}">
         <img :src="item.coverPhoto" class="img-responsive">
-        <div class="Blog_name">{{item.title}}</div>
+        <div class="Blog_name">【{{item.title}}】</div>
         <div class="Blog_description ">{{item.quote}}</div>
         <!-- <div class="blog_space">空間:{{item.spacetag}} -->
           <!--<span class="blog_space2">坪數:{{item.squarFt}}坪</span></div>-->
         <div class="Blog_tag">
-          <Icon type="pricetag"></Icon>{{item.prodtag}}</div>
+          <Icon type="pricetag" color="#ccc"></Icon>{{item.prodtag}}
+          <Icon type="crop" color="#ccc"></Icon>{{item.squarFt}}坪
+        </div>
       </router-link>
     </div>
-    <div class="col-md-12"><span class="seemoreindeep"><router-link to="/contrast">更多故事在這裡等你>></router-link></span></div>
   </div>
 </template>
 <script>
@@ -105,7 +106,7 @@ export default {
 }
 
 .Blog_tag {
-  color: #FF9800;
+  color: #484848;
 }
 
 

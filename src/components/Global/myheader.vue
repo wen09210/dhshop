@@ -11,7 +11,7 @@
                 <template v-if="cartCount!== 0">
                   <div class="cartCount">{{cartCount}}</div>
                 </template>
-                <button type="button" class="btn BtnToA headerIcon" data-role="trigger" >
+                <button type="button" class="btn BtnToA headerIcon" data-role="trigger">
                   <Icon type="bag iconcolor"></Icon> <span class="hidden-xs">購物車</span>
                 </button>
               </router-link>
@@ -72,19 +72,19 @@
               </a>
             </li> -->
             <li class="headerIcon">
-                <a class="headerIcon">
-                  <router-link to="/CaseCategory">
-                    <button type="button" class="btn  BtnToA headerIcon" >
-                        <Icon type="ios-location-outline iconcolor"></Icon>  實體店
-                    </button>
-                  </router-link>
-                </a>
-              </li>
+              <a class="headerIcon">
+                <router-link to="/CaseCategory">
+                  <button type="button" class="btn  BtnToA headerIcon">
+                    <Icon type="ios-location-outline iconcolor"></Icon> 實體店
+                  </button>
+                </router-link>
+              </a>
+            </li>
             <li class="headerIcon">
               <a class="headerIcon">
                 <router-link to="/BlogCategory">
-                  <button type="button" class="btn  BtnToA headerIcon" >
-                    <Icon type="ios-home-outline iconcolor"></Icon> 改造精選
+                  <button type="button" class="btn  BtnToA headerIcon">
+                    <Icon type="flag iconcolor"></Icon> 改造精選
                   </button>
                 </router-link>
               </a>
@@ -92,17 +92,8 @@
             <li class="headerIcon">
               <a class="headerIcon">
                 <router-link to="/iframeCategory">
-                  <button type="button" class="btn  BtnToA headerIcon" >
+                  <button type="button" class="btn  BtnToA headerIcon">
                     <Icon type="social-youtube-outline iconcolor"></Icon> 主題教學
-                  </button>
-                </router-link>
-              </a>
-            </li>
-            <li class="headerIcon">
-              <a class="headerIcon">
-                <router-link to="/prodCategory">
-                  <button type="button" class="btn  BtnToA headerIcon ">
-                    <Icon type="ios-list-outline iconcolor"></Icon> dH商城
                   </button>
                 </router-link>
               </a>
@@ -126,6 +117,15 @@
                 </a>
               </li>
             </template>
+            <li class="headerIcon">
+              <a class="headerIcon">
+                <router-link to="/prodCategory">
+                  <button type="button" class="btn  BtnToA headerIcon ">
+                    <Icon type="ios-home-outline iconcolor"></Icon> dH商城
+                  </button>
+                </router-link>
+              </a>
+            </li>
             <!-- 登入後 -->
             <template v-if="Object.keys(GetLoginInfo).length > 0">
               <!--FB登入-->
@@ -238,9 +238,11 @@ export default {
   padding-top: 5px;
   /* max-width: 140px; */
 }
-.nav>li>a{
-  padding:15px 7px;
+
+.nav>li>a {
+  padding: 15px 7px;
 }
+
 .navbar-default {
   background: rgba(255, 255, 255, 1.0) !important;
 }
@@ -266,7 +268,7 @@ export default {
 
 .BtnToA {
   background: rgba(255, 255, 255, 0);
-  padding:3px;
+  padding: 3px;
 }
 
 .headerIcon {
@@ -307,7 +309,7 @@ export default {
 }
 
 .cartCount {
-  padding-top: 1px;
+  margin-top: -5px;
   background: #f57e28;
   width: 25px;
   height: 24px;

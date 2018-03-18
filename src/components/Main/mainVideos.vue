@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="style_intro">更多創意小技巧</div>
-    <div class="style_sub_intro">用創意，幫自己打造獨一無二的居家</div>
+    <div class="style_intro">換個做法，你家能更不一樣</div>
+    <div class="style_sub_intro">用創意，打造居家新篇章</div>
     <swiper :options="swiperFB">
       <template v-for="item in lay" v-cloak>
         <swiper-slide :key="item.iframeID">
@@ -16,7 +16,7 @@
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
-    <span class="seemore"><router-link to="/iframeCategory">更多小技巧>></router-link></span>
+    <span class="seemore"><router-link to="/iframeCategory">更多創意做法>></router-link></span>
   </div>
   <!-- <router-link to="/prodPromte/1/1">
       </router-link> -->

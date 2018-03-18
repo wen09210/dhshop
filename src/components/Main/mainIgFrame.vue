@@ -4,9 +4,9 @@
 </div> -->
   <div class="container">
     <div class="col-xs-12 col-md-12" style="padding:20px 0px 0px;">
-      <div class="style_intro">加入我們，分享更多美好</div>
+      <div class="style_intro">你就是故事的主角</div>
       <div class="style_sub_intro">
-        1.拍照上傳IG 2.<span style='color:#ff9900'>#歐巴地板</span>分享美美的照片!! </div>
+        1.拍照上傳IG 2.<span style='color:#ff9900'>#歐巴地板</span>3.你就能在這分享美美的照片!! </div>
       <link href="//assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
       <ul class="juicer-feed" data-feed-id="dhshop_tw"></ul>
     </div>
