@@ -7,6 +7,7 @@
   "prodlink": "/product/1",
   "area": "陽台",
   "style": "鄉村風",
+  "city": "高雄劉宅",
   "views":"3.6k",
   "useProd": [{ "stitle": "沉穩深橡", "simg": "https://www.dhshop.tw//Image/%E5%95%86%E5%93%81%E6%A8%A3%E5%BC%8F%E5%9C%96/%E6%B2%89%E7%A9%A9%E6%B7%B1%E6%A9%A1/p7.jpg" }, { "stitle": "雅緻白橡", "simg": "https://www.dhshop.tw//Image/%E5%95%86%E5%93%81%E6%A8%A3%E5%BC%8F%E5%9C%96/%E9%9B%85%E7%B7%BB%E7%99%BD%E6%A9%A1/p8.jpg"}]
 },{
@@ -18,6 +19,7 @@
   "prodlink": "/product/1",
   "area": "臥室",
   "style": "極簡風",
+  "city": "新竹陳居",
   "views":"2.4k",
   "useProd": [{ "stitle": "英倫灰橡", "simg": "https://www.dhshop.tw//Image/%E5%95%86%E5%93%81%E6%A8%A3%E5%BC%8F%E5%9C%96/%E8%8B%B1%E5%80%AB%E7%81%B0%E6%A9%A1/%E8%8B%B1%E5%80%AB%E7%81%B0%E6%A9%A112.jpg"}]
 },{
@@ -29,6 +31,7 @@
   "prodlink": "/product/1",
   "area": "辦公室",
   "style": "極簡風",
+  "city": "台中辦公室",
   "views":"13.8k",
   "useProd":  [{ "stitle": "極簡灰橡", "simg": "https://www.dhshop.tw//Image/%E5%95%86%E5%93%81%E6%A8%A3%E5%BC%8F%E5%9C%96/%E6%A5%B5%E7%B0%A1%E7%81%B0%E6%A9%A1/p6.jpg"}]
 },{
@@ -40,6 +43,7 @@
   "prodlink": "/product/1",
   "area": "客廳",
   "style": "北歐風",
+  "city": "高雄翁府",
   "views":"4.3k",
   "useProd":  [{ "stitle": "雅緻白橡", "simg": "https://www.dhshop.tw//Image/%E5%95%86%E5%93%81%E6%A8%A3%E5%BC%8F%E5%9C%96/%E9%9B%85%E7%B7%BB%E7%99%BD%E6%A9%A1/p8.jpg"}]
 },{
@@ -62,6 +66,7 @@
   "prodlink": "/product/1",
   "area": "客廳",
   "style": "現代風",
+  "city": "高雄施家",
   "views":"3.2k",
   "useProd":  [{ "stitle": "極簡灰橡", "simg": "https://www.dhshop.tw//Image/%E5%95%86%E5%93%81%E6%A8%A3%E5%BC%8F%E5%9C%96/%E6%A5%B5%E7%B0%A1%E7%81%B0%E6%A9%A1/p6.jpg"}]
 },{
@@ -73,7 +78,32 @@
   "prodlink": "/product/1",
   "area": "客廳",
   "style": "溫馨風",
+  "city": "新竹陳家",
   "views":"2.9k",
   "useProd":  [{ "stitle": "雅致白橡", "simg": "https://www.dhshop.tw//Image/%E5%95%86%E5%93%81%E6%A8%A3%E5%BC%8F%E5%9C%96/%E9%9B%85%E7%B7%BB%E7%99%BD%E6%A9%A1/p8.jpg"}]
+},{
+  "postID": 8,
+  "mainTitle": "來讓生活找到對的風格",
+  "content": "2個女生，一同設計、一同改造，鋪地板、刷油漆，都不是問題，時尚淺橡 x 暖黃燈光 x白色掛簾 x 黑色皮沙發，讓空間看起來很舒服，住起來，也很舒服，生活就是這麼的剛剛好",
+  "date": "2018/03/19",
+  "photo": "https://www.dhshop.tw/Image/other/fbpost/08.png",
+  "prodlink": "/product/1",
+  "area": "客廳",
+  "style": "休閒多元風",
+  "city": "桃園魏宅",
+  "views":"3.7k",
+  "useProd":  [{ "stitle": "時尚淺橡", "simg": "https://www.dhshop.tw//Image/%E5%95%86%E5%93%81%E6%A8%A3%E5%BC%8F%E5%9C%96/%E6%99%82%E5%B0%9A%E6%B7%BA%E6%A9%A1/p4.jpg"}]
+},{
+  "postID": 9,
+  "mainTitle": "孩子房的風格，你可以怎麼改造",
+  "content": "小孩房的規畫，總希望能呈現現階段的童趣，又能保有彈性，來依不同成長需求做調整，dH地板 #即拆即裝，變換風格也很easy，收到的當天晚上，爸爸就火速拼裝完成，然後....弟弟:我就是最愛這個地板，也最愛爸爸(獻吻)，爸爸:是我很會拼! 媽媽:是我挑的!",
+  "date": "2018/03/19",
+  "photo": "https://www.dhshop.tw/Image/other/fbpost/09.png",
+  "prodlink": "/product/1",
+  "area": "房間",
+  "style": "質感童趣風",
+  "city": "新北陳居",
+  "views":"2.6k",
+  "useProd":  [{ "stitle": "極簡灰橡", "simg": "https://www.dhshop.tw//Image/%E5%95%86%E5%93%81%E6%A8%A3%E5%BC%8F%E5%9C%96/%E6%A5%B5%E7%B0%A1%E7%81%B0%E6%A9%A1/p6.jpg"}]
 }
 ]

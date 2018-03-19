@@ -2,7 +2,7 @@
   <div>
     <div class="container" >
       <div class="style_intro">一點小改變，你家也能變這樣</div>
-      <div class="style_sub_intro">原來我家還可以這樣改造!!</div>
+      <div class="style_sub_intro">原來我家空間還能這樣改造!!</div>
       <!-- <div v-for="item in changeSpaceDetail">
       {{item.title}}
     </div>   -->
@@ -19,6 +19,7 @@
               <div class="changeSpace_tag">
                 <Icon type="ios-location" color="#ccc"></Icon> {{item.area}}
                 <Icon type="leaf" color="#ccc"></Icon>{{item.style}}
+                <Icon type="android-home" color="#ccc"></Icon>{{item.city}}
               </div>
             </div>
           </swiper-slide>
@@ -77,7 +78,7 @@ export default {
       n = this.proposal[n - 1]
       this.$Modal.info({
         title: n.mainTitle,
-        content: "<img src='" + n.photo + "' class='img-responsive'><br><div class='changeSpace_description'>" + n.content + "'</div>",
+        content: '<img src="' + n.photo + '"class="img-responsive"><br><div class=" changeSpace_description">' + n.content + '<br><i class="ivu-icon ivu-icon-ios-location"></i>' + n.area + '<i class="ivu-icon ivu-icon-leaf"></i>' + n.style + '</div>',
         width: 400,
         okText: '關閉'
       })
