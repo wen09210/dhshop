@@ -3,7 +3,9 @@
     <div class="col-md-12">
       <div class="container">
         <div class="main_section col-md-12">
-          <div class="category_title">為您嚴選的居家好物</div>
+            <img src="../../assets/temporyPic/index/productbanner.jpg" alt="" class="img-responsive">
+          <br>
+            <div class="category_title">為您嚴選的居家好物</div>
           <div class="subtitle">用這些超棒的產品讓你家更完美</div>
         </div>
         <div class="catetitle col-md-12">佈置靈感</div>

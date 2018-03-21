@@ -10,10 +10,13 @@
         <img :src="CaseDetail.coverPhoto" class="img-responsive">
         <div class="Case_name">{{CaseDetail.name}}</div>
         <div class="Case_description">{{CaseDetail.quote}}</div>
-        
         <div class="Case_tag">
-           <span class="green"> <Icon type="ios-location"></Icon> {{CaseDetail.city}}</span> 
-          <Icon type="pricetag"></Icon>{{CaseDetail.opentime}}</div>
+          <Icon type="android-calendar" color="#ff9800"></Icon>{{CaseDetail.date}}
+          <Icon type="clock" color="#ff9800"></Icon>{{CaseDetail.opentime}}
+          <br>
+          <Icon type="ios-location" color="rgb(113, 192, 77)"></Icon> {{CaseDetail.city}}
+          <Icon type="bookmark" color="#2d8cf0"></Icon>{{CaseDetail.useprod}}
+        </div>
       </router-link>
     </div>
     <div class="clearfix"></div>
@@ -23,13 +26,15 @@
         <img :src="CaseDetail.coverPhoto" class="img-responsive">
         <div class="Case_name">{{CaseDetail.name}}</div>
         <div class="Case_description">{{CaseDetail.quote}}</div>
-        
         <div class="Case_tag">
-            <span class="green"> <Icon type="ios-location"></Icon> {{CaseDetail.city}}</span>
-          <Icon type="pricetag"></Icon>{{CaseDetail.opentime}}</div>
+            <Icon type="android-calendar" color="#ff9800"></Icon>{{CaseDetail.date}}
+            <Icon type="clock" color="#ff9800"></Icon>{{CaseDetail.opentime}}
+            <br>
+            <Icon type="ios-location" color="rgb(113, 192, 77)"></Icon> {{CaseDetail.city}}
+            <Icon type="bookmark" color="#2d8cf0"></Icon>{{CaseDetail.useprod}}
+        </div>
       </router-link>
     </div>
-    
   </div>
 </template>
 <script>
@@ -86,9 +91,7 @@ export default {
   padding-bottom: 2px;
   color: #484848;
 }
-.green{
-  color:rgb(113, 192, 77);
-}
+
 .subtitle {
   margin: 0px;
   word-wrap: break-word;
@@ -126,10 +129,10 @@ export default {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 40px;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+
 .catetitle {
   margin: 25px 0px;
   word-wrap: break-word;
@@ -139,10 +142,11 @@ export default {
   font-weight: 600;
   clear: top;
 }
+
 .Case_tag {
-  color: #FF9800;
   padding-top: 3px;
-  height: 10px;
+  color: #989898;
+  font-size: 13px;
 }
 
 </style>

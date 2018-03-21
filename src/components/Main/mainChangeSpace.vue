@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div class="container" >
+    <div class="container">
       <div class="style_intro">一點小改變，你家也能變這樣</div>
       <div class="style_sub_intro">原來我家空間還能這樣改造!!</div>
       <!-- <div v-for="item in changeSpaceDetail">
       {{item.title}}
     </div>   -->
       <swiper :options="swiperOption">
-        <template v-for="(item,index) in proposal">
+        <template v-for="(item,index) in proposalIn">
           <swiper-slide :key="index">
-            <div class="changeSpace " @click="instance(item.postID)" :key="item.postID">
+            <div class="changeSpace " @click="instance(item)" :key="index">
               <img :src="item.photo" class="img-responsive ">
               <div class="views">
                 <Icon type="eye"></Icon> {{item.views}}次瀏覽</div>
@@ -73,26 +73,25 @@ export default {
       }
     }
   },
+  created() {
+    // 隨機排列
+    var random = function(array) {
+      return array.sort(function() { return Math.random() > 0.5 })
+    }
+    this.proposalIn = random(this.proposal).slice(0, 6)
+    console.log(this.proposalIn)
+  },
   methods: {
-    instance(n) {
-      n = this.proposal[n - 1]
+    instance(item) {
       this.$Modal.info({
-        title: n.mainTitle,
-        content: '<img src="' + n.photo + '"class="img-responsive"><br><div class=" changeSpace_description">' + n.content + '<br><i class="ivu-icon ivu-icon-ios-location"></i>' + n.area + '<i class="ivu-icon ivu-icon-leaf"></i>' + n.style + '</div>',
+        title: item.mainTitle,
+        content: '<img src="' + item.photo + '"class="img-responsive"><br><div class=" changeSpace_description">' + item.content + '<br><i class="ivu-icon ivu-icon-ios-location"></i>' + item.area + '<i class="ivu-icon ivu-icon-leaf"></i>' + item.style + '</div>',
         width: 400,
         okText: '關閉'
       })
     }
-  },
-  created() {
-    this.proposalIn = this.proposal.slice(0, 6)
-    console.log(this.proposalIn)
-    // 隨機排列
-    // var random = function(array) {
-    //   return array.sort(function() { return Math.random() > 0.5 })
-    // }
-    // console.log(random(proposal.data))
   }
+
 }
 
 </script>
@@ -112,13 +111,13 @@ export default {
   max-width: 100%;
 }
 
-.changeSpace{
+.changeSpace {
   /* border: 1px solid #d7d7d7;
   background-color: white;
   display: inline-block;
   border-radius: 3px;
   padding: 10px; */
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .title_intro {

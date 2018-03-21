@@ -48,9 +48,13 @@ z-index:999;
   display: block;
   clear: both;
   font-size: 17px;
-  padding-top: 10px;
+  margin-top: 10px;
   color: rgb(166, 29, 85);
   font-weight: 400;
+  float:right;
+  border:1px solid rgb(166, 29, 85);
+  border-radius:3px;
+  padding:0px 15px;
 }
 
 .seemore a {

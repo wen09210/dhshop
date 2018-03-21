@@ -5,7 +5,8 @@
     "address": "",
     "city":"桃園中壢",
     "area":"北",
-    "opentime": "週二-週五 14:00 15:00 16:00 17:00",
+    "date": "週二-週五",
+    "opentime": " 14:00 15:00 16:00 17:00",
     "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case1.jpg",
     "quote": "中壢體驗店，專業教學體驗",
     "description": "在實體店面『現場體驗歐巴』還可以：<br>1.現場裁切教學互動<br>2.產品實際拼裝鋪設<br>3.全館花色實際觀看<br>4.滿額將送超值好禮",
@@ -14,6 +15,7 @@
     "guesslike": [{ "stitle": "窩在嘉wow chiayi", "simg": "https://www.dhshop.tw/Image/other/Case/窩在嘉/3.png", "sid": "5" }, { "stitle": "基督教門諾會松江教會", "simg": "https://www.dhshop.tw/Image/other/Case/教會/case2.png", "sid": "3" }, { "stitle": "小人衣櫃", "simg": "https://www.dhshop.tw/Image/other/Case/小人衣櫃/case1.png", "sid": "4" }],
     "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/中壢/case2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/中壢/case3.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/中壢/case4.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/中壢/case5.png" }],
     "btnname": "立刻預約享優惠",
+    "useprod": "全花色",
     "caseUrl": "https://goo.gl/gggtyH"
   },  {
     "CaseID": "2",
@@ -21,7 +23,8 @@
     "address": "地址：台北市中山區建國北路二段99號3樓",
     "city":"台北中山",
     "area":"北",
-    "opentime": "週六、日 9AM-3PM",
+    "date": "週六、日假日營業",
+    "opentime": "9AM-3PM",
     "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case3.jpg",
     "quote": "互相交流享受溫暖時光",
     "description": "由於教會裡面的空間常會舉辦活動，「零甲醛」以及「耐磨」的特性，成為了李先生選擇歐巴地板的主要原因。想在假日時段親身體驗歐巴地板的朋友，千萬別錯過囉!",
@@ -30,6 +33,7 @@
     "guesslike": [{ "stitle": "中壢實體旗艦店", "simg": "https://www.dhshop.tw/Image/other/Case/中壢/case1.png", "sid": "1" }, { "stitle": "窩在嘉wow chiayi", "simg": "https://www.dhshop.tw/Image/other/Case/窩在嘉/3.png", "sid": "5" }, { "stitle": "小人衣櫃", "simg": "https://www.dhshop.tw/Image/other/Case/小人衣櫃/case1.png", "sid": "4" }],
     "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/教會/case1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/教會/case2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/教會/case3.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/教會/case4.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/教會/case5.png" }],
     "btnname": "立刻預約享優惠",
+    "useprod": "質感柚木",
     "caseUrl": "https://goo.gl/ZUcdN9"
   }, {
     "CaseID": "3",
@@ -37,7 +41,8 @@
     "address": "地址：新竹市建中路120號",
     "city":"新竹新竹市",
     "area":"北",
-    "opentime": "週一至週六 10AM至8PM",
+    "date": "週一至週六",
+    "opentime": "10AM至8PM",
     "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case4.jpg",
     "quote": "完美空間，小model 隨便拍都好時尚",
     "description": "店內牆面經各路小人(小朋友)'創作'及'撫摸'之下，早已失去它原本潔白的容貌，在網上查到dHSHOP，心中大喊:「我終於找到了，這就是我要的啊！」有了美美壁紙當然地板也要一起改造。「花少少的錢就可以讓店面有不同的感覺及質感，而且短短一天就能完成，真是省時、省錢」歐巴地板加上歐ㄋㄧˋ壁紙的空間，讓小model 隨便拍都好時尚",
@@ -46,6 +51,7 @@
     "guesslike": [{ "stitle": "基督教門諾會松江教會", "simg": "https://www.dhshop.tw/Image/other/Case/教會/case2.png", "sid": "3" }, { "stitle": "中壢實體旗艦店", "simg": "https://www.dhshop.tw/Image/other/Case/中壢/case1.png", "sid": "1" }, { "stitle": "窩在嘉wow chiayi", "simg": "https://www.dhshop.tw/Image/other/Case/窩在嘉/3.png", "sid": "5" }],
     "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/小人衣櫃/case1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/小人衣櫃/case2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/小人衣櫃/case3.png" }],
     "btnname": "立刻預約享優惠",
+    "useprod": "時尚淺橡",
     "caseUrl": "https://goo.gl/bp36p2"
   }, {
     "CaseID": "4",
@@ -53,7 +59,8 @@
     "address": "地址：高雄市左營區孟子路174巷6號",
     "city":"高雄左營",
     "area":"南",
-    "opentime": "10：30 - 20：30 (週四公休)",
+    "date": "全周(四公休)假日營業",
+    "opentime": "10：30-20：30 ",
     "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case5.jpg",
     "quote": "人和毛孩子都能舒適享用美食",
     "description": "初樂是位於高雄市左營區的寵物餐廳，主要提供義式料理以及寵物鮮食，希望提供人和毛孩子都能舒適享用餐點的環境。「初樂很用心的為了讓毛孩在餐廳可以玩耍，在不怕地板被抓壞的前提，特別使用歐巴地板」",
@@ -62,6 +69,7 @@
     "guesslike": [{ "stitle": "基督教門諾會松江教會", "simg": "https://www.dhshop.tw/Image/other/Case/教會/case2.png", "sid": "3" }, { "stitle": "中壢實體旗艦店", "simg": "https://www.dhshop.tw/Image/other/Case/中壢/case1.png", "sid": "1" }, { "stitle": "窩在嘉wow chiayi", "simg": "https://www.dhshop.tw/Image/other/Case/窩在嘉/3.png", "sid": "5" }],
     "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/初樂/case1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/初樂/case2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/初樂/case3.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/初樂/case4.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/初樂/case5.png" }],
     "btnname": "立刻預約享優惠",
+    "useprod": "經典胡桃木",
     "caseUrl": "https://goo.gl/mF8RGd"
   }, {
     "CaseID": "5",
@@ -69,7 +77,8 @@
     "address": "",
     "city":"嘉義嘉義市",
     "area":"南",
-    "opentime": "周一到周日13:00~16:00",
+    "date": "周一到周日 假日營業",
+    "opentime": "13:00~16:00",
     "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case7.png",
     "quote": "想親身體驗歐巴地板的南部鄉親，千萬別錯過囉!",
     "description": "美麗老闆娘說<br>『原本磁磚地板讓人踩起來冷冷的，我們希望提供給住戶更溫暖更像家的感覺 ：）』<br>『謝謝你們的地板讓房間不一樣❤️』<br>『對待住戶就像對待家人一樣的用心，這是窩在嘉的始終不變初衷，就像我們會在乎家人的健康那樣，因此我們選擇零甲醛的dH地板』<br><br>「零甲醛」以及「免膠免釘」的特性，讓美麗老闆娘選擇歐巴地板。想親身體驗歐巴地板的南部鄉親，千萬別錯過囉!",
@@ -78,6 +87,7 @@
     "guesslike": [{ "stitle": "基督教門諾會松江教會", "simg": "https://www.dhshop.tw/Image/other/Case/教會/case2.png", "sid": "3" }, { "stitle": "中壢實體旗艦店", "simg": "https://www.dhshop.tw/Image/other/Case/中壢/case1.png", "sid": "1" }, { "stitle": "KiKi home hair", "simg": "https://www.dhshop.tw/Image/other/Case/kikihome/1.png", "sid": "6" }],
     "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/3.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/4.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/窩在嘉/5.png" }],
     "btnname": "立刻預約享優惠",
+    "useprod": "典雅古橡",
     "caseUrl": "https://goo.gl/1dLxjP"
   }, {
     "CaseID": "6",
@@ -85,6 +95,7 @@
     "address": "新北市新莊區",
     "city":"新北新莊",
     "area":"北",
+    "date": "採預約制",
     "opentime": "採預約制",
     "coverPhoto": "https://www.dhshop.tw/Image/other/Case/case8.png",
     "quote": "極簡工業風時尚髮型設計工作室",
@@ -94,6 +105,7 @@
     "guesslike": [{ "stitle": "基督教門諾會松江教會", "simg": "https://www.dhshop.tw/Image/other/Case/教會/case2.png", "sid": "3" }, { "stitle": "中壢實體旗艦店", "simg": "https://www.dhshop.tw/Image/other/Case/中壢/case1.png", "sid": "1" }, { "stitle": "窩在嘉wow chiayi", "simg": "https://www.dhshop.tw/Image/other/Case/窩在嘉/3.png", "sid": "5" }],
     "img": [{ "url": "https://www.dhshop.tw/Image/other/Case/kikihome/1.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/kikihome/2.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/kikihome/3.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/kikihome/4.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/kikihome/5.png" }, { "url": "https://www.dhshop.tw/Image/other/Case/kikihome/6.png" }],
     "btnname": "立刻預約享優惠",
+    "useprod": "極簡灰橡",
     "caseUrl": "https://goo.gl/d9w6Po"
   }]
 }
