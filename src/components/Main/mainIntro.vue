@@ -1,28 +1,25 @@
 <template>
   <div class="row">
-    <div class="container" id="proposal">
+    <div class="container">
       <div class=" padding5 ">
-        <div class="style_intro">百位使用者的見證</div>
-        <div class="style_sub_intro">感謝你攜手陪伴dHSHOP，一起成就更多美好</div>
-        <swiper :options="swiperOption">
-          <template v-for="(item,index) in proposalIn">
-            <swiper-slide :key="index">
-              <div class="fb_connect">
-                <div class="col-md-4 ">
-                  <img :src="item.photo" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-8 fb_inside ">
-                  <div class="s_editor"><span> {{item.date}}</span></div>
-                  <div class="s_intro">{{item.mainTitle}}</div>
-                  <div class="facebook_content ">{{item.content}}</div>
-                </div>
-              </div>
-            </swiper-slide>
-          </template>
-          <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-          <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-        </swiper>
-        <span class="seemore"><router-link to="/proposal">更多提案>></router-link></span>
+        <div class="style_intro">如何讓鋪設完的空間再升級</div>
+        <div class="style_sub_intro">掌握三大重點，開啟理想居家新篇章</div>
+        <div class="col-xs-4"><img src="../../assets/temporyPic/Index/space.jpg" alt="" class="img-responsive">
+          <div class="s_t">空間</div>
+          <div class="style_sub_intro">依據空間的機能需求
+            <br>選擇適合的環境氛圍</div>
+        </div>
+        <div class="col-xs-4"><img src="../../assets/temporyPic/Index/light.jpg" alt="" class="img-responsive">
+          <div class="s_t">光源</div>
+          <div class="style_sub_intro">冷白光 暖黃光
+            <br>光源傳遞了空間最直接的感受</div>
+        </div>
+        <div class="col-xs-4"> <img src="../../assets/temporyPic/Index/color.jpg" alt="" class="img-responsive">
+          <div class="s_t">色調</div>
+          <div class="style_sub_intro">利用色彩搭配
+            <br>形塑出各式風格的理想居家</div>
+        </div>
+        <div class="col-md-12 outsee"><span class="seemore"><router-link to="/pickfilter">加速升級居家>></router-link></span></div>
       </div>
     </div>
   </div>
@@ -86,16 +83,13 @@ export default {
   margin-top: 10px;
 }
 
-.fb_inside {
-  padding: 0px 35px;
+.col-xs-4 {
+  text-align: center;
 }
 
-.fb_connect {
-  border: 1px solid #d7d7d7;
-  background-color: white;
-  display: inline-block;
-  border-radius: 3px;
-  padding: 15px;
+.col-xs-4 img {
+  text-align: center;
+  margin: 0 auto;
 }
 
 .facebook_content {
@@ -110,12 +104,25 @@ export default {
   margin-bottom: 10px;
 }
 
+.outsee {
+  text-align: center;
+}
+
 .s_intro {
   font-weight: bold;
   color: #53546a;
   font-size: 25px;
   margin-bottom: 15px;
   margin-top: 10px;
+}
+
+.s_t {
+  font-weight: bold;
+  color: #53546a;
+  font-size: 20px;
+  margin-bottom: 15px;
+  margin-top: 0px;
+  text-align: center;
 }
 
 .s_editor {

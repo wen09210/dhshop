@@ -7,7 +7,7 @@
       <swiper-slide>
         <div>
           <router-link to="/BlogCategory">
-            <img src="../../assets/temporyPic/Index/banner_1.png" class="img-responsive">
+            <img src="../../assets/temporyPic/Index/B5.jpg" class="img-responsive">
           </router-link>
         </div>
       </swiper-slide>

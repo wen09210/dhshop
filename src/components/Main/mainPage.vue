@@ -1,20 +1,19 @@
 <template>
   <div id="mainpage">
     <mainTop></mainTop>
-    <!-- <mainIntro></mainIntro> -->
-    <mainChangeSpace></mainChangeSpace>
-    <mainVideos></mainVideos>
-    <mainBlogger></mainBlogger>
+    <mainFiveCustomer></mainFiveCustomer>
+    <mainIntro></mainIntro>
+    <!-- <mainChangeSpace></mainChangeSpace> -->
+    <!-- <mainBlogger></mainBlogger> -->
     <mainIgFrame></mainIgFrame>
     <!-- <mainMap></mainMap> -->
-    <!-- <mainArtical></mainArtical> -->
     <!-- <mainAllProduct></mainAllProduct> -->
   </div>
 </template>
 <script>
 import mainTop from './mainTop'
 import mainIntro from './mainIntro'
-import mainVideos from './mainVideos'
+import mainFiveCustomer from './mainFiveCustomer'
 // import mainArtical from './mainAtrical.vue'
 import mainAllProduct from './mainAllProduct'
 import mainIgFrame from './mainIgFrame.vue'
@@ -30,7 +29,7 @@ export default {
     mainTop,
     mainIntro,
     mainBlogger,
-    mainVideos,
+    mainFiveCustomer,
     // mainArtical,
     mainAllProduct,
     mainIgFrame,
@@ -41,51 +40,15 @@ export default {
 
 </script>
 <style>
-.navbar-fixed-bottom, .navbar-fixed-top{
-z-index:999;
+.navbar-fixed-bottom,
+.navbar-fixed-top {
+  z-index: 999;
 }
+
 .seemore {
-  display: block;
-  clear: both;
-  font-size: 17px;
-  margin-top: 10px;
-  color: rgb(166, 29, 85);
-  font-weight: 400;
-  float:right;
-  border:1px solid rgb(166, 29, 85);
-  border-radius:3px;
-  padding:0px 15px;
-}
-
-.seemore a {
-  color: rgb(166, 29, 85);
-}
-
-.imgHover:hover {
-  background-color: #FFC442;
-  padding: 5px;
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-.style_intro {
-  font-weight: bold;
-  font-size: 25px;
-  margin-bottom: 15px;
-  margin-top: 35px;
-}
-
-.style_sub_intro {
-  margin: -15px 0px 10px 0px;
-  font-size: 18px;
-}
-
-@media (max-width:480px) {
-  .seemore {
     margin: 15px 0px;
     background: transparent;
-    border: 1px solid rgb(166, 29, 85);
+    border: 1px solid rgb(154, 154, 154);
     border-radius: 4px;
     cursor: pointer;
     display: inline-block;
@@ -93,8 +56,36 @@ z-index:999;
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
-    width: 100%;
+    font-size: 18px;
+    width: 300px;
+    text-align: center;
   }
+.seemore a {
+  color:  rgb(154, 154, 154);
+}
+  .seemore:hover{
+    border: 1px solid rgb(255, 153, 0);
+  }
+  .seemore:hover a{
+  color:rgb(255, 153, 0);
+  }
+
+.style_intro {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 15px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.style_sub_intro {
+  margin: -15px 0px 10px 0px;
+  font-size: 18px;
+  text-align: center;
+}
+
+@media (max-width:480px) {
+
   .style_intro {
     font-weight: bold;
     font-size: 20px;

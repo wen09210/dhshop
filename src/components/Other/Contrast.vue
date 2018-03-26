@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-12">
       <tabs value="沉穩深橡">
-        <tab-pane icon="stop" value="item.name" :label="item.name" :name="item.name" v-for="(item,i) in ContrastDetail " :key="ContrastDetail.floorID">
+        <tab-pane icon="stop" value="item.name" :label="item.name" :name="item.name" v-for="(item,i) in Contrast " :key="Contrast.floorID">
           <div class="row">
             <div class="col-md-6">
               <img :src="item.contrastColor" alt="" class="img-responsive">
@@ -53,8 +53,6 @@ export default {
     }
   },
   created() {
-    let CC = this.Contrast
-    this.ContrastDetail = CC
   }
   // created() {
   //   console.log(this.ContrastInCatgory.length)
@@ -66,6 +64,9 @@ export default {
 
 </script>
 <style scoped>
+  .ivu-tabs-nav-container{
+    font-size: 17px;
+  }
 /* 地板icon顏色 */
 
 >>>.ivu-tabs-nav .ivu-tabs-tab:nth-child(2) i.ivu-icon.ivu-icon-stop {

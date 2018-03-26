@@ -19,6 +19,12 @@ import prodCategory from '../components/Product/prodCategory.vue'
 import Contrast from '../components/Other/Contrast.vue'
 import changeAndReturn from '../components/Other/changeAndReturn.vue'
 import proposal from '../components/Other/proposal.vue'
+import pickFilter from '../components/Other/pickFilter.vue'
+import oldhouse from '../components/fivecustomer/oldhouse.vue'
+import pet from '../components/fivecustomer/pet.vue'
+import newhouse from '../components/fivecustomer/newhouse.vue'
+import monandbaby from '../components/fivecustomer/monandbaby.vue'
+import rent from '../components/fivecustomer/rent.vue'
 // import axios from 'axios'
 import Cookies from 'js-cookie'
 Vue.use(Router)
@@ -132,6 +138,30 @@ const router = new Router({
     {
       path: '/proposal',
       component: proposal
+    },
+    {
+      path: '/pickFilter',
+      component: pickFilter
+    },
+    {
+      path: '/oldhouse',
+      component: oldhouse
+    },
+    {
+      path: '/pet',
+      component: pet
+    },
+    {
+      path: '/newhouse',
+      component: newhouse
+    },
+    {
+      path: '/rent',
+      component: rent
+    },
+    {
+      path: '/monandbaby',
+      component: monandbaby
     }
   ]
 })

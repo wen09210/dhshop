@@ -4,7 +4,8 @@
 </div> -->
   <div class="container">
     <div class="col-xs-12 col-md-12" style="padding:20px 0px 0px;">
-      <div class="style_intro">你就是故事的主角</div>
+      <!-- <div class="style_intro">你就是故事的主角</div> -->
+      <div class="style_intro">與我們分享你的故事</div>
       <div class="style_sub_intro">
         拍照上傳IG >><span style='color:#ff9900'>#歐巴地板</span>>>你就能在這分享美美的照片!! </div>
       <link href="//assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
